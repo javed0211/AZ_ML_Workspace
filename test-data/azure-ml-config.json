@@ -1,0 +1,54 @@
+{
+  "subscription_id": "your-subscription-id",
+  "resource_group": "your-resource-group",
+  "workspace_name": "your-workspace-name",
+  "location": "eastus",
+  "compute_targets": {
+    "cpu_cluster": {
+      "type": "AmlCompute",
+      "vm_size": "Standard_DS3_v2",
+      "min_nodes": 0,
+      "max_nodes": 4,
+      "idle_seconds_before_scaledown": 300
+    },
+    "gpu_cluster": {
+      "type": "AmlCompute", 
+      "vm_size": "Standard_NC6",
+      "min_nodes": 0,
+      "max_nodes": 2,
+      "idle_seconds_before_scaledown": 300
+    },
+    "compute_instance": {
+      "type": "ComputeInstance",
+      "vm_size": "Standard_DS3_v2"
+    }
+  },
+  "datasets": {
+    "sample_data": {
+      "type": "TabularDataset",
+      "path": "./test-data/sample_data.csv",
+      "description": "Sample dataset for testing"
+    }
+  },
+  "environments": {
+    "python_env": {
+      "name": "python-env",
+      "python_version": "3.8",
+      "pip_packages": [
+        "azureml-defaults",
+        "pandas",
+        "numpy",
+        "scikit-learn",
+        "matplotlib",
+        "seaborn",
+        "jupyter"
+      ]
+    }
+  },
+  "experiments": {
+    "sample_experiment": {
+      "name": "sample-experiment",
+      "description": "Sample experiment for testing VS Code integration"
+    }
+  }
+}

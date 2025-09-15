@@ -1,0 +1,45 @@
+# Azure ML and core dependencies
+azureml-core>=1.50.0
+azureml-sdk>=1.50.0
+azureml-train-core>=1.50.0
+azureml-train-automl-client>=1.50.0
+azureml-interpret>=1.50.0
+
+# Data science libraries
+pandas>=1.5.0
+numpy>=1.21.0
+scikit-learn>=1.1.0
+scipy>=1.9.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.10.0
+
+# Jupyter and notebook support
+jupyter>=1.0.0
+jupyterlab>=3.4.0
+ipykernel>=6.15.0
+ipywidgets>=7.7.0
+
+# Development tools
+pytest>=7.1.0
+pytest-cov>=3.0.0
+black>=22.6.0
+flake8>=5.0.0
+mypy>=0.971
+
+# Additional ML libraries
+xgboost>=1.6.0
+lightgbm>=3.3.0
+catboost>=1.0.0
+
+# Azure authentication
+azure-identity>=1.10.0
+azure-keyvault-secrets>=4.5.0
+
+# Utilities
+python-dotenv>=0.20.0
+pyyaml>=6.0
+requests>=2.28.0
+tqdm>=4.64.0

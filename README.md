@@ -1,410 +1,272 @@
-# Azure ML Workspace Automation Framework
+# Azure ML Workspace Automation Framework (Python)
 
-A comprehensive end-to-end testing framework for Azure Machine Learning workspaces using Playwright and TypeScript. This framework provides automated testing capabilities for Azure ML Studio, VS Code Web, JupyterLab, and VS Code Desktop (Electron) environments.
+A comprehensive Python-based automation framework for testing and managing Azure Machine Learning workspaces using Playwright for web automation.
 
-## Features
+## 🚀 Features
 
-- **Multi-Platform Support**: Test Azure ML Studio, VS Code Web, JupyterLab, and VS Code Desktop
-- **Comprehensive Test Coverage**: Workspace management, compute lifecycle, notebook execution, job management
-- **Azure Integration**: Native Azure SDK integration with authentication and resource management
-- **CLI Integration**: Azure CLI automation for compute and job management
-- **Notebook Automation**: Execute and validate Jupyter notebooks programmatically
-- **Electron Support**: Automate VS Code desktop application
-- **PIM Support**: Privileged Identity Management integration for elevated permissions
-- **Robust Reporting**: HTML reports, Allure integration, structured logging
-- **CI/CD Ready**: GitHub Actions workflows and containerized execution
-- **Artifact Management**: Screenshot, video, and trace collection with Azure Storage upload
+- **Web Automation**: Playwright-based browser automation for Azure ML Studio
+- **Azure Integration**: Native Azure SDK integration for workspace management
+- **Authentication**: Multiple authentication methods (DefaultAzureCredential, Interactive, Managed Identity)
+- **Compute Management**: Start/stop compute instances programmatically
+- **Test Framework**: Comprehensive test suite with parallel execution
+- **CLI Interface**: Command-line interface for all operations
+- **Reporting**: HTML and Allure test reports
+- **Configuration**: Flexible configuration via environment variables
+- **Logging**: Structured logging with multiple output formats
 
-## Quick Start
+## 📋 Prerequisites
 
-### Prerequisites
-
-- Node.js 18+ 
-- Azure CLI
+- Python 3.9+
 - Azure subscription with ML workspace
-- VS Code (for Electron tests)
+- Appropriate Azure permissions
 
-### Installation
+## 🛠️ Installation
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd azure-ml-workspace-automation
-```
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd AZ_ML_Workspace
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. **Install the package:**
+   ```bash
+   pip install -e .
+   ```
 
-3. Install Playwright browsers:
-```bash
-npm run install:browsers
-```
+3. **Install Playwright browsers:**
+   ```bash
+   playwright install
+   ```
 
-4. Configure environment:
-```bash
-cp .env.example .env
-# Edit .env with your Azure configuration
-```
+4. **Set up configuration:**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Azure configuration
+   ```
 
-5. Run setup:
-```bash
-npm run setup
-```
+## ⚙️ Configuration
 
-### Basic Usage
+Create a `.env` file with your Azure configuration:
 
-Run all tests:
-```bash
-npm test
-```
-
-Run specific test suites:
-```bash
-npm run test:smoke      # Smoke tests
-npm run test:compute    # Compute lifecycle tests
-npm run test:notebook   # Notebook execution tests
-npm run test:electron   # VS Code desktop tests
-```
-
-Run tests with UI mode:
-```bash
-npm run test:ui
-```
-
-## Configuration
-
-### Environment Variables
-
-Key configuration options in `.env`:
-
-```bash
-# Azure Configuration
+```env
+# Required
 AZURE_TENANT_ID=your-tenant-id
-AZURE_CLIENT_ID=your-client-id
 AZURE_SUBSCRIPTION_ID=your-subscription-id
 AZURE_RESOURCE_GROUP=your-resource-group
-AZURE_ML_WORKSPACE_NAME=your-workspace-name
+AZURE_WORKSPACE_NAME=your-workspace-name
 
-# Authentication
+# Optional
 USE_INTERACTIVE_AUTH=false
-USE_MANAGED_IDENTITY=false
-
-# Test Configuration
-BASE_URL=https://ml.azure.com
-DEFAULT_TIMEOUT=30000
-MAX_RETRIES=3
+LOG_LEVEL=info
+MAX_WORKERS=4
 ```
 
-### Authentication Options
+## 🎯 Usage
 
-1. **Service Principal** (Recommended for CI/CD):
+### CLI Commands
+
 ```bash
-AZURE_CLIENT_SECRET=your-client-secret
+# Set up the framework
+python -m azure_ml_automation.cli setup
+
+# Validate configuration
+python -m azure_ml_automation.cli validate
+
+# Run tests
+python -m azure_ml_automation.cli test
+
+# Run specific test pattern
+python -m azure_ml_automation.cli test -p "smoke"
+
+# Run tests with specific browser
+python -m azure_ml_automation.cli test -b firefox --headed
+
+# Manage compute instances
+python -m azure_ml_automation.cli start-compute
+python -m azure_ml_automation.cli stop-compute
+python -m azure_ml_automation.cli compute-status
+
+# Generate reports
+python -m azure_ml_automation.cli report
+
+# Clean up artifacts
+python -m azure_ml_automation.cli clean
 ```
 
-2. **Interactive Browser** (Development):
-```bash
-USE_INTERACTIVE_AUTH=true
-```
+### Python API
 
-3. **Managed Identity** (Azure-hosted runners):
-```bash
-USE_MANAGED_IDENTITY=true
-```
+```python
+import asyncio
+from azure_ml_automation import AzureMLHelper, create_azure_ml_helper
 
-4. **Key Vault Integration**:
-```bash
-AZURE_KEY_VAULT_URL=https://your-keyvault.vault.azure.net/
-```
-
-## Test Structure
-
-```
-src/
-├── tests/
-│   ├── smoke/           # Basic functionality tests
-│   ├── compute/         # Compute instance lifecycle
-│   ├── notebooks/       # Notebook execution tests
-│   ├── jobs/           # Job management tests
-│   ├── electron/       # VS Code desktop tests
-│   └── pim/            # Privileged access tests
-├── pages/              # Page object models
-│   ├── azure-ml-studio.ts
-│   ├── jupyter-lab.ts
-│   ├── vscode-web.ts
-│   └── base-page.ts
-├── helpers/            # Utility functions
-│   ├── auth.ts
-│   ├── azure-helpers.ts
-│   ├── cli-runner.ts
-│   ├── logger.ts
-│   └── config.ts
-├── notebooks/          # Notebook execution utilities
-└── electron/           # VS Code Electron helpers
-```
-
-## Writing Tests
-
-### Basic Test Example
-
-```typescript
-import { test } from '@playwright/test';
-import { AzureMLStudioPage } from '../pages/azure-ml-studio';
-import { logTestStart, logTestEnd } from '../helpers/logger';
-
-test('should create compute instance', async ({ page }) => {
-  const testLogger = logTestStart('Create Compute Instance Test');
-  
-  try {
-    const azureMLPage = new AzureMLStudioPage(page, testLogger);
-    await azureMLPage.waitForPageLoad();
+async def main():
+    # Create helper instance
+    helper = await create_azure_ml_helper()
     
-    await azureMLPage.navigateToCompute();
-    await azureMLPage.createComputeInstance('test-instance', 'Standard_DS3_v2');
-    await azureMLPage.assertComputeInstanceExists('test-instance');
+    # Get workspace info
+    workspace = await helper.get_workspace()
+    print(f"Workspace: {workspace.name}")
     
-    logTestEnd(testLogger, true);
-  } catch (error) {
-    logTestEnd(testLogger, false);
-    throw error;
-  }
-});
+    # Start compute instance
+    await helper.start_compute_instance("my-compute")
+    
+    # Run browser automation
+    from azure_ml_automation.helpers.browser_manager import BrowserManager
+    
+    async with BrowserManager() as browser:
+        page = await browser.new_page()
+        await page.goto("https://ml.azure.com")
+        # Your automation code here
+
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
 
-### Notebook Execution Example
+## 🧪 Testing
 
-```typescript
-import { createNotebookRunner } from '../notebooks/notebook-runner';
+The framework includes comprehensive test suites:
 
-test('should execute notebook', async ({ page }) => {
-  const notebookRunner = createNotebookRunner(page, testLogger);
-  
-  const result = await notebookRunner.executeNotebookUI('sample-notebook.ipynb');
-  
-  expect(result.success).toBe(true);
-  expect(result.failedCells).toBe(0);
-});
-```
+### Test Categories
 
-### Azure CLI Integration Example
+- **Smoke Tests**: Basic functionality validation
+- **Authentication Tests**: Login and credential validation
+- **Workspace Tests**: Workspace navigation and operations
+- **Compute Tests**: Compute instance management
+- **Notebook Tests**: Jupyter notebook operations
+- **Data Tests**: Dataset and datastore operations
+- **Model Tests**: Model registration and deployment
+- **Pipeline Tests**: ML pipeline operations
 
-```typescript
-import { createAzureMLHelper } from '../helpers/azure-helpers';
-
-test('should manage compute via CLI', async () => {
-  const azureHelper = createAzureMLHelper(testLogger);
-  
-  await azureHelper.startComputeInstance('test-instance');
-  await azureHelper.waitForComputeInstanceState('test-instance', 'Running');
-  
-  const instance = await azureHelper.getComputeInstanceStatus('test-instance');
-  expect(instance.state).toBe('Running');
-});
-```
-
-## Advanced Features
-
-### PIM Integration
-
-For tests requiring elevated permissions:
-
-```typescript
-test('should activate PIM role', async () => {
-  const azureHelper = createAzureMLHelper(testLogger);
-  
-  await azureHelper.requestPIMActivation(
-    'Contributor',
-    '/subscriptions/sub-id/resourceGroups/rg-name'
-  );
-  
-  // Wait for activation and run privileged operations
-});
-```
-
-### Electron Testing
-
-For VS Code desktop automation:
-
-```typescript
-import { createVSCodeElectronHelper } from '../electron/vscode-electron';
-
-test('should automate VS Code desktop', async () => {
-  const vscode = createVSCodeElectronHelper({
-    workspaceFolder: '/path/to/workspace'
-  }, testLogger);
-  
-  await vscode.launch();
-  await vscode.openFile('test.py');
-  await vscode.runTerminalCommand('python test.py');
-  await vscode.close();
-});
-```
-
-### Custom Page Objects
-
-Extend the base page for new platforms:
-
-```typescript
-import { BasePage } from './base-page';
-
-export class CustomPlatformPage extends BasePage {
-  async isPageLoaded(): Promise<boolean> {
-    return await this.isElementVisible('.custom-platform-indicator');
-  }
-  
-  getPageIdentifier(): string {
-    return 'Custom Platform';
-  }
-  
-  async customAction(): Promise<void> {
-    await this.clickElement('.custom-button');
-  }
-}
-```
-
-## CI/CD Integration
-
-### GitHub Actions
-
-The framework includes GitHub Actions workflows:
-
-```yaml
-# .github/workflows/test.yml
-name: Azure ML Tests
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm run test:smoke
-        env:
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-```
-
-### Docker Support
-
-Run tests in containers:
+### Running Tests
 
 ```bash
-docker build -t azure-ml-tests .
-docker run -e AZURE_TENANT_ID=... azure-ml-tests npm test
+# Run all tests
+python -m azure_ml_automation.cli test
+
+# Run smoke tests only
+python -m azure_ml_automation.cli test -p "smoke"
+
+# Run with specific browser
+python -m azure_ml_automation.cli test -b firefox
+
+# Run in headed mode (visible browser)
+python -m azure_ml_automation.cli test --headed
+
+# Run with parallel workers
+python -m azure_ml_automation.cli test -w 2
 ```
 
-## Reporting and Monitoring
+## 📊 Reporting
 
-### HTML Reports
+The framework generates multiple report formats:
 
-View detailed test results:
+- **HTML Reports**: `reports/html/index.html`
+- **Allure Reports**: `reports/allure/`
+- **JUnit XML**: `reports/junit.xml`
+
+Generate reports:
 ```bash
-npm run test:report
+python -m azure_ml_automation.cli report
 ```
 
-### Allure Reports
+## 🏗️ Architecture
 
-Generate comprehensive reports:
-```bash
-npm run test:allure
+```
+src/azure_ml_automation/
+├── __init__.py              # Main package exports
+├── cli.py                   # Command-line interface
+├── helpers/
+│   ├── auth.py             # Authentication management
+│   ├── azure_helpers.py    # Azure SDK operations
+│   ├── browser_manager.py  # Playwright browser management
+│   ├── config.py           # Configuration management
+│   ├── logger.py           # Structured logging
+│   └── utils.py            # Utility functions
+├── pages/                  # Page Object Model
+│   ├── base_page.py        # Base page class
+│   ├── login_page.py       # Login page
+│   ├── workspace_page.py   # Workspace page
+│   ├── compute_page.py     # Compute page
+│   └── notebook_page.py    # Notebook page
+└── tests/                  # Test suites
+    ├── smoke/              # Smoke tests
+    ├── auth/               # Authentication tests
+    ├── workspace/          # Workspace tests
+    ├── compute/            # Compute tests
+    ├── notebooks/          # Notebook tests
+    ├── data/               # Data tests
+    ├── models/             # Model tests
+    └── pipelines/          # Pipeline tests
 ```
 
-### Structured Logging
+## 🔧 Development
 
-All test actions are logged with correlation IDs:
-```json
-{
-  "timestamp": "2024-01-01T12:00:00.000Z",
-  "level": "info",
-  "message": "Test started",
-  "testName": "Create Compute Instance Test",
-  "correlationId": "test-1704110400000-abc123"
-}
+### Adding New Tests
+
+1. Create test file in appropriate directory
+2. Inherit from `BaseTest` class
+3. Use page objects for UI interactions
+4. Follow naming convention: `test_*.py`
+
+Example:
+```python
+import pytest
+from azure_ml_automation.tests.base_test import BaseTest
+
+class TestMyFeature(BaseTest):
+    async def test_my_feature(self):
+        # Your test code here
+        pass
 ```
 
-### Artifact Collection
+### Adding New Pages
 
-Automatic collection of:
-- Screenshots on failure
-- Video recordings
-- Network traces
-- Console logs
-- Performance metrics
+1. Create page class in `pages/` directory
+2. Inherit from `BasePage`
+3. Define locators and methods
 
-## Troubleshooting
+Example:
+```python
+from azure_ml_automation.pages.base_page import BasePage
 
-### Common Issues
-
-1. **Authentication Failures**:
-   - Verify Azure credentials
-   - Check service principal permissions
-   - Ensure subscription access
-
-2. **Timeout Issues**:
-   - Increase timeout values in config
-   - Check network connectivity
-   - Verify Azure service availability
-
-3. **Compute Instance Issues**:
-   - Verify quota availability
-   - Check resource group permissions
-   - Ensure VM size is available in region
-
-4. **VS Code Electron Issues**:
-   - Verify VS Code installation path
-   - Check user data directory permissions
-   - Disable auto-updates
-
-### Debug Mode
-
-Run tests with debug information:
-```bash
-npm run test:debug
+class MyPage(BasePage):
+    def __init__(self, page):
+        super().__init__(page)
+        self.my_button = page.locator("[data-testid='my-button']")
+    
+    async def click_my_button(self):
+        await self.my_button.click()
 ```
 
-Enable verbose logging:
-```bash
-LOG_LEVEL=debug npm test
-```
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+3. Make your changes
+4. Add tests for new functionality
+5. Run the test suite
+6. Submit a pull request
 
-### Development Setup
+## 📝 License
 
-```bash
-npm install
-npm run dev  # Watch mode for TypeScript compilation
-npm run lint # Code linting
-npm run format # Code formatting
-```
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## License
-
-MIT License - see LICENSE file for details.
-
-## Support
+## 🆘 Support
 
 For issues and questions:
-- Create GitHub issues for bugs
-- Check documentation for common solutions
-- Review logs for detailed error information
+1. Check the documentation
+2. Search existing issues
+3. Create a new issue with detailed information
 
-## Roadmap
+## 🔄 Migration from TypeScript
 
-- [ ] Enhanced notebook execution validation
-- [ ] Performance benchmarking
-- [ ] Multi-region testing support
-- [ ] Advanced PIM automation
-- [ ] Custom extension testing
-- [ ] API testing integration
-- [ ] Mobile browser support
+This framework was migrated from TypeScript to Python while maintaining all functionality:
+
+- ✅ All TypeScript files removed
+- ✅ Python equivalents implemented
+- ✅ Same CLI interface
+- ✅ Same test structure
+- ✅ Same configuration options
+- ✅ Enhanced Azure SDK integration
+- ✅ Improved error handling
+- ✅ Better logging and reporting

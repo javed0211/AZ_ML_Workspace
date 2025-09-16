@@ -1,0 +1,161 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azure-ml-workspace-automation"
+version = "1.0.0"
+description = "Azure ML Workspace Automation Framework using Playwright + Python"
+authors = [
+    {name = "Zencoder", email = "support@zencoder.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["azure", "ml", "workspace", "automation", "playwright", "python", "testing", "e2e"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "playwright>=1.40.0",
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "azure-identity>=1.15.0",
+    "azure-mgmt-machinelearningservices>=1.0.0",
+    "azure-mgmt-compute>=30.4.0",
+    "azure-mgmt-resource>=23.0.1",
+    "azure-storage-blob>=12.19.0",
+    "azure-keyvault-secrets>=4.7.0",
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "structlog>=23.2.0",
+    "click>=8.1.7",
+    "psutil>=5.9.6",
+    "pyyaml>=6.0.1",
+    "colorama>=0.4.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.11.0",
+    "flake8>=6.1.0",
+    "mypy>=1.7.1",
+    "pre-commit>=3.6.0",
+    "pytest-html>=4.1.1",
+    "pytest-xdist>=3.3.1",
+    "allure-pytest>=2.13.2",
+]
+jupyter = [
+    "nbformat>=5.9.2",
+    "nbconvert>=7.12.0",
+    "jupyter-client>=8.6.0",
+]
+monitoring = [
+    "memory-profiler>=0.61.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/azure-ml-workspace-automation"
+Repository = "https://github.com/your-org/azure-ml-workspace-automation.git"
+Issues = "https://github.com/your-org/azure-ml-workspace-automation/issues"
+
+[project.scripts]
+azure-ml-test = "azure_ml_automation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--html=test-results/reports/pytest-report.html",
+    "--self-contained-html",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "smoke: marks tests as smoke tests",
+    "integration: marks tests as integration tests",
+    "electron: marks tests as electron/desktop tests",
+    "notebook: marks tests as notebook execution tests",
+    "compute: marks tests as compute lifecycle tests",
+    "pim: marks tests as privileged identity management tests",
+    "website: marks tests as website/web interface tests",
+    "slow: marks tests as slow running",
+    "azure: marks tests that require Azure resources",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

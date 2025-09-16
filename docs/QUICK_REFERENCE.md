@@ -1,233 +1,114 @@
-# VS Code Desktop Testing - Quick Reference
+# Azure ML Automation Framework - Quick Reference
 
-## 🚀 Quick Start Commands
+## Quick Start
 
-### Mock Testing (Development)
 ```bash
-# Run all VS Code Desktop tests with mocks
-NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-npx playwright test --grep "@electron.*@integration" --reporter=line --workers=1
+# Setup the framework
+python -m azure_ml_automation.cli setup
 
-# Short version using npm script
-npm run test:vscode:mock
+# Run smoke tests
+python -m azure_ml_automation.cli test -p "smoke"
+
+# Run all tests
+python -m azure_ml_automation.cli test
 ```
 
-### Real Azure Testing (Production)
-```bash
-# Set environment variables first
-export AZURE_TENANT_ID=your-tenant-id
-export AZURE_CLIENT_ID=your-client-id  
-export AZURE_CLIENT_SECRET=your-client-secret
-export AZURE_SUBSCRIPTION_ID=your-subscription-id
-export AZURE_RESOURCE_GROUP=your-resource-group
-export AZURE_ML_WORKSPACE_NAME=your-workspace-name
-
-# Run tests
-NODE_ENV=production npx playwright test --grep "@electron.*@integration"
-```
-
-## 📋 Common Test Commands
+## Common Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm run test:vscode:mock` | Run all VS Code tests with mocks |
-| `npx playwright test --grep "@electron"` | Run all electron tests |
-| `npx playwright test --grep "@integration"` | Run integration tests only |
-| `npx playwright test --grep "@notebook"` | Run notebook-specific tests |
-| `npx playwright test --debug` | Run tests in debug mode |
-| `npx playwright show-report` | Open test results in browser |
+| `python -m azure_ml_automation.cli test -p "smoke"` | Run smoke tests |
+| `python -m azure_ml_automation.cli test -b firefox --headed` | Run tests with Firefox in headed mode |
+| `python -m azure_ml_automation.cli validate` | Validate Azure configuration |
+| `python -m azure_ml_automation.cli start-compute` | Start compute instance |
+| `python -m azure_ml_automation.cli stop-compute` | Stop compute instance |
+| `python -m azure_ml_automation.cli report` | Generate test reports |
 
-## 🔧 Environment Variables
+## Test Structure
 
-### Required for Mock Testing
-```bash
-NODE_ENV=test
-MOCK_VSCODE=true
-MOCK_AZURE_SERVICES=true
+```
+tests/
+├── smoke/                          # Smoke tests
+│   └── test_workspace_smoke.py     # Basic workspace tests
+├── auth/                           # Authentication tests
+├── workspace/                      # Workspace functionality tests
+├── compute/                        # Compute instance tests
+│   └── test_compute_lifecycle.py   # Compute lifecycle tests
+├── notebooks/                      # Notebook tests
+├── data/                          # Data and dataset tests
+├── models/                        # Model tests
+└── pipelines/                     # Pipeline tests
 ```
 
-### Required for Real Testing
-```bash
+## Configuration
+
+Create `.env` file:
+```env
 AZURE_TENANT_ID=your-tenant-id
-AZURE_CLIENT_ID=your-client-id
-AZURE_CLIENT_SECRET=your-client-secret
 AZURE_SUBSCRIPTION_ID=your-subscription-id
 AZURE_RESOURCE_GROUP=your-resource-group
-AZURE_ML_WORKSPACE_NAME=your-workspace-name
+AZURE_WORKSPACE_NAME=your-workspace-name
 ```
 
-### Optional Settings
-```bash
-SKIP_AZURE_AUTH=true        # Skip Azure authentication
-TEST_TIMEOUT=60000          # Test timeout in milliseconds
-TEST_WORKERS=1              # Number of parallel workers
+## Adding New Tests
+
+1. **Create test file**: `tests/your-category/test_your_feature.py`
+2. **Inherit from BaseTest**:
+
+```python
+from azure_ml_automation.tests.base_test import BaseTest
+
+class TestYourFeature(BaseTest):
+    async def test_your_functionality(self):
+        # Your test code here
+        pass
 ```
 
-## 📁 Key Files and Directories
+## Page Objects
 
-```
-├── src/tests/electron/vscode-desktop.spec.ts    # Main test file
-├── src/electron/vscode-electron-mock.ts         # VS Code mock helper
-├── src/helpers/azure-helpers-mock.ts            # Azure ML mock helper
-├── test-data/                                   # Test data files
-│   ├── vscode-settings.json                     # VS Code configuration
-│   ├── azure-ml-config.json                     # Azure ML configuration
-│   ├── sample-notebook.ipynb                    # Sample Jupyter notebook
-│   └── sample-python-script.py                  # Sample Python script
-├── scripts/                                     # Utility scripts
-│   ├── run-vscode-test.js                       # Test runner
-│   └── validate-test-data.js                    # Data validation
-└── test-results/                                # Test output
-    └── reports/                                 # Generated reports
+Create page objects in `src/azure_ml_automation/pages/`:
+
+```python
+from azure_ml_automation.pages.base_page import BasePage
+
+class YourPage(BasePage):
+    def __init__(self, page):
+        super().__init__(page)
+        self.your_element = page.locator("[data-testid='your-element']")
+    
+    async def perform_action(self):
+        await self.your_element.click()
 ```
 
-## 🎯 Test Tags
+## Troubleshooting
 
-| Tag | Description |
-|-----|-------------|
-| `@electron` | VS Code Desktop tests |
-| `@integration` | Integration tests |
-| `@notebook` | Jupyter notebook tests |
-| `@remote` | Remote compute tests |
-| `@mock` | Mock-only tests |
+### Common Issues
 
-## 🐛 Troubleshooting Quick Fixes
+1. **Authentication failures**: Check your `.env` configuration
+2. **Timeout errors**: Increase timeout values in configuration
+3. **Browser issues**: Try different browsers with `-b` flag
 
-### Test Timeouts
-```bash
-npx playwright test --timeout=120000 --grep "@electron"
-```
-
-### Missing Mock Methods
-Add to `src/electron/vscode-electron-mock.ts`:
-```typescript
-async yourMethod(): Promise<void> {
-  logger.info('Mock: Your method called');
-  await this.delay(500);
-}
-```
-
-### Authentication Issues
-```bash
-# Verify environment variables
-echo $AZURE_TENANT_ID
-echo $AZURE_CLIENT_ID
-```
-
-### Test Data Issues
-```bash
-# Validate test data
-node scripts/validate-test-data.js
-
-# Recreate test data  
-node scripts/create-test-data.js
-```
-
-## 📊 Viewing Results
-
-### HTML Report
-```bash
-npx playwright show-report
-```
-
-### JSON Reports
-```bash
-cat test-results/reports/test-summary.json
-cat test-results/reports/performance-report.json
-```
-
-### Logs
-```bash
-# View latest test logs
-tail -f test-results/logs/latest.log
-```
-
-## 🔄 CI/CD Integration
-
-### GitHub Actions
-```yaml
-- name: Run VS Code Desktop tests
-  run: |
-    NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-    npx playwright test --grep "@electron.*@integration"
-```
-
-### Jenkins
-```groovy
-sh '''
-  NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-  npx playwright test --grep "@electron.*@integration"
-'''
-```
-
-## 📝 Adding New Tests
-
-1. **Create test file**: `src/tests/electron/your-test.spec.ts`
-2. **Add test data**: `test-data/your-data.json`
-3. **Update mock helpers**: Add required methods
-4. **Run tests**: `npx playwright test --grep "your-test"`
-
-## 🎨 Mock Customization
-
-### Add Mock Method
-```typescript
-// In MockVSCodeElectronHelper
-async customMethod(param: string): Promise<any> {
-  logger.info('Mock: Custom method', { param });
-  await this.delay(1000);
-  return { result: 'mock-result' };
-}
-```
-
-### Modify Mock Behavior
-```typescript
-// Change delays, responses, or logic
-async launch(): Promise<void> {
-  logger.info('Mock: Custom launch behavior');
-  await this.delay(2000); // Custom delay
-  this.isLaunched = true;
-}
-```
-
-## 🔍 Debug Mode
+### Reset Environment
 
 ```bash
-# Run single test with debug
-npx playwright test --grep "specific test" --debug
-
-# Enable verbose logging
-DEBUG=* npx playwright test --grep "@electron"
-
-# Capture traces and videos
-npx playwright test --trace=on --video=on --grep "@electron"
+python -m azure_ml_automation.cli clean
+python -m azure_ml_automation.cli setup
 ```
 
-## 📈 Performance Monitoring
+### Debug Mode
 
 ```bash
-# Monitor resource usage
-cat test-results/reports/resource-usage-report.json
-
-# Check test execution times
-grep "duration" test-results/reports/performance-report.json
+python -m azure_ml_automation.cli test --headed -v
 ```
 
-## 🛠️ Maintenance Commands
+## Environment Variables
 
-```bash
-# Update dependencies
-npm update
-
-# Clean test results
-rm -rf test-results/
-
-# Validate configuration
-node scripts/validate-config.js
-
-# Reset test environment
-npm run test:reset
-```
-
----
-*Quick Reference for VS Code Desktop Testing Framework*
-*Last Updated: 2025-09-14*
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `AZURE_TENANT_ID` | Azure tenant ID | Required |
+| `AZURE_SUBSCRIPTION_ID` | Azure subscription ID | Required |
+| `AZURE_RESOURCE_GROUP` | Resource group name | Required |
+| `AZURE_WORKSPACE_NAME` | Workspace name | Required |
+| `LOG_LEVEL` | Logging level | `info` |
+| `MAX_WORKERS` | Parallel workers | `4` |
+| `DEFAULT_TIMEOUT` | Default timeout (ms) | `30000` |

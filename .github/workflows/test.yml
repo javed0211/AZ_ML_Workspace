@@ -1,4 +1,4 @@
-name: Azure ML Workspace Automation Tests
+name: Azure ML Tests
 
 on:
   push:
@@ -6,211 +6,221 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    # Run tests daily at 2 AM UTC
+    # Run daily at 2 AM UTC
     - cron: '0 2 * * *'
-  workflow_dispatch:
-    inputs:
-      test_suite:
-        description: 'Test suite to run'
-        required: false
-        default: 'smoke'
-        type: choice
-        options:
-          - smoke
-          - compute
-          - notebook
-          - electron
-          - all
-      environment:
-        description: 'Environment to test against'
-        required: false
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - staging
-          - prod
 
 env:
-  NODE_VERSION: '18'
-  PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/ms-playwright
+  PYTHON_VERSION: '3.11'
 
 jobs:
-  setup:
+  lint-and-type-check:
     runs-on: ubuntu-latest
-    outputs:
-      test-suite: ${{ steps.determine-suite.outputs.suite }}
-      environment: ${{ steps.determine-env.outputs.env }}
     steps:
-      - name: Determine test suite
-        id: determine-suite
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "suite=${{ github.event.inputs.test_suite }}" >> $GITHUB_OUTPUT
-          elif [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "suite=all" >> $GITHUB_OUTPUT
-          else
-            echo "suite=smoke" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Determine environment
-        id: determine-env
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+      
+      - name: Lint with flake8
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "env=${{ github.event.inputs.environment }}" >> $GITHUB_OUTPUT
-          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "env=prod" >> $GITHUB_OUTPUT
-          else
-            echo "env=dev" >> $GITHUB_OUTPUT
-          fi
+          flake8 src tests --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 src tests --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+      
+      - name: Format check with black
+        run: black --check src tests
+      
+      - name: Type check with mypy
+        run: mypy src --ignore-missing-imports
 
   smoke-tests:
-    needs: setup
-    if: needs.setup.outputs.test-suite == 'smoke' || needs.setup.outputs.test-suite == 'all'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    needs: lint-and-type-check
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
+          python-version: ${{ env.PYTHON_VERSION }}
+      
       - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+      
       - name: Install Playwright browsers
-        run: npm run install:browsers
-
-      - name: Setup Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-
+        run: playwright install --with-deps ${{ matrix.browser }}
+      
       - name: Run smoke tests
-        run: npm run test:smoke
         env:
+          BROWSER: ${{ matrix.browser }}
+          HEADLESS: true
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
           AZURE_ML_WORKSPACE_NAME: ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
-          AZURE_KEY_VAULT_URL: ${{ secrets.AZURE_KEY_VAULT_URL }}
-          NODE_ENV: test
-          CI: true
-
+        run: |
+          python -m pytest tests/smoke/ -v \
+            --html=test-results/reports/smoke-${{ matrix.browser }}-report.html \
+            --self-contained-html
+      
       - name: Upload test results
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: smoke-test-results
-          path: |
-            test-results/
-            playwright-report/
-          retention-days: 7
+          name: smoke-test-results-${{ matrix.browser }}
+          path: test-results/
 
-  compute-tests:
-    needs: setup
-    if: needs.setup.outputs.test-suite == 'compute' || needs.setup.outputs.test-suite == 'all'
+  integration-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    needs: smoke-tests
+    if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'run-integration-tests')
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      
       - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+      
       - name: Install Playwright browsers
-        run: npm run install:browsers
-
-      - name: Setup Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-
-      - name: Run compute tests
-        run: npm run test:compute
+        run: playwright install --with-deps chromium
+      
+      - name: Azure CLI login
         env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        run: |
+          az login --service-principal \
+            -u $AZURE_CLIENT_ID \
+            -p $AZURE_CLIENT_SECRET \
+            --tenant $AZURE_TENANT_ID
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Run integration tests
+        env:
+          BROWSER: chromium
+          HEADLESS: true
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
           AZURE_ML_WORKSPACE_NAME: ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
-          COMPUTE_INSTANCE_NAME: ci-test-compute-${{ github.run_number }}
-          NODE_ENV: test
-          CI: true
+          RUN_SLOW_TESTS: true
+        run: |
+          python -m pytest tests/ -m "not electron" -v \
+            --html=test-results/reports/integration-report.html \
+            --self-contained-html \
+            --maxfail=5
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: integration-test-results
+          path: test-results/
 
+  compute-tests:
+    runs-on: ubuntu-latest
+    needs: smoke-tests
+    if: github.event_name == 'schedule' || contains(github.event.pull_request.labels.*.name, 'run-compute-tests')
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+      
+      - name: Install Playwright browsers
+        run: playwright install --with-deps chromium
+      
+      - name: Azure CLI login
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        run: |
+          az login --service-principal \
+            -u $AZURE_CLIENT_ID \
+            -p $AZURE_CLIENT_SECRET \
+            --tenant $AZURE_TENANT_ID
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Run compute tests
+        env:
+          BROWSER: chromium
+          HEADLESS: true
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          AZURE_ML_WORKSPACE_NAME: ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
+          RUN_SLOW_TESTS: true
+        run: |
+          python -m pytest tests/compute/ -v \
+            --html=test-results/reports/compute-report.html \
+            --self-contained-html \
+            --maxfail=3
+      
       - name: Upload test results
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: compute-test-results
-          path: |
-            test-results/
-            playwright-report/
-          retention-days: 7
+          path: test-results/
 
-  notebook-tests:
-    needs: setup
-    if: needs.setup.outputs.test-suite == 'notebook' || needs.setup.outputs.test-suite == 'all'
+  docker-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    needs: lint-and-type-check
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright browsers
-        run: npm run install:browsers
-
-      - name: Setup Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-
-      - name: Run notebook tests
-        run: npm run test:notebook
+      - uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker build -t azure-ml-tests .
+      
+      - name: Run tests in Docker
         env:
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
@@ -218,214 +228,71 @@ jobs:
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
           AZURE_ML_WORKSPACE_NAME: ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
-          NODE_ENV: test
-          CI: true
-
-      - name: Upload test results
+        run: |
+          docker run --rm \
+            -e AZURE_TENANT_ID \
+            -e AZURE_CLIENT_ID \
+            -e AZURE_CLIENT_SECRET \
+            -e AZURE_SUBSCRIPTION_ID \
+            -e AZURE_RESOURCE_GROUP \
+            -e AZURE_ML_WORKSPACE_NAME \
+            -v $(pwd)/test-results:/app/test-results \
+            azure-ml-tests \
+            python -m pytest tests/smoke/ -v
+      
+      - name: Upload Docker test results
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: notebook-test-results
-          path: |
-            test-results/
-            playwright-report/
-          retention-days: 7
+          name: docker-test-results
+          path: test-results/
 
-  electron-tests:
-    needs: setup
-    if: needs.setup.outputs.test-suite == 'electron' || needs.setup.outputs.test-suite == 'all'
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 45
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright browsers
-        run: npm run install:browsers
-
-      - name: Install VS Code (Ubuntu)
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-          sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-          sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-          sudo apt update
-          sudo apt install code
-
-      - name: Install VS Code (macOS)
-        if: matrix.os == 'macos-latest'
-        run: |
-          brew install --cask visual-studio-code
-
-      - name: Install VS Code (Windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          choco install vscode
-
-      - name: Setup Azure CLI
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-
-      - name: Run Electron tests
-        run: npm run test:electron
-        env:
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          AZURE_ML_WORKSPACE_NAME: ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
-          NODE_ENV: test
-          CI: true
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: electron-test-results-${{ matrix.os }}
-          path: |
-            test-results/
-            playwright-report/
-          retention-days: 7
-
-  security-scan:
+  report:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run security audit
-        run: npm audit --audit-level moderate
-
-      - name: Run dependency check
-        uses: dependency-check/Dependency-Check_Action@main
-        with:
-          project: 'azure-ml-automation'
-          path: '.'
-          format: 'ALL'
-
-      - name: Upload security results
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: security-scan-results
-          path: reports/
-          retention-days: 7
-
-  report-generation:
-    needs: [smoke-tests, compute-tests, notebook-tests, electron-tests]
+    needs: [smoke-tests, integration-tests]
     if: always()
-    runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
+      
       - name: Download all test results
         uses: actions/download-artifact@v3
         with:
           path: all-test-results/
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Generate consolidated report
+      
+      - name: Generate combined report
         run: |
-          mkdir -p consolidated-report
-          # Merge all test results
-          find all-test-results -name "*.json" -exec cp {} consolidated-report/ \;
-          
-          # Generate HTML report
-          npx playwright show-report --host 0.0.0.0 || true
-
-      - name: Upload consolidated report
+          mkdir -p combined-results/reports
+          echo "# Test Results Summary" > combined-results/reports/summary.md
+          echo "" >> combined-results/reports/summary.md
+          echo "## Test Execution Summary" >> combined-results/reports/summary.md
+          echo "- **Smoke Tests**: $(find all-test-results -name "*smoke*" -type d | wc -l) browser(s)" >> combined-results/reports/summary.md
+          echo "- **Integration Tests**: $(find all-test-results -name "*integration*" -type d | wc -l) run(s)" >> combined-results/reports/summary.md
+          echo "- **Compute Tests**: $(find all-test-results -name "*compute*" -type d | wc -l) run(s)" >> combined-results/reports/summary.md
+          echo "" >> combined-results/reports/summary.md
+          echo "## Artifacts" >> combined-results/reports/summary.md
+          find all-test-results -name "*.html" -exec echo "- [{}]({})" \; >> combined-results/reports/summary.md
+      
+      - name: Upload combined results
         uses: actions/upload-artifact@v3
         with:
-          name: consolidated-test-report
-          path: |
-            consolidated-report/
-            playwright-report/
-          retention-days: 30
+          name: combined-test-results
+          path: combined-results/
 
-      - name: Deploy report to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./playwright-report
-
-  notification:
-    needs: [smoke-tests, compute-tests, notebook-tests, electron-tests]
-    if: always()
+  notify:
     runs-on: ubuntu-latest
+    needs: [smoke-tests, integration-tests, compute-tests]
+    if: always() && (github.event_name == 'schedule' || github.ref == 'refs/heads/main')
     
     steps:
-      - name: Determine overall status
-        id: status
+      - name: Notify on failure
+        if: contains(needs.*.result, 'failure')
         run: |
-          if [ "${{ needs.smoke-tests.result }}" = "failure" ] || \
-             [ "${{ needs.compute-tests.result }}" = "failure" ] || \
-             [ "${{ needs.notebook-tests.result }}" = "failure" ] || \
-             [ "${{ needs.electron-tests.result }}" = "failure" ]; then
-            echo "status=failure" >> $GITHUB_OUTPUT
-          else
-            echo "status=success" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Send Teams notification
-        if: env.TEAMS_WEBHOOK_URL != ''
-        uses: aliencube/microsoft-teams-actions@v0.8.0
-        with:
-          webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: Azure ML Automation Tests
-          summary: Test run ${{ steps.status.outputs.status }}
-          text: |
-            **Test Results Summary**
-            - Smoke Tests: ${{ needs.smoke-tests.result }}
-            - Compute Tests: ${{ needs.compute-tests.result }}
-            - Notebook Tests: ${{ needs.notebook-tests.result }}
-            - Electron Tests: ${{ needs.electron-tests.result }}
-            
-            **Environment**: ${{ needs.setup.outputs.environment }}
-            **Commit**: ${{ github.sha }}
-            **Branch**: ${{ github.ref_name }}
-          theme_color: ${{ steps.status.outputs.status == 'success' && '00FF00' || 'FF0000' }}
-
-      - name: Send Slack notification
-        if: env.SLACK_WEBHOOK_URL != ''
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ steps.status.outputs.status }}
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          text: |
-            Azure ML Automation Tests: ${{ steps.status.outputs.status }}
-            Environment: ${{ needs.setup.outputs.environment }}
-            Commit: ${{ github.sha }}
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          echo "Tests failed! Consider sending notification to Teams/Slack"
+          # Add actual notification logic here
+      
+      - name: Notify on success
+        if: contains(needs.*.result, 'success')
+        run: |
+          echo "All tests passed successfully!"
+          # Add actual notification logic here

@@ -1,127 +1,152 @@
-# VS Code Desktop Testing Examples
+# Azure ML Automation Framework Examples
 
-This directory contains practical examples and demonstrations of how to use the VS Code Desktop testing framework for Azure ML workspace automation.
+This directory contains example scripts and usage patterns for the Azure ML Automation Framework.
 
-## 🚀 Quick Start
+## Available Examples
 
-### Run the Interactive Example
+### 1. Basic Usage (`basic_usage.py`)
+Demonstrates fundamental framework usage including:
+- Creating Azure ML helper instances
+- Getting workspace information
+- Listing compute instances
+- Basic browser automation
+- Taking screenshots
+
+### 2. Advanced Testing Patterns
+Coming soon:
+- Custom page objects
+- Complex test scenarios
+- Integration patterns
+- Error handling examples
+
+## Running Examples
+
+### Prerequisites
+- Python 3.9+
+- Framework installed (`pip install -e .`)
+- Azure credentials configured
+- Playwright browsers installed (`playwright install`)
+
+### Basic Usage Example
+
 ```bash
-# Show usage examples and next steps
-node examples/example-usage.js
-
-# Run full demonstration with setup
-node examples/example-usage.js --demo
-
-# Run mock tests only
-node examples/example-usage.js --test
-
-# Show help
-node examples/example-usage.js --help
+# Run the basic usage example
+cd examples
+python basic_usage.py
 ```
 
-## 📁 Files in this Directory
+### Configuration
 
-### `example-usage.js`
-Interactive demonstration script that shows:
-- Prerequisites checking
-- Environment setup
-- Mock testing execution
-- Test categories and filtering
-- Reporting and results viewing
-- Customization options
-- Debugging techniques
-- Usage examples for different scenarios
-
-## 🎯 What You'll Learn
-
-### 1. Basic Usage
-- How to run mock tests for development
-- How to set up environment variables
-- How to view test results and reports
-
-### 2. Advanced Features
-- Test categorization and filtering
-- Custom test configurations
-- Debugging and troubleshooting
-- Performance monitoring
-
-### 3. Real-World Scenarios
-- Development workflow with mocks
-- Production validation with real Azure
-- CI/CD pipeline integration
-- Custom test creation
-
-## 🛠️ Prerequisites
-
-Before running the examples, ensure you have:
-- Node.js 16+ installed
-- npm or yarn package manager
-- Project dependencies installed (`npm install`)
-
-## 📚 Related Documentation
-
-- [Complete Testing Guide](../docs/VSCODE_DESKTOP_TESTING_GUIDE.md)
-- [Quick Reference](../docs/QUICK_REFERENCE.md)
-- [Test Execution Summary](../TEST_EXECUTION_SUMMARY.md)
-
-## 🎨 Example Scenarios
-
-### Development Testing
-```bash
-# Fast mock testing for development
-NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-npx playwright test --grep "@electron.*@integration"
+Create a `.env` file in the project root:
+```env
+AZURE_TENANT_ID=your-tenant-id
+AZURE_SUBSCRIPTION_ID=your-subscription-id
+AZURE_RESOURCE_GROUP=your-resource-group
+AZURE_WORKSPACE_NAME=your-workspace-name
 ```
 
-### Production Validation
-```bash
-# Real Azure testing (requires credentials)
-export AZURE_TENANT_ID=your-tenant-id
-export AZURE_CLIENT_ID=your-client-id
-export AZURE_CLIENT_SECRET=your-client-secret
-NODE_ENV=production npx playwright test --grep "@electron.*@integration"
+## Example Structure
+
+```
+examples/
+├── README.md           # This file
+├── basic_usage.py      # Basic framework usage
+├── advanced/           # Advanced examples (coming soon)
+│   ├── custom_pages.py
+│   ├── complex_tests.py
+│   └── integrations.py
+└── data/              # Example data files
+    ├── sample.csv
+    └── test_notebook.ipynb
 ```
 
-### Debug Mode
-```bash
-# Debug specific test
-NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-npx playwright test --grep "should launch VS Code" --debug
+## Writing Your Own Examples
+
+### 1. Basic Script Structure
+
+```python
+#!/usr/bin/env python3
+import asyncio
+import sys
+from pathlib import Path
+
+# Add src to path for development
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from azure_ml_automation import create_azure_ml_helper
+from azure_ml_automation.helpers.logger import get_logger
+
+logger = get_logger(__name__)
+
+async def main():
+    """Your example function."""
+    logger.info("Starting example...")
+    
+    try:
+        # Your code here
+        helper = await create_azure_ml_helper()
+        # ... example logic ...
+        
+        logger.info("Example completed successfully!")
+        return 0
+    except Exception as e:
+        logger.error(f"Example failed: {e}")
+        return 1
+
+if __name__ == "__main__":
+    exit_code = asyncio.run(main())
+    sys.exit(exit_code)
 ```
 
-### CI/CD Pipeline
-```bash
-# Automated testing in CI/CD
-NODE_ENV=test MOCK_VSCODE=true MOCK_AZURE_SERVICES=true \
-npx playwright test --grep "@electron.*@integration" --reporter=json
+### 2. Browser Automation Example
+
+```python
+from azure_ml_automation.helpers.browser_manager import BrowserManager
+
+async def browser_example():
+    async with BrowserManager(headless=False) as browser_manager:
+        browser = await browser_manager.get_browser()
+        page = await browser.new_page()
+        
+        # Navigate and interact
+        await page.goto("https://ml.azure.com")
+        await page.screenshot(path="example.png")
 ```
 
-## 🔧 Customization
+### 3. Azure SDK Example
 
-The example script demonstrates how to:
-- Modify test timeouts and workers
-- Add custom environment variables
-- Create new test categories
-- Implement custom reporting
-- Add debugging capabilities
+```python
+async def azure_example():
+    helper = await create_azure_ml_helper()
+    
+    # Get workspace info
+    workspace = await helper.get_workspace()
+    print(f"Workspace: {workspace.name}")
+    
+    # List compute instances
+    compute_instances = await helper.list_compute_instances()
+    for compute in compute_instances:
+        print(f"Compute: {compute.name} - {compute.provisioning_state}")
+```
 
-## 🐛 Troubleshooting
+## Best Practices
 
-Common issues and solutions are demonstrated in the example script:
-- Test timeouts → Increase timeout values
-- Missing mock methods → Add to mock helpers
-- Authentication failures → Check environment variables
-- Test data issues → Validate and recreate test data
+1. **Error Handling**: Always include proper error handling
+2. **Logging**: Use the framework's logging system
+3. **Resource Cleanup**: Ensure proper cleanup of resources
+4. **Configuration**: Use environment variables for configuration
+5. **Documentation**: Document your examples clearly
 
-## 🚀 Next Steps
+## Contributing Examples
 
-After running the examples:
-1. Explore the generated test results in `test-results/`
-2. Customize test data in `test-data/` for your needs
-3. Create new tests in `src/tests/electron/`
-4. Set up real Azure credentials for production testing
-5. Integrate tests into your CI/CD pipeline
+1. Create your example script
+2. Add documentation
+3. Test thoroughly
+4. Submit a pull request
 
----
-*Examples for VS Code Desktop Testing Framework*
-*Last Updated: 2025-09-14*
+## Support
+
+For questions about examples:
+1. Check the main README.md
+2. Review existing examples
+3. Create an issue for help

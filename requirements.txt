@@ -1,0 +1,56 @@
+# Azure ML Workspace Automation Framework - Python Dependencies
+
+# Core dependencies
+playwright==1.40.0
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-html==4.1.1
+pytest-xdist==3.3.1
+
+# Azure SDK
+azure-identity==1.15.0
+azure-mgmt-machinelearningservices==1.0.0
+azure-mgmt-compute==30.4.0
+azure-mgmt-resource==23.0.1
+azure-storage-blob==12.19.0
+azure-keyvault-secrets==4.7.0
+azure-mgmt-authorization==4.0.0
+
+# HTTP and API clients
+requests==2.31.0
+aiohttp==3.9.1
+
+# Configuration and environment
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Logging and monitoring
+structlog==23.2.0
+colorama==0.4.6
+
+# CLI and process management
+click==8.1.7
+psutil==5.9.6
+
+# Utilities
+pyyaml==6.0.1
+jinja2==3.1.2
+uuid==1.30
+
+# Development dependencies
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+pre-commit==3.6.0
+
+# Jupyter notebook support
+nbformat==5.9.2
+nbconvert==7.12.0
+jupyter-client==8.6.0
+
+# Allure reporting
+allure-pytest==2.13.2
+
+# Performance monitoring
+memory-profiler==0.61.0

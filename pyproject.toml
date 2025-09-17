@@ -135,6 +135,7 @@ markers = [
     "website: marks tests as website/web interface tests",
     "slow: marks tests as slow running",
     "azure: marks tests that require Azure resources",
+    "cleanup: marks tests that perform cleanup operations",
 ]
 asyncio_mode = "auto"
 

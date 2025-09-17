@@ -21,9 +21,18 @@ colorama_init(autoreset=True)
 def setup_logging() -> None:
     """Set up structured logging configuration."""
     
-    # Create logs directory
-    logs_dir = Path(config.artifacts.path) / "logs"
-    logs_dir.mkdir(parents=True, exist_ok=True)
+    # Create logs directory with safe path handling
+    try:
+        artifacts_path = config.artifacts.path
+        # Ensure we have a valid path, not an environment variable
+        if not artifacts_path or ';' in artifacts_path or len(artifacts_path) > 260:
+            artifacts_path = "./test-results"
+        logs_dir = Path(artifacts_path) / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        # Fallback to current directory if path creation fails
+        logs_dir = Path("./logs")
+        logs_dir.mkdir(parents=True, exist_ok=True)
     
     # Configure structlog
     structlog.configure(

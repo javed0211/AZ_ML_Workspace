@@ -78,7 +78,7 @@ async def browser_page() -> AsyncGenerator[Page, None]:
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(
-            headless=os.getenv("HEADLESS", "true").lower() == "true",
+            headless=os.getenv("HEADLESS", "false").lower() == "true",  # Changed default to "false"
             args=['--no-sandbox', '--disable-dev-shm-usage']
         )
         print("Browser launched")

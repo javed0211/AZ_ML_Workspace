@@ -4,71 +4,131 @@ import os
 from pathlib import Path
 from typing import Optional, List
 from pydantic import Field, validator
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 class AzureConfig(BaseSettings):
     """Azure-specific configuration."""
     
-    tenant_id: Optional[str] = Field(None, env="AZURE_TENANT_ID")
-    client_id: Optional[str] = Field(None, env="AZURE_CLIENT_ID") 
-    client_secret: Optional[str] = Field(None, env="AZURE_CLIENT_SECRET")
-    subscription_id: Optional[str] = Field(None, env="AZURE_SUBSCRIPTION_ID")
-    resource_group: Optional[str] = Field(None, env="AZURE_RESOURCE_GROUP")
-    workspace_name: Optional[str] = Field(None, env="AZURE_ML_WORKSPACE_NAME")
-    key_vault_url: Optional[str] = Field(None, env="AZURE_KEY_VAULT_URL")
+    tenant_id: Optional[str] = Field(None, alias="AZURE_TENANT_ID")
+    client_id: Optional[str] = Field(None, alias="AZURE_CLIENT_ID")
+    client_secret: Optional[str] = Field(None, alias="AZURE_CLIENT_SECRET")
+    subscription_id: Optional[str] = Field(None, alias="AZURE_SUBSCRIPTION_ID")
+    resource_group: Optional[str] = Field(None, alias="AZURE_RESOURCE_GROUP")
+    workspace_name: Optional[str] = Field(None, alias="AZURE_ML_WORKSPACE_NAME")
+    key_vault_url: Optional[str] = Field(None, alias="AZURE_KEY_VAULT_URL")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class AuthConfig(BaseSettings):
     """Authentication configuration."""
     
-    use_interactive: bool = Field(False, env="USE_INTERACTIVE_AUTH")
-    use_managed_identity: bool = Field(False, env="USE_MANAGED_IDENTITY")
+    use_interactive: bool = Field(False, alias="USE_INTERACTIVE_AUTH")
+    use_managed_identity: bool = Field(True, alias="USE_MANAGED_IDENTITY")  # Default to Managed Identity
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class UrlConfig(BaseSettings):
     """URL configuration for different platforms."""
     
-    base: str = Field("https://ml.azure.com", env="BASE_URL")
-    vscode_web: Optional[str] = Field(None, env="VSCODE_WEB_URL")
-    jupyter: Optional[str] = Field(None, env="JUPYTER_URL")
+    base: str = Field("https://ml.azure.com", alias="BASE_URL")
+    vscode_web: Optional[str] = Field(None, alias="VSCODE_WEB_URL")
+    jupyter: Optional[str] = Field(None, alias="JUPYTER_URL")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class TimeoutConfig(BaseSettings):
     """Timeout configuration."""
     
-    default: int = Field(30000, env="DEFAULT_TIMEOUT")  # milliseconds
-    navigation: int = Field(60000, env="NAVIGATION_TIMEOUT")
-    test: int = Field(300000, env="TEST_TIMEOUT")
+    default: int = Field(30000, alias="DEFAULT_TIMEOUT")  # milliseconds
+    navigation: int = Field(60000, alias="NAVIGATION_TIMEOUT")
+    test: int = Field(300000, alias="TEST_TIMEOUT")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class RetryConfig(BaseSettings):
     """Retry configuration."""
     
-    max_retries: int = Field(3, env="MAX_RETRIES")
-    delay: int = Field(1000, env="RETRY_DELAY")  # milliseconds
+    max_retries: int = Field(3, alias="MAX_RETRIES")
+    delay: int = Field(1000, alias="RETRY_DELAY")  # milliseconds
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class ParallelConfig(BaseSettings):
     """Parallel execution configuration."""
     
-    max_workers: int = Field(4, env="MAX_WORKERS")
+    max_workers: int = Field(4, alias="MAX_WORKERS")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class ArtifactsConfig(BaseSettings):
     """Artifacts configuration."""
     
-    path: str = Field("./test-results", env="ARTIFACTS_PATH")
-    upload: bool = Field(False, env="UPLOAD_ARTIFACTS")
-    storage_account: Optional[str] = Field(None, env="AZURE_STORAGE_ACCOUNT")
-    container: str = Field("test-artifacts", env="AZURE_STORAGE_CONTAINER")
+    path: str = Field("./test-results", alias="ARTIFACTS_PATH")
+    upload: bool = Field(False, alias="UPLOAD_ARTIFACTS")
+    storage_account: Optional[str] = Field(None, alias="AZURE_STORAGE_ACCOUNT")
+    container: str = Field("test-artifacts", alias="AZURE_STORAGE_CONTAINER")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class LoggingConfig(BaseSettings):
     """Logging configuration."""
     
-    level: str = Field("info", env="LOG_LEVEL")
-    format: str = Field("json", env="LOG_FORMAT")
+    level: str = Field("info", alias="LOG_LEVEL")
+    format: str = Field("json", alias="LOG_FORMAT")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
     
     @validator("level")
     def validate_level(cls, v):
@@ -88,8 +148,15 @@ class LoggingConfig(BaseSettings):
 class ElectronConfig(BaseSettings):
     """Electron/VS Code configuration."""
     
-    vscode_path: Optional[str] = Field(None, env="VSCODE_PATH")
-    user_data_dir: Optional[str] = Field(None, env="ELECTRON_USER_DATA_DIR")
+    vscode_path: Optional[str] = Field(None, alias="VSCODE_PATH")
+    user_data_dir: Optional[str] = Field(None, alias="ELECTRON_USER_DATA_DIR")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
     
     @validator("user_data_dir", pre=True, always=True)
     def set_default_user_data_dir(cls, v):
@@ -101,32 +168,53 @@ class ElectronConfig(BaseSettings):
 class ComputeConfig(BaseSettings):
     """Compute configuration."""
     
-    instance_name: Optional[str] = Field(None, env="COMPUTE_INSTANCE_NAME")
-    cluster_name: Optional[str] = Field(None, env="COMPUTE_CLUSTER_NAME")
-    size: str = Field("Standard_DS3_v2", env="COMPUTE_SIZE")
+    instance_name: Optional[str] = Field(None, alias="COMPUTE_INSTANCE_NAME")
+    cluster_name: Optional[str] = Field(None, alias="COMPUTE_CLUSTER_NAME")
+    size: str = Field("Standard_DS3_v2", alias="COMPUTE_SIZE")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class PIMConfig(BaseSettings):
     """Privileged Identity Management configuration."""
     
-    role_name: Optional[str] = Field(None, env="PIM_ROLE_NAME")
-    scope: Optional[str] = Field(None, env="PIM_SCOPE")
-    justification: str = Field("Automated testing", env="PIM_JUSTIFICATION")
+    role_name: Optional[str] = Field(None, alias="PIM_ROLE_NAME")
+    scope: Optional[str] = Field(None, alias="PIM_SCOPE")
+    justification: str = Field("Automated testing", alias="PIM_JUSTIFICATION")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class NotificationsConfig(BaseSettings):
     """Notifications configuration."""
     
-    teams_webhook: Optional[str] = Field(None, env="TEAMS_WEBHOOK_URL")
-    slack_webhook: Optional[str] = Field(None, env="SLACK_WEBHOOK_URL")
-    email: bool = Field(False, env="EMAIL_NOTIFICATIONS")
+    teams_webhook: Optional[str] = Field(None, alias="TEAMS_WEBHOOK_URL")
+    slack_webhook: Optional[str] = Field(None, alias="SLACK_WEBHOOK_URL")
+    email: bool = Field(False, alias="EMAIL_NOTIFICATIONS")
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
 
 
 class Config(BaseSettings):
     """Main configuration class."""
     
     # Environment
-    env: str = Field("development", env="NODE_ENV")
+    env: str = Field("development", alias="NODE_ENV")
     
     # Sub-configurations
     azure: AzureConfig = Field(default_factory=AzureConfig)
@@ -142,12 +230,12 @@ class Config(BaseSettings):
     pim: PIMConfig = Field(default_factory=PIMConfig)
     notifications: NotificationsConfig = Field(default_factory=NotificationsConfig)
     
-    model_config = {
-        "env_file": ".env",
-        "env_file_encoding": "utf-8",
-        "case_sensitive": False,
-        "extra": "ignore"
-    }
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore"
+    )
         
     @validator("env")
     def validate_env(cls, v):
@@ -158,19 +246,8 @@ class Config(BaseSettings):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # Initialize sub-configurations
-        self.azure = AzureConfig()
-        self.auth = AuthConfig()
-        self.urls = UrlConfig()
-        self.timeouts = TimeoutConfig()
-        self.retry = RetryConfig()
-        self.parallel = ParallelConfig()
-        self.artifacts = ArtifactsConfig()
-        self.logging = LoggingConfig()
-        self.electron = ElectronConfig()
-        self.compute = ComputeConfig()
-        self.pim = PIMConfig()
-        self.notifications = NotificationsConfig()
+        # Sub-configurations are already initialized by Pydantic using default_factory
+        # No need to re-initialize them here as it would overwrite loaded values
 
 
 # Global configuration instance

@@ -19,17 +19,125 @@ from src.azure_ml_automation.helpers.azure_helpers import create_azure_ml_helper
 from src.azure_ml_automation.pages.azure_ml_studio import AzureMLStudioPage
 
 
-# Configure pytest-asyncio to use function scope by default
+# Configure pytest-asyncio
 pytest_asyncio.fixture_scope_function = "function"
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def event_loop():
-    """Create an instance of the default event loop for each test function."""
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
+    """Create an instance of the default event loop for the test session."""
+    loop = asyncio.get_event_loop_policy().new_event_loop()
     yield loop
     loop.close()
+
+
+@pytest.fixture(scope="session")
+async def playwright() -> AsyncGenerator[Playwright, None]:
+    """Create Playwright instance."""
+    async with async_playwright() as p:
+        yield p
+
+
+@pytest.fixture(scope="session")
+async def browser(playwright: Playwright) -> AsyncGenerator[Browser, None]:
+    """Create browser instance."""
+    print("Creating browser instance...")
+    
+    browser_type = os.getenv("BROWSER", "chromium").lower()
+    headless = os.getenv("HEADLESS", "true").lower() == "true"
+    
+    print(f"Browser type: {browser_type}, Headless: {headless}")
+    
+    try:
+        if browser_type == "firefox":
+            browser = await playwright.firefox.launch(
+                headless=headless,
+                args=['--no-sandbox', '--disable-dev-shm-usage']
+            )
+        elif browser_type == "webkit":
+            browser = await playwright.webkit.launch(headless=headless)
+        else:
+            browser = await playwright.chromium.launch(
+                headless=headless,
+                args=['--no-sandbox', '--disable-dev-shm-usage']
+            )
+        
+        print("Browser launched successfully")
+        yield browser
+        
+    except Exception as e:
+        print(f"Error launching browser: {e}")
+        raise
+    finally:
+        try:
+            await browser.close()
+            print("Browser closed")
+        except Exception as e:
+            print(f"Warning: Error closing browser: {e}")
+
+
+@pytest.fixture
+async def context(browser: Browser) -> AsyncGenerator[BrowserContext, None]:
+    """Create browser context with common settings."""
+    print("Creating browser context...")
+    
+    try:
+        # Use minimal context settings to avoid hanging
+        context = await browser.new_context(
+            viewport={"width": 1920, "height": 1080},
+            ignore_https_errors=True
+        )
+        print("Browser context created")
+        
+        yield context
+        print("Cleaning up browser context...")
+        
+    except Exception as e:
+        print(f"Error creating browser context: {e}")
+        raise
+    finally:
+        try:
+            await context.close()
+            print("Browser context closed")
+        except Exception as e:
+            print(f"Warning: Error closing context: {e}")
+
+
+@pytest.fixture
+async def page(context: BrowserContext) -> AsyncGenerator[Page, None]:
+    """Create a new page."""
+    print("Creating new page...")
+    
+    try:
+        page = await context.new_page()
+        print("Page created")
+        
+        # Set up console logging
+        page.on("console", lambda msg: print(f"Console [{msg.type}]: {msg.text}"))
+        
+        # Set up error handling
+        page.on("pageerror", lambda error: print(f"Page error: {error}"))
+        
+        print("Page event handlers set up")
+        
+        yield page
+        print("Cleaning up page...")
+        
+    except Exception as e:
+        print(f"Error creating page: {e}")
+        raise
+    finally:
+        try:
+            # Take screenshot on failure (simplified)
+            if hasattr(page, "_test_failed") and page._test_failed:
+                print("Taking failure screenshot...")
+                # Simplified screenshot without complex filename
+                screenshot_path = Path("test-results") / "screenshots" / "failure.png"
+                screenshot_path.parent.mkdir(parents=True, exist_ok=True)
+                await page.screenshot(path=str(screenshot_path))
+                print("Screenshot saved")
+        except Exception as e:
+            print(f"Warning: Could not take screenshot: {e}")
 
 
 @pytest.fixture
@@ -72,43 +180,9 @@ async def azure_helper(test_logger: TestLogger):
 
 
 @pytest.fixture
-async def browser_page() -> AsyncGenerator[Page, None]:
-    """Create a browser page using function-scoped fixtures to avoid hanging."""
-    print("Creating browser and page...")
-    
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=os.getenv("HEADLESS", "true").lower() == "true",
-            args=['--no-sandbox', '--disable-dev-shm-usage']
-        )
-        print("Browser launched")
-        
-        context = await browser.new_context(
-            viewport={"width": 1920, "height": 1080},
-            ignore_https_errors=True
-        )
-        print("Context created")
-        
-        page = await context.new_page()
-        print("Page created")
-        
-        # Set up console logging
-        page.on("console", lambda msg: print(f"Console [{msg.type}]: {msg.text}"))
-        page.on("pageerror", lambda error: print(f"Page error: {error}"))
-        
-        try:
-            yield page
-        finally:
-            print("Cleaning up browser resources...")
-            await context.close()
-            await browser.close()
-            print("Browser closed")
-
-
-@pytest.fixture
-async def azure_ml_page(browser_page: Page, test_logger: TestLogger) -> AzureMLStudioPage:
+async def azure_ml_page(page: Page, test_logger: TestLogger) -> AzureMLStudioPage:
     """Create Azure ML Studio page object."""
-    return AzureMLStudioPage(browser_page, test_logger)
+    return AzureMLStudioPage(page, test_logger)
 
 
 # Pytest hooks for better reporting
@@ -118,6 +192,11 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
     setattr(item, f"rep_{rep.when}", rep)
+    
+    # Mark page as failed if test failed
+    if rep.when == "call" and rep.failed:
+        if hasattr(item, "funcargs") and "page" in item.funcargs:
+            item.funcargs["page"]._test_failed = True
 
 
 def pytest_configure(config):

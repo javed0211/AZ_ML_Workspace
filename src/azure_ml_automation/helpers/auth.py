@@ -39,7 +39,8 @@ class AuthManager:
     def _initialize_credential(self) -> None:
         """Initialize the appropriate Azure credential based on configuration."""
         try:
-            if self.auth_config.use_managed_identity:
+            # Priority order: Managed Identity (default) > Client Secret > Interactive > Default
+            if self.auth_config.use_managed_identity and not self.auth_config.client_secret:
                 logger.info("Using Managed Identity for authentication")
                 self.credential = ManagedIdentityCredential()
             elif self.auth_config.client_secret:
@@ -55,6 +56,9 @@ class AuthManager:
                     tenant_id=self.auth_config.tenant_id,
                     client_id=self.auth_config.client_id
                 )
+            elif self.auth_config.use_managed_identity:
+                logger.info("Using Managed Identity for authentication (fallback)")
+                self.credential = ManagedIdentityCredential()
             else:
                 logger.info("Using Default Azure Credential")
                 self.credential = DefaultAzureCredential()

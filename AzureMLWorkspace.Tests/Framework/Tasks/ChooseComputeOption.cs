@@ -1,0 +1,46 @@
+using AzureMLWorkspace.Tests.Framework.Screenplay;
+using Microsoft.Extensions.Logging;
+
+namespace AzureMLWorkspace.Tests.Framework.Tasks;
+
+public class ChooseComputeOption : ITask
+{
+    private readonly ILogger<ChooseComputeOption> _logger;
+
+    private ChooseComputeOption(ILogger<ChooseComputeOption> logger)
+    {
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    }
+
+    public static ChooseComputeOption Now()
+    {
+        var logger = TestContext.ServiceProvider.GetRequiredService<ILogger<ChooseComputeOption>>();
+        return new ChooseComputeOption(logger);
+    }
+
+    public async Task<T> PerformAs<T>(IActor actor) where T : IActor
+    {
+        _logger.LogInformation("Choosing compute option in Azure ML workspace");
+
+        try
+        {
+            // Get the Azure ML ability
+            var azureMLAbility = actor.GetAbility<UseAzureML>();
+            if (azureMLAbility == null)
+            {
+                throw new InvalidOperationException("Actor does not have Azure ML ability");
+            }
+
+            // Navigate to compute section
+            await azureMLAbility.NavigateToComputeAsync();
+
+            _logger.LogInformation("Successfully navigated to compute options");
+            return (T)actor;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to choose compute option");
+            throw;
+        }
+    }
+}

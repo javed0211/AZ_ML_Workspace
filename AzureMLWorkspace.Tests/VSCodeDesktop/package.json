@@ -1,0 +1,23 @@
+{
+  "name": "vscode-desktop-automation",
+  "version": "1.0.0",
+  "description": "TypeScript Playwright automation for VS Code Desktop testing",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/vscode-automation.js",
+    "dev": "ts-node src/vscode-automation.ts"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.40.0",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

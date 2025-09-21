@@ -99,6 +99,9 @@ public class Program
                 services.AddScoped<ITestFileGenerationService, TestFileGenerationService>();
                 services.AddScoped<TestGenerationCLI>();
 
+                // VS Code Desktop Testing
+                services.AddScoped<AzureMLWorkspace.Tests.Framework.Utilities.VSCodeDesktopHelper>();
+
                 // Logging
                 services.AddLogging(builder =>
                 {

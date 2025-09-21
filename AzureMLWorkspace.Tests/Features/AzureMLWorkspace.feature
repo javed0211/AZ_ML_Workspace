@@ -33,3 +33,14 @@ Scenario: Manage Multiple Compute Instances
     Then all compute instances should be running
     When I stop all compute instances
     Then all compute instances should be stopped
+
+Scenario: Azure ML Workspace with VS Code Desktop Integration
+    When I go to workspace "ml-workspace"
+    And If login required I login as user "Javed Khan"
+    And I select Workspace "CTO-workspace"
+    And I choose compute option
+    And I open compute "com-jk"
+    And If compute is not running, I start compute
+    Then I check if application link are enabled
+    When I start VS code Desktop
+    Then I check if I am able to interact with VS code

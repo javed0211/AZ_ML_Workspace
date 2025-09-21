@@ -1,272 +1,171 @@
-# Azure ML Workspace Automation Framework (Python)
+# Azure ML Workspace Test Framework
 
-A comprehensive Python-based automation framework for testing and managing Azure Machine Learning workspaces using Playwright for web automation.
+A comprehensive C# Playwright-based test framework for Azure Machine Learning workspace automation and testing.
 
-## 🚀 Features
+## Features
 
-- **Web Automation**: Playwright-based browser automation for Azure ML Studio
-- **Azure Integration**: Native Azure SDK integration for workspace management
-- **Authentication**: Multiple authentication methods (DefaultAzureCredential, Interactive, Managed Identity)
-- **Compute Management**: Start/stop compute instances programmatically
-- **Test Framework**: Comprehensive test suite with parallel execution
-- **CLI Interface**: Command-line interface for all operations
-- **Reporting**: HTML and Allure test reports
-- **Configuration**: Flexible configuration via environment variables
-- **Logging**: Structured logging with multiple output formats
+- **Playwright Integration**: Modern browser automation with C# and .NET
+- **Page Object Model**: Maintainable and scalable test architecture
+- **Comprehensive Logging**: Detailed test execution logging with Serilog
+- **Screenshot & Video Capture**: Automatic capture on test failures
+- **Trace Recording**: Detailed execution traces for debugging
+- **Configuration Management**: Flexible configuration via JSON and environment variables
+- **Azure ML Integration**: Specialized page objects for Azure ML workspace components
 
-## 📋 Prerequisites
+## Test Categories
 
-- Python 3.9+
-- Azure subscription with ML workspace
-- Appropriate Azure permissions
+### AI Document Search
+- PDF text extraction testing
+- Image OCR text extraction
+- Document classification
+- Key phrase extraction
+- Document summarization
 
-## 🛠️ Installation
+### ML Workspace Management
+- Workspace access and navigation
+- Notebook creation and management
+- Compute resource management
+- Dataset management
+- Model management
+- Experiment management
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd AZ_ML_Workspace
-   ```
+### Integration Tests
+- End-to-end ML workflows
+- Document processing workflows
+- Model deployment workflows
 
-2. **Install the package:**
-   ```bash
-   pip install -e .
-   ```
+### Security Tests
+- Authentication and authorization
+- Resource access control
+- Session management
 
-3. **Install Playwright browsers:**
-   ```bash
-   playwright install
-   ```
+## Project Structure
 
-4. **Set up configuration:**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your Azure configuration
-   ```
-
-## ⚙️ Configuration
-
-Create a `.env` file with your Azure configuration:
-
-```env
-# Required
-AZURE_TENANT_ID=your-tenant-id
-AZURE_SUBSCRIPTION_ID=your-subscription-id
-AZURE_RESOURCE_GROUP=your-resource-group
-AZURE_WORKSPACE_NAME=your-workspace-name
-
-# Optional
-USE_INTERACTIVE_AUTH=false
-LOG_LEVEL=info
-MAX_WORKERS=4
+```
+AzureMLWorkspace.Tests/
+├── Configuration/          # Test configuration classes
+├── Helpers/               # Base test classes and utilities
+├── PageObjects/           # Page Object Model classes
+├── Tests/                 # Test classes organized by category
+│   ├── AIDocumentSearch/
+│   ├── MLWorkspace/
+│   ├── Integration/
+│   └── Security/
+├── TestData/              # Test data files
+└── appsettings.json       # Configuration files
 ```
 
-## 🎯 Usage
+## Getting Started
 
-### CLI Commands
+### Prerequisites
 
-```bash
-# Set up the framework
-python -m azure_ml_automation.cli setup
+- .NET 9.0 or later
+- Visual Studio 2022 or VS Code
+- Azure subscription with ML workspace (for integration tests)
 
-# Validate configuration
-python -m azure_ml_automation.cli validate
+### Installation
 
-# Run tests
-python -m azure_ml_automation.cli test
+1. Clone the repository
+2. Restore NuGet packages:
+   ```bash
+   dotnet restore
+   ```
 
-# Run specific test pattern
-python -m azure_ml_automation.cli test -p "smoke"
+3. Install Playwright browsers:
+   ```bash
+   pwsh bin/Debug/net9.0/playwright.ps1 install
+   ```
 
-# Run tests with specific browser
-python -m azure_ml_automation.cli test -b firefox --headed
+### Configuration
 
-# Manage compute instances
-python -m azure_ml_automation.cli start-compute
-python -m azure_ml_automation.cli stop-compute
-python -m azure_ml_automation.cli compute-status
+1. Update `appsettings.json` with your Azure ML workspace details:
+   ```json
+   {
+     "BaseUrl": "https://ml.azure.com",
+     "Azure": {
+       "SubscriptionId": "your-subscription-id",
+       "ResourceGroup": "your-resource-group",
+       "WorkspaceName": "your-workspace-name",
+       "TenantId": "your-tenant-id"
+     }
+   }
+   ```
 
-# Generate reports
-python -m azure_ml_automation.cli report
-
-# Clean up artifacts
-python -m azure_ml_automation.cli clean
-```
-
-### Python API
-
-```python
-import asyncio
-from azure_ml_automation import AzureMLHelper, create_azure_ml_helper
-
-async def main():
-    # Create helper instance
-    helper = await create_azure_ml_helper()
-    
-    # Get workspace info
-    workspace = await helper.get_workspace()
-    print(f"Workspace: {workspace.name}")
-    
-    # Start compute instance
-    await helper.start_compute_instance("my-compute")
-    
-    # Run browser automation
-    from azure_ml_automation.helpers.browser_manager import BrowserManager
-    
-    async with BrowserManager() as browser:
-        page = await browser.new_page()
-        await page.goto("https://ml.azure.com")
-        # Your automation code here
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-## 🧪 Testing
-
-The framework includes comprehensive test suites:
-
-### Test Categories
-
-- **Smoke Tests**: Basic functionality validation
-- **Authentication Tests**: Login and credential validation
-- **Workspace Tests**: Workspace navigation and operations
-- **Compute Tests**: Compute instance management
-- **Notebook Tests**: Jupyter notebook operations
-- **Data Tests**: Dataset and datastore operations
-- **Model Tests**: Model registration and deployment
-- **Pipeline Tests**: ML pipeline operations
+2. For local development, create `appsettings.test.json` to override settings:
+   ```json
+   {
+     "HeadlessMode": false,
+     "SlowMo": true,
+     "CaptureVideos": true
+   }
+   ```
 
 ### Running Tests
 
+Run all tests:
 ```bash
-# Run all tests
-python -m azure_ml_automation.cli test
-
-# Run smoke tests only
-python -m azure_ml_automation.cli test -p "smoke"
-
-# Run with specific browser
-python -m azure_ml_automation.cli test -b firefox
-
-# Run in headed mode (visible browser)
-python -m azure_ml_automation.cli test --headed
-
-# Run with parallel workers
-python -m azure_ml_automation.cli test -w 2
+dotnet test
 ```
 
-## 📊 Reporting
-
-The framework generates multiple report formats:
-
-- **HTML Reports**: `reports/html/index.html`
-- **Allure Reports**: `reports/allure/`
-- **JUnit XML**: `reports/junit.xml`
-
-Generate reports:
+Run specific test categories:
 ```bash
-python -m azure_ml_automation.cli report
+dotnet test --filter Category=DocumentProcessing
+dotnet test --filter Category=WorkspaceManagement
+dotnet test --filter Category=Integration
+dotnet test --filter Category=Security
 ```
 
-## 🏗️ Architecture
-
-```
-src/azure_ml_automation/
-├── __init__.py              # Main package exports
-├── cli.py                   # Command-line interface
-├── helpers/
-│   ├── auth.py             # Authentication management
-│   ├── azure_helpers.py    # Azure SDK operations
-│   ├── browser_manager.py  # Playwright browser management
-│   ├── config.py           # Configuration management
-│   ├── logger.py           # Structured logging
-│   └── utils.py            # Utility functions
-├── pages/                  # Page Object Model
-│   ├── base_page.py        # Base page class
-│   ├── login_page.py       # Login page
-│   ├── workspace_page.py   # Workspace page
-│   ├── compute_page.py     # Compute page
-│   └── notebook_page.py    # Notebook page
-└── tests/                  # Test suites
-    ├── smoke/              # Smoke tests
-    ├── auth/               # Authentication tests
-    ├── workspace/          # Workspace tests
-    ├── compute/            # Compute tests
-    ├── notebooks/          # Notebook tests
-    ├── data/               # Data tests
-    ├── models/             # Model tests
-    └── pipelines/          # Pipeline tests
+Run tests with specific browser:
+```bash
+dotnet test -- Playwright.BrowserName=chromium
+dotnet test -- Playwright.BrowserName=firefox
+dotnet test -- Playwright.BrowserName=webkit
 ```
 
-## 🔧 Development
+### Test Configuration Options
 
-### Adding New Tests
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `HeadlessMode` | Run browser in headless mode | `true` |
+| `BrowserType` | Browser to use (chromium, firefox, webkit) | `chromium` |
+| `SlowMo` | Add delay between actions | `false` |
+| `SlowMoDelay` | Delay in milliseconds | `100` |
+| `CaptureScreenshots` | Capture screenshots on failure | `true` |
+| `CaptureVideos` | Record test execution videos | `false` |
+| `CaptureTraces` | Record execution traces | `true` |
+| `DefaultTimeout` | Default timeout for operations | `30000` |
 
-1. Create test file in appropriate directory
-2. Inherit from `BaseTest` class
-3. Use page objects for UI interactions
-4. Follow naming convention: `test_*.py`
+### Test Data
 
-Example:
-```python
-import pytest
-from azure_ml_automation.tests.base_test import BaseTest
+The framework includes sample test data in the `TestData/` directory:
+- `sample-notebook.ipynb`: Sample Jupyter notebook for testing
+- `azure-ml-config.json`: Sample Azure ML configuration
+- Additional test files can be added as needed
 
-class TestMyFeature(BaseTest):
-    async def test_my_feature(self):
-        # Your test code here
-        pass
-```
+### Logging
 
-### Adding New Pages
+Test execution logs are automatically generated in the `Logs/` directory with:
+- Console output with timestamps
+- File-based logging with daily rotation
+- Test step logging
+- Screenshot capture logging
+- Error and exception logging
 
-1. Create page class in `pages/` directory
-2. Inherit from `BasePage`
-3. Define locators and methods
+### Continuous Integration
 
-Example:
-```python
-from azure_ml_automation.pages.base_page import BasePage
+The framework is designed to work with CI/CD pipelines. Key considerations:
+- Use headless mode in CI environments
+- Configure appropriate timeouts
+- Store Azure credentials securely
+- Archive test artifacts (screenshots, videos, traces)
 
-class MyPage(BasePage):
-    def __init__(self, page):
-        super().__init__(page)
-        self.my_button = page.locator("[data-testid='my-button']")
-    
-    async def click_my_button(self):
-        await self.my_button.click()
-```
+## Contributing
 
-## 🤝 Contributing
+1. Follow the existing code structure and naming conventions
+2. Add appropriate test categories and documentation
+3. Include logging for test steps
+4. Update configuration as needed for new features
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite
-6. Submit a pull request
-
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For issues and questions:
-1. Check the documentation
-2. Search existing issues
-3. Create a new issue with detailed information
-
-## 🔄 Migration from TypeScript
-
-This framework was migrated from TypeScript to Python while maintaining all functionality:
-
-- ✅ All TypeScript files removed
-- ✅ Python equivalents implemented
-- ✅ Same CLI interface
-- ✅ Same test structure
-- ✅ Same configuration options
-- ✅ Enhanced Azure SDK integration
-- ✅ Improved error handling
-- ✅ Better logging and reporting

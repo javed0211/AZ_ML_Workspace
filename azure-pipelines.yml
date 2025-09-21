@@ -1,0 +1,350 @@
+# Azure DevOps Pipeline for Azure ML Test Automation
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - AzureMLWorkspace.Tests/**
+    - azure-pipelines.yml
+
+pr:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - AzureMLWorkspace.Tests/**
+
+schedules:
+- cron: "0 2 * * *"
+  displayName: Daily test run
+  branches:
+    include:
+    - main
+  always: true
+
+variables:
+  buildConfiguration: 'Release'
+  dotnetVersion: '8.0.x'
+  vmImageWindows: 'windows-latest'
+  vmImageLinux: 'ubuntu-latest'
+  vmImageMacOS: 'macOS-latest'
+
+stages:
+- stage: Build
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Test'
+    strategy:
+      matrix:
+        Linux_Chromium:
+          imageName: $(vmImageLinux)
+          browserType: 'chromium'
+        Linux_Firefox:
+          imageName: $(vmImageLinux)
+          browserType: 'firefox'
+        Windows_Chromium:
+          imageName: $(vmImageWindows)
+          browserType: 'chromium'
+        Windows_Firefox:
+          imageName: $(vmImageWindows)
+          browserType: 'firefox'
+        Windows_Edge:
+          imageName: $(vmImageWindows)
+          browserType: 'msedge'
+        macOS_Chromium:
+          imageName: $(vmImageMacOS)
+          browserType: 'chromium'
+        macOS_Safari:
+          imageName: $(vmImageMacOS)
+          browserType: 'webkit'
+    
+    pool:
+      vmImage: $(imageName)
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetVersion)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore packages'
+      inputs:
+        command: 'restore'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Build solution'
+      inputs:
+        command: 'build'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+        
+    - task: PowerShell@2
+      displayName: 'Install Playwright browsers'
+      inputs:
+        targetType: 'inline'
+        script: |
+          dotnet run --project AzureMLWorkspace.Tests -- playwright install --with-deps $(browserType)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Run Unit Tests'
+      inputs:
+        command: 'test'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: |
+          --configuration $(buildConfiguration) 
+          --no-build 
+          --logger trx 
+          --logger "console;verbosity=detailed"
+          --collect:"XPlat Code Coverage"
+          --filter "Category!=UI&Category!=BDD"
+          --results-directory $(Agent.TempDirectory)/TestResults/Unit
+      env:
+        BROWSER_TYPE: $(browserType)
+        HEADLESS_MODE: true
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Run API Tests'
+      inputs:
+        command: 'test'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: |
+          --configuration $(buildConfiguration) 
+          --no-build 
+          --logger trx 
+          --logger "console;verbosity=detailed"
+          --collect:"XPlat Code Coverage"
+          --filter "Category=API"
+          --results-directory $(Agent.TempDirectory)/TestResults/API
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
+        AZURE_WORKSPACE_NAME: $(AZURE_WORKSPACE_NAME)
+        AZUREAISEARCH_SERVICENAME: $(AZUREAISEARCH_SERVICENAME)
+        AZUREAISEARCH_INDEXNAME: $(AZUREAISEARCH_INDEXNAME)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Run UI Tests'
+      inputs:
+        command: 'test'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: |
+          --configuration $(buildConfiguration) 
+          --no-build 
+          --logger trx 
+          --logger "console;verbosity=detailed"
+          --collect:"XPlat Code Coverage"
+          --filter "Category=UI"
+          --results-directory $(Agent.TempDirectory)/TestResults/UI
+      env:
+        BROWSER_TYPE: $(browserType)
+        HEADLESS_MODE: true
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
+        AZURE_WORKSPACE_NAME: $(AZURE_WORKSPACE_NAME)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Run BDD Tests'
+      inputs:
+        command: 'test'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: |
+          --configuration $(buildConfiguration) 
+          --no-build 
+          --logger trx 
+          --logger "console;verbosity=detailed"
+          --collect:"XPlat Code Coverage"
+          --filter "Category=BDD"
+          --results-directory $(Agent.TempDirectory)/TestResults/BDD
+      env:
+        BROWSER_TYPE: $(browserType)
+        HEADLESS_MODE: true
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
+        AZURE_WORKSPACE_NAME: $(AZURE_WORKSPACE_NAME)
+        AZUREAISEARCH_SERVICENAME: $(AZUREAISEARCH_SERVICENAME)
+        AZUREAISEARCH_INDEXNAME: $(AZUREAISEARCH_INDEXNAME)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Install ReportGenerator'
+      inputs:
+        command: 'custom'
+        custom: 'tool'
+        arguments: 'install -g dotnet-reportgenerator-globaltool'
+        
+    - task: PowerShell@2
+      displayName: 'Generate Coverage Report'
+      inputs:
+        targetType: 'inline'
+        script: |
+          reportgenerator `
+            -reports:"$(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml" `
+            -targetdir:"$(Agent.TempDirectory)/TestResults/CoverageReport" `
+            -reporttypes:"Html;Cobertura;JsonSummary"
+            
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/**/*.trx'
+        mergeTestResults: true
+        failTaskOnFailedTests: true
+        testRunTitle: 'Test Results ($(imageName)-$(browserType))'
+        
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish Code Coverage'
+      condition: always()
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/TestResults/CoverageReport/Cobertura.xml'
+        reportDirectory: '$(Agent.TempDirectory)/TestResults/CoverageReport'
+        
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Test Artifacts'
+      condition: always()
+      inputs:
+        pathToPublish: '$(Agent.TempDirectory)/TestResults'
+        artifactName: 'TestResults-$(imageName)-$(browserType)'
+        publishLocation: 'Container'
+        
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Screenshots and Traces'
+      condition: always()
+      inputs:
+        pathToPublish: 'AzureMLWorkspace.Tests'
+        artifactName: 'TestArtifacts-$(imageName)-$(browserType)'
+        publishLocation: 'Container'
+
+- stage: PerformanceTest
+  displayName: 'Performance Testing'
+  dependsOn: Build
+  condition: and(succeeded(), or(eq(variables['Build.Reason'], 'Schedule'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+  jobs:
+  - job: PerformanceTest
+    displayName: 'Run Performance Tests'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetVersion)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore packages'
+      inputs:
+        command: 'restore'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Build solution'
+      inputs:
+        command: 'build'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Run Performance Tests'
+      inputs:
+        command: 'test'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        arguments: |
+          --configuration $(buildConfiguration) 
+          --no-build 
+          --logger trx 
+          --filter "Category=Performance"
+          --results-directory $(Agent.TempDirectory)/TestResults/Performance
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZUREAISEARCH_SERVICENAME: $(AZUREAISEARCH_SERVICENAME)
+        AZUREAISEARCH_INDEXNAME: $(AZUREAISEARCH_INDEXNAME)
+        
+    - task: PublishTestResults@2
+      displayName: 'Publish Performance Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/Performance/*.trx'
+        testRunTitle: 'Performance Test Results'
+        
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Performance Results'
+      condition: always()
+      inputs:
+        pathToPublish: '$(Agent.TempDirectory)/TestResults/Performance'
+        artifactName: 'PerformanceResults'
+        publishLocation: 'Container'
+
+- stage: SecurityScan
+  displayName: 'Security Scanning'
+  dependsOn: Build
+  jobs:
+  - job: SecurityScan
+    displayName: 'Run Security Scans'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetVersion)
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore packages'
+      inputs:
+        command: 'restore'
+        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        
+    - task: WhiteSource@21
+      displayName: 'Run WhiteSource Security Scan'
+      inputs:
+        cwd: '$(System.DefaultWorkingDirectory)'
+        
+    - task: CredScan@3
+      displayName: 'Run Credential Scanner'
+      inputs:
+        toolMajorVersion: 'V2'
+        
+    - task: PostAnalysis@2
+      displayName: 'Post Analysis'
+      inputs:
+        GdnBreakAllTools: false
+        GdnBreakGdnToolCredScan: true
+        GdnBreakGdnToolCredScanSeverity: 'Warning'
+
+- stage: Deploy
+  displayName: 'Deploy Test Reports'
+  dependsOn: [Build, PerformanceTest, SecurityScan]
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - deployment: DeployReports
+    displayName: 'Deploy Test Reports'
+    environment: 'test-reports'
+    pool:
+      vmImage: $(vmImageLinux)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            displayName: 'Deploy Test Reports to Azure Web App'
+            inputs:
+              azureSubscription: 'Azure Service Connection'
+              appType: 'webApp'
+              appName: 'azure-ml-test-reports'
+              package: '$(Pipeline.Workspace)/**/*.zip'

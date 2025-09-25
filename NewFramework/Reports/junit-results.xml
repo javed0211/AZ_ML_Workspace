@@ -1,394 +1,75 @@
-<testsuites id="" name="" tests="2" failures="2" skipped="0" errors="0" time="95.37884600000001">
-<testsuite name="google-search.spec.ts" timestamp="2025-09-25T11:26:13.767Z" hostname="chromium" tests="2" failures="2" skipped="0" time="160.639" errors="0">
-<testcase name="Google Search Tests › should search for Marshall headphones on Google" classname="google-search.spec.ts" time="91.301">
-<failure message="google-search.spec.ts:25:7 should search for Marshall headphones on Google" type="FAILURE">
-<![CDATA[  [chromium] › google-search.spec.ts:25:7 › Google Search Tests › should search for Marshall headphones on Google 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.waitFor: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('#search, #rso, [data-testid="search-results"]') to be visible
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/error-context.md
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.waitFor: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('#search, #rso, [data-testid="search-results"]') to be visible
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/trace.zip
-    Usage:
-
-        npx playwright show-trace ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.waitFor: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('#search, #rso, [data-testid="search-results"]') to be visible
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[2025-09-25 16:56:17 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:56:17 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:56:17 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:56:19 [[32minfo[39m]: 📝 Step: Verify Google homepage loaded
-2025-09-25 16:56:19 [[32minfo[39m]: 🎯 Action: Assert page title equals '/Google/'
-2025-09-25 16:56:19 [[32minfo[39m]: 📝 Step: Accept cookies if present
-2025-09-25 16:56:19 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:56:22 [[32minfo[39m]: No cookie consent dialog found, continuing...
-2025-09-25 16:56:22 [[32minfo[39m]: 📝 Step: Find and click on search input
-2025-09-25 16:56:22 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"]
-2025-09-25 16:56:24 [[32minfo[39m]: 🎯 Action: Wait for element on textarea[name="q"]
-2025-09-25 16:56:24 [[32minfo[39m]: 📝 Step: Type search query: marshall headphones
-2025-09-25 16:56:24 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name="q"]
-2025-09-25 16:56:24 [[32minfo[39m]: 📝 Step: Press Enter to search
-2025-09-25 16:56:24 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on textarea[name="q"]
-2025-09-25 16:56:25 [[32minfo[39m]: 📝 Step: Wait for search results to load
-2025-09-25 16:56:25 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:56:26 [[32minfo[39m]: 📝 Step: Verify search results are displayed
-2025-09-25 16:56:26 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid="search-results"]
-2025-09-25 16:56:46 [[32minfo[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/error-context.md]]
-2025-09-25 16:56:47 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:56:47 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:56:47 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:56:51 [[32minfo[39m]: 📝 Step: Verify Google homepage loaded
-2025-09-25 16:56:51 [[32minfo[39m]: 🎯 Action: Assert page title equals '/Google/'
-2025-09-25 16:56:51 [[32minfo[39m]: 📝 Step: Accept cookies if present
-2025-09-25 16:56:51 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:56:54 [[32minfo[39m]: No cookie consent dialog found, continuing...
-2025-09-25 16:56:54 [[32minfo[39m]: 📝 Step: Find and click on search input
-2025-09-25 16:56:54 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"]
-2025-09-25 16:56:56 [[32minfo[39m]: 🎯 Action: Wait for element on textarea[name="q"]
-2025-09-25 16:56:56 [[32minfo[39m]: 📝 Step: Type search query: marshall headphones
-2025-09-25 16:56:56 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name="q"]
-2025-09-25 16:56:56 [[32minfo[39m]: 📝 Step: Press Enter to search
-2025-09-25 16:56:56 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on textarea[name="q"]
-2025-09-25 16:56:56 [[32minfo[39m]: 📝 Step: Wait for search results to load
-2025-09-25 16:56:56 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:56:58 [[32minfo[39m]: 📝 Step: Verify search results are displayed
-2025-09-25 16:56:58 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid="search-results"]
-2025-09-25 16:57:17 [[32minfo[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/error-context.md]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/trace.zip]]
-2025-09-25 16:57:18 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:57:18 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:57:18 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:57:21 [[32minfo[39m]: 📝 Step: Verify Google homepage loaded
-2025-09-25 16:57:21 [[32minfo[39m]: 🎯 Action: Assert page title equals '/Google/'
-2025-09-25 16:57:21 [[32minfo[39m]: 📝 Step: Accept cookies if present
-2025-09-25 16:57:21 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:57:24 [[32minfo[39m]: No cookie consent dialog found, continuing...
-2025-09-25 16:57:24 [[32minfo[39m]: 📝 Step: Find and click on search input
-2025-09-25 16:57:24 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"]
-2025-09-25 16:57:26 [[32minfo[39m]: 🎯 Action: Wait for element on textarea[name="q"]
-2025-09-25 16:57:26 [[32minfo[39m]: 📝 Step: Type search query: marshall headphones
-2025-09-25 16:57:26 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name="q"]
-2025-09-25 16:57:26 [[32minfo[39m]: 📝 Step: Press Enter to search
-2025-09-25 16:57:26 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on textarea[name="q"]
-2025-09-25 16:57:26 [[32minfo[39m]: 📝 Step: Wait for search results to load
-2025-09-25 16:57:26 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:57:28 [[32minfo[39m]: 📝 Step: Verify search results are displayed
-2025-09-25 16:57:28 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid="search-results"]
-2025-09-25 16:57:48 [[32minfo[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Google Search Tests › should search and click on first Marshall result" classname="google-search.spec.ts" time="69.338">
-<failure message="google-search.spec.ts:93:7 should search and click on first Marshall result" type="FAILURE">
-<![CDATA[  [chromium] › google-search.spec.ts:93:7 › Google Search Tests › should search and click on first Marshall result 
-
-    Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:
-        1) <div id="search">…</div> aka locator('#search')
-        2) <div id="rso" class="dURPMd" eid="9CbVaPt84o-x4w_jt7OxBA" data-async-context="query:marshall%20headphones">…</div> aka locator('#rso')
-
-    Call log:
-      - waiting for locator('#search, #rso') to be visible
-        - waiting for" https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…" navigation to finish...
-        - navigated to "https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…"
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17
-
-    Error: path: unsupported mime type "null"
-
-       at ../Utils/PlaywrightUtils.ts:237
-
-      235 |     const screenshotPath = path.join(screenshotDir, screenshotName);
-      236 |     
-    > 237 |     await this.page.screenshot({ path: screenshotPath, fullPage: true });
-          |                     ^
-      238 |     this.logger.logAction(`Screenshot saved: ${screenshotPath}`);
-      239 |     return screenshotPath;
-      240 |   }
-        at PlaywrightUtils.takeScreenshot (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:237:21)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:21:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/error-context.md
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:
-        1) <div id="search">…</div> aka locator('#search')
-        2) <div id="rso" class="dURPMd" eid="_SbVaMihAsaNseMP_rW94A4" data-async-context="query:marshall%20headphones">…</div> aka locator('#rso')
-
-    Call log:
-      - waiting for locator('#search, #rso') to be visible
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17
-
-    Error: path: unsupported mime type "null"
-
-       at ../Utils/PlaywrightUtils.ts:237
-
-      235 |     const screenshotPath = path.join(screenshotDir, screenshotName);
-      236 |     
-    > 237 |     await this.page.screenshot({ path: screenshotPath, fullPage: true });
-          |                     ^
-      238 |     this.logger.logAction(`Screenshot saved: ${screenshotPath}`);
-      239 |     return screenshotPath;
-      240 |   }
-        at PlaywrightUtils.takeScreenshot (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:237:21)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:21:19
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/trace.zip
-    Usage:
-
-        npx playwright show-trace ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.waitFor: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for locator('#search, #rso') to be visible
-
-
-       at ../Utils/PlaywrightUtils.ts:116
-
-      114 |   async waitForElement(selector: string, timeout?: number): Promise<void> {
-      115 |     this.logger.logAction('Wait for element', selector);
-    > 116 |     await this.page.locator(selector).waitFor({ 
-          |                                       ^
-      117 |       timeout: timeout || this.config.getTestSettings().DefaultTimeout 
-      118 |     });
-      119 |   }
-        at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)
-        at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[2025-09-25 16:56:17 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:56:17 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:56:17 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:56:19 [[32minfo[39m]: 📝 Step: Handle cookie consent if present
-2025-09-25 16:56:19 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:56:22 [[32minfo[39m]: No cookie consent dialog found
-2025-09-25 16:56:22 [[32minfo[39m]: 📝 Step: Search for Marshall headphones
-2025-09-25 16:56:22 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:22 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:22 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:22 [[32minfo[39m]: 📝 Step: Wait for search results
-2025-09-25 16:56:22 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:56:24 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso
-2025-09-25 16:56:45 [[32minfo[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/error-context.md]]
-2025-09-25 16:56:47 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:56:47 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:56:47 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:56:49 [[32minfo[39m]: 📝 Step: Handle cookie consent if present
-2025-09-25 16:56:49 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:56:52 [[32minfo[39m]: No cookie consent dialog found
-2025-09-25 16:56:52 [[32minfo[39m]: 📝 Step: Search for Marshall headphones
-2025-09-25 16:56:52 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:52 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:52 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:56:53 [[32minfo[39m]: 📝 Step: Wait for search results
-2025-09-25 16:56:53 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:56:54 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso
-2025-09-25 16:56:55 [[32minfo[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/error-context.md]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/trace.zip]]
-2025-09-25 16:56:56 [[32minfo[39m]: 🚀 Starting test: Google Search Test Setup
-2025-09-25 16:56:56 [[32minfo[39m]: 📝 Step: Navigate to Google homepage
-2025-09-25 16:56:56 [[32minfo[39m]: 🎯 Action: Navigate to: https://www.google.com
-2025-09-25 16:56:59 [[32minfo[39m]: 📝 Step: Handle cookie consent if present
-2025-09-25 16:56:59 [[32minfo[39m]: 🎯 Action: Wait for element on [id*="accept"], [id*="agree"], button:has-text("Accept all")
-2025-09-25 16:57:02 [[32minfo[39m]: No cookie consent dialog found
-2025-09-25 16:57:02 [[32minfo[39m]: 📝 Step: Search for Marshall headphones
-2025-09-25 16:57:02 [[32minfo[39m]: 🎯 Action: Wait for element on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:57:02 [[32minfo[39m]: 🎯 Action: Fill 'marshall headphones' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:57:02 [[32minfo[39m]: 🎯 Action: Press key 'Enter' on input[name="q"], textarea[name="q"], #APjFqb
-2025-09-25 16:57:02 [[32minfo[39m]: 📝 Step: Wait for search results
-2025-09-25 16:57:02 [[32minfo[39m]: 🎯 Action: Wait for URL: /search/
-2025-09-25 16:57:03 [[32minfo[39m]: 🎯 Action: Wait for element on #search, #rso
-2025-09-25 16:57:26 [[32minfo[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/error-context.md]]
-]]>
-</system-out>
-</testcase>
+<?xml version="1.0"?>
+<testsuite failures="0" skipped="7" name="cucumber-js" time="0" tests="7">
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Access Azure ML Workspace" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
+And I have activated my Data Scientist PIM role..........................skipped
+Given I navigate to the Azure ML workspace...............................skipped
+When I handle authentication if required.................................skipped
+Then I should be able to access the workspace............................skipped
+And the workspace should be available....................................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Start Compute Instance" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
+And I have activated my Data Scientist PIM role..........................skipped
+Given I have access to the Azure ML workspace............................skipped
+And I navigate to the compute section....................................skipped
+When I start a compute instance named "test-compute".....................skipped
+Then the compute instance should be in "Running" status..................skipped
+And the compute instance should be connectable...........................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Stop Compute Instance" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
+And I have activated my Data Scientist PIM role..........................skipped
+Given I have access to the Azure ML workspace............................skipped
+And I navigate to the compute section....................................skipped
+And I ensure compute instance "test-compute" is running..................skipped
+When I stop the compute instance "test-compute"..........................skipped
+Then the compute instance should be in "Stopped" status..................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Manage Multiple Compute Instances" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
+And I have activated my Data Scientist PIM role..........................skipped
+Given I have access to the Azure ML workspace............................skipped
+And I navigate to the compute section....................................skipped
+When I start multiple compute instances:.................................skipped
+Then all compute instances should be in "Running" status.................skipped
+When I stop all compute instances........................................skipped
+Then all compute instances should be in "Stopped" status.................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Azure ML Workspace with VS Code Desktop Integration" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
+And I have activated my Data Scientist PIM role..........................skipped
+Given I navigate to Azure ML workspaces portal...........................skipped
+When I handle login for user "Javed Khan"................................skipped
+And I select workspace "CTO-workspace"...................................skipped
+And I choose compute option..............................................skipped
+And I open compute instance "com-jk".....................................skipped
+And I start compute if not running.......................................skipped
+Then application links should be enabled.................................skipped
+When I start VS Code Desktop.............................................skipped
+Then VS Code Desktop should be interactive and responsive................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Google Search Functionality (TypeScript)" name="Search for Marshall headphones on Google" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I navigate to Google homepage......................................skipped
+When I accept cookies if present.........................................skipped
+And I search for "marshall headphones"...................................skipped
+Then I should see search results.........................................skipped
+And the results should contain "marshall"................................skipped
+And at least one search result should be visible.........................skipped]]></system-out>
+  </testcase>
+  <testcase classname="Google Search Functionality (TypeScript)" name="Search and click on first Marshall result" time="0">
+    <skipped/>
+    <system-out><![CDATA[Given I navigate to Google homepage......................................skipped
+When I accept cookies if present.........................................skipped
+And I search for "marshall headphones"...................................skipped
+And I click on the first Marshall-related result.........................skipped
+Then I should be navigated to a Marshall-related page....................skipped
+And the page should contain Marshall information.........................skipped]]></system-out>
+  </testcase>
 </testsuite>
-</testsuites>

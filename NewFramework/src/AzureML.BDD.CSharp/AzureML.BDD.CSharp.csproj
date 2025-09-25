@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <AssemblyName>AzureML.BDD.CSharp</AssemblyName>
+    <RootNamespace>AzureML.BDD.CSharp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Playwright" Version="1.40.0" />
+    <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.40.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- BDD Support -->
+    <PackageReference Include="Reqnroll" Version="2.0.3" />
+    <PackageReference Include="Reqnroll.NUnit" Version="2.0.3" />
+    <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="../../Config/appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>appsettings.json</Link>
+    </None>
+    <None Update="reqnroll.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- BDD Feature Files Configuration -->
+  <ItemGroup>
+    <Reqnroll Include="Features/AzureMLWorkspace.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureMLWorkspace.feature.cs</LastGenOutput>
+    </Reqnroll>
+    <Reqnroll Include="Features/AzureAISearch.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureAISearch.feature.cs</LastGenOutput>
+    </Reqnroll>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Features/*.feature">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Include TestData as linked files -->
+  <ItemGroup>
+    <None Include="../../TestData/**/*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>TestData/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+
+</Project>

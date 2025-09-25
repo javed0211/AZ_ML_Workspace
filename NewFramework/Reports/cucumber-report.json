@@ -23,7 +23,7 @@
             "line": 7,
             "name": "I am a data scientist named \"Javed\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
               "status": "skipped",
@@ -36,7 +36,7 @@
             "line": 8,
             "name": "I have activated my Data Scientist PIM role",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
               "status": "skipped",
@@ -49,7 +49,7 @@
             "line": 12,
             "name": "I navigate to the Azure ML workspace",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:471"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:472"
             },
             "result": {
               "status": "skipped",
@@ -62,7 +62,7 @@
             "line": 13,
             "name": "I handle authentication if required",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:327"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:328"
             },
             "result": {
               "status": "skipped",
@@ -75,7 +75,7 @@
             "line": 14,
             "name": "I should be able to access the workspace",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:525"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:526"
             },
             "result": {
               "status": "skipped",
@@ -88,7 +88,7 @@
             "line": 15,
             "name": "the workspace should be available",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:531"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:532"
             },
             "result": {
               "status": "skipped",
@@ -137,7 +137,7 @@
             "line": 7,
             "name": "I am a data scientist named \"Javed\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
               "status": "skipped",
@@ -150,7 +150,7 @@
             "line": 8,
             "name": "I have activated my Data Scientist PIM role",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
               "status": "skipped",
@@ -163,7 +163,7 @@
             "line": 19,
             "name": "I have access to the Azure ML workspace",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
               "status": "skipped",
@@ -176,7 +176,7 @@
             "line": 20,
             "name": "I navigate to the compute section",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
               "status": "skipped",
@@ -189,7 +189,7 @@
             "line": 21,
             "name": "I start a compute instance named \"test-compute\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:520"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:521"
             },
             "result": {
               "status": "skipped",
@@ -202,7 +202,7 @@
             "line": 22,
             "name": "the compute instance should be in \"Running\" status",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:536"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
             },
             "result": {
               "status": "skipped",
@@ -215,7 +215,7 @@
             "line": 23,
             "name": "the compute instance should be connectable",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:542"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:543"
             },
             "result": {
               "status": "skipped",
@@ -268,7 +268,7 @@
             "line": 7,
             "name": "I am a data scientist named \"Javed\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
               "status": "skipped",
@@ -281,7 +281,7 @@
             "line": 8,
             "name": "I have activated my Data Scientist PIM role",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
               "status": "skipped",
@@ -294,7 +294,7 @@
             "line": 27,
             "name": "I have access to the Azure ML workspace",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
               "status": "skipped",
@@ -307,7 +307,7 @@
             "line": 28,
             "name": "I navigate to the compute section",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
               "status": "skipped",
@@ -320,7 +320,7 @@
             "line": 29,
             "name": "I ensure compute instance \"test-compute\" is running",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:489"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:490"
             },
             "result": {
               "status": "skipped",
@@ -333,7 +333,7 @@
             "line": 30,
             "name": "I stop the compute instance \"test-compute\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:369"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:370"
             },
             "result": {
               "status": "skipped",
@@ -346,7 +346,7 @@
             "line": 31,
             "name": "the compute instance should be in \"Stopped\" status",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:536"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
             },
             "result": {
               "status": "skipped",
@@ -399,7 +399,7 @@
             "line": 7,
             "name": "I am a data scientist named \"Javed\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
               "status": "skipped",
@@ -412,7 +412,7 @@
             "line": 8,
             "name": "I have activated my Data Scientist PIM role",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
               "status": "skipped",
@@ -425,7 +425,7 @@
             "line": 35,
             "name": "I have access to the Azure ML workspace",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
               "status": "skipped",
@@ -438,7 +438,7 @@
             "line": 36,
             "name": "I navigate to the compute section",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
               "status": "skipped",
@@ -471,7 +471,7 @@
             "line": 37,
             "name": "I start multiple compute instances:",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:374"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:375"
             },
             "result": {
               "status": "skipped",
@@ -484,7 +484,7 @@
             "line": 41,
             "name": "all compute instances should be in \"Running\" status",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:548"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
             },
             "result": {
               "status": "skipped",
@@ -497,7 +497,7 @@
             "line": 42,
             "name": "I stop all compute instances",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:396"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:397"
             },
             "result": {
               "status": "skipped",
@@ -510,7 +510,7 @@
             "line": 43,
             "name": "all compute instances should be in \"Stopped\" status",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:548"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
             },
             "result": {
               "status": "skipped",
@@ -567,7 +567,7 @@
             "line": 7,
             "name": "I am a data scientist named \"Javed\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
               "status": "skipped",
@@ -580,7 +580,7 @@
             "line": 8,
             "name": "I have activated my Data Scientist PIM role",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
               "status": "skipped",
@@ -593,7 +593,7 @@
             "line": 47,
             "name": "I navigate to Azure ML workspaces portal",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:484"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:485"
             },
             "result": {
               "status": "skipped",
@@ -606,7 +606,7 @@
             "line": 48,
             "name": "I handle login for user \"Javed Khan\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:494"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:495"
             },
             "result": {
               "status": "skipped",
@@ -619,7 +619,7 @@
             "line": 49,
             "name": "I select workspace \"CTO-workspace\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:499"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:500"
             },
             "result": {
               "status": "skipped",
@@ -632,7 +632,7 @@
             "line": 50,
             "name": "I choose compute option",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:504"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:505"
             },
             "result": {
               "status": "skipped",
@@ -645,7 +645,7 @@
             "line": 51,
             "name": "I open compute instance \"com-jk\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:509"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:510"
             },
             "result": {
               "status": "skipped",
@@ -658,7 +658,7 @@
             "line": 52,
             "name": "I start compute if not running",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:514"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:515"
             },
             "result": {
               "status": "skipped",
@@ -671,7 +671,7 @@
             "line": 53,
             "name": "application links should be enabled",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:559"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:560"
             },
             "result": {
               "status": "skipped",
@@ -684,7 +684,7 @@
             "line": 54,
             "name": "I start VS Code Desktop",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:455"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:456"
             },
             "result": {
               "status": "skipped",
@@ -697,7 +697,7 @@
             "line": 55,
             "name": "VS Code Desktop should be interactive and responsive",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:460"
+              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:461"
             },
             "result": {
               "status": "skipped",
@@ -739,7 +739,7 @@
     "keyword": "Feature",
     "name": "Azure ML Workspace Management (TypeScript)",
     "tags": [],
-    "uri": "TypeScriptTests/Features/AzureMLWorkspace.feature"
+    "uri": "Features/AzureMLWorkspace.feature"
   },
   {
     "description": "  As a user\n  I want to search for products on Google\n  So that I can find relevant information",
@@ -773,7 +773,7 @@
             "line": 8,
             "name": "I navigate to Google homepage",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:177"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:179"
             },
             "result": {
               "status": "skipped",
@@ -786,7 +786,7 @@
             "line": 9,
             "name": "I accept cookies if present",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:185"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:187"
             },
             "result": {
               "status": "skipped",
@@ -799,7 +799,7 @@
             "line": 10,
             "name": "I search for \"marshall headphones\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:197"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:199"
             },
             "result": {
               "status": "skipped",
@@ -812,7 +812,7 @@
             "line": 11,
             "name": "I should see search results",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:234"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:236"
             },
             "result": {
               "status": "skipped",
@@ -825,7 +825,7 @@
             "line": 12,
             "name": "the results should contain \"marshall\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:240"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:242"
             },
             "result": {
               "status": "skipped",
@@ -838,7 +838,7 @@
             "line": 13,
             "name": "at least one search result should be visible",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:246"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:248"
             },
             "result": {
               "status": "skipped",
@@ -907,7 +907,7 @@
             "line": 17,
             "name": "I navigate to Google homepage",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:177"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:179"
             },
             "result": {
               "status": "skipped",
@@ -920,7 +920,7 @@
             "line": 18,
             "name": "I accept cookies if present",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:185"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:187"
             },
             "result": {
               "status": "skipped",
@@ -933,7 +933,7 @@
             "line": 19,
             "name": "I search for \"marshall headphones\"",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:197"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:199"
             },
             "result": {
               "status": "skipped",
@@ -946,7 +946,7 @@
             "line": 20,
             "name": "I click on the first Marshall-related result",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:258"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:260"
             },
             "result": {
               "status": "skipped",
@@ -959,7 +959,7 @@
             "line": 21,
             "name": "I should be navigated to a Marshall-related page",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:283"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:285"
             },
             "result": {
               "status": "skipped",
@@ -972,7 +972,7 @@
             "line": 22,
             "name": "the page should contain Marshall information",
             "match": {
-              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:298"
+              "location": "StepDefinitions/GoogleSearchSteps.ts:300"
             },
             "result": {
               "status": "skipped",
@@ -1022,6 +1022,6 @@
     "keyword": "Feature",
     "name": "Google Search Functionality (TypeScript)",
     "tags": [],
-    "uri": "TypeScriptTests/Features/GoogleSearch.feature"
+    "uri": "Features/GoogleSearch.feature"
   }
 ]

@@ -1,0 +1,182 @@
+{
+	"folders": [
+		{
+			"name": "Azure ML Test Framework",
+			"path": "."
+		},
+		{
+			"name": "C# Tests",
+			"path": "./NewFramework/CSharpTests"
+		},
+		{
+			"name": "TypeScript Tests",
+			"path": "./NewFramework/TypeScriptTests"
+		},
+		{
+			"name": "Features",
+			"path": "./NewFramework/Features"
+		},
+		{
+			"name": "Configuration",
+			"path": "./NewFramework/Config"
+		},
+		{
+			"name": "Documentation",
+			"path": "./NewFramework/Documentation"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/bin": true,
+			"**/obj": true,
+			"**/node_modules": true,
+			"**/.git": true,
+			"**/test-results": true,
+			"**/playwright-report": true
+		},
+		"dotnet.defaultSolution": "AzureMLTestFramework.sln",
+		"omnisharp.defaultLaunchSolution": "AzureMLTestFramework.sln",
+		"typescript.preferences.includePackageJsonAutoImports": "auto",
+		"playwright.reuseBrowser": true,
+		"playwright.showTrace": true,
+		"csharp.semanticHighlighting.enabled": true,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-dotnettools.csharp",
+			"ms-dotnettools.vscode-dotnet-runtime",
+			"ms-playwright.playwright",
+			"cucumber.cucumber-official",
+			"reqnroll.reqnroll-official",
+			"ms-vscode.vscode-typescript-next",
+			"esbenp.prettier-vscode",
+			"bradlc.vscode-tailwindcss"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Build C# Tests",
+				"type": "dotnet",
+				"task": "build",
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "quiet",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": "$msCompile",
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework/CSharpTests"
+				}
+			},
+			{
+				"label": "Run C# Tests",
+				"type": "dotnet",
+				"task": "test",
+				"group": "test",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": "$msCompile",
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework/CSharpTests"
+				}
+			},
+			{
+				"label": "Install TypeScript Dependencies",
+				"type": "shell",
+				"command": "npm install",
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework"
+				}
+			},
+			{
+				"label": "Run TypeScript Tests",
+				"type": "shell",
+				"command": "npx playwright test",
+				"group": "test",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework"
+				}
+			},
+			{
+				"label": "Run Azure ML Tests (Shell)",
+				"type": "shell",
+				"command": "./run-azure-ml-tests.sh",
+				"group": "test",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework"
+				}
+			},
+			{
+				"label": "Validate Setup",
+				"type": "shell",
+				"command": "./validate-setup.sh",
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/NewFramework"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Debug C# Tests",
+				"type": "coreclr",
+				"request": "launch",
+				"program": "dotnet",
+				"args": ["test", "--logger", "console;verbosity=detailed"],
+				"cwd": "${workspaceFolder}/NewFramework/CSharpTests",
+				"console": "internalConsole",
+				"stopAtEntry": false
+			},
+			{
+				"name": "Debug Specific C# Test",
+				"type": "coreclr",
+				"request": "launch",
+				"program": "dotnet",
+				"args": ["test", "--filter", "TestMethod=ShouldAccessAzureMLWorkspace", "--logger", "console;verbosity=detailed"],
+				"cwd": "${workspaceFolder}/NewFramework/CSharpTests",
+				"console": "internalConsole",
+				"stopAtEntry": false
+			}
+		]
+	}
+}

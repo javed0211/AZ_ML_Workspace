@@ -1,0 +1,77 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F1E2D3C4-B5A6-9780-CDEF-123456789ABC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{D1C2B3A4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{C1B2A3D4-F5E6-8970-BCDE-F12345678901}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B1A2C3D4-G5F6-7890-CDEF-123456789012}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaywrightFramework", "NewFramework\CSharpTests\PlaywrightFramework.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{E1D2C3B4-A5F6-9780-BCDE-F12345678901}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A8B7C6D-5E4F-3210-9876-543210FEDCBA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		NewFramework\README.md = NewFramework\README.md
+		NewFramework\package.json = NewFramework\package.json
+		NewFramework\playwright.config.ts = NewFramework\playwright.config.ts
+		NewFramework\reqnroll.json = NewFramework\reqnroll.json
+		NewFramework\tsconfig.json = NewFramework\tsconfig.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation Files", "Documentation Files", "{8A7B6C5D-4E3F-2109-8765-432109FEDCBA}"
+	ProjectSection(SolutionItems) = preProject
+		NewFramework\Documentation\AzureML-Automation-Guide.md = NewFramework\Documentation\AzureML-Automation-Guide.md
+		NewFramework\Documentation\PIM-Setup-Guide.md = NewFramework\Documentation\PIM-Setup-Guide.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration Files", "Configuration Files", "{7A6B5C4D-3E2F-1098-7654-321098FEDCBA}"
+	ProjectSection(SolutionItems) = preProject
+		NewFramework\Config\appsettings.json = NewFramework\Config\appsettings.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature Files", "Feature Files", "{6A5B4C3D-2E1F-0987-6543-210987FEDCBA}"
+	ProjectSection(SolutionItems) = preProject
+		NewFramework\Features\AzureMLWorkspace.feature = NewFramework\Features\AzureMLWorkspace.feature
+		NewFramework\Features\AzureAISearch.feature = NewFramework\Features\AzureAISearch.feature
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script Files", "Script Files", "{5A4B3C2D-1E0F-9876-5432-109876FEDCBA}"
+	ProjectSection(SolutionItems) = preProject
+		NewFramework\run-tests.sh = NewFramework\run-tests.sh
+		NewFramework\run-tests.bat = NewFramework\run-tests.bat
+		NewFramework\run-azure-ml-tests.sh = NewFramework\run-azure-ml-tests.sh
+		NewFramework\validate-setup.sh = NewFramework\validate-setup.sh
+		NewFramework\Scripts\Setup-PIMPermissions.ps1 = NewFramework\Scripts\Setup-PIMPermissions.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890} = {F1E2D3C4-B5A6-9780-CDEF-123456789ABC}
+		{8A7B6C5D-4E3F-2109-8765-432109FEDCBA} = {D1C2B3A4-E5F6-7890-ABCD-EF1234567890}
+		{7A6B5C4D-3E2F-1098-7654-321098FEDCBA} = {C1B2A3D4-F5E6-8970-BCDE-F12345678901}
+		{6A5B4C3D-2E1F-0987-6543-210987FEDCBA} = {E1D2C3B4-A5F6-9780-BCDE-F12345678901}
+		{5A4B3C2D-1E0F-9876-5432-109876FEDCBA} = {B1A2C3D4-G5F6-7890-CDEF-123456789012}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12345678-1234-1234-1234-123456789012}
+	EndGlobalSection
+EndGlobal

@@ -20,13 +20,11 @@ public class AzureMLWorkspaceUITests : TestBase
     public async Task Should_Access_AzureML_Workspace_Successfully()
     {
         // Arrange
+        var browserAbility = BrowseTheWeb.UsingTestConfig(GetLogger<BrowseTheWeb>(), TestConfig);
+        
         var javed = CreateActor("Javed")
-            .Can(BrowseTheWeb.With(GetLogger<BrowseTheWeb>(), new BrowserTypeLaunchOptions
-            {
-                Headless = TestConfig.Browser.Headless,
-                SlowMo = TestConfig.Browser.SlowMo
-            }))
-            .Can(UseAzureML.AsContributor());
+            .Can(browserAbility)
+            .Can(UseAzureML.AsContributor(browserAbility));
 
         // Initialize abilities
         await javed.Using<BrowseTheWeb>().InitializeAsync();
@@ -45,9 +43,11 @@ public class AzureMLWorkspaceUITests : TestBase
     {
         // Arrange
         var computeName = $"test-compute-{DateTime.UtcNow:yyyyMMddHHmmss}";
+        var browserAbility = BrowseTheWeb.Headlessly(GetLogger<BrowseTheWeb>());
+        
         var javed = CreateActor("Javed")
-            .Can(BrowseTheWeb.Headlessly(GetLogger<BrowseTheWeb>()))
-            .Can(UseAzureML.AsContributor());
+            .Can(browserAbility)
+            .Can(UseAzureML.AsContributor(browserAbility));
 
         // Initialize abilities
         await javed.Using<BrowseTheWeb>().InitializeAsync();
@@ -142,13 +142,8 @@ public class AzureMLWorkspaceUITests : TestBase
     public async Task Should_Work_Across_Different_Browsers(string browserType)
     {
         // Arrange
-        var launchOptions = new BrowserTypeLaunchOptions
-        {
-            Headless = TestConfig.Browser.Headless
-        };
-
         var javed = CreateActor($"Javed-{browserType}")
-            .Can(BrowseTheWeb.With(GetLogger<BrowseTheWeb>(), launchOptions));
+            .Can(BrowseTheWeb.UsingTestConfig(GetLogger<BrowseTheWeb>(), TestConfig));
 
         await javed.Using<BrowseTheWeb>().InitializeAsync();
 

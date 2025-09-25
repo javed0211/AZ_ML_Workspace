@@ -5,15 +5,7 @@
   "bindingCulture": {
     "name": "en-US"
   },
-  "runtime": {
-    "dependencies": [
-      {
-        "type": "nuget",
-        "name": "Microsoft.Extensions.DependencyInjection",
-        "version": "8.0.0"
-      }
-    ]
-  },
+
   "generator": {
     "allowDebugGeneratedFiles": false,
     "allowRowTests": true,

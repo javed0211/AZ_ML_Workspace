@@ -47,7 +47,19 @@ public class UseAzureAISearch : IAbility
                 throw new InvalidOperationException("AzureAISearch:IndexName not configured");
 
             var endpoint = new Uri($"https://{_serviceName}.search.windows.net");
-            var credential = new DefaultAzureCredential();
+            
+            // Prioritize Managed Identity for authentication
+            TokenCredential credential;
+            try
+            {
+                _logger.LogDebug("Using ManagedIdentityCredential for Azure AI Search authentication");
+                credential = new ManagedIdentityCredential();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "ManagedIdentityCredential not available, falling back to DefaultAzureCredential");
+                credential = new DefaultAzureCredential();
+            }
 
             _indexClient = new SearchIndexClient(endpoint, credential);
             _searchClient = new SearchClient(endpoint, _indexName, credential);
@@ -140,9 +152,28 @@ public class UseAzureAISearch : IAbility
         try
         {
             var indexToUse = customIndexName ?? _indexName;
-            var searchClient = customIndexName != null 
-                ? new SearchClient(_indexClient.Endpoint, customIndexName, new DefaultAzureCredential())
-                : _searchClient;
+            SearchClient searchClient;
+            
+            if (customIndexName != null)
+            {
+                // Create credential for custom index - prioritize Managed Identity
+                TokenCredential customCredential;
+                try
+                {
+                    _logger.LogDebug("Using ManagedIdentityCredential for custom index {IndexName}", customIndexName);
+                    customCredential = new ManagedIdentityCredential();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "ManagedIdentityCredential not available for custom index, falling back to DefaultAzureCredential");
+                    customCredential = new DefaultAzureCredential();
+                }
+                searchClient = new SearchClient(_indexClient.Endpoint, customIndexName, customCredential);
+            }
+            else
+            {
+                searchClient = _searchClient;
+            }
 
             var startTime = DateTime.UtcNow;
             var results = await searchClient.SearchAsync<SearchDocument>(query, new SearchOptions

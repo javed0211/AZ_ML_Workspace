@@ -24,15 +24,8 @@ public abstract class TestBase : PageTest
     [OneTimeSetUp]
     public virtual async Task OneTimeSetUp()
     {
-        // Build configuration
-        Configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development"}.json", optional: true)
-            .AddEnvironmentVariables()
-            .Build();
-
+        // Build configuration using unified helper
+        Configuration = ConfigurationHelper.BuildConfiguration();
         TestConfig = TestConfiguration.LoadFromConfiguration(Configuration);
 
         // Configure Serilog

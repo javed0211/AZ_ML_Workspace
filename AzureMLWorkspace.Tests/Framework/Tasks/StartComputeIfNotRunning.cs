@@ -1,4 +1,5 @@
 using AzureMLWorkspace.Tests.Framework.Screenplay;
+using AzureMLWorkspace.Tests.Framework.Abilities;
 using Microsoft.Extensions.Logging;
 
 namespace AzureMLWorkspace.Tests.Framework.Tasks;
@@ -8,6 +9,8 @@ public class StartComputeIfNotRunning : ITask
     private readonly string _computeName;
     private readonly ILogger<StartComputeIfNotRunning> _logger;
 
+    public string Name => $"Start compute '{_computeName}' if not running";
+
     private StartComputeIfNotRunning(string computeName, ILogger<StartComputeIfNotRunning> logger)
     {
         _computeName = computeName ?? throw new ArgumentNullException(nameof(computeName));
@@ -16,18 +19,18 @@ public class StartComputeIfNotRunning : ITask
 
     public static StartComputeIfNotRunning Named(string computeName)
     {
-        var logger = TestContext.ServiceProvider.GetRequiredService<ILogger<StartComputeIfNotRunning>>();
+        var logger = Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<StartComputeIfNotRunning>>();
         return new StartComputeIfNotRunning(computeName, logger);
     }
 
-    public async Task<T> PerformAs<T>(IActor actor) where T : IActor
+    public async Task PerformAs(IActor actor)
     {
         _logger.LogInformation("Checking and starting compute instance if not running: {ComputeName}", _computeName);
 
         try
         {
             // Get the Azure ML ability
-            var azureMLAbility = actor.GetAbility<UseAzureML>();
+            var azureMLAbility = actor.Using<UseAzureML>();
             if (azureMLAbility == null)
             {
                 throw new InvalidOperationException("Actor does not have Azure ML ability");
@@ -46,8 +49,6 @@ public class StartComputeIfNotRunning : ITask
             {
                 _logger.LogInformation("Compute instance {ComputeName} is already running", _computeName);
             }
-
-            return (T)actor;
         }
         catch (Exception ex)
         {

@@ -35,8 +35,8 @@ namespace AzureMLWorkspace.Tests.Features
         public virtual async System.Threading.Tasks.Task FeatureSetupAsync()
         {
             testRunner = global::Reqnroll.TestRunnerManager.GetTestRunnerForAssembly();
-            global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Azure ML Workspace Management", ("    As a data scientist\n    I want to manage Azure ML workspaces\n    So that I ca" +
-                    "n perform machine learning tasks"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+            global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Azure ML Workspace Management", ("    As a data scientist\r\n    I want to manage Azure ML workspaces\r\n    So that I " +
+                    "can perform machine learning tasks"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
             await testRunner.OnFeatureStartAsync(featureInfo);
         }
         
@@ -83,7 +83,7 @@ namespace AzureMLWorkspace.Tests.Features
     await testRunner.GivenAsync("I am a data scientist named \"Javed\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
-    await testRunner.AndAsync("I have Contributor access to Azure ML", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("I have activated the Data Scientist PIM role", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
         }
         
@@ -232,6 +232,60 @@ await this.FeatureBackgroundAsync();
 #line hidden
 #line 35
     await testRunner.ThenAsync("all compute instances should be stopped", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Azure ML Workspace with VS Code Desktop Integration")]
+        public async System.Threading.Tasks.Task AzureMLWorkspaceWithVSCodeDesktopIntegration()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Azure ML Workspace with VS Code Desktop Integration", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 6
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 38
+    await testRunner.GivenAsync("I have Contributor access to Azure ML", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 39
+    await testRunner.WhenAsync("I go to workspace \"https://ml.azure.com/workspaces\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 40
+    await testRunner.AndAsync("If login required I login as user \"Javed Khan\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 41
+    await testRunner.AndAsync("I select Workspace \"CTO-workspace\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 42
+    await testRunner.AndAsync("I choose compute option", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 43
+    await testRunner.AndAsync("I open compute \"com-jk\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 44
+    await testRunner.AndAsync("If compute is not running, I start compute", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 45
+    await testRunner.ThenAsync("I check if application link are enabled", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 46
+    await testRunner.WhenAsync("I start VS code Desktop", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 47
+    await testRunner.ThenAsync("I check if I am able to interact with VS code", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

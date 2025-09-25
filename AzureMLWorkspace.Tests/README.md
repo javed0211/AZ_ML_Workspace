@@ -27,9 +27,10 @@ The framework uses the **Screenplay Pattern** with Actors, Abilities, Tasks, and
 
 ```csharp
 // Screenplay Pattern example
+var browserAbility = BrowseTheWeb.Headlessly();
 var javed = Actor.Named("Javed")
-    .Can(UseAzureML.WithRole("Contributor"))
-    .Can(BrowseTheWeb.Headlessly())
+    .Can(browserAbility)
+    .Can(UseAzureML.WithRole("Contributor", browserAbility))
     .Can(UseAzureAISearch.WithDefaultConfiguration());
 
 await javed
@@ -240,8 +241,10 @@ public async Task Should_Manage_Complex_ML_Workflow()
 [Test]
 public async Task Should_Test_Azure_Services_Integration()
 {
+    var browserAbility = BrowseTheWeb.Headlessly();
     var javed = CreateActor("Javed")
-        .Can(UseAzureML.WithRole("Contributor"))
+        .Can(browserAbility)
+        .Can(UseAzureML.WithRole("Contributor", browserAbility))
         .Can(UseAzureAISearch.WithDefaultConfiguration());
 
     // Test PIM role activation

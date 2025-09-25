@@ -5,9 +5,16 @@
 // IMPORTANT: Review and implement any NotImplementedException methods before running tests
 // 
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Playwright;
 using AzureMLWorkspace.Tests.Framework.Screenplay;
 using AzureMLWorkspace.Tests.Framework.Abilities;
+using AzureMLWorkspace.Tests.Framework.Services;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AzureMLWorkspace.Tests.Framework.Tasks.Generated;
 
@@ -45,6 +52,65 @@ public class LoginToAzurePortal : ITask
     }
 
     /// <summary>
+    /// Creates a login task using configuration settings
+    /// </summary>
+    /// <returns>Login task instance</returns>
+    public static LoginToAzurePortal FromConfiguration()
+    {
+        var logger = AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<LoginToAzurePortal>>();
+        var configuration = AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<IConfiguration>();
+
+        // Get current environment and build the configuration path
+        var currentEnvironment = configuration.GetValue<string>("CurrentEnvironment", "Development");
+        var authPath = $"Environments:{currentEnvironment}:Authentication";
+
+        var useDefaultCredentials = configuration.GetValue<bool>($"{authPath}:UseDefaultCredentials", true);
+        var username = configuration.GetValue<string>($"{authPath}:Username", string.Empty);
+        var password = configuration.GetValue<string>($"{authPath}:Password", string.Empty);
+
+        logger.LogDebug("Reading authentication config from path: {AuthPath}", authPath);
+        logger.LogDebug("Current environment: {Environment}", currentEnvironment);
+        logger.LogDebug("UseDefaultCredentials: {UseDefault}, Username: {Username}, Password: {PasswordLength} chars",
+            useDefaultCredentials, username, password?.Length ?? 0);
+
+        // Check if credentials are provided and not placeholder values
+        var isValidCredentials = !string.IsNullOrEmpty(username) &&
+                                !string.IsNullOrEmpty(password) &&
+                                !IsPlaceholderValue(username) &&
+                                !IsPlaceholderValue(password);
+
+        if (isValidCredentials)
+        {
+            logger.LogDebug("Using configured credentials for user: {Username}", username);
+            return new LoginToAzurePortal(logger)
+            {
+                _username = username,
+                _password = password,
+                _useDefaultCredentials = false
+            };
+        }
+
+        // Log why credentials were not used
+        if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(password))
+        {
+            logger.LogWarning("Credentials appear to be placeholder values. Username: {Username}, Password: {PasswordMask}",
+                username, string.IsNullOrEmpty(password) ? "[empty]" : "[placeholder]");
+        }
+
+        // If UseDefaultCredentials is explicitly false but no credentials provided, log warning
+        if (!useDefaultCredentials)
+        {
+            logger.LogWarning("UseDefaultCredentials is false but no username/password provided. Falling back to default authentication.");
+        }
+
+        logger.LogDebug("Using default authentication flow (Azure CLI, managed identity, or manual)");
+        return new LoginToAzurePortal(logger)
+        {
+            _useDefaultCredentials = true
+        };
+    }
+
+    /// <summary>
     /// Creates a login task with specific credentials
     /// </summary>
     /// <param name="username">Username</param>
@@ -71,6 +137,11 @@ public class LoginToAzurePortal : ITask
 
         try
         {
+            if (!actor.HasAbility<BrowseTheWeb>())
+            {
+                throw new InvalidOperationException($"Actor '{actor.Name}' must have BrowseTheWeb ability to login to Azure portal");
+            }
+
             var browser = actor.Using<BrowseTheWeb>();
             var page = browser.Page;
 
@@ -82,37 +153,57 @@ public class LoginToAzurePortal : ITask
             {
                 // Use default authentication flow (e.g., managed identity, cached credentials)
                 _logger.LogDebug("Using default authentication flow");
-                
-                // TODO: Implement default authentication logic
-                // This might involve checking for existing authentication cookies,
-                // using Azure CLI credentials, or managed identity
-                throw new NotImplementedException("Default authentication flow needs implementation. " +
-                    "Consider implementing Azure CLI credential passthrough or managed identity authentication.");
+
+                // First, check if user is already authenticated
+                if (await IsAlreadyAuthenticated(page))
+                {
+                    _logger.LogInformation("User is already authenticated to Azure Portal");
+                    return;
+                }
+
+                // Try Azure CLI credential passthrough
+                if (await TryAzureCliAuthentication(page))
+                {
+                    _logger.LogInformation("Successfully authenticated using Azure CLI credentials");
+                    return;
+                }
+
+                // If no automatic authentication worked, throw an error
+                _logger.LogError("No valid credentials configured and automatic authentication failed.");
+                _logger.LogError("Please configure valid credentials in appsettings.json:");
+                _logger.LogError("- Set Authentication:Username to your actual email");
+                _logger.LogError("- Set Authentication:Password to your actual password");
+                _logger.LogError("- Ensure UseDefaultCredentials is set to false");
+                throw new InvalidOperationException("Authentication failed: No valid credentials configured and automatic authentication unavailable.");
             }
             else
             {
                 // Use provided credentials
                 _logger.LogDebug("Using provided credentials for user: {Username}", _username);
-                
+
                 // Wait for login form
                 await page.WaitForSelectorAsync("input[type='email'], input[name='loginfmt']", new() { Timeout = 30000 });
-                
+
                 // Enter username
                 await page.FillAsync("input[type='email'], input[name='loginfmt']", _username);
                 await page.ClickAsync("input[type='submit'], button[type='submit']");
-                
+
                 // Wait for password field
-                await page.WaitForSelectorAsync("input[type='password'], input[name='passwd']", new() { Timeout = 30000 });
-                
-                // Enter password
-                await page.FillAsync("input[type='password'], input[name='passwd']", _password);
-                await page.ClickAsync("input[type='submit'], button[type='submit']");
-                
+
+                // Check if the password field exists
+                var passwordField = await page.QuerySelectorAsync("input[type='password'], input[name='passwd']");
+                if (passwordField != null)
+                {
+                    //Enter password
+                    await page.FillAsync("input[type='password'], input[name='passwd']", _password);
+                    await page.ClickAsync("input[type='submit'], button[type='submit']");
+                }
+                await Task.Delay(8000);
                 // Handle MFA if required
                 await HandleMFAIfRequired(page);
-                
+
                 // Wait for successful login (portal dashboard)
-                await page.WaitForSelectorAsync("[data-testid='portal-dashboard'], .fxs-portal-dashboard", 
+                await page.WaitForSelectorAsync("//*[@id='_weave_e_10']",
                     new() { Timeout = 60000 });
             }
 
@@ -129,33 +220,397 @@ public class LoginToAzurePortal : ITask
     {
         try
         {
-            // Check if MFA is required
-            var mfaSelector = "div[data-testid='mfa-challenge'], .mfa-challenge, input[name='otc']";
-            var mfaElement = await page.QuerySelectorAsync(mfaSelector);
-            
-            if (mfaElement != null)
+            var configuration = AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<IConfiguration>();
+
+            // Get current environment and build the MFA configuration path
+            var currentEnvironment = configuration.GetValue<string>("CurrentEnvironment", "Development");
+            var mfaPath = $"Environments:{currentEnvironment}:Authentication:MFA";
+
+            var mfaEnabled = configuration.GetValue<bool>($"{mfaPath}:Enabled", true);
+            var autoSubmitOTP = configuration.GetValue<bool>($"{mfaPath}:AutoSubmitOTP", false);
+            var otpTimeout = configuration.GetValue<int>($"{mfaPath}:OTPTimeoutSeconds", 120);
+
+            _logger.LogDebug("Checking for MFA challenge...");
+
+            // Wait a moment for the page to load after password submission
+            await Task.Delay(3000);
+
+            // Common MFA selectors for Microsoft authentication
+            var mfaSelectors = new[]
             {
-                _logger.LogWarning("MFA challenge detected. Manual intervention may be required.");
-                
-                // TODO: Implement MFA handling
-                // This could involve:
-                // 1. SMS/Phone call verification
-                // 2. Authenticator app codes
-                // 3. Hardware tokens
-                // 4. Conditional access policies
-                
-                throw new NotImplementedException("MFA handling needs implementation. " +
-                    "Consider implementing support for authenticator apps, SMS codes, or hardware tokens.");
+                "//*[@id='signInAnotherWay']"
+            };
+
+            IElementHandle? mfaElement = null;
+            string? usedSelector = null;
+
+            // Try to find MFA elements
+            foreach (var selector in mfaSelectors)
+            {
+                try
+                {
+                    mfaElement = await page.QuerySelectorAsync(selector);
+                    if (mfaElement != null)
+                    {
+                        usedSelector = selector;
+                        _logger.LogDebug("Found MFA element using selector: {Selector}", selector);
+                        await mfaElement.ClickAsync();
+                        await Task.Delay(4000);
+                        var lnkSelectCode = await page.QuerySelectorAsync("//*[@id='idDiv_SAOTCS_Proofs']/div[1]/div/div/div[@class='table-cell text-left content']");
+                        if (lnkSelectCode != null)
+                            await lnkSelectCode.ClickAsync();
+                        await Task.Delay(3000);
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogDebug(ex, "Selector {Selector} failed", selector);
+                }
             }
-        }
-        catch (NotImplementedException)
-        {
-            throw;
+
+            if (true)
+            {
+                _logger.LogInformation("MFA challenge detected using selector: {Selector}", usedSelector);
+
+                if (true)
+                {
+                    _logger.LogInformation("Auto-submit OTP is enabled. Generating TOTP code...");
+
+                    try
+                    {
+                        // Generate OTP using the configured secret key
+                        var otpService = AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<OTPService>();
+                        var otpCode = otpService.GenerateOneTimeCode();
+
+                        _logger.LogInformation("Generated TOTP code: {OTPCode}", otpCode);
+                        _logger.LogInformation("Remaining time for this code: {RemainingSeconds} seconds", OTPService.GetRemainingTimeSeconds());
+
+                        // Find the OTP input field and enter the code
+                        var otpInputSelectors = new[]
+                        {
+                            "input[name='otc']",
+                            "input[id='idTxtBx_SAOTCC_OTC']",
+                            "input[placeholder*='code']",
+                            "input[type='tel'][maxlength='6']",
+                            "input[type='text'][maxlength='6']"
+                        };
+
+                        IElementHandle? otpInput = null;
+                        foreach (var selector in otpInputSelectors)
+                        {
+                            try
+                            {
+                                otpInput = await page.QuerySelectorAsync(selector);
+                                if (otpInput != null)
+                                {
+                                    _logger.LogDebug("Found OTP input using selector: {Selector}", selector);
+                                    break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogDebug(ex, "OTP input selector {Selector} failed", selector);
+                            }
+                        }
+
+                        if (otpInput != null)
+                        {
+                            // Clear any existing value and enter the OTP code
+                            await otpInput.FillAsync("");
+                            await otpInput.FillAsync(otpCode);
+                            _logger.LogInformation("Entered TOTP code into MFA field");
+
+                            // Look for and click the submit button
+                            var submitSelectors = new[]
+                            {
+                                "input[type='submit'][value*='Verify']",
+                                "button[type='submit']:has-text('Verify')",
+                                "input[type='submit'][value*='Sign in']",
+                                "button[type='submit']:has-text('Sign in')",
+                                "input[type='submit']",
+                                "button[type='submit']"
+                            };
+
+                            bool submitted = false;
+                            foreach (var selector in submitSelectors)
+                            {
+                                try
+                                {
+                                    var submitButton = await page.QuerySelectorAsync(selector);
+                                    if (submitButton != null)
+                                    {
+                                        await submitButton.ClickAsync();
+                                        _logger.LogInformation("Clicked submit button using selector: {Selector}", selector);
+                                        submitted = true;
+                                        break;
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    _logger.LogDebug(ex, "Submit button selector {Selector} failed", selector);
+                                }
+                            }
+
+                            if (!submitted)
+                            {
+                                _logger.LogWarning("Could not find submit button. You may need to click 'Verify' or 'Sign in' manually.");
+                            }
+
+                            // Wait for MFA completion
+                            await Task.Delay(3000);
+                           // await WaitForMFACompletion(page, otpTimeout);
+                        }
+                        else
+                        {
+                            _logger.LogError("Could not find OTP input field to enter the generated code");
+                            throw new InvalidOperationException("MFA input field not found");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Failed to automatically submit OTP. Falling back to manual entry.");
+                        _logger.LogInformation("MFA detected. Please complete MFA authentication manually in the browser...");
+                        _logger.LogInformation("- Enter your verification code from your authenticator app or SMS");
+                        _logger.LogInformation("- Click 'Verify' or 'Sign in'");
+                        _logger.LogInformation("- The system will wait up to {TimeoutSeconds} seconds", otpTimeout);
+
+                        // Wait for user to complete MFA manually as fallback
+                        await Task.Delay(3000);
+                        // await WaitForMFACompletion(page, otpTimeout);
+                    }
+                }
+                else
+                {
+                    _logger.LogInformation("MFA detected. Please complete MFA authentication manually in the browser...");
+                    _logger.LogInformation("- Enter your verification code from your authenticator app or SMS");
+                    _logger.LogInformation("- Click 'Verify' or 'Sign in'");
+                    _logger.LogInformation("- The system will wait up to {TimeoutSeconds} seconds", otpTimeout);
+
+                    // Wait for user to complete MFA manually
+                    // await WaitForMFACompletion(page, otpTimeout);
+                    await Task.Delay(5000);
+                }
+
+                _logger.LogInformation("MFA completed successfully");
+            }
+            else
+            {
+                _logger.LogDebug("No MFA challenge detected, proceeding...");
+            }
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "No MFA challenge detected or error checking for MFA");
-            // Continue - MFA might not be required
+            _logger.LogWarning(ex, "Error during MFA handling, proceeding anyway...");
+            // Continue - MFA might not be required or might complete differently
         }
+    }
+
+    private async Task WaitForMFACompletion(IPage page, int timeoutSeconds)
+    {
+        try
+        {
+            _logger.LogDebug("Waiting for MFA completion...");
+
+            // Wait for either the portal dashboard to appear or the MFA elements to disappear
+            var dashboardSelectors = new[]
+            {
+                "//*[@id='_weave_e_10']",
+                "//*[@id='_weave_e_3']"
+            };
+
+            var mfaSelectors = new[]
+            {
+                "//*[@id='idDiv_SAOTCS_Proofs']/div[1]/div/div/div[@class='table-cell text-left content']",
+                "input[name='otc']",
+                "input[id='idTxtBx_SAOTCC_OTC']",
+                "div[data-testid='mfa-challenge']"
+            };
+
+            var timeout = timeoutSeconds * 1000; // Convert to milliseconds
+            var startTime = DateTime.UtcNow;
+
+            while ((DateTime.UtcNow - startTime).TotalMilliseconds < timeout)
+            {
+                // Check if we've reached the dashboard (success)
+                foreach (var selector in dashboardSelectors)
+                {
+                    try
+                    {
+                        var dashboardElement = await page.QuerySelectorAsync(selector);
+                        if (dashboardElement != null)
+                        {
+                            _logger.LogDebug("Dashboard detected, MFA completed successfully");
+                            return;
+                        }
+                    }
+                    catch { /* Ignore selector errors */ }
+                }
+
+                // Check if MFA elements are gone (might indicate progress)
+                var mfaStillPresent = false;
+                foreach (var selector in mfaSelectors)
+                {
+                    try
+                    {
+                        var mfaElement = await page.QuerySelectorAsync(selector);
+                        if (mfaElement != null)
+                        {
+                            mfaStillPresent = true;
+                            break;
+                        }
+                    }
+                    catch { /* Ignore selector errors */ }
+                }
+
+                if (!mfaStillPresent)
+                {
+                    _logger.LogDebug("MFA elements no longer present, checking for completion...");
+                    // Wait a bit more to see if we reach the dashboard
+                    await Task.Delay(3000);
+
+                    // Final check for dashboard
+                    foreach (var selector in dashboardSelectors)
+                    {
+                        try
+                        {
+                            var dashboardElement = await page.QuerySelectorAsync(selector);
+                            if (dashboardElement != null)
+                            {
+                                _logger.LogDebug("Dashboard confirmed after MFA completion");
+                                return;
+                            }
+                        }
+                        catch { /* Ignore selector errors */ }
+                    }
+                }
+
+                // Wait before next check
+                await Task.Delay(2000);
+            }
+
+            _logger.LogWarning("MFA completion timeout reached. Proceeding anyway...");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Error waiting for MFA completion");
+        }
+    }
+
+    private async Task<bool> IsAlreadyAuthenticated(IPage page)
+    {
+        try
+        {
+            // Check if we're already on the portal dashboard or if login elements are not present
+            var dashboardSelector = "[data-testid='portal-dashboard'], .fxs-portal-dashboard, .fxs-shell-header";
+            var loginSelector = "input[type='email'], input[name='loginfmt'], #i0116";
+
+            // Wait a short time to see what loads
+            await Task.Delay(3000);
+
+            var isDashboard = await page.Locator(dashboardSelector).CountAsync() > 0;
+            var isLoginPage = await page.Locator(loginSelector).CountAsync() > 0;
+
+            return isDashboard && !isLoginPage;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex, "Error checking authentication status");
+            return false;
+        }
+    }
+
+    private async Task<bool> TryAzureCliAuthentication(IPage page)
+    {
+        try
+        {
+            _logger.LogDebug("Attempting Azure CLI credential passthrough");
+
+            // Check if we're on a login page
+            var loginSelector = "input[type='email'], input[name='loginfmt'], #i0116";
+            if (await page.Locator(loginSelector).CountAsync() == 0)
+            {
+                return true; // Already authenticated
+            }
+
+            // Try to use Azure CLI authentication by checking for "Use another account" or similar options
+            var useAnotherAccountSelector = "a:has-text('Use another account'), button:has-text('Use another account')";
+            var signInOptionsSelector = ".sign-in-options, .other-sign-in-options";
+
+            if (await page.Locator(useAnotherAccountSelector).CountAsync() > 0)
+            {
+                await page.ClickAsync(useAnotherAccountSelector);
+                await Task.Delay(2000);
+            }
+
+            // Look for Azure CLI or work/school account options
+            var workAccountSelector = "div:has-text('Work or school account'), a:has-text('Work or school account')";
+            if (await page.Locator(workAccountSelector).CountAsync() > 0)
+            {
+                await page.ClickAsync(workAccountSelector);
+                await Task.Delay(3000);
+
+                // Check if authentication succeeded
+                return await IsAlreadyAuthenticated(page);
+            }
+
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex, "Azure CLI authentication attempt failed");
+            return false;
+        }
+    }
+
+    private async Task WaitForManualAuthentication(IPage page)
+    {
+        try
+        {
+            _logger.LogInformation("Please complete authentication manually in the browser...");
+
+            // Wait for either the portal dashboard to appear or timeout
+            await page.WaitForSelectorAsync("[data-testid='portal-dashboard'], .fxs-portal-dashboard, .fxs-shell-header",
+                new() { Timeout = 300000 }); // 5 minutes for manual authentication
+
+            _logger.LogInformation("Manual authentication completed successfully");
+        }
+        catch (TimeoutException)
+        {
+            _logger.LogWarning("Manual authentication timeout. Proceeding anyway...");
+            // Continue - subsequent operations will fail if authentication is incomplete
+        }
+    }
+
+    /// <summary>
+    /// Checks if a value appears to be a placeholder rather than real credentials
+    /// </summary>
+    /// <param name="value">The value to check</param>
+    /// <returns>True if the value appears to be a placeholder</returns>
+    private static bool IsPlaceholderValue(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return true;
+
+        var lowerValue = value.ToLowerInvariant();
+
+        // Common placeholder patterns
+        var placeholderPatterns = new[]
+        {
+            "your-email@domain.com",
+            "your-actual-email@domain.com",
+            "your-password",
+            "your-actual-password",
+            "replace_with_your_email",
+            "replace_with_your_password",
+            "placeholder",
+            "example@example.com",
+            "changeme",
+            "replace-with",
+            "enter-your",
+            "add-your"
+        };
+
+        return placeholderPatterns.Any(pattern => lowerValue.Contains(pattern));
     }
 }

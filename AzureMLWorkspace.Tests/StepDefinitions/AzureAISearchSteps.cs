@@ -3,6 +3,7 @@ using Azure.Search.Documents.Models;
 using AzureMLWorkspace.Tests.Framework.Abilities;
 using AzureMLWorkspace.Tests.Framework.Questions;
 using AzureMLWorkspace.Tests.Framework.Screenplay;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Reqnroll;
 using System.Diagnostics;
@@ -12,15 +13,12 @@ namespace AzureMLWorkspace.Tests.StepDefinitions;
 [Binding]
 public class AzureAISearchSteps
 {
-    private readonly ILogger<AzureAISearchSteps> _logger;
+    private ILogger<AzureAISearchSteps> _logger => 
+        AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<AzureAISearchSteps>>();
+    
     private IActor? _actor;
     private SearchTestResult? _lastSearchResult;
     private readonly Stopwatch _searchStopwatch = new();
-
-    public AzureAISearchSteps(ILogger<AzureAISearchSteps> logger)
-    {
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-    }
 
     [When(@"I search for ""(.*)"" in the AI search index")]
     public async Task WhenISearchForInTheAISearchIndex(string searchTerm)

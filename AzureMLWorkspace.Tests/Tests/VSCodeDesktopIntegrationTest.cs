@@ -27,7 +27,7 @@ public class VSCodeDesktopIntegrationTest
         _logger = _serviceProvider.GetRequiredService<ILogger<VSCodeDesktopIntegrationTest>>();
         
         // Set the test context
-        TestContext.ServiceProvider = _serviceProvider;
+        AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider = _serviceProvider;
     }
 
     [Test]
@@ -36,7 +36,8 @@ public class VSCodeDesktopIntegrationTest
     public async Task VSCodeDesktop_LaunchAndCheckInteractivity_ShouldSucceed()
     {
         // Arrange
-        var actor = Actor.Named("Test User", _logger);
+        var actorLogger = _serviceProvider.GetRequiredService<ILogger<Actor>>();
+        var actor = Actor.Named("Test User", actorLogger);
         var vsCodeHelper = _serviceProvider.GetRequiredService<VSCodeDesktopHelper>();
         var vsCodeAbility = UseVSCodeDesktop.With(vsCodeHelper);
         actor.Can(vsCodeAbility);
@@ -76,7 +77,8 @@ public class VSCodeDesktopIntegrationTest
     public async Task VSCodeDesktop_CheckApplicationLinks_ShouldReturnResults()
     {
         // Arrange
-        var actor = Actor.Named("Test User", _logger);
+        var actorLogger = _serviceProvider.GetRequiredService<ILogger<Actor>>();
+        var actor = Actor.Named("Test User", actorLogger);
         var vsCodeHelper = _serviceProvider.GetRequiredService<VSCodeDesktopHelper>();
         var vsCodeAbility = UseVSCodeDesktop.With(vsCodeHelper);
         actor.Can(vsCodeAbility);
@@ -115,6 +117,6 @@ public class VSCodeDesktopIntegrationTest
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        _serviceProvider?.Dispose();
+        (_serviceProvider as IDisposable)?.Dispose();
     }
 }

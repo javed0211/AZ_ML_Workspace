@@ -1,4 +1,5 @@
 using AzureMLWorkspace.Tests.Framework.Screenplay;
+using AzureMLWorkspace.Tests.Framework.Abilities;
 using Microsoft.Extensions.Logging;
 
 namespace AzureMLWorkspace.Tests.Framework.Tasks;
@@ -8,6 +9,8 @@ public class OpenCompute : ITask
     private readonly string _computeName;
     private readonly ILogger<OpenCompute> _logger;
 
+    public string Name => $"Open compute '{_computeName}'";
+
     private OpenCompute(string computeName, ILogger<OpenCompute> logger)
     {
         _computeName = computeName ?? throw new ArgumentNullException(nameof(computeName));
@@ -16,18 +19,18 @@ public class OpenCompute : ITask
 
     public static OpenCompute Named(string computeName)
     {
-        var logger = TestContext.ServiceProvider.GetRequiredService<ILogger<OpenCompute>>();
+        var logger = Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<OpenCompute>>();
         return new OpenCompute(computeName, logger);
     }
 
-    public async Task<T> PerformAs<T>(IActor actor) where T : IActor
+    public async Task PerformAs(IActor actor)
     {
         _logger.LogInformation("Opening compute instance: {ComputeName}", _computeName);
 
         try
         {
             // Get the Azure ML ability
-            var azureMLAbility = actor.GetAbility<UseAzureML>();
+            var azureMLAbility = actor.Using<UseAzureML>();
             if (azureMLAbility == null)
             {
                 throw new InvalidOperationException("Actor does not have Azure ML ability");
@@ -37,7 +40,6 @@ public class OpenCompute : ITask
             await azureMLAbility.OpenComputeInstanceAsync(_computeName);
 
             _logger.LogInformation("Successfully opened compute instance: {ComputeName}", _computeName);
-            return (T)actor;
         }
         catch (Exception ex)
         {

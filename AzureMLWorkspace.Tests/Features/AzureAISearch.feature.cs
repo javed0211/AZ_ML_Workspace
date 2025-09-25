@@ -35,8 +35,8 @@ namespace AzureMLWorkspace.Tests.Features
         public virtual async System.Threading.Tasks.Task FeatureSetupAsync()
         {
             testRunner = global::Reqnroll.TestRunnerManager.GetTestRunnerForAssembly();
-            global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Azure AI Search Integration", ("    As a data scientist\n    I want to search through AI-indexed content\n    So th" +
-                    "at I can find relevant information for my ML projects"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+            global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Azure AI Search Integration", ("    As a data scientist\r\n    I want to search through AI-indexed content\r\n    So " +
+                    "that I can find relevant information for my ML projects"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
             await testRunner.OnFeatureStartAsync(featureInfo);
         }
         

@@ -22,15 +22,8 @@ public class TestHooks
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-        // Build configuration
-        _configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development"}.json", optional: true)
-            .AddEnvironmentVariables()
-            .Build();
-
+        // Build configuration using unified helper
+        _configuration = ConfigurationHelper.BuildConfiguration();
         _testConfig = TestConfiguration.LoadFromConfiguration(_configuration);
 
         // Configure Serilog
@@ -139,6 +132,12 @@ public class TestHooks
         // Register step definition classes
         services.AddTransient<StepDefinitions.AzureMLWorkspaceSteps>();
         services.AddTransient<StepDefinitions.AzureAISearchSteps>();
+        
+        // Register framework utilities
+        services.AddTransient<Framework.Utilities.VSCodeDesktopHelper>();
+        
+        // Register OTP service for MFA automation
+        services.AddTransient<Framework.Services.OTPService>();
     }
 
     private async Task CaptureScreenshotOnFailure(ScenarioContext scenarioContext)

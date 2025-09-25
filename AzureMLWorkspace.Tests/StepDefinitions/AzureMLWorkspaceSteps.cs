@@ -2,7 +2,9 @@ using AzureMLWorkspace.Tests.Framework.Abilities;
 using AzureMLWorkspace.Tests.Framework.Questions;
 using AzureMLWorkspace.Tests.Framework.Screenplay;
 using AzureMLWorkspace.Tests.Framework.Tasks;
+using AzureMLWorkspace.Tests.Framework.Tasks.Generated;
 using AzureMLWorkspace.Tests.Framework.Utilities;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Reqnroll;
 
@@ -11,14 +13,11 @@ namespace AzureMLWorkspace.Tests.StepDefinitions;
 [Binding]
 public class AzureMLWorkspaceSteps
 {
-    private readonly ILogger<AzureMLWorkspaceSteps> _logger;
+    private ILogger<AzureMLWorkspaceSteps> _logger => 
+        AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<AzureMLWorkspaceSteps>>();
+    
     private IActor? _actor;
     private readonly List<string> _computeInstances = new();
-
-    public AzureMLWorkspaceSteps(ILogger<AzureMLWorkspaceSteps> logger)
-    {
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-    }
 
     [Given(@"I am a data scientist named ""(.*)""")]
     public void GivenIAmADataScientistNamed(string name)
@@ -35,7 +34,21 @@ public class AzureMLWorkspaceSteps
         if (_actor == null)
             throw new InvalidOperationException("Actor must be created first");
 
-        var azureMLAbility = UseAzureML.WithRole(role);
+        // Add browser ability if not already present
+        BrowseTheWeb browserAbility;
+        if (!_actor.HasAbility<BrowseTheWeb>())
+        {
+            var logger = AzureMLWorkspace.Tests.Framework.Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<BrowseTheWeb>>();
+            browserAbility = BrowseTheWeb.Maximized(logger);
+            _actor.Can(browserAbility);
+            await browserAbility.InitializeAsync();
+        }
+        else
+        {
+            browserAbility = _actor.Using<BrowseTheWeb>();
+        }
+
+        var azureMLAbility = UseAzureML.WithRole(role, browserAbility);
         _actor.Can(azureMLAbility);
         await azureMLAbility.InitializeAsync();
     }
@@ -221,7 +234,7 @@ public class AzureMLWorkspaceSteps
         if (_actor == null)
             throw new InvalidOperationException("Actor must be created first");
 
-        await _actor.AttemptsTo(LoginAsUser.Named(userName));
+       // await _actor.AttemptsTo(LoginAsUser.Named(userName));
     }
 
     [When(@"I select Workspace ""(.*)""")]

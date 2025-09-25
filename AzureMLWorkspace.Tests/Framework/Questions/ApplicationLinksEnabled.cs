@@ -1,4 +1,5 @@
 using AzureMLWorkspace.Tests.Framework.Screenplay;
+using AzureMLWorkspace.Tests.Framework.Abilities;
 using Microsoft.Extensions.Logging;
 
 namespace AzureMLWorkspace.Tests.Framework.Questions;
@@ -7,6 +8,8 @@ public class ApplicationLinksEnabled : IQuestion<bool>
 {
     private readonly ILogger<ApplicationLinksEnabled> _logger;
 
+    public string Question => "Are application links enabled in the current workspace?";
+
     private ApplicationLinksEnabled(ILogger<ApplicationLinksEnabled> logger)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -14,7 +17,7 @@ public class ApplicationLinksEnabled : IQuestion<bool>
 
     public static ApplicationLinksEnabled InCurrentWorkspace()
     {
-        var logger = TestContext.ServiceProvider.GetRequiredService<ILogger<ApplicationLinksEnabled>>();
+        var logger = Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<ApplicationLinksEnabled>>();
         return new ApplicationLinksEnabled(logger);
     }
 
@@ -25,7 +28,7 @@ public class ApplicationLinksEnabled : IQuestion<bool>
         try
         {
             // Get the Azure ML ability
-            var azureMLAbility = actor.GetAbility<UseAzureML>();
+            var azureMLAbility = actor.Using<UseAzureML>();
             if (azureMLAbility == null)
             {
                 throw new InvalidOperationException("Actor does not have Azure ML ability");

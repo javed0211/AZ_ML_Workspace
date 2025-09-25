@@ -10,6 +10,8 @@ public class UseVSCodeDesktop : IAbility, IAsyncDisposable
     private readonly ILogger<UseVSCodeDesktop> _logger;
     private bool _isLaunched = false;
 
+    public string Name => "Use VS Code Desktop";
+
     private UseVSCodeDesktop(VSCodeDesktopHelper helper, ILogger<UseVSCodeDesktop> logger)
     {
         _helper = helper ?? throw new ArgumentNullException(nameof(helper));
@@ -111,6 +113,19 @@ public class UseVSCodeDesktop : IAbility, IAsyncDisposable
             Success = true,
             Message = "VS Code was not launched"
         };
+    }
+
+    public async Task InitializeAsync()
+    {
+        _logger.LogInformation("Initializing VS Code Desktop ability");
+        // Initialization logic if needed
+        await Task.CompletedTask;
+    }
+
+    public async Task CleanupAsync()
+    {
+        _logger.LogInformation("Cleaning up VS Code Desktop ability");
+        await CloseAsync();
     }
 
     public async ValueTask DisposeAsync()

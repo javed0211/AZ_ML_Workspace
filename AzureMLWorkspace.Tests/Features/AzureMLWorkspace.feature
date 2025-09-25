@@ -5,7 +5,7 @@ Feature: Azure ML Workspace Management
 
 Background:
     Given I am a data scientist named "Javed"
-    And I have Contributor access to Azure ML
+    And I have activated the Data Scientist PIM role
 
 Scenario: Access Azure ML Workspace
     When I attempt to open workspace "ml-workspace"
@@ -35,7 +35,8 @@ Scenario: Manage Multiple Compute Instances
     Then all compute instances should be stopped
 
 Scenario: Azure ML Workspace with VS Code Desktop Integration
-    When I go to workspace "ml-workspace"
+    Given I have Contributor access to Azure ML
+    When I go to workspace "https://ml.azure.com/workspaces"
     And If login required I login as user "Javed Khan"
     And I select Workspace "CTO-workspace"
     And I choose compute option

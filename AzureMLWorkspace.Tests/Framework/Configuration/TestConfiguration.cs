@@ -27,6 +27,8 @@ public class AzureConfiguration
 {
     public string SubscriptionId { get; set; } = string.Empty;
     public string TenantId { get; set; } = string.Empty;
+    public string ClientId { get; set; } = string.Empty;
+    public string ClientSecret { get; set; } = string.Empty;
     public string ResourceGroup { get; set; } = string.Empty;
     public string WorkspaceName { get; set; } = string.Empty;
     public string Region { get; set; } = "eastus";

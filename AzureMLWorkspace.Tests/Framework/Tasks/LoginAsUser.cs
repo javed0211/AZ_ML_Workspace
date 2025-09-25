@@ -1,4 +1,5 @@
 using AzureMLWorkspace.Tests.Framework.Screenplay;
+using AzureMLWorkspace.Tests.Framework.Abilities;
 using Microsoft.Extensions.Logging;
 
 namespace AzureMLWorkspace.Tests.Framework.Tasks;
@@ -8,6 +9,8 @@ public class LoginAsUser : ITask
     private readonly string _userName;
     private readonly ILogger<LoginAsUser> _logger;
 
+    public string Name => $"Login as user '{_userName}'";
+
     private LoginAsUser(string userName, ILogger<LoginAsUser> logger)
     {
         _userName = userName ?? throw new ArgumentNullException(nameof(userName));
@@ -16,18 +19,18 @@ public class LoginAsUser : ITask
 
     public static LoginAsUser Named(string userName)
     {
-        var logger = TestContext.ServiceProvider.GetRequiredService<ILogger<LoginAsUser>>();
+        var logger = Abilities.TestContext.ServiceProvider.GetRequiredService<ILogger<LoginAsUser>>();
         return new LoginAsUser(userName, logger);
     }
 
-    public async Task<T> PerformAs<T>(IActor actor) where T : IActor
+    public async Task PerformAs(IActor actor)
     {
         _logger.LogInformation("Attempting to login as user: {UserName}", _userName);
 
         try
         {
             // Get the Azure ML ability
-            var azureMLAbility = actor.GetAbility<UseAzureML>();
+            var azureMLAbility = actor.Using<UseAzureML>();
             if (azureMLAbility == null)
             {
                 throw new InvalidOperationException("Actor does not have Azure ML ability");
@@ -37,7 +40,6 @@ public class LoginAsUser : ITask
             await azureMLAbility.LoginIfRequiredAsync(_userName);
 
             _logger.LogInformation("Successfully logged in as user: {UserName}", _userName);
-            return (T)actor;
         }
         catch (Exception ex)
         {

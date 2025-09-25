@@ -10,6 +10,7 @@ namespace PlaywrightFramework.Utils
         private readonly PlaywrightUtils _utils;
         private readonly ConfigManager _config;
         private readonly Logger _logger;
+        private readonly PIMUtils _pimUtils;
 
         public AzureMLUtils(IPage page, Logger logger)
         {
@@ -17,6 +18,7 @@ namespace PlaywrightFramework.Utils
             _utils = new PlaywrightUtils(page);
             _config = ConfigManager.Instance;
             _logger = logger;
+            _pimUtils = new PIMUtils(page, logger);
         }
 
         // Navigation Methods
@@ -1255,6 +1257,31 @@ namespace PlaywrightFramework.Utils
                 _logger.LogError($"Failed to start VS Code Desktop: {ex.Message}");
                 throw;
             }
+        }
+
+        // PIM (Privileged Identity Management) Methods
+        public async Task ActivatePIMRoleAsync(string roleName, string justification = "Automated test execution", int durationHours = 8)
+        {
+            _logger.LogAction($"Activate PIM role: {roleName}");
+            await _pimUtils.ActivatePIMRoleAsync(roleName, justification, durationHours);
+        }
+
+        public async Task ActivateDataScientistPIMRoleAsync()
+        {
+            _logger.LogAction("Activate Data Scientist PIM role");
+            await _pimUtils.ActivateDataScientistRoleAsync();
+        }
+
+        public async Task<bool> IsPIMRoleActiveAsync(string roleName)
+        {
+            _logger.LogAction($"Check if PIM role is active: {roleName}");
+            return await _pimUtils.IsRoleActiveAsync(roleName);
+        }
+
+        public async Task<bool> IsDataScientistPIMRoleActiveAsync()
+        {
+            const string roleName = "PIM_UKIN_CTAO_AI_PLATFORM_DEV_DATA_SCIENTIST";
+            return await IsPIMRoleActiveAsync(roleName);
         }
     }
 }

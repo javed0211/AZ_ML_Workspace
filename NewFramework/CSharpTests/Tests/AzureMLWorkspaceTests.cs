@@ -44,10 +44,31 @@ namespace PlaywrightFramework.Tests
             
             _logger?.LogInfo("🚀 Starting Azure ML Workspace test setup");
             
-            // Setup data scientist context
-            _logger?.LogStep("Setup data scientist context");
+            // Setup data scientist context and activate PIM role
+            _logger?.LogStep("Setup data scientist context and activate PIM role");
             _logger?.LogInfo("Data scientist: Javed");
-            _logger?.LogInfo("PIM role: Data Scientist (activated)");
+            
+            try
+            {
+                // Check if PIM role is already active
+                var isActive = await _azureMLUtils.IsDataScientistPIMRoleActiveAsync();
+                
+                if (!isActive)
+                {
+                    _logger?.LogInfo("🔐 Activating Data Scientist PIM role...");
+                    await _azureMLUtils.ActivateDataScientistPIMRoleAsync();
+                    _logger?.LogInfo("✅ Data Scientist PIM role activated successfully");
+                }
+                else
+                {
+                    _logger?.LogInfo("✅ Data Scientist PIM role is already active");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger?.LogWarning($"⚠️ PIM role activation failed, continuing with tests: {ex.Message}");
+                // Continue with tests even if PIM activation fails
+            }
         }
 
         [TearDown]

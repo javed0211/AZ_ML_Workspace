@@ -1,0 +1,1203 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - heading "Accessibility links" [level=1] [ref=e2]
+  - generic:
+    - generic:
+      - link "Skip to main content" [ref=e3] [cursor=pointer]
+      - link "Accessibility help" [ref=e4] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=en-IN
+      - link "Accessibility feedback" [ref=e5] [cursor=pointer]
+  - generic [ref=e8]:
+    - search [ref=e9]:
+      - generic [ref=e11]:
+        - link "Go to Google Home" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQPAgI
+          - img [ref=e14] [cursor=pointer]
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - combobox "Search" [ref=e20]: marshall headphones marshall headphones
+            - generic [ref=e21]:
+              - button "Clear" [ref=e23] [cursor=pointer]:
+                - img [ref=e25] [cursor=pointer]
+              - generic [ref=e28]:
+                - button "Search by voice" [ref=e29] [cursor=pointer]:
+                  - img [ref=e30] [cursor=pointer]
+                - button "Search by image" [ref=e32] [cursor=pointer]:
+                  - img [ref=e33] [cursor=pointer]
+          - button "Search" [ref=e35] [cursor=pointer]:
+            - img [ref=e38] [cursor=pointer]
+    - generic [ref=e40]:
+      - button "Settings" [ref=e42] [cursor=pointer]:
+        - img [ref=e45] [cursor=pointer]
+      - generic [ref=e48]:
+        - button "Google apps" [ref=e50] [cursor=pointer]:
+          - img [ref=e51] [cursor=pointer]
+        - link "Sign in" [ref=e55] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/search%3Fq%3Dmarshall%2Bheadphones%26sca_esv%3Dddc633b75768fb2c%26source%3Dhp%26ei%3D2SbVaJm0D_7vseMPuqj3gAg%26iflsig%3DAOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj%26ved%3D0ahUKEwjZhKKA5_OPAxX-d2wGHTrUHYAQ4dUDCBA%26uact%3D5%26oq%3Dmarshall%2Bheadphones%26gs_lp%3DEgdnd3Mtd2l6IhNtYXJzaGFsbCBoZWFkcGhvbmVzSApQAFgAcAB4AJABAJgBAKABAKoBALgBA8gBAPgBAZgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAA%26sclient%3Dgws-wiz%26sei%3D3ibVaKqJMOibseMPlPycyQQ&ec=futura_srp_og_si_72236_p
+          - generic [ref=e56] [cursor=pointer]: Sign in
+  - generic [ref=e58]:
+    - generic [ref=e63]:
+      - heading "Filters and topics" [level=1] [ref=e64]
+      - navigation [ref=e65]:
+        - generic [ref=e69]:
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "AI Mode" [ref=e74] [cursor=pointer]:
+                - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&udm=50&source=hp&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&aep=1&ntc=1&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ2J8OegQIBxAE
+                - generic [ref=e77] [cursor=pointer]: AI Mode
+            - listitem [ref=e78]:
+              - link "All" [disabled] [ref=e79]:
+                - generic [ref=e81]: All
+            - listitem [ref=e82]:
+              - link "Shopping" [ref=e83] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&q=marshall+headphones&ved=1t:220175&ictx=111
+                - generic [ref=e85] [cursor=pointer]: Shopping
+            - listitem [ref=e86]:
+              - link "Images" [ref=e87] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&q=marshall+headphones&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQtKgLegQIChAB
+                - generic [ref=e89] [cursor=pointer]: Images
+            - listitem [ref=e90]:
+              - link "Short videos" [ref=e91] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&q=marshall+headphones&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs6gLegQIDBAB
+                - generic [ref=e93] [cursor=pointer]: Short videos
+            - listitem [ref=e94]:
+              - link "Videos" [ref=e95] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&q=marshall+headphones&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQtKgLegQIDRAB
+                - generic [ref=e97] [cursor=pointer]: Videos
+            - listitem [ref=e98]:
+              - link "Forums" [ref=e99] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&udm=18&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZjSkgYzz5-5RrRWAIniWd7tzPwkE1KJWcRvaH01D-XIVq8GTSVeX03zdmjcvv_uucX31r6B_fyEmxe3wX1bmDzXOcvJdisMxnCsMPzAt5VFUD_28GE12EZHgnlA6G-WX_f4K4jhjOEqsJ7eC_wZ7ih-NvwaIdKSRLgXJ_tjeIKfGJfTJwx95QwaQteULRfS1rrsVSzw&q=marshall+headphones&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs6gLegQIDhAB
+                - generic [ref=e101] [cursor=pointer]: Forums
+            - listitem [ref=e102]:
+              - button "More filters" [ref=e103] [cursor=pointer]:
+                - generic [ref=e105] [cursor=pointer]:
+                  - generic [ref=e106] [cursor=pointer]: More
+                  - img [ref=e108] [cursor=pointer]
+          - button "Tools" [ref=e111] [cursor=pointer]:
+            - generic [ref=e113] [cursor=pointer]:
+              - generic [ref=e114] [cursor=pointer]: Tools
+              - img [ref=e116] [cursor=pointer]
+    - navigation "Refinement" [ref=e125]:
+      - generic [ref=e127]:
+        - list [ref=e130]:
+          - button "All filters." [ref=e131] [cursor=pointer]:
+            - img [ref=e133] [cursor=pointer]
+          - listitem [ref=e135] [cursor=pointer]:
+            - link "Price filter. Not selected." [ref=e136] [cursor=pointer]:
+              - /url: /search?q=price+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIJCBISBVByaWNlYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAF6BAg0EFk
+              - generic [ref=e138] [cursor=pointer]: Price
+          - listitem [ref=e139] [cursor=pointer]:
+            - link "Noise-cancelling Headphones filter. Not selected." [ref=e140] [cursor=pointer]:
+              - /url: /search?q=noise-cancelling+headphones+marshall&shoprs=CAEYCSoTbWFyc2hhbGwgaGVhZHBob25lczIfCAkSG05vaXNlLWNhbmNlbGxpbmcgSGVhZHBob25lc2AB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAJ6BAg0EFo
+              - generic [ref=e142] [cursor=pointer]: Noise-cancelling Headphones
+          - listitem [ref=e143] [cursor=pointer]:
+            - link "Reviews filter. Not selected." [ref=e144] [cursor=pointer]:
+              - /url: /search?q=reviews+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczILCBISB1Jldmlld3NgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAN6BAg0EFs
+              - generic [ref=e146] [cursor=pointer]: Reviews
+          - listitem [ref=e147] [cursor=pointer]:
+            - link "Bluetooth & Wireless Headphones filter. Not selected." [ref=e148] [cursor=pointer]:
+              - /url: /search?q=bluetooth+%26+wireless+headphones+marshall&shoprs=CAEYCSoTbWFyc2hhbGwgaGVhZHBob25lczIjCAkSH0JsdWV0b290aCAmIFdpcmVsZXNzIEhlYWRwaG9uZXNgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAR6BAg0EFw
+              - generic [ref=e150] [cursor=pointer]: Bluetooth & Wireless Headphones
+          - listitem [ref=e151] [cursor=pointer]:
+            - link "Under ₹4,000 filter. Not selected." [ref=e152] [cursor=pointer]:
+              - /url: /search?q=marshall+headphones+under+4000&shoprs=CAESDRILEQAAAABlze1BGAEYBSoTbWFyc2hhbGwgaGVhZHBob25lczInCAUSDlVuZGVyIOKCuTQsMDAwGAIiDRILEQAAAABlze1BGAEqAhgBWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAV6BAg0EF0
+              - generic [ref=e154] [cursor=pointer]: Under ₹4,000
+          - listitem [ref=e155] [cursor=pointer]:
+            - link "Black filter. Not selected." [ref=e156] [cursor=pointer]:
+              - /url: /search?q=black+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIVCAESBUJsYWNrOgoIzu5mENHuZjAAWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAZ6BAg0EF4
+              - generic [ref=e160] [cursor=pointer]: Black
+          - listitem [ref=e161] [cursor=pointer]:
+            - link "With Microphone filter. Not selected." [ref=e162] [cursor=pointer]:
+              - /url: /search?q=marshall+headphones+with+microphone&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIhCAESD1dpdGggTWljcm9waG9uZRgCOgoIsMI-ELHCPjADWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAd6BAg0EF8
+              - generic [ref=e164] [cursor=pointer]: With Microphone
+          - listitem [ref=e165] [cursor=pointer]:
+            - link "Nearby filter. Not selected." [ref=e166] [cursor=pointer]:
+              - /url: /search?q=marshall+headphones+nearby&shoprs=CAEYAyoTbWFyc2hhbGwgaGVhZHBob25lczIMCAMSBk5lYXJieRgCWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAh6BAg0EGA
+              - generic [ref=e167] [cursor=pointer]:
+                - img [ref=e171] [cursor=pointer]
+                - generic [ref=e174] [cursor=pointer]: Nearby
+          - listitem [ref=e175] [cursor=pointer]:
+            - link "White filter. Not selected." [ref=e176] [cursor=pointer]:
+              - /url: /search?q=white+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIVCAESBVdoaXRlOgoIzu5mENLuZjAAWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAl6BAg0EGE
+              - generic [ref=e180] [cursor=pointer]: White
+          - listitem [ref=e181] [cursor=pointer]:
+            - link "Buy filter. Not selected." [ref=e182] [cursor=pointer]:
+              - /url: /search?q=buy+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIHCBISA0J1eWAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAp6BAg0EGI
+              - generic [ref=e184] [cursor=pointer]: Buy
+          - listitem [ref=e185] [cursor=pointer]:
+            - link "Red filter. Not selected." [ref=e186] [cursor=pointer]:
+              - /url: /search?q=red+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczITCAESA1JlZDoKCM7uZhDX7mYwAFjptyBgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAt6BAg0EGM
+              - generic [ref=e190] [cursor=pointer]: Red
+          - listitem [ref=e191] [cursor=pointer]:
+            - link "Blue filter. Not selected." [ref=e192] [cursor=pointer]:
+              - /url: /search?q=blue+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIUCAESBEJsdWU6CgjO7mYQ0-5mMABY6bcgYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKAx6BAg0EGQ
+              - generic [ref=e196] [cursor=pointer]: Blue
+          - listitem [ref=e197] [cursor=pointer]:
+            - link "Speakers, Headphones & Headsets filter. Not selected." [ref=e198] [cursor=pointer]:
+              - /url: /search?q=speakers,+headphones+%26+headsets+marshall&shoprs=CAEYCSoTbWFyc2hhbGwgaGVhZHBob25lczIjCAkSH1NwZWFrZXJzLCBIZWFkcGhvbmVzICYgSGVhZHNldHNgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKA16BAg0EGU
+              - generic [ref=e200] [cursor=pointer]: Speakers, Headphones & Headsets
+          - listitem [ref=e201] [cursor=pointer]:
+            - link "On sale filter. Not selected." [ref=e202] [cursor=pointer]:
+              - /url: /search?q=marshall+headphones+sale&shoprs=CAESBEoCCAEYBioTbWFyc2hhbGwgaGVhZHBob25lczITCAYSB09uIHNhbGUYAiIESgIIAVjptyBgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKA56BAg0EGY
+              - generic [ref=e204] [cursor=pointer]: On sale
+          - listitem [ref=e205] [cursor=pointer]:
+            - link "Online filter. Not selected." [ref=e206] [cursor=pointer]:
+              - /url: /search?q=online+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIKCBISBk9ubGluZWAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKA96BAg0EGc
+              - generic [ref=e208] [cursor=pointer]: Online
+          - listitem [ref=e209] [cursor=pointer]:
+            - link "Original filter. Not selected." [ref=e210] [cursor=pointer]:
+              - /url: /search?q=original+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIMCBISCE9yaWdpbmFsYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBB6BAg0EGg
+              - generic [ref=e212] [cursor=pointer]: Original
+          - listitem [ref=e213] [cursor=pointer]:
+            - link "Store filter. Not selected." [ref=e214] [cursor=pointer]:
+              - /url: /search?q=store+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIJCBISBVN0b3JlYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBF6BAg0EGk
+              - generic [ref=e216] [cursor=pointer]: Store
+          - listitem [ref=e217] [cursor=pointer]:
+            - link "Usa filter. Not selected." [ref=e218] [cursor=pointer]:
+              - /url: /search?q=usa+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIHCBISA1VzYWAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBJ6BAg0EGo
+              - generic [ref=e220] [cursor=pointer]: Usa
+          - listitem [ref=e221] [cursor=pointer]:
+            - link "Noise Cancelling filter. Not selected." [ref=e222] [cursor=pointer]:
+              - /url: /search?q=noise+cancelling+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIgCAESEE5vaXNlIENhbmNlbGxpbmc6Cgjt6zoQ7us6MANY6bcgYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBN6BAg0EGs
+              - generic [ref=e224] [cursor=pointer]: Noise Cancelling
+          - listitem [ref=e225] [cursor=pointer]:
+            - link "Images filter. Not selected." [ref=e226] [cursor=pointer]:
+              - /url: /search?q=images+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIKCBISBkltYWdlc2AB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBR6BAg0EGw
+              - generic [ref=e228] [cursor=pointer]: Images
+          - listitem [ref=e229] [cursor=pointer]:
+            - link "Girl filter. Not selected." [ref=e230] [cursor=pointer]:
+              - /url: /search?q=girl+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIICBISBEdpcmxgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBV6BAg0EG0
+              - generic [ref=e232] [cursor=pointer]: Girl
+          - listitem [ref=e233] [cursor=pointer]:
+            - link "On-ear Headphones filter. Not selected." [ref=e234] [cursor=pointer]:
+              - /url: /search?q=on-ear+headphones+marshall&shoprs=CAEYCSoTbWFyc2hhbGwgaGVhZHBob25lczIVCAkSEU9uLWVhciBIZWFkcGhvbmVzYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBZ6BAg0EG4
+              - generic [ref=e236] [cursor=pointer]: On-ear Headphones
+          - listitem [ref=e237] [cursor=pointer]:
+            - link "Reliance Digital filter. Not selected." [ref=e238] [cursor=pointer]:
+              - /url: /search?q=reliance+digital+marshall+headphones&shoprs=CAEYAioTbWFyc2hhbGwgaGVhZHBob25lczIUCAISEFJlbGlhbmNlIERpZ2l0YWxY6bcgYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBd6BAg0EG8
+              - generic [ref=e240] [cursor=pointer]: Reliance Digital
+          - listitem [ref=e241] [cursor=pointer]:
+            - link "Earbuds filter. Not selected." [ref=e242] [cursor=pointer]:
+              - /url: /search?q=earbuds+marshall+headphones&shoprs=CAEYCSoTbWFyc2hhbGwgaGVhZHBob25lczILCAkSB0VhcmJ1ZHNgAQ&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBh6BAg0EHA
+              - generic [ref=e244] [cursor=pointer]: Earbuds
+          - listitem [ref=e245] [cursor=pointer]:
+            - link "Brand filter. Not selected." [ref=e246] [cursor=pointer]:
+              - /url: /search?q=brand+marshall+headphones&shoprs=CAEYEioTbWFyc2hhbGwgaGVhZHBob25lczIJCBISBUJyYW5kYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBl6BAg0EHE
+              - generic [ref=e248] [cursor=pointer]: Brand
+          - listitem [ref=e249] [cursor=pointer]:
+            - link "Sony filter. Not selected." [ref=e250] [cursor=pointer]:
+              - /url: /search?q=sony+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIUCAESBFNvbnk6CgiD8zwQruo9MAFY6bcgYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBp6BAg0EHI
+              - generic [ref=e252] [cursor=pointer]: Sony
+          - listitem [ref=e253] [cursor=pointer]:
+            - link "Grey filter. Not selected." [ref=e254] [cursor=pointer]:
+              - /url: /search?q=grey+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIVCAESBEdyZXk6CwjO7mYQmMqFATAAWOm3IGAB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBt6BAg0EHM
+              - generic [ref=e258] [cursor=pointer]: Grey
+          - listitem [ref=e259] [cursor=pointer]:
+            - link "Bose filter. Not selected." [ref=e260] [cursor=pointer]:
+              - /url: /search?q=bose+marshall+headphones&shoprs=CAEYASoTbWFyc2hhbGwgaGVhZHBob25lczIUCAESBEJvc2U6CgiD8zwQtOk-MAFY6bcgYAE&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQip4GKBx6BAg0EHQ
+              - generic [ref=e262] [cursor=pointer]: Bose
+        - button [ref=e263] [cursor=pointer]
+    - main [ref=e269]:
+      - generic [ref=e272]:
+        - heading "Search Results" [level=1] [ref=e273]
+        - generic [ref=e274]:
+          - generic [ref=e279]:
+            - generic [ref=e282]:
+              - link "Headphones for front-row sound Marshall.com https://www.marshall.com › headphones" [ref=e284] [cursor=pointer]:
+                - /url: https://www.marshall.com/in/en/headphones?srsltid=AfmBOopBIBLLXiHo5EF5pYnp0KKXXj8sj2G7tiq0w2emMDGNy_y0iO3c
+                - heading "Headphones for front-row sound" [level=3] [ref=e285] [cursor=pointer]
+                - generic [ref=e290] [cursor=pointer]:
+                  - generic [ref=e292] [cursor=pointer]: Marshall.com
+                  - generic [ref=e294] [cursor=pointer]:
+                    - text: https://www.marshall.com
+                    - generic [ref=e295] [cursor=pointer]: › headphones
+              - button "About this result related to Marshall.com" [ref=e296] [cursor=pointer]:
+                - img [ref=e299] [cursor=pointer]
+            - generic [ref=e303]:
+              - text: Whether you prefer the ease of true wireless, a wired connection, or to be immersed with noise cancellation,
+              - emphasis [ref=e304]: find your perfect pair of Marshall headphones
+              - text: .
+            - link "marshall headphones from www.marshall.com" [ref=e307] [cursor=pointer]:
+              - /url: https://www.marshall.com/in/en/headphones?srsltid=AfmBOopBIBLLXiHo5EF5pYnp0KKXXj8sj2G7tiq0w2emMDGNy_y0iO3c
+              - img "marshall headphones from www.marshall.com" [ref=e311] [cursor=pointer]
+            - generic [ref=e314]: ₹9,999 to ₹29,999
+          - generic [ref=e323]:
+            - generic [ref=e331]:
+              - heading "Popular products About this result related to Popular products" [level=2] [ref=e334]:
+                - text: Popular products
+                - button "About this result related to Popular products" [ref=e335] [cursor=pointer]:
+                  - img [ref=e338] [cursor=pointer]
+              - generic [ref=e343]:
+                - list [ref=e347]:
+                  - listitem [ref=e348]:
+                    - 'button "Low price. Also nearby Marshall Major IV Wireless Bluetooth On Ear Headphones Current price: ₹8,999. Usually ₹9,999 Amazon.in Amazon.in & more Free delivery Rated 4.7 out of 5. 5.3K reviews." [ref=e354] [cursor=pointer]':
+                      - generic [ref=e359] [cursor=pointer]:
+                        - generic [ref=e360] [cursor=pointer]:
+                          - generic [ref=e361] [cursor=pointer]:
+                            - generic [ref=e364] [cursor=pointer]: LOW PRICE
+                            - img [ref=e367] [cursor=pointer]
+                          - generic [ref=e371] [cursor=pointer]:
+                            - img [ref=e373] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e376] [cursor=pointer]: Marshall Major IV Wireless Bluetooth On Ear Headphones
+                        - generic [ref=e378] [cursor=pointer]:
+                          - 'generic "Current price: ₹8,999." [ref=e379] [cursor=pointer]': ₹8,999
+                          - generic [ref=e380] [cursor=pointer]: Usually ₹9,999
+                        - generic [ref=e381] [cursor=pointer]:
+                          - generic [ref=e382] [cursor=pointer]:
+                            - img "Amazon.in" [ref=e388] [cursor=pointer]
+                            - generic [ref=e389] [cursor=pointer]: Amazon.in
+                          - generic [ref=e390] [cursor=pointer]: "& more"
+                        - generic [ref=e392] [cursor=pointer]: Free delivery
+                        - generic [ref=e394] [cursor=pointer]:
+                          - generic [ref=e395] [cursor=pointer]: "4.7"
+                          - img "Rated 4.7 out of 5," [ref=e396] [cursor=pointer]
+                          - generic [ref=e399] [cursor=pointer]: (5.3K)
+                  - listitem [ref=e400]:
+                    - 'button "Also nearby Marshall Major V Bluetooth Current price: ₹14,999. Flipkart Flipkart & more Rated 4.8 out of 5. 1.7K reviews." [ref=e406] [cursor=pointer]':
+                      - generic [ref=e411] [cursor=pointer]:
+                        - generic [ref=e412] [cursor=pointer]:
+                          - img [ref=e416] [cursor=pointer]
+                          - generic [ref=e420] [cursor=pointer]:
+                            - img [ref=e422] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e425] [cursor=pointer]: Marshall Major V Bluetooth
+                        - 'generic "Current price: ₹14,999." [ref=e428] [cursor=pointer]': ₹14,999
+                        - generic [ref=e429] [cursor=pointer]:
+                          - generic [ref=e430] [cursor=pointer]:
+                            - img "Flipkart" [ref=e436] [cursor=pointer]
+                            - generic [ref=e437] [cursor=pointer]: Flipkart
+                          - generic [ref=e438] [cursor=pointer]: "& more"
+                        - generic [ref=e440] [cursor=pointer]:
+                          - generic [ref=e441] [cursor=pointer]: "4.8"
+                          - img "Rated 4.8 out of 5," [ref=e442] [cursor=pointer]
+                          - generic [ref=e445] [cursor=pointer]: (1.7K)
+                  - listitem [ref=e446]:
+                    - 'button "Also nearby Marshall Monitor III Active Noise Canceling Over Ear Bluetooth Headphones Current price: ₹26,999. Was ₹29,999 luxe.ajio.com luxe.ajio.com & more Free delivery Rated 4.8 out of 5. 352 reviews." [ref=e452] [cursor=pointer]':
+                      - generic [ref=e457] [cursor=pointer]:
+                        - generic [ref=e458] [cursor=pointer]:
+                          - img [ref=e462] [cursor=pointer]
+                          - generic [ref=e466] [cursor=pointer]:
+                            - img [ref=e468] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e471] [cursor=pointer]: Marshall Monitor III Active Noise Canceling Over Ear Bluetooth Headphones
+                        - generic [ref=e473] [cursor=pointer]:
+                          - 'generic "Current price: ₹26,999." [ref=e474] [cursor=pointer]': ₹26,999
+                          - generic "Was ₹29,999" [ref=e475] [cursor=pointer]: ₹29,999
+                        - generic [ref=e476] [cursor=pointer]:
+                          - generic [ref=e477] [cursor=pointer]:
+                            - img "luxe.ajio.com" [ref=e483] [cursor=pointer]
+                            - generic [ref=e484] [cursor=pointer]: luxe.ajio.com
+                          - generic [ref=e485] [cursor=pointer]: "& more"
+                        - generic [ref=e487] [cursor=pointer]: Free delivery
+                        - generic [ref=e489] [cursor=pointer]:
+                          - generic [ref=e490] [cursor=pointer]: "4.8"
+                          - img "Rated 4.8 out of 5," [ref=e491] [cursor=pointer]
+                          - generic [ref=e494] [cursor=pointer]: (352)
+                  - listitem [ref=e495]:
+                    - 'button "Also nearby Marshall Minor IV True Wireless Earbuds Current price: ₹9,999. Was ₹11,999 amazon.in amazon.in & more Rated 4.7 out of 5. 1.6K reviews." [ref=e501] [cursor=pointer]':
+                      - generic [ref=e506] [cursor=pointer]:
+                        - generic [ref=e507] [cursor=pointer]:
+                          - img [ref=e511] [cursor=pointer]
+                          - generic [ref=e515] [cursor=pointer]:
+                            - img [ref=e517] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e520] [cursor=pointer]: Marshall Minor IV True Wireless Earbuds
+                        - generic [ref=e522] [cursor=pointer]:
+                          - 'generic "Current price: ₹9,999." [ref=e523] [cursor=pointer]': ₹9,999
+                          - generic "Was ₹11,999" [ref=e524] [cursor=pointer]: ₹11,999
+                        - generic [ref=e525] [cursor=pointer]:
+                          - generic [ref=e526] [cursor=pointer]:
+                            - img "amazon.in" [ref=e532] [cursor=pointer]
+                            - generic [ref=e533] [cursor=pointer]: amazon.in
+                          - generic [ref=e534] [cursor=pointer]: "& more"
+                        - generic [ref=e536] [cursor=pointer]:
+                          - generic [ref=e537] [cursor=pointer]: "4.7"
+                          - img "Rated 4.7 out of 5," [ref=e538] [cursor=pointer]
+                          - generic [ref=e541] [cursor=pointer]: (1.6K)
+                  - listitem [ref=e542]:
+                    - 'button "Also nearby Marshall Monitor II A.N.C. Diamond Jubilee Bluetooth Headphones Current price: ₹22,999. Amazon.in Amazon.in & more Free delivery Rated 1.0 out of 5. 1 reviews." [ref=e548] [cursor=pointer]':
+                      - generic [ref=e553] [cursor=pointer]:
+                        - generic [ref=e554] [cursor=pointer]:
+                          - img [ref=e558] [cursor=pointer]
+                          - generic [ref=e562] [cursor=pointer]:
+                            - img [ref=e564] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e567] [cursor=pointer]: Marshall Monitor II A.N.C. Diamond Jubilee Bluetooth Headphones
+                        - 'generic "Current price: ₹22,999." [ref=e570] [cursor=pointer]': ₹22,999
+                        - generic [ref=e571] [cursor=pointer]:
+                          - generic [ref=e572] [cursor=pointer]:
+                            - img "Amazon.in" [ref=e578] [cursor=pointer]
+                            - generic [ref=e579] [cursor=pointer]: Amazon.in
+                          - generic [ref=e580] [cursor=pointer]: "& more"
+                        - generic [ref=e582] [cursor=pointer]: Free delivery
+                        - generic [ref=e584] [cursor=pointer]:
+                          - generic [ref=e585] [cursor=pointer]: "1.0"
+                          - img "Rated 1.0 out of 5," [ref=e586] [cursor=pointer]
+                          - generic [ref=e589] [cursor=pointer]: (1)
+                  - listitem [ref=e590]:
+                    - 'button "Marshall major IV headset Current price: ₹1,395. 44% off maximum retail price: ₹2,499 Meesho Meesho Free delivery" [ref=e597] [cursor=pointer]':
+                      - generic [ref=e602] [cursor=pointer]:
+                        - img [ref=e607] [cursor=pointer]
+                        - generic [ref=e608] [cursor=pointer]: Marshall major IV headset
+                        - generic [ref=e610] [cursor=pointer]:
+                          - 'generic "Current price: ₹1,395." [ref=e611] [cursor=pointer]': ₹1,395
+                          - 'generic "44% off maximum retail price: ₹2,499" [ref=e612] [cursor=pointer]':
+                            - generic [ref=e613] [cursor=pointer]: 44% off
+                            - generic [ref=e614] [cursor=pointer]: ₹2,499
+                        - generic [ref=e616] [cursor=pointer]:
+                          - img "Meesho" [ref=e622] [cursor=pointer]
+                          - generic [ref=e623] [cursor=pointer]: Meesho
+                        - generic [ref=e625] [cursor=pointer]: Free delivery
+                  - listitem [ref=e626]:
+                    - 'button "Also nearby Marshall Minor III Wireless Earbuds Current price: ₹8,999. Zepto Zepto & more Free 10 min delivery Rated 4.1 out of 5. 1.7K reviews." [ref=e633] [cursor=pointer]':
+                      - generic [ref=e638] [cursor=pointer]:
+                        - generic [ref=e639] [cursor=pointer]:
+                          - img [ref=e643] [cursor=pointer]
+                          - generic [ref=e647] [cursor=pointer]:
+                            - img [ref=e649] [cursor=pointer]
+                            - text: Also nearby
+                        - generic [ref=e652] [cursor=pointer]: Marshall Minor III Wireless Earbuds
+                        - 'generic "Current price: ₹8,999." [ref=e655] [cursor=pointer]': ₹8,999
+                        - generic [ref=e656] [cursor=pointer]:
+                          - generic [ref=e657] [cursor=pointer]:
+                            - img "Zepto" [ref=e663] [cursor=pointer]
+                            - generic [ref=e664] [cursor=pointer]: Zepto
+                          - generic [ref=e665] [cursor=pointer]: "& more"
+                        - generic [ref=e667] [cursor=pointer]: Free 10 min delivery
+                        - generic [ref=e669] [cursor=pointer]:
+                          - generic [ref=e670] [cursor=pointer]: "4.1"
+                          - img "Rated 4.1 out of 5," [ref=e671] [cursor=pointer]
+                          - generic [ref=e674] [cursor=pointer]: (1.7K)
+                  - listitem [ref=e675]:
+                    - 'button "Marshall Monitor III ANC Wireless Noise Cancelling Over-the-Ear Headphones Current price: ₹29,999. Flipkart Flipkart & more Rated 4.8 out of 5. 352 reviews." [ref=e682] [cursor=pointer]':
+                      - generic [ref=e687] [cursor=pointer]:
+                        - img [ref=e692] [cursor=pointer]
+                        - generic [ref=e693] [cursor=pointer]: Marshall Monitor III ANC Wireless Noise Cancelling Over-the-Ear Headphones
+                        - 'generic "Current price: ₹29,999." [ref=e696] [cursor=pointer]': ₹29,999
+                        - generic [ref=e697] [cursor=pointer]:
+                          - generic [ref=e698] [cursor=pointer]:
+                            - img "Flipkart" [ref=e704] [cursor=pointer]
+                            - generic [ref=e705] [cursor=pointer]: Flipkart
+                          - generic [ref=e706] [cursor=pointer]: "& more"
+                        - generic [ref=e708] [cursor=pointer]:
+                          - generic [ref=e709] [cursor=pointer]: "4.8"
+                          - img "Rated 4.8 out of 5," [ref=e710] [cursor=pointer]
+                          - generic [ref=e713] [cursor=pointer]: (352)
+                  - listitem [ref=e714]:
+                    - 'button "Marshall Major IV Wireless Bluetooth On Ear Headphone For Tech (Black, OS) Current price: ₹8,999. Was ₹14,999 luxe.ajio.com luxe.ajio.com Free delivery" [ref=e721] [cursor=pointer]':
+                      - generic [ref=e726] [cursor=pointer]:
+                        - img [ref=e731] [cursor=pointer]
+                        - generic [ref=e732] [cursor=pointer]: Marshall Major IV Wireless Bluetooth On Ear Headphone For Tech (Black, OS)
+                        - generic [ref=e734] [cursor=pointer]:
+                          - 'generic "Current price: ₹8,999." [ref=e735] [cursor=pointer]': ₹8,999
+                          - generic "Was ₹14,999" [ref=e736] [cursor=pointer]: ₹14,999
+                        - generic [ref=e738] [cursor=pointer]:
+                          - img "luxe.ajio.com" [ref=e744] [cursor=pointer]
+                          - generic [ref=e745] [cursor=pointer]: luxe.ajio.com
+                        - generic [ref=e747] [cursor=pointer]: Free delivery
+                  - listitem [ref=e748]:
+                    - 'button "Marshall Major III Wireless Bluetooth On Ear Headphone with Mic Current price: ₹14,999. amazon.in amazon.in & more Rated 4.5 out of 5. 1.7K reviews." [ref=e755] [cursor=pointer]':
+                      - generic [ref=e760] [cursor=pointer]:
+                        - img [ref=e765] [cursor=pointer]
+                        - generic [ref=e766] [cursor=pointer]: Marshall Major III Wireless Bluetooth On Ear Headphone with Mic
+                        - 'generic "Current price: ₹14,999." [ref=e769] [cursor=pointer]': ₹14,999
+                        - generic [ref=e770] [cursor=pointer]:
+                          - generic [ref=e771] [cursor=pointer]:
+                            - img "amazon.in" [ref=e777] [cursor=pointer]
+                            - generic [ref=e778] [cursor=pointer]: amazon.in
+                          - generic [ref=e779] [cursor=pointer]: "& more"
+                        - generic [ref=e781] [cursor=pointer]:
+                          - generic [ref=e782] [cursor=pointer]: "4.5"
+                          - img "Rated 4.5 out of 5," [ref=e783] [cursor=pointer]
+                          - generic [ref=e786] [cursor=pointer]: (1.7K)
+                - button [ref=e788] [cursor=pointer]:
+                  - img [ref=e791] [cursor=pointer]
+            - generic [ref=e803]:
+              - heading "₹4,000–₹10,000 ." [level=2] [ref=e804]:
+                - button "₹4,000–₹10,000 ." [expanded] [ref=e805] [cursor=pointer]:
+                  - generic [ref=e810] [cursor=pointer]:
+                    - heading "₹4,000–₹10,000" [level=2] [ref=e814] [cursor=pointer]
+                    - generic: .
+                  - img [ref=e817] [cursor=pointer]
+              - generic [ref=e824]:
+                - generic [ref=e827]:
+                  - list [ref=e828]:
+                    - listitem [ref=e829]:
+                      - 'button "Low price. Also nearby Marshall Major IV Wireless Bluetooth On Ear Headphones Current price: ₹8,999. Usually ₹9,999 Amazon.in Amazon.in & more Free delivery Rated 4.7 out of 5. 5.3K reviews." [ref=e835] [cursor=pointer]':
+                        - generic [ref=e840] [cursor=pointer]:
+                          - generic [ref=e841] [cursor=pointer]:
+                            - generic [ref=e842] [cursor=pointer]:
+                              - generic [ref=e845] [cursor=pointer]: LOW PRICE
+                              - img [ref=e848] [cursor=pointer]
+                            - generic [ref=e852] [cursor=pointer]:
+                              - img [ref=e854] [cursor=pointer]
+                              - text: Also nearby
+                          - generic [ref=e857] [cursor=pointer]: Marshall Major IV Wireless Bluetooth On Ear Headphones
+                          - generic [ref=e859] [cursor=pointer]:
+                            - 'generic "Current price: ₹8,999." [ref=e860] [cursor=pointer]': ₹8,999
+                            - generic [ref=e861] [cursor=pointer]: Usually ₹9,999
+                          - generic [ref=e862] [cursor=pointer]:
+                            - generic [ref=e863] [cursor=pointer]:
+                              - img "Amazon.in" [ref=e869] [cursor=pointer]
+                              - generic [ref=e870] [cursor=pointer]: Amazon.in
+                            - generic [ref=e871] [cursor=pointer]: "& more"
+                          - generic [ref=e873] [cursor=pointer]: Free delivery
+                          - generic [ref=e875] [cursor=pointer]:
+                            - generic [ref=e876] [cursor=pointer]: "4.7"
+                            - img "Rated 4.7 out of 5," [ref=e877] [cursor=pointer]
+                            - generic [ref=e880] [cursor=pointer]: (5.3K)
+                    - listitem [ref=e881]:
+                      - 'button "Also nearby Marshall Minor IV True Wireless Earbuds Current price: ₹9,999. Was ₹11,999 amazon.in amazon.in & more Rated 4.7 out of 5. 1.6K reviews." [ref=e887] [cursor=pointer]':
+                        - generic [ref=e892] [cursor=pointer]:
+                          - generic [ref=e893] [cursor=pointer]:
+                            - img [ref=e897] [cursor=pointer]
+                            - generic [ref=e901] [cursor=pointer]:
+                              - img [ref=e903] [cursor=pointer]
+                              - text: Also nearby
+                          - generic [ref=e906] [cursor=pointer]: Marshall Minor IV True Wireless Earbuds
+                          - generic [ref=e908] [cursor=pointer]:
+                            - 'generic "Current price: ₹9,999." [ref=e909] [cursor=pointer]': ₹9,999
+                            - generic "Was ₹11,999" [ref=e910] [cursor=pointer]: ₹11,999
+                          - generic [ref=e911] [cursor=pointer]:
+                            - generic [ref=e912] [cursor=pointer]:
+                              - img "amazon.in" [ref=e918] [cursor=pointer]
+                              - generic [ref=e919] [cursor=pointer]: amazon.in
+                            - generic [ref=e920] [cursor=pointer]: "& more"
+                          - generic [ref=e922] [cursor=pointer]:
+                            - generic [ref=e923] [cursor=pointer]: "4.7"
+                            - img "Rated 4.7 out of 5," [ref=e924] [cursor=pointer]
+                            - generic [ref=e927] [cursor=pointer]: (1.6K)
+                    - listitem [ref=e928]:
+                      - 'button "Marshall Major IV Wireless Bluetooth On Ear Headphone For Tech (Black, OS) Current price: ₹8,999. Was ₹14,999 luxe.ajio.com luxe.ajio.com Free delivery" [ref=e934] [cursor=pointer]':
+                        - generic [ref=e939] [cursor=pointer]:
+                          - img [ref=e944] [cursor=pointer]
+                          - generic [ref=e945] [cursor=pointer]: Marshall Major IV Wireless Bluetooth On Ear Headphone For Tech (Black, OS)
+                          - generic [ref=e947] [cursor=pointer]:
+                            - 'generic "Current price: ₹8,999." [ref=e948] [cursor=pointer]': ₹8,999
+                            - generic "Was ₹14,999" [ref=e949] [cursor=pointer]: ₹14,999
+                          - generic [ref=e951] [cursor=pointer]:
+                            - img "luxe.ajio.com" [ref=e957] [cursor=pointer]
+                            - generic [ref=e958] [cursor=pointer]: luxe.ajio.com
+                          - generic [ref=e960] [cursor=pointer]: Free delivery
+                    - listitem [ref=e961]:
+                      - 'button "Also nearby Marshall Minor III Wireless Earbuds Current price: ₹8,999. Zepto Zepto & more Free 10 min delivery Rated 4.1 out of 5. 1.7K reviews." [ref=e967] [cursor=pointer]':
+                        - generic [ref=e972] [cursor=pointer]:
+                          - generic [ref=e973] [cursor=pointer]:
+                            - img [ref=e977] [cursor=pointer]
+                            - generic [ref=e981] [cursor=pointer]:
+                              - img [ref=e983] [cursor=pointer]
+                              - text: Also nearby
+                          - generic [ref=e986] [cursor=pointer]: Marshall Minor III Wireless Earbuds
+                          - 'generic "Current price: ₹8,999." [ref=e989] [cursor=pointer]': ₹8,999
+                          - generic [ref=e990] [cursor=pointer]:
+                            - generic [ref=e991] [cursor=pointer]:
+                              - img "Zepto" [ref=e997] [cursor=pointer]
+                              - generic [ref=e998] [cursor=pointer]: Zepto
+                            - generic [ref=e999] [cursor=pointer]: "& more"
+                          - generic [ref=e1001] [cursor=pointer]: Free 10 min delivery
+                          - generic [ref=e1003] [cursor=pointer]:
+                            - generic [ref=e1004] [cursor=pointer]: "4.1"
+                            - img "Rated 4.1 out of 5," [ref=e1005] [cursor=pointer]
+                            - generic [ref=e1008] [cursor=pointer]: (1.7K)
+                    - listitem [ref=e1009]:
+                      - 'button "Marshall Major 2 Bluetooth Headphones Current price: ₹9,713. ubuy ubuy & more Rated 4.6 out of 5. 1.7K reviews." [ref=e1015] [cursor=pointer]':
+                        - generic [ref=e1020] [cursor=pointer]:
+                          - img [ref=e1025] [cursor=pointer]
+                          - generic [ref=e1026] [cursor=pointer]: Marshall Major 2 Bluetooth Headphones
+                          - 'generic "Current price: ₹9,713." [ref=e1029] [cursor=pointer]': ₹9,713
+                          - generic [ref=e1030] [cursor=pointer]:
+                            - generic [ref=e1031] [cursor=pointer]:
+                              - img "ubuy" [ref=e1037] [cursor=pointer]
+                              - generic [ref=e1038] [cursor=pointer]: ubuy
+                            - generic [ref=e1039] [cursor=pointer]: "& more"
+                          - generic [ref=e1041] [cursor=pointer]:
+                            - generic [ref=e1042] [cursor=pointer]: "4.6"
+                            - img "Rated 4.6 out of 5," [ref=e1043] [cursor=pointer]
+                            - generic [ref=e1046] [cursor=pointer]: (1.7K)
+                  - link "See more" [ref=e1048] [cursor=pointer]:
+                    - /url: /search?sca_esv=ddc633b75768fb2c&q=marshall+headphones+between+%E2%82%B94,000+and+%E2%82%B910,000&shoprs=CAESFhIUCQAAAABlze1BEQAAAABfoAJCGAEYBSoTbWFyc2hhbGwgaGVhZHBob25lc2ADgAEB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQkOQKKAF6BAgrEAs
+                    - generic [ref=e1050] [cursor=pointer]:
+                      - img [ref=e1055] [cursor=pointer]
+                      - generic [ref=e1057] [cursor=pointer]: See more
+                - button [ref=e1058] [cursor=pointer]:
+                  - img [ref=e1061] [cursor=pointer]
+            - heading "₹10,000–₹25,000 ." [level=2] [ref=e1074]:
+              - button "₹10,000–₹25,000 ." [ref=e1075] [cursor=pointer]:
+                - generic [ref=e1081] [cursor=pointer]:
+                  - heading "₹10,000–₹25,000" [level=2] [ref=e1085] [cursor=pointer]
+                  - generic: .
+                - img [ref=e1088] [cursor=pointer]
+            - heading "Over ₹25,000 ." [level=2] [ref=e1101]:
+              - button "Over ₹25,000 ." [ref=e1102] [cursor=pointer]:
+                - generic [ref=e1108] [cursor=pointer]:
+                  - heading "Over ₹25,000" [level=2] [ref=e1112] [cursor=pointer]
+                  - generic: .
+                - img [ref=e1115] [cursor=pointer]
+            - button "More products" [ref=e1121] [cursor=pointer]:
+              - generic [ref=e1122]:
+                - separator [ref=e1123]
+                - generic [ref=e1124] [cursor=pointer]:
+                  - img [ref=e1127] [cursor=pointer]
+                  - generic [ref=e1131] [cursor=pointer]: More products
+          - generic [ref=e1136]:
+            - generic [ref=e1137]:
+              - heading "People also ask" [level=2] [ref=e1138]:
+                - generic [ref=e1139]: People also ask
+              - button "About this result" [ref=e1140] [cursor=pointer]:
+                - img [ref=e1143] [cursor=pointer]
+            - generic [ref=e1145]:
+              - button "Is Marshall a good brand for headphones?" [ref=e1151] [cursor=pointer]:
+                - generic [ref=e1154] [cursor=pointer]: Is Marshall a good brand for headphones?
+                - img [ref=e1157] [cursor=pointer]
+              - button "Is Marshall owned by Apple?" [ref=e1166] [cursor=pointer]:
+                - generic [ref=e1169] [cursor=pointer]: Is Marshall owned by Apple?
+                - img [ref=e1172] [cursor=pointer]
+              - button "Why are Marshall headphones so expensive?" [ref=e1181] [cursor=pointer]:
+                - generic [ref=e1184] [cursor=pointer]: Why are Marshall headphones so expensive?
+                - img [ref=e1187] [cursor=pointer]
+              - button "What are the top 5 earphones?" [ref=e1196] [cursor=pointer]:
+                - generic [ref=e1199] [cursor=pointer]: What are the top 5 earphones?
+                - img [ref=e1202] [cursor=pointer]
+          - generic [ref=e1209]:
+            - generic [ref=e1212]:
+              - 'link "Marshall: Headphones Amazon.in https://www.amazon.in › stores › Marshall › page" [ref=e1214] [cursor=pointer]':
+                - /url: https://www.amazon.in/stores/Marshall/page/AD9428E7-255D-4A9E-A000-80BA025CD1D2
+                - 'heading "Marshall: Headphones" [level=3] [ref=e1215] [cursor=pointer]'
+                - generic [ref=e1220] [cursor=pointer]:
+                  - generic [ref=e1222] [cursor=pointer]: Amazon.in
+                  - generic [ref=e1224] [cursor=pointer]:
+                    - text: https://www.amazon.in
+                    - generic [ref=e1225] [cursor=pointer]: › stores › Marshall › page
+              - button "About this result related to Amazon.in" [ref=e1226] [cursor=pointer]:
+                - img [ref=e1229] [cursor=pointer]
+            - generic [ref=e1233]:
+              - emphasis [ref=e1234]: Headphones from Marshall
+              - text: . Pure rock 'n' roll in brown, black and white. We have both in ear, on ear and over ear models. Buy online here.
+          - generic [ref=e1239]:
+            - generic [ref=e1242]:
+              - link "Buy Marshall Headset Online at Best Prices In India Flipkart https://www.flipkart.com › headset › marshall~brand" [ref=e1244] [cursor=pointer]:
+                - /url: https://www.flipkart.com/audio-video/headset/marshall~brand/pr?sid=0pm,fcn
+                - heading "Buy Marshall Headset Online at Best Prices In India" [level=3] [ref=e1245] [cursor=pointer]
+                - generic [ref=e1250] [cursor=pointer]:
+                  - generic [ref=e1252] [cursor=pointer]: Flipkart
+                  - generic [ref=e1254] [cursor=pointer]:
+                    - text: https://www.flipkart.com
+                    - generic [ref=e1255] [cursor=pointer]: › headset › marshall~brand
+              - button "About this result related to Flipkart" [ref=e1256] [cursor=pointer]:
+                - img [ref=e1259] [cursor=pointer]
+            - generic [ref=e1263]:
+              - emphasis [ref=e1264]: Marshall Bluetooth headphones
+              - text: come in different styles to suit the needs of various listeners. The brand offers over-ear, in-ear, on-ear, true wireless, and ...
+            - link "marshall headphones from www.flipkart.com" [ref=e1267] [cursor=pointer]:
+              - /url: https://www.flipkart.com/audio-video/headset/marshall~brand/pr?sid=0pm,fcn
+              - img "marshall headphones from www.flipkart.com" [ref=e1271] [cursor=pointer]
+          - generic [ref=e1276]:
+            - heading "Discussions and forums" [level=2] [ref=e1278]
+            - generic [ref=e1279]:
+              - generic [ref=e1282]:
+                - generic [ref=e1284] [cursor=pointer]:
+                  - generic [ref=e1287] [cursor=pointer]:
+                    - link "Should I get marshall headphones? Reddit · r/HeadphoneAdvice · 10+ comments · 6 months ago" [ref=e1288] [cursor=pointer]:
+                      - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/
+                      - generic [ref=e1289] [cursor=pointer]:
+                        - heading "Should I get marshall headphones?" [level=3] [ref=e1290] [cursor=pointer]:
+                          - link "Should I get marshall headphones?" [ref=e1291] [cursor=pointer]
+                        - generic [ref=e1298] [cursor=pointer]:
+                          - generic [ref=e1299] [cursor=pointer]:
+                            - text: Reddit
+                            - generic [ref=e1300] [cursor=pointer]: ·
+                          - generic [ref=e1302] [cursor=pointer]:
+                            - generic [ref=e1303] [cursor=pointer]:
+                              - generic [ref=e1304] [cursor=pointer]: r/HeadphoneAdvice
+                              - generic [ref=e1305] [cursor=pointer]:
+                                - generic [ref=e1306] [cursor=pointer]: ·
+                                - generic [ref=e1307] [cursor=pointer]: 10+ comments
+                            - generic [ref=e1308] [cursor=pointer]:
+                              - generic [ref=e1309] [cursor=pointer]: ·
+                              - generic [ref=e1310] [cursor=pointer]: 6 months ago
+                    - generic [ref=e1316] [cursor=pointer]:
+                      - generic [ref=e1321] [cursor=pointer]: ·
+                      - button "About this result" [ref=e1326] [cursor=pointer]:
+                        - img [ref=e1329] [cursor=pointer]
+                  - button "Should I get marshall headphones? Reddit · r/HeadphoneAdvice · 10+ comments · 6 months ago" [expanded] [ref=e1331] [cursor=pointer]:
+                    - img [ref=e1334] [cursor=pointer]
+                - list [ref=e1343]:
+                  - listitem [ref=e1344]:
+                    - generic [ref=e1348]:
+                      - link "Nope, all Marshall headphones are tuned pretty terribly. You don't have many options but the ... More discussions on Should I get marshall headphones? Top answer · 3 votes · 6 months ago" [ref=e1349] [cursor=pointer]:
+                        - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mjftq7v/
+                      - generic [ref=e1350]:
+                        - generic [ref=e1351]: Nope, all Marshall headphones are tuned pretty terribly. You don't have many options but the ...
+                        - link [ref=e1352] [cursor=pointer]:
+                          - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mjftq7v/
+                          - generic [ref=e1353] [cursor=pointer]: More
+                          - img [ref=e1355] [cursor=pointer]
+                      - generic [ref=e1357]:
+                        - generic [ref=e1358]:
+                          - img [ref=e1360]
+                          - text: Top answer
+                        - text: · 3 votes · 6 months ago
+                  - listitem [ref=e1362]:
+                    - generic [ref=e1366]:
+                      - link "i have them. the sound is decent but not great. but they’re super lightweight, comfortable, ... More discussions on Should I get marshall headphones? 2 votes · 3 months ago" [ref=e1367] [cursor=pointer]:
+                        - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mue0kha/
+                      - generic [ref=e1368]:
+                        - generic [ref=e1369]: i have them. the sound is decent but not great. but they’re super lightweight, comfortable, ...
+                        - link [ref=e1370] [cursor=pointer]:
+                          - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mue0kha/
+                          - generic [ref=e1371] [cursor=pointer]: More
+                          - img [ref=e1373] [cursor=pointer]
+                      - generic [ref=e1375]: 2 votes · 3 months ago
+                  - listitem [ref=e1376]:
+                    - generic [ref=e1380]:
+                      - link "Thanks for your submission to r/HeadphoneAdvice . If someone helps answer your question, ... More discussions on Should I get marshall headphones? 6 months ago" [ref=e1381] [cursor=pointer]:
+                        - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mjfsza1/
+                      - generic [ref=e1382]:
+                        - generic [ref=e1383]: Thanks for your submission to r/HeadphoneAdvice . If someone helps answer your question, ...
+                        - link [ref=e1384] [cursor=pointer]:
+                          - /url: https://www.reddit.com/r/HeadphoneAdvice/comments/1jikagc/should_i_get_marshall_headphones/mjfsza1/
+                          - generic [ref=e1385] [cursor=pointer]: More
+                          - img [ref=e1387] [cursor=pointer]
+                      - generic [ref=e1389]: 6 months ago
+              - generic [ref=e1394] [cursor=pointer]:
+                - generic [ref=e1397] [cursor=pointer]:
+                  - link "Ever since i moved to Budapest i have seen these Marshall bluetooth ... Reddit · r/headphones · 30+ comments · 1 year ago" [ref=e1398] [cursor=pointer]:
+                    - /url: https://www.reddit.com/r/headphones/comments/18qp179/ever_since_i_moved_to_budapest_i_have_seen_these/
+                    - generic [ref=e1399] [cursor=pointer]:
+                      - heading "Ever since i moved to Budapest i have seen these Marshall bluetooth ..." [level=3] [ref=e1400] [cursor=pointer]:
+                        - link "Ever since i moved to Budapest i have seen these Marshall bluetooth ..." [ref=e1401] [cursor=pointer]
+                      - generic [ref=e1408] [cursor=pointer]:
+                        - generic [ref=e1409] [cursor=pointer]:
+                          - text: Reddit
+                          - generic [ref=e1410] [cursor=pointer]: ·
+                        - generic [ref=e1412] [cursor=pointer]:
+                          - generic [ref=e1413] [cursor=pointer]:
+                            - generic [ref=e1414] [cursor=pointer]: r/headphones
+                            - generic [ref=e1415] [cursor=pointer]:
+                              - generic [ref=e1416] [cursor=pointer]: ·
+                              - generic [ref=e1417] [cursor=pointer]: 30+ comments
+                          - generic [ref=e1418] [cursor=pointer]:
+                            - generic [ref=e1419] [cursor=pointer]: ·
+                            - generic [ref=e1420] [cursor=pointer]: 1 year ago
+                  - generic [ref=e1426] [cursor=pointer]:
+                    - generic [ref=e1431] [cursor=pointer]: ·
+                    - button "About this result" [ref=e1436] [cursor=pointer]:
+                      - img [ref=e1439] [cursor=pointer]
+                - button "Ever since i moved to Budapest i have seen these Marshall bluetooth ... Reddit · r/headphones · 30+ comments · 1 year ago" [ref=e1441] [cursor=pointer]:
+                  - img [ref=e1444] [cursor=pointer]
+              - generic [ref=e1450] [cursor=pointer]:
+                - generic [ref=e1453] [cursor=pointer]:
+                  - link "What do you think of the design of Marshall's Major V headphones? Quora · 1 answer · 2 months ago" [ref=e1454] [cursor=pointer]:
+                    - /url: https://www.quora.com/What-do-you-think-of-the-design-of-Marshalls-Major-V-headphones
+                    - generic [ref=e1455] [cursor=pointer]:
+                      - heading "What do you think of the design of Marshall's Major V headphones?" [level=3] [ref=e1456] [cursor=pointer]:
+                        - link "What do you think of the design of Marshall's Major V headphones?" [ref=e1457] [cursor=pointer]
+                      - generic [ref=e1464] [cursor=pointer]:
+                        - generic [ref=e1465] [cursor=pointer]:
+                          - text: Quora
+                          - generic [ref=e1466] [cursor=pointer]: ·
+                        - generic [ref=e1469] [cursor=pointer]:
+                          - generic [ref=e1470] [cursor=pointer]: 1 answer
+                          - generic [ref=e1471] [cursor=pointer]:
+                            - generic [ref=e1472] [cursor=pointer]: ·
+                            - generic [ref=e1473] [cursor=pointer]: 2 months ago
+                  - generic [ref=e1479] [cursor=pointer]:
+                    - generic [ref=e1484] [cursor=pointer]: ·
+                    - button "About this result" [ref=e1489] [cursor=pointer]:
+                      - img [ref=e1492] [cursor=pointer]
+                - button "What do you think of the design of Marshall's Major V headphones? Quora · 1 answer · 2 months ago" [ref=e1494] [cursor=pointer]:
+                  - img [ref=e1497] [cursor=pointer]
+              - link "See more discussions" [ref=e1500] [cursor=pointer]:
+                - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&udm=18&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8poLegQIWhAE
+                - separator [ref=e1501] [cursor=pointer]
+                - generic [ref=e1502] [cursor=pointer]:
+                  - generic [ref=e1503] [cursor=pointer]: See more
+                  - img [ref=e1505] [cursor=pointer]
+          - generic [ref=e1511]:
+            - generic [ref=e1514]:
+              - 'link "Wireless earbuds and headphones: Live your life free from ... Marshall.com https://www.marshall.com › headphones › wireless" [ref=e1516] [cursor=pointer]':
+                - /url: https://www.marshall.com/in/en/headphones/wireless?srsltid=AfmBOoo6TmumYD_14lceFw5Yk33q08jjY5vib3YwM8jhcBO7re3taqgm
+                - 'heading "Wireless earbuds and headphones: Live your life free from ..." [level=3] [ref=e1517] [cursor=pointer]'
+                - generic [ref=e1522] [cursor=pointer]:
+                  - generic [ref=e1524] [cursor=pointer]: Marshall.com
+                  - generic [ref=e1526] [cursor=pointer]:
+                    - text: https://www.marshall.com
+                    - generic [ref=e1527] [cursor=pointer]: › headphones › wireless
+              - button "About this result related to Marshall.com" [ref=e1528] [cursor=pointer]:
+                - img [ref=e1531] [cursor=pointer]
+            - generic [ref=e1535]:
+              - emphasis [ref=e1536]: Marshall Monitor III A.N.C. Black over-ear headphones
+              - text: . MONITOR III A.N.C. BLACK. M.R.P. ₹ 29,999.00 ; Marshall headphone with microphone on a black background.
+            - generic [ref=e1539]: ₹8,999 to ₹29,999
+          - generic [ref=e1554]:
+            - heading "In shops nearby About this result related to In shops nearby" [level=2] [ref=e1557]:
+              - text: In shops nearby
+              - button "About this result related to In shops nearby" [ref=e1558] [cursor=pointer]:
+                - img [ref=e1561] [cursor=pointer]
+            - generic [ref=e1566]:
+              - generic [ref=e1569]:
+                - list [ref=e1570]:
+                  - listitem [ref=e1571]:
+                    - 'button "Nearby, 1 km Marshall Major IV Wireless Bluetooth On Ear Headphones Current price: ₹14,999. Reliance Digital Reliance Digital & more Free delivery by Sat Rated 4.7 out of 5. 5.3K reviews." [ref=e1577] [cursor=pointer]':
+                      - generic [ref=e1582] [cursor=pointer]:
+                        - generic [ref=e1583] [cursor=pointer]:
+                          - img [ref=e1587] [cursor=pointer]
+                          - generic [ref=e1591] [cursor=pointer]:
+                            - img [ref=e1593] [cursor=pointer]
+                            - text: Nearby, 1 km
+                        - generic [ref=e1596] [cursor=pointer]: Marshall Major IV Wireless Bluetooth On Ear Headphones
+                        - 'generic "Current price: ₹14,999." [ref=e1599] [cursor=pointer]': ₹14,999
+                        - generic [ref=e1600] [cursor=pointer]:
+                          - generic [ref=e1601] [cursor=pointer]:
+                            - img "Reliance Digital" [ref=e1607] [cursor=pointer]
+                            - generic [ref=e1608] [cursor=pointer]: Reliance Digital
+                          - generic [ref=e1609] [cursor=pointer]: "& more"
+                        - generic [ref=e1611] [cursor=pointer]: Free delivery by Sat
+                        - generic [ref=e1613] [cursor=pointer]:
+                          - generic [ref=e1614] [cursor=pointer]: "4.7"
+                          - img "Rated 4.7 out of 5," [ref=e1615] [cursor=pointer]
+                          - generic [ref=e1618] [cursor=pointer]: (5.3K)
+                  - listitem [ref=e1619]:
+                    - 'button "Nearby, 1 km Marshall Major V Bluetooth Current price: ₹14,999. Croma Croma & more Rated 4.8 out of 5. 1.7K reviews." [ref=e1625] [cursor=pointer]':
+                      - generic [ref=e1630] [cursor=pointer]:
+                        - generic [ref=e1631] [cursor=pointer]:
+                          - img [ref=e1635] [cursor=pointer]
+                          - generic [ref=e1639] [cursor=pointer]:
+                            - img [ref=e1641] [cursor=pointer]
+                            - text: Nearby, 1 km
+                        - generic [ref=e1644] [cursor=pointer]: Marshall Major V Bluetooth
+                        - 'generic "Current price: ₹14,999." [ref=e1647] [cursor=pointer]': ₹14,999
+                        - generic [ref=e1648] [cursor=pointer]:
+                          - generic [ref=e1649] [cursor=pointer]:
+                            - img "Croma" [ref=e1655] [cursor=pointer]
+                            - generic [ref=e1656] [cursor=pointer]: Croma
+                          - generic [ref=e1657] [cursor=pointer]: "& more"
+                        - generic [ref=e1659] [cursor=pointer]:
+                          - generic [ref=e1660] [cursor=pointer]: "4.8"
+                          - img "Rated 4.8 out of 5," [ref=e1661] [cursor=pointer]
+                          - generic [ref=e1664] [cursor=pointer]: (1.7K)
+                  - listitem [ref=e1665]:
+                    - 'button "Nearby, 3 km Marshall Monitor III Active Noise Canceling Over Ear Bluetooth Headphones Current price: ₹29,999. Reliance Digital Reliance Digital & more Free delivery by Sat Rated 4.8 out of 5. 352 reviews." [ref=e1671] [cursor=pointer]':
+                      - generic [ref=e1676] [cursor=pointer]:
+                        - generic [ref=e1677] [cursor=pointer]:
+                          - img [ref=e1681] [cursor=pointer]
+                          - generic [ref=e1685] [cursor=pointer]:
+                            - img [ref=e1687] [cursor=pointer]
+                            - text: Nearby, 3 km
+                        - generic [ref=e1690] [cursor=pointer]: Marshall Monitor III Active Noise Canceling Over Ear Bluetooth Headphones
+                        - 'generic "Current price: ₹29,999." [ref=e1693] [cursor=pointer]': ₹29,999
+                        - generic [ref=e1694] [cursor=pointer]:
+                          - generic [ref=e1695] [cursor=pointer]:
+                            - img "Reliance Digital" [ref=e1701] [cursor=pointer]
+                            - generic [ref=e1702] [cursor=pointer]: Reliance Digital
+                          - generic [ref=e1703] [cursor=pointer]: "& more"
+                        - generic [ref=e1705] [cursor=pointer]: Free delivery by Sat
+                        - generic [ref=e1707] [cursor=pointer]:
+                          - generic [ref=e1708] [cursor=pointer]: "4.8"
+                          - img "Rated 4.8 out of 5," [ref=e1709] [cursor=pointer]
+                          - generic [ref=e1712] [cursor=pointer]: (352)
+                  - listitem [ref=e1713]:
+                    - 'button "Nearby, 1 km Marshall Minor IV True Wireless Earbuds Current price: ₹9,999. 17% off maximum retail price: ₹11,999 Croma Croma & more Rated 4.7 out of 5. 1.6K reviews." [ref=e1719] [cursor=pointer]':
+                      - generic [ref=e1724] [cursor=pointer]:
+                        - generic [ref=e1725] [cursor=pointer]:
+                          - img [ref=e1729] [cursor=pointer]
+                          - generic [ref=e1733] [cursor=pointer]:
+                            - img [ref=e1735] [cursor=pointer]
+                            - text: Nearby, 1 km
+                        - generic [ref=e1738] [cursor=pointer]: Marshall Minor IV True Wireless Earbuds
+                        - generic [ref=e1740] [cursor=pointer]:
+                          - 'generic "Current price: ₹9,999." [ref=e1741] [cursor=pointer]': ₹9,999
+                          - 'generic "17% off maximum retail price: ₹11,999" [ref=e1742] [cursor=pointer]':
+                            - generic [ref=e1743] [cursor=pointer]: 17% off
+                            - generic [ref=e1744] [cursor=pointer]: ₹11,999
+                        - generic [ref=e1745] [cursor=pointer]:
+                          - generic [ref=e1746] [cursor=pointer]:
+                            - img "Croma" [ref=e1752] [cursor=pointer]
+                            - generic [ref=e1753] [cursor=pointer]: Croma
+                          - generic [ref=e1754] [cursor=pointer]: "& more"
+                        - generic [ref=e1756] [cursor=pointer]:
+                          - generic [ref=e1757] [cursor=pointer]: "4.7"
+                          - img "Rated 4.7 out of 5," [ref=e1758] [cursor=pointer]
+                          - generic [ref=e1761] [cursor=pointer]: (1.6K)
+                  - listitem [ref=e1762]:
+                    - 'button "Nearby, 3 km Marshall Minor III Wireless Earbuds Current price: ₹11,999. Reliance Digital Reliance Digital & more Free delivery by Sat Rated 4.1 out of 5. 1.7K reviews." [ref=e1768] [cursor=pointer]':
+                      - generic [ref=e1773] [cursor=pointer]:
+                        - generic [ref=e1774] [cursor=pointer]:
+                          - img [ref=e1778] [cursor=pointer]
+                          - generic [ref=e1782] [cursor=pointer]:
+                            - img [ref=e1784] [cursor=pointer]
+                            - text: Nearby, 3 km
+                        - generic [ref=e1787] [cursor=pointer]: Marshall Minor III Wireless Earbuds
+                        - 'generic "Current price: ₹11,999." [ref=e1790] [cursor=pointer]': ₹11,999
+                        - generic [ref=e1791] [cursor=pointer]:
+                          - generic [ref=e1792] [cursor=pointer]:
+                            - img "Reliance Digital" [ref=e1798] [cursor=pointer]
+                            - generic [ref=e1799] [cursor=pointer]: Reliance Digital
+                          - generic [ref=e1800] [cursor=pointer]: "& more"
+                        - generic [ref=e1802] [cursor=pointer]: Free delivery by Sat
+                        - generic [ref=e1804] [cursor=pointer]:
+                          - generic [ref=e1805] [cursor=pointer]: "4.1"
+                          - img "Rated 4.1 out of 5," [ref=e1806] [cursor=pointer]
+                          - generic [ref=e1809] [cursor=pointer]: (1.7K)
+                  - listitem [ref=e1810]:
+                    - 'button "Nearby, 1 km Motif II A.N.C. earbuds Current price: ₹17,999. 10% off maximum retail price: ₹19,999 Croma Croma & more Rated 4.6 out of 5. 1.4K reviews." [ref=e1817] [cursor=pointer]':
+                      - generic [ref=e1822] [cursor=pointer]:
+                        - generic [ref=e1823] [cursor=pointer]:
+                          - img [ref=e1827] [cursor=pointer]
+                          - generic [ref=e1831] [cursor=pointer]:
+                            - img [ref=e1833] [cursor=pointer]
+                            - text: Nearby, 1 km
+                        - generic [ref=e1836] [cursor=pointer]: Motif II A.N.C. earbuds
+                        - generic [ref=e1838] [cursor=pointer]:
+                          - 'generic "Current price: ₹17,999." [ref=e1839] [cursor=pointer]': ₹17,999
+                          - 'generic "10% off maximum retail price: ₹19,999" [ref=e1840] [cursor=pointer]':
+                            - generic [ref=e1841] [cursor=pointer]: 10% off
+                            - generic [ref=e1842] [cursor=pointer]: ₹19,999
+                        - generic [ref=e1843] [cursor=pointer]:
+                          - generic [ref=e1844] [cursor=pointer]:
+                            - img "Croma" [ref=e1850] [cursor=pointer]
+                            - generic [ref=e1851] [cursor=pointer]: Croma
+                          - generic [ref=e1852] [cursor=pointer]: "& more"
+                        - generic [ref=e1854] [cursor=pointer]:
+                          - generic [ref=e1855] [cursor=pointer]: "4.6"
+                          - img "Rated 4.6 out of 5," [ref=e1856] [cursor=pointer]
+                          - generic [ref=e1859] [cursor=pointer]: (1.4K)
+                  - listitem [ref=e1860]:
+                    - 'button "Nearby, 12 km Marshall Monitor II A.N.C. Diamond Jubilee Bluetooth Headphones Current price: ₹29,999. The Revolver Club The Revolver Club & more Rated 1.0 out of 5. 1 reviews." [ref=e1867] [cursor=pointer]':
+                      - generic [ref=e1872] [cursor=pointer]:
+                        - generic [ref=e1873] [cursor=pointer]:
+                          - img [ref=e1877] [cursor=pointer]
+                          - generic [ref=e1881] [cursor=pointer]:
+                            - img [ref=e1883] [cursor=pointer]
+                            - text: Nearby, 12 km
+                        - generic [ref=e1886] [cursor=pointer]: Marshall Monitor II A.N.C. Diamond Jubilee Bluetooth Headphones
+                        - 'generic "Current price: ₹29,999." [ref=e1889] [cursor=pointer]': ₹29,999
+                        - generic [ref=e1890] [cursor=pointer]:
+                          - generic [ref=e1891] [cursor=pointer]:
+                            - img "The Revolver Club" [ref=e1897] [cursor=pointer]
+                            - generic [ref=e1898] [cursor=pointer]: The Revolver Club
+                          - generic [ref=e1899] [cursor=pointer]: "& more"
+                        - generic [ref=e1901] [cursor=pointer]:
+                          - generic [ref=e1902] [cursor=pointer]: "1.0"
+                          - img "Rated 1.0 out of 5," [ref=e1903] [cursor=pointer]
+                          - generic [ref=e1906] [cursor=pointer]: (1)
+                  - listitem [ref=e1907]:
+                    - button "Nearby, 19 km AUTHORISED MARSHALL RESELLER Contact store for price MARU COLLECTION MARU COLLECTION" [ref=e1914] [cursor=pointer]:
+                      - generic [ref=e1919] [cursor=pointer]:
+                        - generic [ref=e1920] [cursor=pointer]:
+                          - img [ref=e1924] [cursor=pointer]
+                          - generic [ref=e1928] [cursor=pointer]:
+                            - img [ref=e1930] [cursor=pointer]
+                            - text: Nearby, 19 km
+                        - generic [ref=e1933] [cursor=pointer]: AUTHORISED MARSHALL RESELLER
+                        - generic [ref=e1936] [cursor=pointer]: Contact store for price
+                        - generic [ref=e1938] [cursor=pointer]:
+                          - img "MARU COLLECTION" [ref=e1944] [cursor=pointer]
+                          - generic [ref=e1945] [cursor=pointer]: MARU COLLECTION
+                - link "See more" [ref=e1947] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=marshall+headphones+nearby&shoprs=CAESBaoBAggBGAMqE21hcnNoYWxsIGhlYWRwaG9uZXMyDQgDIgWqAQIIASoCEAFQAGADgAEB&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQkOQKKAB6BAhZEAc
+                  - generic [ref=e1949] [cursor=pointer]:
+                    - img [ref=e1954] [cursor=pointer]
+                    - generic [ref=e1956] [cursor=pointer]: See more
+              - button [ref=e1957] [cursor=pointer]:
+                - img [ref=e1960] [cursor=pointer]
+          - generic [ref=e1966]:
+            - generic [ref=e1969]:
+              - link "Buy Marshall Wireless Headphones Online at Best Prices Croma https://www.croma.com › ... › Bluetooth Headphones" [ref=e1971] [cursor=pointer]:
+                - /url: https://www.croma.com/marshall-bluetooth-headphones/bc/b-0777-1014?srsltid=AfmBOorzFR-kv5VOH0XZiAd-fIm__r5q7BHuUU3wwyxC1stzTrnOoQPZ
+                - heading "Buy Marshall Wireless Headphones Online at Best Prices" [level=3] [ref=e1972] [cursor=pointer]
+                - generic [ref=e1977] [cursor=pointer]:
+                  - generic [ref=e1979] [cursor=pointer]: Croma
+                  - generic [ref=e1981] [cursor=pointer]:
+                    - text: https://www.croma.com
+                    - generic [ref=e1982] [cursor=pointer]: › ... › Bluetooth Headphones
+              - button "About this result related to Croma" [ref=e1983] [cursor=pointer]:
+                - img [ref=e1986] [cursor=pointer]
+            - generic [ref=e1990]:
+              - emphasis [ref=e1991]: Marshall's headphones are among the best wireless options
+              - text: . Packed with advanced active noise cancelling features, they constantly measure surrounding noise.
+            - link "marshall headphones from www.croma.com" [ref=e1994] [cursor=pointer]:
+              - /url: https://www.croma.com/marshall-bluetooth-headphones/bc/b-0777-1014?srsltid=AfmBOorzFR-kv5VOH0XZiAd-fIm__r5q7BHuUU3wwyxC1stzTrnOoQPZ
+              - img "marshall headphones from www.croma.com" [ref=e1998] [cursor=pointer]
+            - generic [ref=e2000]:
+              - generic [ref=e2001]: ₹14,999 to ₹29,999
+              - generic [ref=e2002]: ·
+              - generic [ref=e2004]:
+                - generic [ref=e2005]: Shop nearby (
+                - button "1.2 km" [ref=e2008]
+                - generic [ref=e2011]: )
+          - generic [ref=e2016]:
+            - generic [ref=e2019]:
+              - link "Headphones Support Marshall.com https://www.marshall.com › support › headphones" [ref=e2021] [cursor=pointer]:
+                - /url: https://www.marshall.com/us/en/support/headphones?srsltid=AfmBOornyKSxbxLqbArLGGvQfngYV8111ZF8ieOD6BT8H1LbMyDnA7us
+                - heading "Headphones Support" [level=3] [ref=e2022] [cursor=pointer]
+                - generic [ref=e2027] [cursor=pointer]:
+                  - generic [ref=e2029] [cursor=pointer]: Marshall.com
+                  - generic [ref=e2031] [cursor=pointer]:
+                    - text: https://www.marshall.com
+                    - generic [ref=e2032] [cursor=pointer]: › support › headphones
+              - button "About this result related to Marshall.com" [ref=e2033] [cursor=pointer]:
+                - img [ref=e2036] [cursor=pointer]
+            - generic [ref=e2040]:
+              - text: Need help with your Marshall headphones?
+              - emphasis [ref=e2041]: Explore guides, FAQs and troubleshooting steps
+              - text: to get back to your music fast.
+          - generic [ref=e2049]:
+            - generic [ref=e2050]:
+              - generic [ref=e2051]:
+                - generic [ref=e2055]:
+                  - link "Marshall Major V | Buy or Skip?! YouTube · Tom’s Guide 1.6L+ views · 1 year ago" [ref=e2057] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=L0Pf2wn4R9Q
+                    - heading "Marshall Major V | Buy or Skip?!" [level=3] [ref=e2058] [cursor=pointer]
+                    - generic [ref=e2063] [cursor=pointer]:
+                      - generic [ref=e2065] [cursor=pointer]: YouTube · Tom’s Guide
+                      - generic [ref=e2067] [cursor=pointer]: 1.6L+ views · 1 year ago
+                  - button "About this result related to YouTube" [ref=e2068] [cursor=pointer]:
+                    - img [ref=e2071] [cursor=pointer]
+                - generic [ref=e2074]:
+                  - text: The
+                  - generic [ref=e2075]: Marshall
+                  - text: Major V mixes retro looks with modern tech. These super rugged folding
+                  - generic [ref=e2076]: headphones
+                  - text: are extremely compact and deliver a very ...
+              - button "Marshall Major V | Buy or Skip?! by Tom’s Guide on YouTube. Play on Google. 5:56" [ref=e2078] [cursor=pointer]:
+                - generic [ref=e2080] [cursor=pointer]:
+                  - img [ref=e2083] [cursor=pointer]
+                  - generic [ref=e2086] [cursor=pointer]:
+                    - generic [ref=e2088] [cursor=pointer]: 5:56
+                    - img [ref=e2091] [cursor=pointer]
+            - button "8 key moments in this video" [ref=e2097] [cursor=pointer]:
+              - generic [ref=e2100] [cursor=pointer]:
+                - generic [ref=e2104] [cursor=pointer]: 8 key moments in this video
+                - img [ref=e2106] [cursor=pointer]
+          - generic [ref=e2112]:
+            - generic [ref=e2115]:
+              - link "Marshall Marshall https://www.marshallheadphones.com › headphones" [ref=e2117] [cursor=pointer]:
+                - /url: https://www.marshallheadphones.com/gb/en/headphones/?srsltid=AfmBOornuzK9XgfqzEGsEyqSLRpWwIJPrjC6L5wW5hxuBqc1yJbKAWMM
+                - heading "Marshall" [level=3] [ref=e2118] [cursor=pointer]
+                - generic [ref=e2123] [cursor=pointer]:
+                  - generic [ref=e2125] [cursor=pointer]: Marshall
+                  - generic [ref=e2127] [cursor=pointer]:
+                    - text: https://www.marshallheadphones.com
+                    - generic [ref=e2128] [cursor=pointer]: › headphones
+              - button "About this result related to Marshall" [ref=e2129] [cursor=pointer]:
+                - img [ref=e2132] [cursor=pointer]
+            - generic [ref=e2134]:
+              - generic [ref=e2135]: No information is available for this page.
+              - link "Learn why" [ref=e2137] [cursor=pointer]:
+                - /url: https://support.google.com/webmasters/answer/7489871?hl=en
+          - generic [ref=e2141]:
+            - heading "Images" [level=2] [ref=e2145]:
+              - generic [ref=e2146]: Images
+            - generic [ref=e2150]:
+              - generic [ref=e2154]:
+                - 'link "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Black) : Amazon.in: Electronics Amazon.in" [ref=e2155] [cursor=pointer]':
+                  - /url: https://www.amazon.in/Marshall-Major-Foldable-Bluetooth-Headphones/dp/B08KHT2HDT
+                - 'button "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Black) : Amazon.in: Electronics" [ref=e2157] [cursor=pointer]':
+                  - 'img "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Black) : Amazon.in: Electronics" [ref=e2159] [cursor=pointer]'
+                - generic [ref=e2161]:
+                  - generic [ref=e2163]: "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Black) : Amazon.in: Electronics"
+                  - generic [ref=e2164]:
+                    - generic [ref=e2171]: Amazon.in
+                    - button "About this result" [ref=e2174] [cursor=pointer]:
+                      - img [ref=e2177] [cursor=pointer]
+              - generic [ref=e2182]:
+                - link "Marshall Major IV Wireless On-Ear Headphones with 80+ Hours of Playtime, Multi-Dimensional Control Knob, Wireless Charging- Brown Amazon.in" [ref=e2183] [cursor=pointer]:
+                  - /url: https://www.amazon.in/Marshall-Major-IV-Bluetooth-Headphone/dp/B09SZT2H8K
+                - button "Marshall Major IV Wireless On-Ear Headphones with 80+ Hours of Playtime, Multi-Dimensional Control Knob, Wireless Charging- Brown" [ref=e2185] [cursor=pointer]:
+                  - img "Marshall Major IV Wireless On-Ear Headphones with 80+ Hours of Playtime, Multi-Dimensional Control Knob, Wireless Charging- Brown" [ref=e2187] [cursor=pointer]
+                - generic [ref=e2189]:
+                  - generic [ref=e2191]: Marshall Major IV Wireless On-Ear Headphones with 80+ Hours of Playtime, Multi-Dimensional Control Knob, Wireless Charging- Brown
+                  - generic [ref=e2192]:
+                    - generic [ref=e2199]: Amazon.in
+                    - button "About this result" [ref=e2202] [cursor=pointer]:
+                      - img [ref=e2205] [cursor=pointer]
+              - generic [ref=e2210]:
+                - link "Marshall Major V Bluetooth Headphone with Mic (Upto 100 Hours Playback, On Ear, Black) Croma" [ref=e2211] [cursor=pointer]:
+                  - /url: https://www.croma.com/marshall-major-v-bluetooth-headphone-with-mic-upto-100-hours-playback-on-ear-black-/p/307538?srsltid=AfmBOopj0yCJehcwgVakNwupfDrmjukFHqqlnLWv6zWYNdHKNXLkGDbB
+                - button "Marshall Major V Bluetooth Headphone with Mic (Upto 100 Hours Playback, On Ear, Black)" [ref=e2213] [cursor=pointer]:
+                  - img "Marshall Major V Bluetooth Headphone with Mic (Upto 100 Hours Playback, On Ear, Black)" [ref=e2215] [cursor=pointer]
+                - generic [ref=e2217]:
+                  - generic [ref=e2219]: Marshall Major V Bluetooth Headphone with Mic (Upto 100 Hours Playback, On Ear, Black)
+                  - generic [ref=e2220]:
+                    - generic [ref=e2227]: Croma
+                    - button "About this result" [ref=e2230] [cursor=pointer]:
+                      - img [ref=e2233] [cursor=pointer]
+              - generic [ref=e2238]:
+                - link "Major V Brown - On-ear headphones | Marshall.com Marshall.com" [ref=e2239] [cursor=pointer]:
+                  - /url: https://www.marshall.com/in/en/product/major-v?pid=1006834&srsltid=AfmBOoo-J0i5zWR1O2W9cV2z4e2JOi0A-NDedRHHS0YGGRS3GsW-Mm7J
+                - button "Major V Brown - On-ear headphones | Marshall.com" [ref=e2241] [cursor=pointer]:
+                  - img "Major V Brown - On-ear headphones | Marshall.com" [ref=e2243] [cursor=pointer]
+                - generic [ref=e2245]:
+                  - generic [ref=e2247]: Major V Brown - On-ear headphones | Marshall.com
+                  - generic [ref=e2248]:
+                    - generic [ref=e2255]: Marshall.com
+                    - button "About this result" [ref=e2258] [cursor=pointer]:
+                      - img [ref=e2261] [cursor=pointer]
+            - button "Show more images" [ref=e2264] [cursor=pointer]:
+              - separator [ref=e2265] [cursor=pointer]
+              - generic [ref=e2266] [cursor=pointer]:
+                - generic [ref=e2268] [cursor=pointer]: Show more images
+                - img [ref=e2270] [cursor=pointer]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - region "Ads":
+                    - heading "Ads" [level=1] [ref=e2272]
+      - generic [ref=e2274]:
+        - generic [ref=e2279]:
+          - heading "People also search for" [level=2] [ref=e2281]
+          - list [ref=e2290]:
+            - listitem [ref=e2291]:
+              - generic [ref=e2294]:
+                - link "Marshall Major IV Bluetooth Headphones" [ref=e2295] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+-+Major+IV&stick=H4sIAAAAAAAAAAFlAJr_CDEiDS9nLzExdnhrOWgxX3j6AQCwBACiBRNNYXJzaGFsbCAtIE1ham9yIElW2gYZALuiiPkERb8xsTkzsbIW47cH-kf9fWaYqaIIFlBlb3BsZSBhbHNvIHNlYXJjaCBmb3KoCAFit9EJZQAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiEAo
+                - heading [level=3] [ref=e2300]:
+                  - generic [ref=e2301]: Marshall Major IV Bluetooth Headphones
+            - listitem [ref=e2302]:
+              - generic [ref=e2305]:
+                - link "Marshall Major V Wireless On-Ear Headphones" [ref=e2306] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+-+Major+V&stick=H4sIAAAAAAAAAAFkAJv_CDEiDS9nLzExdzJuNjRsM3D6AQCwBACiBRJNYXJzaGFsbCAtIE1ham9yIFbaBhkAu6KI-QRFvzGxOTOxshbjtwf6R_19ZpipoggWUGVvcGxlIGFsc28gc2VhcmNoIGZvcqgIAYhbpq5kAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiEA8
+                - heading [level=3] [ref=e2311]:
+                  - generic [ref=e2312]: Marshall Major V Wireless On-Ear Headphones
+            - listitem [ref=e2313]:
+              - generic [ref=e2316]:
+                - link "Marshall Minor IV True Wireless Earbuds" [ref=e2317] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+-+Minor+IV&stick=H4sIAAAAAAAAAAFlAJr_CDEiDS9nLzExeTc2NmR3c276AQCwBACiBRNNYXJzaGFsbCAtIE1pbm9yIElW2gYZALuiiPkERb8xsTkzsbIW47cH-kf9fWaYqaIIFlBlb3BsZSBhbHNvIHNlYXJjaCBmb3KoCAEjg6bFZQAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiEBQ
+                - heading [level=3] [ref=e2322]:
+                  - generic [ref=e2323]: Marshall Minor IV True Wireless Earbuds
+            - listitem [ref=e2324]:
+              - generic [ref=e2327]:
+                - link "Marshall Major III Bluetooth Headphones 04092187" [ref=e2328] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+Major+III+Bluetooth+Headphones+04092187&stick=H4sIAAAAAAAAAAGCAH3_CDEiDS9nLzExdnhrOWw5ejj6AQCwBACiBTBNYXJzaGFsbCBNYWpvciBJSUkgQmx1ZXRvb3RoIEhlYWRwaG9uZXMgMDQwOTIxODfaBhkAu6KI-QRFvzGxOTOxshbjtwf6R_19ZpipoggWUGVvcGxlIGFsc28gc2VhcmNoIGZvcqgIARqAb2mCAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiEBk
+                - heading [level=3] [ref=e2333]:
+                  - generic [ref=e2334]: Marshall Major III Bluetooth Headphones 04092187
+            - listitem [ref=e2335]:
+              - generic [ref=e2338]:
+                - link "Sony WH-1000XM4 Noise Wireless Headphones" [ref=e2339] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Sony+WH-1000XM4+Noise+Wireless+Headphones&stick=H4sIAAAAAAAAAAF7AIT_CDEiDS9nLzExamdjbm01ejD6AQCwBACiBSlTb255IFdILTEwMDBYTTQgTm9pc2UgV2lyZWxlc3MgSGVhZHBob25lc9oGGQC7ooj5BEW_MbE5M7GyFuO3B_pH_X1mmKmiCBZQZW9wbGUgYWxzbyBzZWFyY2ggZm9yqAgBpigQTnsAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiEB4
+                - heading [level=3] [ref=e2344]:
+                  - generic [ref=e2345]: Sony WH-1000XM4 Noise Wireless Headphones
+            - listitem [ref=e2346]:
+              - generic [ref=e2349]:
+                - link "Marshall Monitor II Noise Cancelling Wireless Over-Ear Headphones" [ref=e2350] [cursor=pointer]:
+                  - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+Monitor+II+ANC&stick=H4sIAAAAAAAAAAFpAJb_CDEiDS9nLzExaGZwX3F2c2T6AQCwBACiBRdNYXJzaGFsbCBNb25pdG9yIElJIEFOQ9oGGQC7ooj5BEW_MbE5M7GyFuO3B_pH_X1mmKmiCBZQZW9wbGUgYWxzbyBzZWFyY2ggZm9yqAgBJ6zKp2kAAAA&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQs9oBKAB6BAhiECM
+                - heading [level=3] [ref=e2355]:
+                  - generic [ref=e2356]: Marshall Monitor II Noise Cancelling Wireless Over-Ear Headphones
+          - group [ref=e2361]:
+            - button "Feedback" [ref=e2362] [cursor=pointer]:
+              - generic [ref=e2364] [cursor=pointer]: Feedback
+          - generic [ref=e2367]:
+            - generic [ref=e2368]:
+              - link "Marshall headphones Bluetooth" [ref=e2372] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+Bluetooth&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BQiDARAB
+                - generic [ref=e2373] [cursor=pointer]:
+                  - generic [ref=e2378] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2379] [cursor=pointer]: Bluetooth
+                  - img [ref=e2383] [cursor=pointer]
+              - link "Marshall headphones price" [ref=e2388] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+price&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BAh_EAE
+                - generic [ref=e2389] [cursor=pointer]:
+                  - generic [ref=e2394] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2395] [cursor=pointer]: price
+                  - img [ref=e2399] [cursor=pointer]
+              - link "Marshall headphones Reddit" [ref=e2404] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+Reddit&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BQiAARAB
+                - generic [ref=e2405] [cursor=pointer]:
+                  - generic [ref=e2410] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2411] [cursor=pointer]: Reddit
+                  - img [ref=e2415] [cursor=pointer]
+              - link "Marshall headphones review" [ref=e2420] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+review&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BAh9EAE
+                - generic [ref=e2421] [cursor=pointer]:
+                  - generic [ref=e2426] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2427] [cursor=pointer]: review
+                  - img [ref=e2431] [cursor=pointer]
+            - generic [ref=e2433]:
+              - link "Marshall headphones - Brown" [ref=e2437] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+-+Brown&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BAh7EAE
+                - generic [ref=e2438] [cursor=pointer]:
+                  - generic [ref=e2443] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2444] [cursor=pointer]: "- Brown"
+                  - img [ref=e2448] [cursor=pointer]
+              - link "Noise canceling Marshall headphones" [ref=e2453] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Noise+canceling+Marshall+headphones&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BAh5EAE
+                - generic [ref=e2454] [cursor=pointer]:
+                  - generic [ref=e2459] [cursor=pointer]:
+                    - generic [ref=e2460] [cursor=pointer]: Noise canceling
+                    - text: Marshall headphones
+                  - img [ref=e2464] [cursor=pointer]
+              - link "Marshall headphones flipkart" [ref=e2469] [cursor=pointer]:
+                - /url: /search?sca_esv=ddc633b75768fb2c&q=Marshall+headphones+flipkart&sa=X&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ1QJ6BAh1EAE
+                - generic [ref=e2470] [cursor=pointer]:
+                  - generic [ref=e2475] [cursor=pointer]:
+                    - text: Marshall headphones
+                    - generic [ref=e2476] [cursor=pointer]: flipkart
+                  - img [ref=e2480] [cursor=pointer]
+        - navigation [ref=e2482]:
+          - heading "Page navigation" [level=1] [ref=e2483]
+          - text: "1"
+          - link "Page 2" [ref=e2486] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=10&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAE
+            - text: "2"
+          - link "Page 3" [ref=e2488] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=20&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAG
+            - text: "3"
+          - link "Page 4" [ref=e2490] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=30&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAI
+            - text: "4"
+          - link "Page 5" [ref=e2492] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=40&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAK
+            - text: "5"
+          - link "Page 6" [ref=e2494] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=50&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAM
+            - text: "6"
+          - link "Page 7" [ref=e2496] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=60&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAO
+            - text: "7"
+          - link "Page 8" [ref=e2498] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=70&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAQ
+            - text: "8"
+          - link "Page 9" [ref=e2500] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=80&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAS
+            - text: "9"
+          - link "Page 10" [ref=e2502] [cursor=pointer]:
+            - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=90&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8tMDegQIDxAU
+            - text: "10"
+          - heading "Next" [level=3] [ref=e2504]:
+            - link "Next" [ref=e2505] [cursor=pointer]:
+              - /url: /search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&ei=9CbVaPt84o-x4w_jt7OxBA&start=10&sa=N&sstk=Af77f_dy9i0jmpr6NJcK-_5kSD79UCzFy8a6A9wY6JtP0VJKXSQIDwdjOUQsJ49S1LzWv_ZLO293YXHgFT0tHAsn1S61m7s7OLdm9A&ved=2ahUKEwj7xoON5_OPAxXiR2wGHePbLEYQ8NMDegQIDxAW
+              - generic [ref=e2507] [cursor=pointer]: Next
+      - navigation
+    - contentinfo [ref=e2508]:
+      - heading "Footer links" [level=1] [ref=e2509]
+      - generic [ref=e2513]:
+        - generic [ref=e2515]:
+          - generic [ref=e2516]: India
+          - generic [ref=e2518]:
+            - button "400102, Mumbai, Maharashtra - From your IP address" [ref=e2520] [cursor=pointer]:
+              - generic [ref=e2523] [cursor=pointer]: 400102, Mumbai, Maharashtra
+              - generic [ref=e2524] [cursor=pointer]:
+                - generic [ref=e2525] [cursor=pointer]: "-"
+                - generic [ref=e2527] [cursor=pointer]: From your IP address
+            - generic [ref=e2528]: "-"
+            - button "Update location" [ref=e2530] [cursor=pointer]: Update location
+        - generic [ref=e2533]:
+          - link "Help" [ref=e2534] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=en-IN&fg=1
+          - link "Send feedback" [ref=e2535] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy" [ref=e2536] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=en-IN&fg=1
+          - link "Terms" [ref=e2537] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=en-IN&fg=1
+```

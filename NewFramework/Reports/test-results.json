@@ -1,0 +1,813 @@
+{
+  "config": {
+    "configFile": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/playwright.config.ts",
+    "rootDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "./Reports/html-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./Reports/test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "./Reports/junit-results.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "electron",
+        "name": "electron",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*electron*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "google-search.spec.ts",
+      "file": "google-search.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Google Search Tests",
+          "file": "google-search.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should search for Marshall headphones on Google",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30522,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso, [data-testid=\"search-results\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify Google homepage loaded\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 🎯 Action: Assert page title equals '/Google/'\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 📝 Step: Accept cookies if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found, continuing...\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 📝 Step: Find and click on search input\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 📝 Step: Type search query: marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 📝 Step: Press Enter to search\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:25 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results to load\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:25 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:26 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify search results are displayed\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:26 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid=\"search-results\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:46 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-25T11:26:14.060Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium/error-context.md"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30393,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso, [data-testid=\"search-results\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify Google homepage loaded\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:51 [\u001b[32minfo\u001b[39m]: 🎯 Action: Assert page title equals '/Google/'\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Accept cookies if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:51 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:54 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found, continuing...\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:54 [\u001b[32minfo\u001b[39m]: 📝 Step: Find and click on search input\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:54 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Type search query: marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Press Enter to search\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results to load\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:58 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify search results are displayed\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:58 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid=\"search-results\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:17 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-25T11:26:47.112Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30386,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso, [data-testid=\"search-results\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:77:17\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:57:18 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:18 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:18 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:21 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify Google homepage loaded\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:21 [\u001b[32minfo\u001b[39m]: 🎯 Action: Assert page title equals '/Google/'\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:21 [\u001b[32minfo\u001b[39m]: 📝 Step: Accept cookies if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:21 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:24 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found, continuing...\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:24 [\u001b[32minfo\u001b[39m]: 📝 Step: Find and click on search input\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:24 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 📝 Step: Type search query: marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 📝 Step: Press Enter to search\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on textarea[name=\"q\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results to load\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:28 [\u001b[32minfo\u001b[39m]: 📝 Step: Verify search results are displayed\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:28 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso, [data-testid=\"search-results\"]\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:48 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search for Marshall headphones on Google - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-09-25T11:27:18.285Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-cc4ff-rshall-headphones-on-Google-chromium-retry2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f7c69dd1c4df8f675c6b-2c5349a93ef9e5b9afdf",
+              "file": "google-search.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should search and click on first Marshall result",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 29874,
+                      "error": {
+                        "message": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"9CbVaPt84o-x4w_jt7OxBA\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\u001b[2m    - waiting for\" https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\"\u001b[22m\n",
+                        "stack": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"9CbVaPt84o-x4w_jt7OxBA\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\u001b[2m    - waiting for\" https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\"\u001b[22m\n\n    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\n    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17",
+                        "location": {
+                          "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                          "column": 39,
+                          "line": 116
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"9CbVaPt84o-x4w_jt7OxBA\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\u001b[2m    - waiting for\" https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://www.google.com/search?q=marshall+headphones&sca_esv=ddc633b75768fb2c&source=hp&ei=2SbVaJm0D_7vseMPuqj3gAg&iflsig=AOw8s4IAAAAAaNU06WTkQiWxTlnI5avdZmjYwp0DAoYj&ved=0ahUKEwjZhKKA5_OPAxX-d2wGHTrU…\"\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 21,
+                            "line": 237
+                          },
+                          "message": "Error: path: unsupported mime type \"null\"\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:237\n\n\u001b[0m \u001b[90m 235 |\u001b[39m     \u001b[36mconst\u001b[39m screenshotPath \u001b[33m=\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m screenshotName)\u001b[33m;\u001b[39m\n \u001b[90m 236 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 237 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m screenshotPath\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m`Screenshot saved: ${screenshotPath}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 239 |\u001b[39m     \u001b[36mreturn\u001b[39m screenshotPath\u001b[33m;\u001b[39m\n \u001b[90m 240 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.takeScreenshot (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:237:21)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:21:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:17 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 📝 Step: Handle cookie consent if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:19 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 📝 Step: Search for Marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:22 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:24 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:45 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-25T11:26:14.059Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                        "column": 39,
+                        "line": 116
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 8839,
+                      "error": {
+                        "message": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"_SbVaMihAsaNseMP_rW94A4\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n",
+                        "stack": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"_SbVaMihAsaNseMP_rW94A4\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\n    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\n    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17",
+                        "location": {
+                          "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                          "column": 39,
+                          "line": 116
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Error: strict mode violation: locator('#search, #rso') resolved to 2 elements:\n    1) <div id=\"search\">…</div> aka locator('#search')\n    2) <div id=\"rso\" class=\"dURPMd\" eid=\"_SbVaMihAsaNseMP_rW94A4\" data-async-context=\"query:marshall%20headphones\">…</div> aka locator('#rso')\n\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 21,
+                            "line": 237
+                          },
+                          "message": "Error: path: unsupported mime type \"null\"\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:237\n\n\u001b[0m \u001b[90m 235 |\u001b[39m     \u001b[36mconst\u001b[39m screenshotPath \u001b[33m=\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m screenshotName)\u001b[33m;\u001b[39m\n \u001b[90m 236 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 237 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m screenshotPath\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 238 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m`Screenshot saved: ${screenshotPath}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 239 |\u001b[39m     \u001b[36mreturn\u001b[39m screenshotPath\u001b[33m;\u001b[39m\n \u001b[90m 240 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.takeScreenshot (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:237:21)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:21:19\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:47 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:49 [\u001b[32minfo\u001b[39m]: 📝 Step: Handle cookie consent if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:49 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:52 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:52 [\u001b[32minfo\u001b[39m]: 📝 Step: Search for Marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:52 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:52 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:52 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:53 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:53 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:54 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:55 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-09-25T11:26:46.470Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                        "column": 39,
+                        "line": 116
+                      }
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 30625,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts",
+                            "column": 39,
+                            "line": 116
+                          },
+                          "message": "Error: locator.waitFor: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../Utils/PlaywrightUtils.ts:116\n\n\u001b[0m \u001b[90m 114 |\u001b[39m   \u001b[36masync\u001b[39m waitForElement(selector\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m timeout\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 115 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mlogAction(\u001b[32m'Wait for element'\u001b[39m\u001b[33m,\u001b[39m selector)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 116 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(selector)\u001b[33m.\u001b[39mwaitFor({ \n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 117 |\u001b[39m       timeout\u001b[33m:\u001b[39m timeout \u001b[33m||\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mconfig\u001b[33m.\u001b[39mgetTestSettings()\u001b[33m.\u001b[39m\u001b[33mDefaultTimeout\u001b[39m \n \u001b[90m 118 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m   }\u001b[0m\n\u001b[2m    at PlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Utils/PlaywrightUtils.ts:116:39)\u001b[22m\n\u001b[2m    at /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/TypeScriptTests/google-search.spec.ts:113:17\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🚀 Starting test: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigate to Google homepage\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:56 [\u001b[32minfo\u001b[39m]: 🎯 Action: Navigate to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:59 [\u001b[32minfo\u001b[39m]: 📝 Step: Handle cookie consent if present\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:56:59 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on [id*=\"accept\"], [id*=\"agree\"], button:has-text(\"Accept all\")\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: No cookie consent dialog found\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 📝 Step: Search for Marshall headphones\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 🎯 Action: Fill 'marshall headphones' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 🎯 Action: Press key 'Enter' on input[name=\"q\"], textarea[name=\"q\"], #APjFqb\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 📝 Step: Wait for search results\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:02 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for URL: /search/\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:03 [\u001b[32minfo\u001b[39m]: 🎯 Action: Wait for element on #search, #rso\n"
+                        },
+                        {
+                          "text": "2025-09-25 16:57:26 [\u001b[32minfo\u001b[39m]: ❌ Test completed: should search and click on first Marshall result - FAILED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-09-25T11:26:56.169Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/Reports/test-results/google-search-Google-Searc-67039-ck-on-first-Marshall-result-chromium-retry2/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "f7c69dd1c4df8f675c6b-1a9d5ce00440808f4acc",
+              "file": "google-search.spec.ts",
+              "line": 93,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-25T11:26:13.684Z",
+    "duration": 95378.846,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

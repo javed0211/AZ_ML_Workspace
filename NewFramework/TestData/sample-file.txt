@@ -1,0 +1,9 @@
+This is a sample file for testing file upload functionality.
+It contains some test data that can be used in automated tests.
+
+Test Data:
+- File name: sample-file.txt
+- File type: Text file
+- Content: Sample text for testing
+- Created: 2024
+- Purpose: Test automation framework demo

@@ -6,7 +6,7 @@ trigger:
     - develop
   paths:
     include:
-    - AzureMLWorkspace.Tests/**
+    - NewFramework/**
     - azure-pipelines.yml
 
 pr:
@@ -15,7 +15,7 @@ pr:
     - main
   paths:
     include:
-    - AzureMLWorkspace.Tests/**
+    - NewFramework/**
 
 schedules:
 - cron: "0 2 * * *"
@@ -72,39 +72,32 @@ stages:
         packageType: 'sdk'
         version: $(dotnetVersion)
         
-    - task: DotNetCoreCLI@2
-      displayName: 'Restore packages'
+    - task: NodeTool@0
+      displayName: 'Use Node.js'
       inputs:
-        command: 'restore'
-        projects: 'AzureMLWorkspace.Tests/*.csproj'
+        versionSpec: '18.x'
         
-    - task: DotNetCoreCLI@2
-      displayName: 'Build solution'
+    - task: Npm@1
+      displayName: 'Install npm dependencies'
       inputs:
-        command: 'build'
-        projects: 'AzureMLWorkspace.Tests/*.csproj'
-        arguments: '--configuration $(buildConfiguration) --no-restore'
+        command: 'install'
+        workingDir: 'NewFramework'
         
     - task: PowerShell@2
       displayName: 'Install Playwright browsers'
       inputs:
         targetType: 'inline'
         script: |
-          dotnet run --project AzureMLWorkspace.Tests -- playwright install --with-deps $(browserType)
+          cd NewFramework
+          npx playwright install --with-deps $(browserType)
         
-    - task: DotNetCoreCLI@2
-      displayName: 'Run Unit Tests'
+    - task: PowerShell@2
+      displayName: 'Run Azure ML Tests'
       inputs:
-        command: 'test'
-        projects: 'AzureMLWorkspace.Tests/*.csproj'
-        arguments: |
-          --configuration $(buildConfiguration) 
-          --no-build 
-          --logger trx 
-          --logger "console;verbosity=detailed"
-          --collect:"XPlat Code Coverage"
-          --filter "Category!=UI&Category!=BDD"
-          --results-directory $(Agent.TempDirectory)/TestResults/Unit
+        targetType: 'inline'
+        script: |
+          cd NewFramework
+          ./run-azure-ml-tests.sh --browser $(browserType) --headless --workers 2 --timeout 60000
       env:
         BROWSER_TYPE: $(browserType)
         HEADLESS_MODE: true

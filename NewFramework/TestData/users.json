@@ -1,0 +1,34 @@
+{
+  "validUser": {
+    "username": "testuser@example.com",
+    "password": "TestPassword123!",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "testuser@example.com",
+    "phone": "+1-555-123-4567"
+  },
+  "adminUser": {
+    "username": "admin@example.com",
+    "password": "AdminPassword123!",
+    "firstName": "Admin",
+    "lastName": "User",
+    "email": "admin@example.com",
+    "phone": "+1-555-987-6543"
+  },
+  "invalidUser": {
+    "username": "invalid@example.com",
+    "password": "wrongpassword",
+    "firstName": "Invalid",
+    "lastName": "User",
+    "email": "invalid@example.com",
+    "phone": "+1-555-000-0000"
+  },
+  "testData": {
+    "company": "Test Company Inc.",
+    "address": "123 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "12345",
+    "country": "United States"
+  }
+}

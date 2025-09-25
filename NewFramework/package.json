@@ -1,0 +1,38 @@
+{
+  "name": "playwright-automation-framework",
+  "version": "1.0.0",
+  "description": "Complete Test Automation Framework using Playwright with C# and TypeScript support",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:dev": "cross-env TEST_ENV=dev npx playwright test",
+    "test:qa": "cross-env TEST_ENV=qa npx playwright test",
+    "test:prod": "cross-env TEST_ENV=prod npx playwright test",
+    "test:parallel": "npx playwright test --workers=4",
+    "test:electron": "npx playwright test --grep=\"@electron\"",
+    "report": "npx playwright show-report",
+    "install-browsers": "npx playwright install",
+    "install-deps": "npx playwright install-deps"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "typescript",
+    "csharp",
+    "electron"
+  ],
+  "author": "Test Automation Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "winston": "^3.11.0"
+  }
+}

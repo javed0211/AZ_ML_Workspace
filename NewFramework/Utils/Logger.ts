@@ -5,7 +5,7 @@ import { ConfigManager } from './ConfigManager';
 
 export class Logger {
   private static instance: Logger;
-  private logger: winston.Logger;
+  private logger!: winston.Logger;
   private config = ConfigManager.getInstance();
 
   private constructor() {
@@ -96,5 +96,22 @@ export class Logger {
   public logAction(action: string, element?: string): void {
     const message = element ? `🎯 Action: ${action} on ${element}` : `🎯 Action: ${action}`;
     this.info(message);
+  }
+
+  // Extension methods for compatibility with existing code
+  public logInfo(message: string, meta?: any): void {
+    this.info(message, meta);
+  }
+
+  public logWarning(message: string, meta?: any): void {
+    this.warn(message, meta);
+  }
+
+  public logError(message: string, meta?: any): void {
+    this.error(message, meta);
+  }
+
+  public logDebug(message: string, meta?: any): void {
+    this.debug(message, meta);
   }
 }

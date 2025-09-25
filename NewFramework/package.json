@@ -12,6 +12,12 @@
     "test:prod": "cross-env TEST_ENV=prod npx playwright test",
     "test:parallel": "npx playwright test --workers=4",
     "test:electron": "npx playwright test --grep=\"@electron\"",
+    "bdd": "npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register",
+    "bdd:headed": "cross-env HEADLESS=false npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register",
+    "bdd:debug": "cross-env HEADLESS=false npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register --tags @debug",
+    "bdd:azureml": "npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register --tags @azureml",
+    "bdd:google": "npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register --tags @google",
+    "bdd:typescript": "npx cucumber-js TypeScriptTests/Features --require TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts --require TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts --require-module ts-node/register --tags @typescript",
     "report": "npx playwright show-report",
     "install-browsers": "npx playwright install",
     "install-deps": "npx playwright install-deps"
@@ -27,9 +33,13 @@
   "author": "Test Automation Team",
   "license": "MIT",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@cucumber/pretty-formatter": "^2.3.0",
     "@playwright/test": "^1.40.0",
     "@types/node": "^20.0.0",
     "cross-env": "^7.0.3",
+    "cucumber-html-reporter": "^7.2.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
   },
   "dependencies": {

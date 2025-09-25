@@ -189,7 +189,7 @@ export class ElectronUtils {
       if (menu) {
         let currentMenu = menu;
         for (let i = 0; i < menuPath.length - 1; i++) {
-          const menuItem = currentMenu.items.find(item => item.label === menuPath[i]);
+          const menuItem = currentMenu.items.find((item: any) => item.label === menuPath[i]);
           if (menuItem && menuItem.submenu) {
             currentMenu = menuItem.submenu;
           } else {
@@ -197,7 +197,7 @@ export class ElectronUtils {
           }
         }
         
-        const finalMenuItem = currentMenu.items.find(item => item.label === menuPath[menuPath.length - 1]);
+        const finalMenuItem = currentMenu.items.find((item: any) => item.label === menuPath[menuPath.length - 1]);
         if (finalMenuItem && finalMenuItem.click) {
           finalMenuItem.click();
         } else {
@@ -232,5 +232,54 @@ export class ElectronUtils {
     window.on('pageerror', error => {
       this.logger.error(`Page error: ${error.message}`);
     });
+  }
+
+  // VS Code specific methods
+  async isVSCodeRunning(): Promise<boolean> {
+    this.logger.logAction('Checking if VS Code is running');
+    
+    try {
+      // Check if VS Code window exists
+      const windows = await this.electronApp?.windows();
+      if (windows && windows.length > 0) {
+        // Look for VS Code specific elements or title
+        const vsCodeWindow = windows.find(window => 
+          window.url().includes('vscode') || 
+          window.url().includes('code')
+        );
+        return !!vsCodeWindow;
+      }
+      return false;
+    } catch (error) {
+      this.logger.logWarning(`Error checking VS Code status: ${error}`);
+      return false;
+    }
+  }
+
+  async openVSCodeFile(fileName: string): Promise<void> {
+    this.logger.logAction(`Opening file in VS Code: ${fileName}`);
+    
+    try {
+      // Simulate opening a file in VS Code
+      const windows = await this.electronApp?.windows();
+      if (windows && windows.length > 0) {
+        const vsCodeWindow = windows[0];
+        
+        // Try to use keyboard shortcut to open file
+        await vsCodeWindow.keyboard.press('Control+O'); // Ctrl+O to open file
+        await vsCodeWindow.waitForTimeout(1000);
+        
+        // Type the filename
+        await vsCodeWindow.keyboard.type(fileName);
+        await vsCodeWindow.keyboard.press('Enter');
+        
+        this.logger.logInfo(`Successfully opened file: ${fileName}`);
+      } else {
+        throw new Error('No VS Code windows found');
+      }
+    } catch (error) {
+      this.logger.logError(`Failed to open file in VS Code: ${error}`);
+      throw error;
+    }
   }
 }

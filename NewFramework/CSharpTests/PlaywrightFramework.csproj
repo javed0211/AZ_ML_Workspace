@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -30,13 +30,38 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="../Features/*.feature">
+    <None Update="../Config/appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="reqnroll.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
+  <!-- BDD Feature Files Configuration -->
   <ItemGroup>
-    <Reqnroll Include="../Features/*.feature" />
+    <Reqnroll Include="Features/AzureMLWorkspace.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureMLWorkspace.feature.cs</LastGenOutput>
+    </Reqnroll>
+    <Reqnroll Include="Features/AzureAISearch.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureAISearch.feature.cs</LastGenOutput>
+    </Reqnroll>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Features/*.feature">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Exclude UnitTests from BDD processing -->
+  <ItemGroup>
+    <Compile Remove="UnitTests/**" />
+    <None Include="UnitTests/**">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

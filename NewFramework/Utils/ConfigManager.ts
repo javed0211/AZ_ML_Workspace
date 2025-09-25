@@ -79,7 +79,7 @@ export interface AppConfig {
 
 export class ConfigManager {
   private static instance: ConfigManager;
-  private config: AppConfig;
+  private config!: AppConfig;
 
   private constructor() {
     this.loadConfig();

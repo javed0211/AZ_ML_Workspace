@@ -1,0 +1,1027 @@
+[
+  {
+    "description": "  As a data scientist\n  I want to manage Azure ML workspace and compute instances\n  So that I can perform machine learning tasks efficiently",
+    "elements": [
+      {
+        "description": "",
+        "id": "azure-ml-workspace-management-(typescript);access-azure-ml-workspace",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Access Azure ML Workspace",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a data scientist named \"Javed\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have activated my Data Scientist PIM role",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I navigate to the Azure ML workspace",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:471"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I handle authentication if required",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:327"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I should be able to access the workspace",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:525"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the workspace should be available",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:531"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 10
+          },
+          {
+            "name": "@azureml",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "azure-ml-workspace-management-(typescript);start-compute-instance",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Start Compute Instance",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a data scientist named \"Javed\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have activated my Data Scientist PIM role",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "I have access to the Azure ML workspace",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I navigate to the compute section",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I start a compute instance named \"test-compute\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:520"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the compute instance should be in \"Running\" status",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:536"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the compute instance should be connectable",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:542"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 17
+          },
+          {
+            "name": "@azureml",
+            "line": 17
+          },
+          {
+            "name": "@compute",
+            "line": 17
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "azure-ml-workspace-management-(typescript);stop-compute-instance",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Stop Compute Instance",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a data scientist named \"Javed\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have activated my Data Scientist PIM role",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 27,
+            "name": "I have access to the Azure ML workspace",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I navigate to the compute section",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I ensure compute instance \"test-compute\" is running",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:489"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "I stop the compute instance \"test-compute\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:369"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "the compute instance should be in \"Stopped\" status",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:536"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 25
+          },
+          {
+            "name": "@azureml",
+            "line": 25
+          },
+          {
+            "name": "@compute",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "azure-ml-workspace-management-(typescript);manage-multiple-compute-instances",
+        "keyword": "Scenario",
+        "line": 34,
+        "name": "Manage Multiple Compute Instances",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a data scientist named \"Javed\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have activated my Data Scientist PIM role",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 35,
+            "name": "I have access to the Azure ML workspace",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:477"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "I navigate to the compute section",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:344"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "instance_name"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "test-compute-1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "test-compute-2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 37,
+            "name": "I start multiple compute instances:",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:374"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "all compute instances should be in \"Running\" status",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:548"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 42,
+            "name": "I stop all compute instances",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:396"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 43,
+            "name": "all compute instances should be in \"Stopped\" status",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:548"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 33
+          },
+          {
+            "name": "@azureml",
+            "line": 33
+          },
+          {
+            "name": "@compute",
+            "line": 33
+          },
+          {
+            "name": "@multiple",
+            "line": 33
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "azure-ml-workspace-management-(typescript);azure-ml-workspace-with-vs-code-desktop-integration",
+        "keyword": "Scenario",
+        "line": 46,
+        "name": "Azure ML Workspace with VS Code Desktop Integration",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a data scientist named \"Javed\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have activated my Data Scientist PIM role",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:301"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 47,
+            "name": "I navigate to Azure ML workspaces portal",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:484"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 48,
+            "name": "I handle login for user \"Javed Khan\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:494"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "I select workspace \"CTO-workspace\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:499"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "I choose compute option",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:504"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "I open compute instance \"com-jk\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:509"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "I start compute if not running",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:514"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 53,
+            "name": "application links should be enabled",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:559"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I start VS Code Desktop",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:455"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 55,
+            "name": "VS Code Desktop should be interactive and responsive",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:460"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 45
+          },
+          {
+            "name": "@azureml",
+            "line": 45
+          },
+          {
+            "name": "@vscode",
+            "line": 45
+          },
+          {
+            "name": "@integration",
+            "line": 45
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "azure-ml-workspace-management-(typescript)",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Azure ML Workspace Management (TypeScript)",
+    "tags": [],
+    "uri": "TypeScriptTests/Features/AzureMLWorkspace.feature"
+  },
+  {
+    "description": "  As a user\n  I want to search for products on Google\n  So that I can find relevant information",
+    "elements": [
+      {
+        "description": "",
+        "id": "google-search-functionality-(typescript);search-for-marshall-headphones-on-google",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Search for Marshall headphones on Google",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I navigate to Google homepage",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:177"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I accept cookies if present",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:185"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I search for \"marshall headphones\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:197"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should see search results",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:234"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the results should contain \"marshall\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:240"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "at least one search result should be visible",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:246"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 6
+          },
+          {
+            "name": "@google",
+            "line": 6
+          },
+          {
+            "name": "@search",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "google-search-functionality-(typescript);search-and-click-on-first-marshall-result",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Search and click on first Marshall result",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "I navigate to Google homepage",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:177"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I accept cookies if present",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:185"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I search for \"marshall headphones\"",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:197"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I click on the first Marshall-related result",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:258"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "I should be navigated to a Marshall-related page",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:283"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the page should contain Marshall information",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/GoogleSearchSteps.ts:298"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@typescript",
+            "line": 15
+          },
+          {
+            "name": "@google",
+            "line": 15
+          },
+          {
+            "name": "@search",
+            "line": 15
+          },
+          {
+            "name": "@navigation",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "google-search-functionality-(typescript)",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Google Search Functionality (TypeScript)",
+    "tags": [],
+    "uri": "TypeScriptTests/Features/GoogleSearch.feature"
+  }
+]

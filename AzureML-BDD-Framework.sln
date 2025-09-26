@@ -2,33 +2,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureML.BDD.CSharp", "src\AzureML.BDD.CSharp\AzureML.BDD.CSharp.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureML.BDD.CSharp", "NewFramework\src\AzureML.BDD.CSharp\AzureML.BDD.CSharp.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AzureML.BDD.TypeScript", "src\AzureML.BDD.TypeScript\AzureML.BDD.TypeScript.esproj", "{B2C3D4E5-F6G7-8901-BCDE-F23456789012}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AzureML.BDD.TypeScript", "NewFramework\src\AzureML.BDD.TypeScript\AzureML.BDD.TypeScript.esproj", "{B2C3D4E5-F6G7-8901-BCDE-F23456789012}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C3D4E5F6-G7H8-9012-CDEF-345678901234}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
+		NewFramework\README.md = NewFramework\README.md
 		.gitignore = .gitignore
-		package.json = package.json
-		tsconfig.json = tsconfig.json
-		playwright.config.ts = playwright.config.ts
+		NewFramework\package.json = NewFramework\package.json
+		NewFramework\tsconfig.json = NewFramework\tsconfig.json
+		NewFramework\playwright.config.ts = NewFramework\playwright.config.ts
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D4E5F6G7-H8I9-0123-DEFG-456789012345}"
 	ProjectSection(SolutionItems) = preProject
-		Config\appsettings.json = Config\appsettings.json
+		NewFramework\Config\appsettings.json = NewFramework\Config\appsettings.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{E5F6G7H8-I9J0-1234-EFGH-567890123456}"
 	ProjectSection(SolutionItems) = preProject
-		Documentation\AzureML-Automation-Guide.md = Documentation\AzureML-Automation-Guide.md
-		Documentation\PIM-Setup-Guide.md = Documentation\PIM-Setup-Guide.md
+		NewFramework\Documentation\AzureML-Automation-Guide.md = NewFramework\Documentation\AzureML-Automation-Guide.md
+		NewFramework\Documentation\PIM-Setup-Guide.md = NewFramework\Documentation\PIM-Setup-Guide.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F6G7H8I9-J0K1-2345-FGHI-678901234567}"
 	ProjectSection(SolutionItems) = preProject
-		Scripts\Setup-PIMPermissions.ps1 = Scripts\Setup-PIMPermissions.ps1
+		NewFramework\Scripts\Setup-PIMPermissions.ps1 = NewFramework\Scripts\Setup-PIMPermissions.ps1
 	EndProjectSection
 EndProject
 Global

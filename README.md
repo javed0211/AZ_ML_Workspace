@@ -18,21 +18,53 @@ AZ_ML_Workspace/
 
 ## 🚀 Getting Started
 
-### Open in Visual Studio
-1. Open `AzureML-BDD-Framework.sln` in Visual Studio
-2. You'll see two clean BDD projects with organized structure
-3. All shared resources are properly linked
+### Prerequisites
+- .NET 9.0 SDK
+- Node.js 18+ and npm
+- **For Visual Studio**: Visual Studio 2022 with Node.js development workload
+- **For VS Code**: Any version (uses workspace file)
+- Playwright browsers
+
+> **Note**: The `.esproj` TypeScript project requires Visual Studio 2022 with the JavaScript/Node.js workload. VS Code users can use the workspace file for equivalent functionality.
+
+### Open in Visual Studio 2022
+1. **Requirements**: Visual Studio 2022 with Node.js development workload
+2. Open `AzureML-BDD-Framework.sln` in Visual Studio 2022
+3. You'll see two clean BDD projects with organized structure:
+   - **AzureML.BDD.CSharp** - C# BDD tests (.csproj)
+   - **AzureML.BDD.TypeScript** - TypeScript BDD tests (.esproj)
+   - **Solution Items** - Shared configuration files
+4. Both projects are fully buildable and debuggable in Visual Studio
+
+### Open in VS Code
+1. Open `AzureML-BDD-Framework.code-workspace` in VS Code
+2. The workspace provides organized folder structure:
+   - 🏠 **Root** - Main project files
+   - 🔷 **C# BDD Tests** - C# project with IntelliSense
+   - 📘 **TypeScript BDD Tests** - TypeScript project with IntelliSense
+   - ⚙️ **Configuration** - Shared config files
+   - 📚 **Documentation** - Project documentation
+3. Use built-in tasks: `Ctrl+Shift+P` → "Tasks: Run Task"
 
 ### Build & Test
-```bash
-# Build entire solution
-dotnet build
 
-# Run TypeScript BDD tests (dry-run)
-cd NewFramework && npm run bdd:dry-run
+#### C# BDD Tests
+```bash
+# Build solution
+dotnet build AzureML-BDD-Framework.sln
 
 # Run C# BDD tests
-cd NewFramework && npm run test:csharp
+dotnet test NewFramework/src/AzureML.BDD.CSharp/AzureML.BDD.CSharp.csproj
+```
+
+#### TypeScript BDD Tests
+```bash
+# Install dependencies
+cd NewFramework/src/AzureML.BDD.TypeScript
+npm install
+
+# Run TypeScript BDD tests
+npm run bdd
 ```
 
 ## 📋 Key Features

@@ -1,0 +1,140 @@
+{
+    "folders": [
+        {
+            "name": "🏠 Root",
+            "path": "."
+        },
+        {
+            "name": "🔷 C# BDD Tests",
+            "path": "./NewFramework/src/AzureML.BDD.CSharp"
+        },
+        {
+            "name": "📘 TypeScript BDD Tests",
+            "path": "./NewFramework/src/AzureML.BDD.TypeScript"
+        },
+        {
+            "name": "⚙️ Configuration",
+            "path": "./NewFramework/Config"
+        },
+        {
+            "name": "📚 Documentation",
+            "path": "./NewFramework/Documentation"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/node_modules": true,
+            "**/bin": true,
+            "**/obj": true,
+            "**/.git": true,
+            "**/.DS_Store": true
+        },
+        "typescript.preferences.includePackageJsonAutoImports": "auto",
+        "cucumber.features": [
+            "NewFramework/src/AzureML.BDD.CSharp/Features/**/*.feature",
+            "NewFramework/src/AzureML.BDD.TypeScript/Features/**/*.feature"
+        ],
+        "cucumber.glue": [
+            "NewFramework/src/AzureML.BDD.CSharp/StepDefinitions/**/*.cs",
+            "NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/**/*.ts"
+        ]
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-dotnettools.csharp",
+            "ms-dotnettools.vscode-dotnet-runtime",
+            "alexkrechik.cucumberautocomplete",
+            "ms-vscode.vscode-typescript-next",
+            "ms-playwright.playwright",
+            "bradlc.vscode-tailwindcss"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "🔷 Build C# Project",
+                "type": "shell",
+                "command": "dotnet",
+                "args": ["build", "AzureML-BDD-Framework.sln"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": "$msCompile"
+            },
+            {
+                "label": "🔷 Run C# BDD Tests",
+                "type": "shell",
+                "command": "dotnet",
+                "args": ["test", "NewFramework/src/AzureML.BDD.CSharp/AzureML.BDD.CSharp.csproj"],
+                "group": "test",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                }
+            },
+            {
+                "label": "📘 Install TypeScript Dependencies",
+                "type": "shell",
+                "command": "npm",
+                "args": ["install"],
+                "options": {
+                    "cwd": "${workspaceFolder}/NewFramework/src/AzureML.BDD.TypeScript"
+                },
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                }
+            },
+            {
+                "label": "📘 Run TypeScript BDD Tests",
+                "type": "shell",
+                "command": "npm",
+                "args": ["run", "bdd"],
+                "options": {
+                    "cwd": "${workspaceFolder}/NewFramework/src/AzureML.BDD.TypeScript"
+                },
+                "group": "test",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                }
+            },
+            {
+                "label": "🚀 Setup Complete Environment",
+                "dependsOrder": "sequence",
+                "dependsOn": [
+                    "🔷 Build C# Project",
+                    "📘 Install TypeScript Dependencies"
+                ],
+                "group": "build"
+            }
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "🔷 Debug C# BDD Tests",
+                "type": "coreclr",
+                "request": "launch",
+                "program": "dotnet",
+                "args": ["test", "NewFramework/src/AzureML.BDD.CSharp/AzureML.BDD.CSharp.csproj"],
+                "cwd": "${workspaceFolder}",
+                "console": "internalConsole",
+                "stopAtEntry": false
+            }
+        ]
+    }
+}

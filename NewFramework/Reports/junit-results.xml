@@ -1,74 +1,79 @@
 <?xml version="1.0"?>
-<testsuite failures="0" skipped="7" name="cucumber-js" time="0" tests="7">
-  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Access Azure ML Workspace" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
-And I have activated my Data Scientist PIM role..........................skipped
-Given I navigate to the Azure ML workspace...............................skipped
-When I handle authentication if required.................................skipped
-Then I should be able to access the workspace............................skipped
-And the workspace should be available....................................skipped]]></system-out>
+<testsuite failures="2" skipped="0" name="cucumber-js" time="143.549437373" tests="7">
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Access Azure ML Workspace" time="19.237466537">
+    <system-out><![CDATA[Given I am a data scientist named "Javed".................................passed
+And I have activated my Data Scientist PIM role...........................passed
+Given I navigate to the Azure ML workspace................................passed
+When I handle authentication if required..................................passed
+Then I should be able to access the workspace.............................passed
+And the workspace should be available.....................................passed]]></system-out>
   </testcase>
-  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Start Compute Instance" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
-And I have activated my Data Scientist PIM role..........................skipped
-Given I have access to the Azure ML workspace............................skipped
-And I navigate to the compute section....................................skipped
-When I start a compute instance named "test-compute".....................skipped
-Then the compute instance should be in "Running" status..................skipped
-And the compute instance should be connectable...........................skipped]]></system-out>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Start Compute Instance" time="16.412579577">
+    <system-out><![CDATA[Given I am a data scientist named "Javed".................................passed
+And I have activated my Data Scientist PIM role...........................passed
+Given I have access to the Azure ML workspace.............................passed
+And I navigate to the compute section.....................................passed
+When I start a compute instance named "test-compute"......................passed
+Then the compute instance should be in "Running" status...................passed
+And the compute instance should be connectable............................passed]]></system-out>
   </testcase>
-  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Stop Compute Instance" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
-And I have activated my Data Scientist PIM role..........................skipped
-Given I have access to the Azure ML workspace............................skipped
-And I navigate to the compute section....................................skipped
-And I ensure compute instance "test-compute" is running..................skipped
-When I stop the compute instance "test-compute"..........................skipped
-Then the compute instance should be in "Stopped" status..................skipped]]></system-out>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Stop Compute Instance" time="16.923492536">
+    <system-out><![CDATA[Given I am a data scientist named "Javed".................................passed
+And I have activated my Data Scientist PIM role...........................passed
+Given I have access to the Azure ML workspace.............................passed
+And I navigate to the compute section.....................................passed
+And I ensure compute instance "test-compute" is running...................passed
+When I stop the compute instance "test-compute"...........................passed
+Then the compute instance should be in "Stopped" status...................passed]]></system-out>
   </testcase>
-  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Manage Multiple Compute Instances" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
-And I have activated my Data Scientist PIM role..........................skipped
-Given I have access to the Azure ML workspace............................skipped
-And I navigate to the compute section....................................skipped
-When I start multiple compute instances:.................................skipped
-Then all compute instances should be in "Running" status.................skipped
-When I stop all compute instances........................................skipped
-Then all compute instances should be in "Stopped" status.................skipped]]></system-out>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Manage Multiple Compute Instances" time="33.779009701">
+    <system-out><![CDATA[Given I am a data scientist named "Javed".................................passed
+And I have activated my Data Scientist PIM role...........................passed
+Given I have access to the Azure ML workspace.............................passed
+And I navigate to the compute section.....................................passed
+When I start multiple compute instances:..................................passed
+Then all compute instances should be in "Running" status..................passed
+When I stop all compute instances.........................................passed
+Then all compute instances should be in "Stopped" status..................passed]]></system-out>
   </testcase>
-  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Azure ML Workspace with VS Code Desktop Integration" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I am a data scientist named "Javed"................................skipped
-And I have activated my Data Scientist PIM role..........................skipped
-Given I navigate to Azure ML workspaces portal...........................skipped
-When I handle login for user "Javed Khan"................................skipped
-And I select workspace "CTO-workspace"...................................skipped
-And I choose compute option..............................................skipped
-And I open compute instance "com-jk".....................................skipped
-And I start compute if not running.......................................skipped
-Then application links should be enabled.................................skipped
-When I start VS Code Desktop.............................................skipped
-Then VS Code Desktop should be interactive and responsive................skipped]]></system-out>
+  <testcase classname="Azure ML Workspace Management (TypeScript)" name="Azure ML Workspace with VS Code Desktop Integration" time="19.165493658">
+    <system-out><![CDATA[Given I am a data scientist named "Javed".................................passed
+And I have activated my Data Scientist PIM role...........................passed
+Given I navigate to Azure ML workspaces portal............................passed
+When I handle login for user "Javed Khan".................................passed
+And I select workspace "CTO-workspace"....................................passed
+And I choose compute option...............................................passed
+And I open compute instance "com-jk"......................................passed
+And I start compute if not running........................................passed
+Then application links should be enabled..................................passed
+When I start VS Code Desktop..............................................passed
+Then VS Code Desktop should be interactive and responsive.................passed]]></system-out>
   </testcase>
-  <testcase classname="Google Search Functionality (TypeScript)" name="Search for Marshall headphones on Google" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I navigate to Google homepage......................................skipped
-When I accept cookies if present.........................................skipped
-And I search for "marshall headphones"...................................skipped
-Then I should see search results.........................................skipped
+  <testcase classname="Google Search Functionality (TypeScript)" name="Search for Marshall headphones on Google" time="18.464031412">
+    <failure type="TimeoutError" message="page.waitForSelector: Timeout 5000ms exceeded.&#xA;Call log:&#xA;[2m  - waiting for locator('#search, #rso, [data-testid=&quot;search-results&quot;]') to be visible[22m&#xA;"><![CDATA[page.waitForSelector: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for locator('#search, #rso, [data-testid="search-results"]') to be visible[22m
+
+    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)
+    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:239:15)]]></failure>
+    <system-out><![CDATA[Given I navigate to Google homepage.......................................passed
+When I accept cookies if present..........................................passed
+And I search for "marshall headphones"....................................passed
+Then I should see search results..........................................failed
 And the results should contain "marshall"................................skipped
 And at least one search result should be visible.........................skipped]]></system-out>
   </testcase>
-  <testcase classname="Google Search Functionality (TypeScript)" name="Search and click on first Marshall result" time="0">
-    <skipped/>
-    <system-out><![CDATA[Given I navigate to Google homepage......................................skipped
-When I accept cookies if present.........................................skipped
-And I search for "marshall headphones"...................................skipped
-And I click on the first Marshall-related result.........................skipped
+  <testcase classname="Google Search Functionality (TypeScript)" name="Search and click on first Marshall result" time="19.567363951999997">
+    <failure type="TimeoutError" message="page.waitForSelector: Timeout 5000ms exceeded.&#xA;Call log:&#xA;[2m  - waiting for locator('h3:has-text(&quot;Marshall&quot;), [data-testid=&quot;result-title&quot;]:has-text(&quot;Marshall&quot;)') to be visible[22m&#xA;"><![CDATA[page.waitForSelector: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for locator('h3:has-text("Marshall"), [data-testid="result-title"]:has-text("Marshall")') to be visible[22m
+
+    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)
+    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:266:17)]]></failure>
+    <system-out><![CDATA[Given I navigate to Google homepage.......................................passed
+When I accept cookies if present..........................................passed
+And I search for "marshall headphones"....................................passed
+And I click on the first Marshall-related result..........................failed
 Then I should be navigated to a Marshall-related page....................skipped
 And the page should contain Marshall information.........................skipped]]></system-out>
   </testcase>

@@ -13,8 +13,8 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1108761040
             }
           },
           {
@@ -26,8 +26,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1629957
             }
           },
           {
@@ -39,8 +39,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1506284541
             }
           },
           {
@@ -52,8 +52,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:472"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 9394027250
             }
           },
           {
@@ -65,8 +65,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:328"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 24634500
             }
           },
           {
@@ -78,8 +78,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:526"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002604250
             }
           },
           {
@@ -91,16 +91,16 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:532"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1004163375
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 5195361624
             }
           }
         ],
@@ -127,8 +127,8 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 536373207
             }
           },
           {
@@ -140,8 +140,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 218625
             }
           },
           {
@@ -153,8 +153,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1506717500
             }
           },
           {
@@ -166,8 +166,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 8067020790
             }
           },
           {
@@ -179,8 +179,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1001200208
             }
           },
           {
@@ -192,8 +192,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:521"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2004589208
             }
           },
           {
@@ -205,8 +205,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002692083
             }
           },
           {
@@ -218,16 +218,16 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:543"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002478999
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1291288957
             }
           }
         ],
@@ -258,8 +258,8 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 486632000
             }
           },
           {
@@ -271,8 +271,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 160875
             }
           },
           {
@@ -284,8 +284,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1503131624
             }
           },
           {
@@ -297,8 +297,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 8457006916
             }
           },
           {
@@ -310,8 +310,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1001756625
             }
           },
           {
@@ -323,8 +323,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:490"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002332083
             }
           },
           {
@@ -336,8 +336,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:370"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2002793665
             }
           },
           {
@@ -349,16 +349,16 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1003506499
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1466172249
             }
           }
         ],
@@ -389,8 +389,8 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 715740582
             }
           },
           {
@@ -402,8 +402,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 335208
             }
           },
           {
@@ -415,8 +415,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1504163166
             }
           },
           {
@@ -428,8 +428,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 13212761541
             }
           },
           {
@@ -441,8 +441,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1006529290
             }
           },
           {
@@ -474,8 +474,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:375"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 6009028541
             }
           },
           {
@@ -487,8 +487,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2005450708
             }
           },
           {
@@ -500,8 +500,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:397"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 6010536082
             }
           },
           {
@@ -513,16 +513,16 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2003439666
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1311024917
             }
           }
         ],
@@ -557,8 +557,8 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 900696250
             }
           },
           {
@@ -570,8 +570,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 387499
             }
           },
           {
@@ -583,8 +583,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1502977790
             }
           },
           {
@@ -596,8 +596,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:485"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 7717275625
             }
           },
           {
@@ -609,8 +609,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:495"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1003535042
             }
           },
           {
@@ -622,8 +622,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:500"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1001367083
             }
           },
           {
@@ -635,8 +635,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:505"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002973542
             }
           },
           {
@@ -648,8 +648,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:510"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1003069749
             }
           },
           {
@@ -661,8 +661,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:515"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1002640207
             }
           },
           {
@@ -674,8 +674,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:560"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 608927165
             }
           },
           {
@@ -687,8 +687,8 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:456"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1003314874
             }
           },
           {
@@ -700,16 +700,16 @@
               "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:461"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1136609249
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1281719583
             }
           }
         ],
@@ -755,16 +755,16 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 478990125
             }
           },
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 525344666
             }
           },
           {
@@ -776,8 +776,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:179"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3211004999
             }
           },
           {
@@ -789,8 +789,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:187"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3004972582
             }
           },
           {
@@ -802,8 +802,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:199"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 4808532124
             }
           },
           {
@@ -815,8 +815,9 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:236"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "failed",
+              "duration": 5002091792,
+              "error_message": "page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso, [data-testid=\"search-results\"]') to be visible\u001b[22m\n\n    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)\n    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:239:15)"
             }
           },
           {
@@ -849,16 +850,16 @@
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 278972625
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1154122499
             }
           }
         ],
@@ -889,16 +890,16 @@
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 535318500
             }
           },
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 442875457
             }
           },
           {
@@ -910,8 +911,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:179"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3182780374
             }
           },
           {
@@ -923,8 +924,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:187"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3002998666
             }
           },
           {
@@ -936,8 +937,8 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:199"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 6005892665
             }
           },
           {
@@ -949,8 +950,9 @@
               "location": "StepDefinitions/GoogleSearchSteps.ts:260"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "failed",
+              "duration": 5093856165,
+              "error_message": "page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h3:has-text(\"Marshall\"), [data-testid=\"result-title\"]:has-text(\"Marshall\")') to be visible\u001b[22m\n\n    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)\n    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:266:17)"
             }
           },
           {
@@ -983,16 +985,16 @@
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 144834750
             }
           },
           {
             "keyword": "After",
             "hidden": true,
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1158807375
             }
           }
         ],

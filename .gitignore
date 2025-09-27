@@ -325,6 +325,9 @@ TestResults/
 
 # Playwright
 .playwright/
+*/.vscode-test/
+*/bin/Debug/*/
+*/bin/Release/*/
 
 # Environment files
 .env

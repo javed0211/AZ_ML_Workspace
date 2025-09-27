@@ -1,0 +1,34 @@
+{
+  "name": "electron-vscode-tests",
+  "version": "1.0.0",
+  "description": "Electron testing framework for VS Code automation using Playwright",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && playwright test",
+    "test:headed": "npm run build && playwright test --headed",
+    "test:debug": "npm run build && playwright test --debug",
+    "test:ui": "npm run build && playwright test --ui",
+    "install-browsers": "playwright install",
+    "clean": "rm -rf dist node_modules",
+    "setup": "npm install && npm run install-browsers"
+  },
+  "keywords": [
+    "electron",
+    "vscode",
+    "playwright",
+    "automation",
+    "testing"
+  ],
+  "author": "AZ ML Workspace Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "@vscode/test-electron": "^2.5.2",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

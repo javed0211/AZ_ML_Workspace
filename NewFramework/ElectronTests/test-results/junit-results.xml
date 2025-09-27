@@ -1,0 +1,39 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="8.545031999999999">
+<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-09-26T19:40:50.355Z" hostname="electron-vscode" tests="1" failures="0" skipped="0" time="8.077" errors="0">
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="8.077">
+<system-out>
+<![CDATA[🖥️  Detected platform: darwin
+🔧 VS Code command: code
+📍 VS Code executable: /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code
+🚀 Setting up cross-platform Jupyter test environment
+📁 Created workspace: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/temp/cross-platform-1758915650652
+🔍 Testing existing notebook execution from custom folder
+📁 Looking for notebooks in: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
+📓 Target notebook: azure_ml_project.ipynb
+✅ Notebook folder exists: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
+📚 Found 1 notebook files:
+  - azure_ml_project.ipynb
+🎯 Selected notebook: azure_ml_project.ipynb
+✅ Notebook structure valid: 17 cells, nbformat 4
+🚀 Opening existing folder in VS Code: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
+✅ VS Code launched with PID: 25152
+📖 Opening notebook: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook/azure_ml_project.ipynb
+📚 Opening all 1 notebooks:
+  📓 Opening: azure_ml_project.ipynb
+✅ VS Code processes verified: 44 processes running
+
+============================================================
+🎉 EXISTING NOTEBOOK EXECUTION TEST COMPLETED
+============================================================
+📁 Source folder: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
+📓 Notebooks opened: 1
+🖥️  Platform: darwin
+✅ Status: SUCCESS
+============================================================
+✅ Existing notebook execution test completed
+🧹 Cleaned up VS Code process 25152
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

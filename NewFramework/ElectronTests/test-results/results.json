@@ -1,0 +1,221 @@
+{
+  "config": {
+    "configFile": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/playwright.config.ts",
+    "rootDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/utils/global-setup.ts",
+    "globalTeardown": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/utils/global-teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "./test-results/html-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "./test-results/junit-results.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "electron-vscode",
+        "name": "electron-vscode",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cross-platform-jupyter.test.ts",
+      "file": "cross-platform-jupyter.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cross-Platform Jupyter Notebook Runner",
+          "file": "cross-platform-jupyter.test.ts",
+          "line": 15,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should run existing notebook from any specified folder",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "electron-vscode",
+                  "projectName": "electron-vscode",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8077,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🖥️  Detected platform: darwin\n"
+                        },
+                        {
+                          "text": "🔧 VS Code command: code\n"
+                        },
+                        {
+                          "text": "📍 VS Code executable: /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\n"
+                        },
+                        {
+                          "text": "🚀 Setting up cross-platform Jupyter test environment\n"
+                        },
+                        {
+                          "text": "📁 Created workspace: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/temp/cross-platform-1758915650652\n"
+                        },
+                        {
+                          "text": "🔍 Testing existing notebook execution from custom folder\n"
+                        },
+                        {
+                          "text": "📁 Looking for notebooks in: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook\n"
+                        },
+                        {
+                          "text": "📓 Target notebook: azure_ml_project.ipynb\n"
+                        },
+                        {
+                          "text": "✅ Notebook folder exists: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook\n"
+                        },
+                        {
+                          "text": "📚 Found 1 notebook files:\n"
+                        },
+                        {
+                          "text": "  - azure_ml_project.ipynb\n"
+                        },
+                        {
+                          "text": "🎯 Selected notebook: azure_ml_project.ipynb\n"
+                        },
+                        {
+                          "text": "✅ Notebook structure valid: 17 cells, nbformat 4\n"
+                        },
+                        {
+                          "text": "🚀 Opening existing folder in VS Code: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook\n"
+                        },
+                        {
+                          "text": "✅ VS Code launched with PID: 25152\n"
+                        },
+                        {
+                          "text": "📖 Opening notebook: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook/azure_ml_project.ipynb\n"
+                        },
+                        {
+                          "text": "📚 Opening all 1 notebooks:\n"
+                        },
+                        {
+                          "text": "  📓 Opening: azure_ml_project.ipynb\n"
+                        },
+                        {
+                          "text": "✅ VS Code processes verified: 44 processes running\n"
+                        },
+                        {
+                          "text": "\n============================================================\n"
+                        },
+                        {
+                          "text": "🎉 EXISTING NOTEBOOK EXECUTION TEST COMPLETED\n"
+                        },
+                        {
+                          "text": "============================================================\n"
+                        },
+                        {
+                          "text": "📁 Source folder: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook\n"
+                        },
+                        {
+                          "text": "📓 Notebooks opened: 1\n"
+                        },
+                        {
+                          "text": "🖥️  Platform: darwin\n"
+                        },
+                        {
+                          "text": "✅ Status: SUCCESS\n"
+                        },
+                        {
+                          "text": "============================================================\n"
+                        },
+                        {
+                          "text": "✅ Existing notebook execution test completed\n"
+                        },
+                        {
+                          "text": "🧹 Cleaned up VS Code process 25152\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-26T19:40:50.637Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fc2d569ca690cc2e0300-157da3b6299dca346da1",
+              "file": "cross-platform-jupyter.test.ts",
+              "line": 481,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-26T19:40:50.199Z",
+    "duration": 8545.032,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

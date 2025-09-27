@@ -1,0 +1,76 @@
+{
+  "azure": {
+    "subscription_id": "your-subscription-id",
+    "resource_group": "your-resource-group", 
+    "workspace_name": "your-workspace-name",
+    "location": "eastus",
+    "existing_config_path": "../test-data/azure-ml-config.json"
+  },
+  "compute_instance": {
+    "name": "ml-compute-instance",
+    "vm_size": "Standard_DS3_v2",
+    "admin_username": "azureuser",
+    "enable_ssh": true,
+    "ssh_public_key": "~/.ssh/id_rsa.pub",
+    "idle_time_before_shutdown": 30,
+    "enable_node_public_ip": true
+  },
+  "vscode": {
+    "remote_extensions": [
+      "ms-python.python",
+      "ms-toolsai.jupyter", 
+      "ms-vscode-remote.remote-ssh",
+      "ms-azuretools.vscode-azureml",
+      "ms-vscode.powershell",
+      "ms-vscode-remote.remote-containers"
+    ],
+    "settings_sync": true,
+    "local_workspace_path": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace",
+    "remote_workspace_path": "/home/azureuser/workspace"
+  },
+  "file_sync": {
+    "enabled": true,
+    "sync_patterns": [
+      "*.py",
+      "*.ipynb", 
+      "*.json",
+      "*.md",
+      "*.txt",
+      "*.yml",
+      "*.yaml",
+      "*.sh",
+      "*.ps1",
+      "*.csv",
+      "*.tsv"
+    ],
+    "exclude_patterns": [
+      ".git/*",
+      "__pycache__/*",
+      "*.pyc",
+      ".vscode/*",
+      "node_modules/*",
+      ".pytest_cache/*",
+      "*.log",
+      ".DS_Store",
+      "Thumbs.db",
+      "temp/*",
+      "tmp/*"
+    ],
+    "bidirectional": true,
+    "real_time": true,
+    "sync_on_startup": true
+  },
+  "security": {
+    "allowed_ip_ranges": ["0.0.0.0/0"],
+    "ssh_key_type": "rsa",
+    "ssh_key_bits": 2048,
+    "enable_firewall_rules": false,
+    "auto_shutdown_enabled": true
+  },
+  "monitoring": {
+    "health_check_interval": 60,
+    "log_level": "INFO",
+    "enable_metrics": true,
+    "alert_on_failures": true
+  }
+}

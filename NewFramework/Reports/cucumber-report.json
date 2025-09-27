@@ -1,225 +1,159 @@
 [
   {
-    "description": "  As a data scientist\n  I want to manage Azure ML workspace and compute instances\n  So that I can perform machine learning tasks efficiently",
+    "description": "  As a data scientist\n  I want to automate VS Code to create and execute Jupyter notebooks\n  So that I can streamline my data science workflow",
     "elements": [
       {
         "description": "",
-        "id": "azure-ml-workspace-management-(typescript);access-azure-ml-workspace",
+        "id": "vs-code-notebook-automation;create-and-execute-a-new-jupyter-notebook-in-vs-code",
         "keyword": "Scenario",
         "line": 11,
-        "name": "Access Azure ML Workspace",
+        "name": "Create and execute a new Jupyter notebook in VS Code",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1108761040
+              "duration": 518004875
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 942000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 7,
-            "name": "I am a data scientist named \"Javed\"",
+            "name": "I am a data scientist named \"John Doe\"",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
+              "location": "TypeScriptTests/StepDefinitions/AzureMLWorkspaceSteps.ts:295"
             },
             "result": {
               "status": "passed",
-              "duration": 1629957
+              "duration": 685707
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 8,
-            "name": "I have activated my Data Scientist PIM role",
+            "name": "VS Code is available on my system",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:543"
             },
             "result": {
               "status": "passed",
-              "duration": 1506284541
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "I navigate to the Azure ML workspace",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:472"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 9394027250
+              "duration": 176625
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 13,
-            "name": "I handle authentication if required",
+            "line": 12,
+            "name": "I launch VS Code using Electron automation",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:328"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:553"
             },
             "result": {
-              "status": "passed",
-              "duration": 24634500
+              "status": "failed",
+              "duration": 38679041,
+              "error_message": "Error: Process failed to launch!\n    at waitForLine (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/electron/electron.js:247:21)\n    at Electron.launch (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/electron/electron.js:195:32)\n    at async ElectronDispatcher.launch (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/dispatchers/electronDispatcher.js:38:33)\n    at async ProgressController.run (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/progress.js:78:22)\n    at async ElectronDispatcher._runCommand (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/dispatchers/dispatcher.js:95:14)\n    at async DispatcherConnection.dispatch (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/node_modules/playwright-core/lib/server/dispatchers/dispatcher.js:329:22)"
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I should be able to access the workspace",
+            "keyword": "And ",
+            "line": 13,
+            "name": "I wait for VS Code to fully load",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:526"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:561"
             },
             "result": {
-              "status": "passed",
-              "duration": 1002604250
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I create a new Jupyter notebook file",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:570"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 15,
-            "name": "the workspace should be available",
+            "name": "I add Python code cells to the notebook",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:532"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:587"
             },
             "result": {
-              "status": "passed",
-              "duration": 1004163375
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 5195361624
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 10
-          },
-          {
-            "name": "@azureml",
-            "line": 10
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "azure-ml-workspace-management-(typescript);start-compute-instance",
-        "keyword": "Scenario",
-        "line": 18,
-        "name": "Start Compute Instance",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 536373207
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am a data scientist named \"Javed\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 218625
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 8,
-            "name": "I have activated my Data Scientist PIM role",
+            "line": 16,
+            "name": "I execute all cells in the notebook",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:640"
             },
             "result": {
-              "status": "passed",
-              "duration": 1506717500
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
             "arguments": [],
-            "keyword": "Given ",
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I should see the execution results",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:698"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the notebook should be saved successfully",
+            "match": {
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:791"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
             "line": 19,
-            "name": "I have access to the Azure ML workspace",
+            "name": "I close VS Code",
             "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
+              "location": "TypeScriptTests/StepDefinitions/VSCodeNotebookSteps.ts:689"
             },
             "result": {
-              "status": "passed",
-              "duration": 8067020790
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I navigate to the compute section",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1001200208
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 21,
-            "name": "I start a compute instance named \"test-compute\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:521"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2004589208
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 22,
-            "name": "the compute instance should be in \"Running\" status",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1002692083
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 23,
-            "name": "the compute instance should be connectable",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:543"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1002478999
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -227,130 +161,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1291288957
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 17
-          },
-          {
-            "name": "@azureml",
-            "line": 17
-          },
-          {
-            "name": "@compute",
-            "line": 17
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "azure-ml-workspace-management-(typescript);stop-compute-instance",
-        "keyword": "Scenario",
-        "line": 26,
-        "name": "Stop Compute Instance",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 486632000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am a data scientist named \"Javed\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 160875
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I have activated my Data Scientist PIM role",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1503131624
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 27,
-            "name": "I have access to the Azure ML workspace",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 8457006916
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 28,
-            "name": "I navigate to the compute section",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1001756625
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 29,
-            "name": "I ensure compute instance \"test-compute\" is running",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:490"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1002332083
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 30,
-            "name": "I stop the compute instance \"test-compute\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:370"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2002793665
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 31,
-            "name": "the compute instance should be in \"Stopped\" status",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:537"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1003506499
+              "duration": 487374
             }
           },
           {
@@ -358,672 +169,32 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1466172249
+              "duration": 1171679374
             }
           }
         ],
         "tags": [
-          {
-            "name": "@typescript",
-            "line": 25
-          },
-          {
-            "name": "@azureml",
-            "line": 25
-          },
-          {
-            "name": "@compute",
-            "line": 25
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "azure-ml-workspace-management-(typescript);manage-multiple-compute-instances",
-        "keyword": "Scenario",
-        "line": 34,
-        "name": "Manage Multiple Compute Instances",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 715740582
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am a data scientist named \"Javed\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 335208
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I have activated my Data Scientist PIM role",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1504163166
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 35,
-            "name": "I have access to the Azure ML workspace",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:478"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 13212761541
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 36,
-            "name": "I navigate to the compute section",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:345"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1006529290
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "instance_name"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "test-compute-1"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "test-compute-2"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "When ",
-            "line": 37,
-            "name": "I start multiple compute instances:",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:375"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 6009028541
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 41,
-            "name": "all compute instances should be in \"Running\" status",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2005450708
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 42,
-            "name": "I stop all compute instances",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:397"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 6010536082
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 43,
-            "name": "all compute instances should be in \"Stopped\" status",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:549"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2003439666
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1311024917
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 33
-          },
-          {
-            "name": "@azureml",
-            "line": 33
-          },
-          {
-            "name": "@compute",
-            "line": 33
-          },
-          {
-            "name": "@multiple",
-            "line": 33
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "azure-ml-workspace-management-(typescript);azure-ml-workspace-with-vs-code-desktop-integration",
-        "keyword": "Scenario",
-        "line": 46,
-        "name": "Azure ML Workspace with VS Code Desktop Integration",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 900696250
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am a data scientist named \"Javed\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:296"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 387499
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I have activated my Data Scientist PIM role",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:302"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1502977790
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 47,
-            "name": "I navigate to Azure ML workspaces portal",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:485"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 7717275625
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 48,
-            "name": "I handle login for user \"Javed Khan\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:495"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1003535042
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 49,
-            "name": "I select workspace \"CTO-workspace\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:500"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1001367083
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 50,
-            "name": "I choose compute option",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:505"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1002973542
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 51,
-            "name": "I open compute instance \"com-jk\"",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:510"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1003069749
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 52,
-            "name": "I start compute if not running",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:515"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1002640207
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 53,
-            "name": "application links should be enabled",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:560"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 608927165
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 54,
-            "name": "I start VS Code Desktop",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:456"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1003314874
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 55,
-            "name": "VS Code Desktop should be interactive and responsive",
-            "match": {
-              "location": "StepDefinitions/AzureMLWorkspaceSteps.ts:461"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1136609249
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1281719583
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 45
-          },
-          {
-            "name": "@azureml",
-            "line": 45
-          },
           {
             "name": "@vscode",
-            "line": 45
+            "line": 10
           },
           {
-            "name": "@integration",
-            "line": 45
+            "name": "@notebook",
+            "line": 10
+          },
+          {
+            "name": "@electron",
+            "line": 10
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "azure-ml-workspace-management-(typescript)",
+    "id": "vs-code-notebook-automation",
     "line": 1,
     "keyword": "Feature",
-    "name": "Azure ML Workspace Management (TypeScript)",
+    "name": "VS Code Notebook Automation",
     "tags": [],
-    "uri": "Features/AzureMLWorkspace.feature"
-  },
-  {
-    "description": "  As a user\n  I want to search for products on Google\n  So that I can find relevant information",
-    "elements": [
-      {
-        "description": "",
-        "id": "google-search-functionality-(typescript);search-for-marshall-headphones-on-google",
-        "keyword": "Scenario",
-        "line": 7,
-        "name": "Search for Marshall headphones on Google",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 478990125
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 525344666
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "I navigate to Google homepage",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:179"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3211004999
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 9,
-            "name": "I accept cookies if present",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:187"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3004972582
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "I search for \"marshall headphones\"",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:199"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4808532124
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 11,
-            "name": "I should see search results",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:236"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 5002091792,
-              "error_message": "page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search, #rso, [data-testid=\"search-results\"]') to be visible\u001b[22m\n\n    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)\n    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:239:15)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 12,
-            "name": "the results should contain \"marshall\"",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:242"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 13,
-            "name": "at least one search result should be visible",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:248"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 278972625
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1154122499
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 6
-          },
-          {
-            "name": "@google",
-            "line": 6
-          },
-          {
-            "name": "@search",
-            "line": 6
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "google-search-functionality-(typescript);search-and-click-on-first-marshall-result",
-        "keyword": "Scenario",
-        "line": 16,
-        "name": "Search and click on first Marshall result",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 535318500
-            }
-          },
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 442875457
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 17,
-            "name": "I navigate to Google homepage",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:179"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3182780374
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 18,
-            "name": "I accept cookies if present",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:187"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3002998666
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 19,
-            "name": "I search for \"marshall headphones\"",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:199"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 6005892665
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I click on the first Marshall-related result",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:260"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 5093856165,
-              "error_message": "page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h3:has-text(\"Marshall\"), [data-testid=\"result-title\"]:has-text(\"Marshall\")') to be visible\u001b[22m\n\n    at SimplePlaywrightUtils.waitForElement (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:86:21)\n    at World.<anonymous> (/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/src/AzureML.BDD.TypeScript/StepDefinitions/GoogleSearchSteps.ts:266:17)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I should be navigated to a Marshall-related page",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:285"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "the page should contain Marshall information",
-            "match": {
-              "location": "StepDefinitions/GoogleSearchSteps.ts:300"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 144834750
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1158807375
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@typescript",
-            "line": 15
-          },
-          {
-            "name": "@google",
-            "line": 15
-          },
-          {
-            "name": "@search",
-            "line": 15
-          },
-          {
-            "name": "@navigation",
-            "line": 15
-          }
-        ],
-        "type": "scenario"
-      }
-    ],
-    "id": "google-search-functionality-(typescript)",
-    "line": 1,
-    "keyword": "Feature",
-    "name": "Google Search Functionality (TypeScript)",
-    "tags": [],
-    "uri": "Features/GoogleSearch.feature"
+    "uri": "TypeScriptTests/Features/VSCodeNotebookAutomation.feature"
   }
 ]

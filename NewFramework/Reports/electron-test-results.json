@@ -1,0 +1,133 @@
+{
+  "config": {
+    "configFile": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/playwright.config.ts",
+    "rootDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "../Reports/electron-test-results"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../Reports/electron-test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../Reports/electron-junit-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "electron-vscode",
+        "name": "electron-vscode",
+        "testDir": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/ElectronTests/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "vscode-official.test.ts",
+      "file": "vscode-official.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "VS Code Official Framework Tests",
+          "file": "vscode-official.test.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should verify VS Code can be controlled programmatically",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "electron-vscode",
+                  "projectName": "electron-vscode",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2025-09-26T18:03:14.170Z] Testing programmatic VS Code control\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-26T18:03:14.165Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5f1fa386b9b8e8737cfe-6cccf8296451f48d657d",
+              "file": "vscode-official.test.ts",
+              "line": 53,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-26T18:03:13.860Z",
+    "duration": 321.39799999999997,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

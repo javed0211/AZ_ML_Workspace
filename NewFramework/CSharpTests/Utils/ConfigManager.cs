@@ -8,6 +8,7 @@ namespace PlaywrightFramework.Utils
         public string SubscriptionId { get; set; } = string.Empty;
         public string TenantId { get; set; } = string.Empty;
         public string ResourceGroup { get; set; } = string.Empty;
+        public string ResourceGroupName => ResourceGroup; // Alias for consistency
         public string WorkspaceName { get; set; } = string.Empty;
         public string MLWorkspaceDisplayName { get; set; } = string.Empty;
         public string Region { get; set; } = string.Empty;

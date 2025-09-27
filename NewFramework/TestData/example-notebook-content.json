@@ -1,0 +1,68 @@
+{
+  "example_cells": {
+    "markdown_cells": [
+      {
+        "title": "# Data Science Automation Test",
+        "content": "This notebook was created and executed automatically using TypeScript and Playwright automation."
+      },
+      {
+        "title": "## Data Analysis Section",
+        "content": "The following cells demonstrate automated data analysis operations."
+      },
+      {
+        "title": "## Results Summary",
+        "content": "All operations completed successfully through automation."
+      }
+    ],
+    "code_cells": [
+      {
+        "name": "basic_imports",
+        "code": "# Basic imports for data science\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom datetime import datetime\n\nprint(f\"Automation test started at: {datetime.now()}\")\nprint(\"✅ All imports successful!\")"
+      },
+      {
+        "name": "data_creation",
+        "code": "# Create sample dataset\nnp.random.seed(42)\ndata = {\n    'timestamp': pd.date_range('2024-01-01', periods=100, freq='D'),\n    'value_a': np.random.normal(100, 15, 100),\n    'value_b': np.random.normal(50, 10, 100),\n    'category': np.random.choice(['A', 'B', 'C'], 100)\n}\n\ndf = pd.DataFrame(data)\nprint(f\"Dataset created with shape: {df.shape}\")\nprint(\"\\nFirst 5 rows:\")\nprint(df.head())"
+      },
+      {
+        "name": "data_analysis",
+        "code": "# Basic data analysis\nprint(\"Dataset Statistics:\")\nprint(df.describe())\n\nprint(\"\\nCategory distribution:\")\nprint(df['category'].value_counts())\n\nprint(\"\\nCorrelation between value_a and value_b:\")\ncorrelation = df['value_a'].corr(df['value_b'])\nprint(f\"Correlation coefficient: {correlation:.4f}\")"
+      },
+      {
+        "name": "visualization",
+        "code": "# Create visualizations\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\n\n# Time series plot\naxes[0,0].plot(df['timestamp'], df['value_a'], label='Value A')\naxes[0,0].plot(df['timestamp'], df['value_b'], label='Value B')\naxes[0,0].set_title('Time Series Data')\naxes[0,0].legend()\naxes[0,0].tick_params(axis='x', rotation=45)\n\n# Histogram\naxes[0,1].hist(df['value_a'], bins=20, alpha=0.7, label='Value A')\naxes[0,1].hist(df['value_b'], bins=20, alpha=0.7, label='Value B')\naxes[0,1].set_title('Value Distributions')\naxes[0,1].legend()\n\n# Scatter plot\naxes[1,0].scatter(df['value_a'], df['value_b'], alpha=0.6)\naxes[1,0].set_xlabel('Value A')\naxes[1,0].set_ylabel('Value B')\naxes[1,0].set_title('Value A vs Value B')\n\n# Category bar plot\ncategory_counts = df['category'].value_counts()\naxes[1,1].bar(category_counts.index, category_counts.values)\naxes[1,1].set_title('Category Distribution')\naxes[1,1].set_xlabel('Category')\naxes[1,1].set_ylabel('Count')\n\nplt.tight_layout()\nplt.show()\n\nprint(\"✅ All visualizations created successfully!\")"
+      },
+      {
+        "name": "summary",
+        "code": "# Test summary\nprint(\"🎉 Automation Test Summary:\")\nprint(\"=\" * 40)\nprint(f\"✅ Dataset created: {df.shape[0]} rows, {df.shape[1]} columns\")\nprint(f\"✅ Data analysis completed\")\nprint(f\"✅ Visualizations generated\")\nprint(f\"✅ Test completed at: {datetime.now()}\")\nprint(\"\\n🚀 VS Code notebook automation successful!\")"
+      }
+    ],
+    "error_test_cells": [
+      {
+        "name": "intentional_error",
+        "code": "# This cell contains intentional errors for testing error handling\nprint(\"Testing error handling...\")\n\n# Error 1: Import non-existent module\ntry:\n    import non_existent_module\nexcept ImportError as e:\n    print(f\"❌ Import error (expected): {e}\")\n\n# Error 2: Division by zero\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError as e:\n    print(f\"❌ Division error (expected): {e}\")\n\n# Error 3: Undefined variable\ntry:\n    print(undefined_variable)\nexcept NameError as e:\n    print(f\"❌ Name error (expected): {e}\")\n\nprint(\"\\n✅ Error handling test completed - all errors were caught!\")"
+      }
+    ]
+  },
+  "test_scenarios": {
+    "basic_test": {
+      "description": "Basic notebook creation and execution test",
+      "cells_to_add": ["basic_imports", "data_creation", "summary"]
+    },
+    "comprehensive_test": {
+      "description": "Full data science workflow test",
+      "cells_to_add": ["basic_imports", "data_creation", "data_analysis", "visualization", "summary"]
+    },
+    "error_handling_test": {
+      "description": "Error handling and recovery test",
+      "cells_to_add": ["basic_imports", "intentional_error", "summary"]
+    }
+  },
+  "expected_outputs": {
+    "basic_imports": "All imports successful!",
+    "data_creation": "Dataset created with shape: (100, 4)",
+    "data_analysis": "Dataset Statistics:",
+    "visualization": "All visualizations created successfully!",
+    "summary": "VS Code notebook automation successful!",
+    "intentional_error": "Error handling test completed"
+  }
+}

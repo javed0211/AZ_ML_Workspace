@@ -1,0 +1,37 @@
+{
+  "description": "Cross-Platform Jupyter Notebook Test Configuration",
+  "version": "1.0.0",
+  "platforms": {
+    "windows": {
+      "vscode_command": "code.cmd",
+      "vscode_executable": "%LOCALAPPDATA%\\Programs\\Microsoft VS Code\\bin\\code.cmd",
+      "process_check": "tasklist /FI \"IMAGENAME eq Code.exe\" /FO CSV | find /C \"Code.exe\"",
+      "kill_command": "taskkill /PID {pid} /F"
+    },
+    "macos": {
+      "vscode_command": "code",
+      "vscode_executable": "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code",
+      "process_check": "ps aux | grep -i \"visual studio code\" | grep -v grep | wc -l",
+      "kill_command": "kill -TERM {pid}"
+    },
+    "linux": {
+      "vscode_command": "code",
+      "vscode_executable": "/usr/bin/code",
+      "process_check": "ps aux | grep -i \"code\" | grep -v grep | wc -l",
+      "kill_command": "kill -TERM {pid}",
+      "additional_args": ["--no-sandbox"]
+    }
+  },
+  "default_settings": {
+    "notebook_folder": "/Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook",
+    "notebook_file": "azure_ml_project.ipynb",
+    "startup_delay": 3000,
+    "file_open_delay": 1000,
+    "process_verification_delay": 2000
+  },
+  "environment_variables": {
+    "NOTEBOOK_FOLDER": "Path to your existing notebook folder",
+    "NOTEBOOK_FILE": "Specific notebook file to open (optional)",
+    "VSCODE_PATH": "Custom VS Code installation path (optional)"
+  }
+}

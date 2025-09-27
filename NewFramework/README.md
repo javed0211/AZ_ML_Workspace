@@ -1,42 +1,40 @@
 # Azure ML BDD Test Automation Framework
 
-A comprehensive Behavior-Driven Development (BDD) test automation framework for Azure ML workspace management, supporting both C# and TypeScript implementations.
+A comprehensive Behavior-Driven Development (BDD) test automation framework for Azure ML workspace management, supporting C#, TypeScript, and Electron-based VS Code automation.
 
 ## 🏗️ Project Structure
 
 ```
-AzureML-BDD-Framework/
-├── AzureML-BDD-Framework.sln          # Visual Studio Solution File
-├── src/
-│   ├── AzureML.BDD.CSharp/            # C# BDD Project
-│   │   ├── Features/                   # Gherkin feature files
-│   │   ├── StepDefinitions/           # C# step implementations
-│   │   ├── Utils/                     # C# utility classes
-│   │   ├── Hooks/                     # Test hooks and setup
-│   │   └── AzureML.BDD.CSharp.csproj # C# project file
-│   └── AzureML.BDD.TypeScript/        # TypeScript BDD Project
-│       ├── Features/                   # Gherkin feature files
-│       ├── StepDefinitions/           # TypeScript step implementations
-│       ├── Utils/                     # TypeScript utility classes
-│       ├── package.json               # TypeScript dependencies
-│       ├── tsconfig.json              # TypeScript configuration
-│       └── AzureML.BDD.TypeScript.esproj # TypeScript project file
-├── Config/                            # Shared configuration files
-├── TestData/                          # Test data files
-├── Documentation/                     # Project documentation
-├── Scripts/                           # Setup and utility scripts
-├── Reports/                           # Test execution reports
-└── package.json                       # Root package.json for solution-level commands
+NewFramework/
+├── CSharpTests/                       # C# Playwright BDD Tests
+│   ├── Features/                      # Gherkin feature files
+│   ├── StepDefinitions/              # C# step implementations
+│   ├── Utils/                        # C# utility classes
+│   ├── Hooks/                        # Test hooks and setup
+│   └── PlaywrightFramework.csproj    # C# project file
+├── ElectronTests/                     # VS Code Electron Automation
+│   ├── tests/                        # Electron test files
+│   ├── utils/                        # VS Code automation utilities
+│   ├── config/                       # VS Code configuration
+│   ├── package.json                  # Node.js dependencies
+│   ├── tsconfig.json                 # TypeScript configuration
+│   └── playwright.config.ts          # Playwright configuration
+├── Config/                           # Shared configuration files
+├── TestData/                         # Test data files
+├── Documentation/                    # Project documentation
+├── Scripts/                          # Setup and utility scripts
+└── Reports/                          # Test execution reports
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Visual Studio 2022** (with .NET 9.0 support)
-- **Node.js** (v18 or higher)
-- **npm** (v9 or higher)
-- **.NET 9.0 SDK**
+- **Visual Studio Code** (for Electron testing)
+- **.NET 9.0 SDK** (for C# tests)
+- **Node.js** (v16 or higher)
+- **npm** (v8 or higher)
+- **Playwright** (installed automatically)
 
 ### Setup
 
@@ -57,41 +55,44 @@ AzureML-BDD-Framework/
 
 ## 🧪 Running Tests
 
-### C# BDD Tests
-
-**From Visual Studio:**
-- Right-click on `AzureML.BDD.CSharp` project → Run Tests
-- Use Test Explorer to run specific scenarios
+### C# Playwright Tests
 
 **From Command Line:**
 ```bash
-# Run all C# BDD tests
-npm run test:csharp
-
-# Or directly from C# project
-cd src/AzureML.BDD.CSharp
+# Run all C# tests
+cd CSharpTests
 dotnet test
+
+# Run specific feature
+dotnet test --filter "TestCategory=AzureML"
 ```
 
-### TypeScript BDD Tests
+### VS Code Electron Tests
 
-**From Visual Studio:**
-- Right-click on `AzureML.BDD.TypeScript` project → Debug → Start New Instance
-
-**From Command Line:**
+**Quick Start:**
 ```bash
-# Run all TypeScript BDD tests
-npm run test:typescript
+# Setup and run (first time)
+cd ElectronTests
+./setup.sh  # macOS/Linux
+# or
+.\setup.ps1  # Windows
 
-# Run with browser visible
-npm run test:typescript:headed
+# Run all tests
+npm test
 
-# Run specific scenarios
-npm run test:azureml     # Azure ML scenarios only
-npm run test:google      # Google search scenarios only
+# Run with visible VS Code
+npm run test:headed
 
-# Dry run (validate step definitions)
-npm run bdd:dry-run
+# Run specific tests
+npm test -- --grep "basic functionality"
+```
+
+**Using Scripts:**
+```bash
+# From project root
+./Scripts/run-electron-tests.sh --headed
+# or
+.\Scripts\run-electron-tests.ps1 -Headed
 ```
 
 ## 📁 Visual Studio Integration
@@ -133,22 +134,28 @@ When you open the solution in Visual Studio, you'll see:
 - **Test Explorer Integration**: C# tests appear in Test Explorer
 - **Project Dependencies**: Proper project references and shared resources
 
-## 🎯 BDD Scenarios
+## 🎯 Test Scenarios
 
-### Azure ML Workspace Management
-
-Both C# and TypeScript implementations support:
+### C# Playwright Tests (Azure ML Focus)
 
 - ✅ **Workspace Access**: Navigate and authenticate to Azure ML workspace
 - ✅ **Compute Instance Management**: Start, stop, and monitor compute instances
 - ✅ **Multiple Instance Handling**: Manage multiple compute instances simultaneously
-- ✅ **VS Code Integration**: Launch and interact with VS Code Desktop
 - ✅ **PIM Role Management**: Handle Privileged Identity Management roles
+- ✅ **API Integration**: Test Azure ML REST APIs
 
-### Google Search (TypeScript Only)
+### VS Code Electron Tests (Desktop Automation)
 
-- ✅ **Basic Search**: Search for products and verify results
-- ✅ **Result Navigation**: Click on search results and verify navigation
+- ✅ **VS Code Launch**: Cross-platform VS Code automation
+- ✅ **File Operations**: Create, edit, save files and folders
+- ✅ **Editor Interactions**: Text editing, syntax highlighting, IntelliSense
+- ✅ **Command Palette**: Execute VS Code commands programmatically
+- ✅ **Terminal Integration**: Run commands in integrated terminal
+- ✅ **Extension Management**: Install, configure, and test extensions
+- ✅ **Settings Configuration**: Modify user and workspace settings
+- ✅ **Azure ML Integration**: Test Azure ML extension workflows
+- ✅ **Jupyter Notebooks**: Create and execute notebook cells
+- ✅ **Python Development**: Python script creation and execution
 
 ## 🔧 Configuration
 

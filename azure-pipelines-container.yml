@@ -1,0 +1,373 @@
+# Azure DevOps Pipeline - Container-Based Test Execution
+# Optimized for running tests in Linux containers
+
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - NewFramework/**
+    - automation/**
+    - Dockerfile
+    - docker-compose.yml
+    - azure-pipelines-container.yml
+
+pr:
+  branches:
+    include:
+    - main
+    - develop
+
+schedules:
+- cron: "0 2 * * *"
+  displayName: Daily container-based test run
+  branches:
+    include:
+    - main
+  always: true
+
+variables:
+  # Docker settings
+  dockerRegistryServiceConnection: 'AzureContainerRegistry'
+  imageRepository: 'azure-ml-test-automation'
+  containerRegistry: 'youracr.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+  
+  # Test settings
+  buildConfiguration: 'Release'
+  vmImageLinux: 'ubuntu-latest'
+
+resources:
+  containers:
+  - container: testrunner
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    options: --cpus 4 --memory 8g
+
+stages:
+# Stage 1: Build Docker Image
+- stage: BuildImage
+  displayName: 'Build Docker Image'
+  jobs:
+  - job: BuildDockerImage
+    displayName: 'Build and Push Docker Image'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    steps:
+    - task: Docker@2
+      displayName: 'Build Docker Image'
+      inputs:
+        command: build
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          latest
+        arguments: '--target test'
+    
+    - task: Docker@2
+      displayName: 'Push Docker Image to ACR'
+      inputs:
+        command: push
+        repository: $(imageRepository)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          latest
+    
+    - task: Docker@2
+      displayName: 'Scan Docker Image for Vulnerabilities'
+      inputs:
+        command: 'run'
+        arguments: >
+          --rm
+          -v /var/run/docker.sock:/var/run/docker.sock
+          aquasec/trivy:latest
+          image --severity HIGH,CRITICAL
+          $(containerRegistry)/$(imageRepository):$(tag)
+
+# Stage 2: Run Tests in Containers
+- stage: ContainerTests
+  displayName: 'Run Tests in Linux Containers'
+  dependsOn: BuildImage
+  jobs:
+  
+  # Job 1: BDD Tests in Container
+  - job: BDDTests
+    displayName: 'BDD Tests (Container)'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    container: testrunner
+    
+    steps:
+    - checkout: self
+    
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK 9.0'
+      inputs:
+        packageType: 'sdk'
+        version: '9.0.x'
+    
+    - task: NodeTool@0
+      displayName: 'Use Node.js 18.x'
+      inputs:
+        versionSpec: '18.x'
+    
+    - script: |
+        apt-get update
+        apt-get install -y wget gnupg
+        npx playwright install chromium firefox --with-deps
+      displayName: 'Install Playwright Browsers'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore NuGet Packages'
+      inputs:
+        command: 'restore'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Build Test Project'
+      inputs:
+        command: 'build'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Run BDD Tests'
+      inputs:
+        command: 'test'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+        arguments: >
+          --configuration $(buildConfiguration)
+          --no-build
+          --logger trx
+          --logger "console;verbosity=detailed"
+          --collect:"XPlat Code Coverage"
+          --filter "Category=BDD"
+          --results-directory $(Agent.TempDirectory)/TestResults/BDD
+      env:
+        HEADLESS_MODE: true
+        BROWSER_TYPE: chromium
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
+        AZURE_WORKSPACE_NAME: $(AZURE_WORKSPACE_NAME)
+    
+    - task: PublishTestResults@2
+      displayName: 'Publish BDD Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/BDD/**/*.trx'
+        testRunTitle: 'BDD Tests (Container)'
+        mergeTestResults: true
+    
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish Code Coverage'
+      condition: always()
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/TestResults/BDD/**/coverage.cobertura.xml'
+    
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Test Artifacts'
+      condition: always()
+      inputs:
+        pathToPublish: '$(Agent.TempDirectory)/TestResults/BDD'
+        artifactName: 'BDD-TestResults-Container'
+
+  # Job 2: UI Tests in Container
+  - job: UITests
+    displayName: 'UI Tests (Container)'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    container: testrunner
+    
+    steps:
+    - checkout: self
+    
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK 9.0'
+      inputs:
+        packageType: 'sdk'
+        version: '9.0.x'
+    
+    - script: |
+        apt-get update
+        apt-get install -y wget gnupg
+        npx playwright install chromium --with-deps
+      displayName: 'Install Playwright Browsers'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore and Build'
+      inputs:
+        command: 'build'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Run UI Tests'
+      inputs:
+        command: 'test'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+        arguments: >
+          --configuration $(buildConfiguration)
+          --no-build
+          --logger trx
+          --filter "Category=UI"
+          --results-directory $(Agent.TempDirectory)/TestResults/UI
+      env:
+        HEADLESS_MODE: true
+        BROWSER_TYPE: chromium
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+    
+    - task: PublishTestResults@2
+      displayName: 'Publish UI Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/UI/**/*.trx'
+        testRunTitle: 'UI Tests (Container)'
+
+  # Job 3: API Tests in Container
+  - job: APITests
+    displayName: 'API Tests (Container)'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    container: testrunner
+    
+    steps:
+    - checkout: self
+    
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK 9.0'
+      inputs:
+        packageType: 'sdk'
+        version: '9.0.x'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Build and Test'
+      inputs:
+        command: 'test'
+        projects: 'NewFramework/CSharpTests/PlaywrightFramework.csproj'
+        arguments: >
+          --configuration $(buildConfiguration)
+          --logger trx
+          --filter "Category=API"
+          --results-directory $(Agent.TempDirectory)/TestResults/API
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZUREAISEARCH_SERVICENAME: $(AZUREAISEARCH_SERVICENAME)
+        AZUREAISEARCH_INDEXNAME: $(AZUREAISEARCH_INDEXNAME)
+    
+    - task: PublishTestResults@2
+      displayName: 'Publish API Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/API/**/*.trx'
+        testRunTitle: 'API Tests (Container)'
+
+# Stage 3: Docker Compose Tests (Parallel Execution)
+- stage: DockerComposeTests
+  displayName: 'Docker Compose - Parallel Tests'
+  dependsOn: BuildImage
+  jobs:
+  - job: DockerComposeExecution
+    displayName: 'Run All Tests via Docker Compose'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    steps:
+    - checkout: self
+    
+    - task: DockerCompose@0
+      displayName: 'Build Docker Compose Services'
+      inputs:
+        action: 'Build services'
+        dockerComposeFile: 'docker-compose.yml'
+        projectName: 'azure-ml-tests'
+    
+    - task: DockerCompose@0
+      displayName: 'Run BDD Tests'
+      inputs:
+        action: 'Run a specific service'
+        dockerComposeFile: 'docker-compose.yml'
+        serviceName: 'bdd-tests'
+        projectName: 'azure-ml-tests'
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+        AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
+        AZURE_WORKSPACE_NAME: $(AZURE_WORKSPACE_NAME)
+    
+    - task: DockerCompose@0
+      displayName: 'Run UI Tests'
+      inputs:
+        action: 'Run a specific service'
+        dockerComposeFile: 'docker-compose.yml'
+        serviceName: 'ui-tests'
+        projectName: 'azure-ml-tests'
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZURE_TENANT_ID: $(AZURE_TENANT_ID)
+    
+    - task: DockerCompose@0
+      displayName: 'Run API Tests'
+      inputs:
+        action: 'Run a specific service'
+        dockerComposeFile: 'docker-compose.yml'
+        serviceName: 'api-tests'
+        projectName: 'azure-ml-tests'
+      env:
+        AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+        AZUREAISEARCH_SERVICENAME: $(AZUREAISEARCH_SERVICENAME)
+    
+    - script: |
+        docker cp azure-ml-bdd-tests:/workspace/TestResults/BDD $(Agent.TempDirectory)/TestResults/
+        docker cp azure-ml-ui-tests:/workspace/TestResults/UI $(Agent.TempDirectory)/TestResults/
+        docker cp azure-ml-api-tests:/workspace/TestResults/API $(Agent.TempDirectory)/TestResults/
+      displayName: 'Copy Test Results from Containers'
+      condition: always()
+    
+    - task: PublishTestResults@2
+      displayName: 'Publish All Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(Agent.TempDirectory)/TestResults/**/*.trx'
+        testRunTitle: 'Docker Compose Tests'
+        mergeTestResults: true
+    
+    - task: DockerCompose@0
+      displayName: 'Cleanup Docker Compose'
+      condition: always()
+      inputs:
+        action: 'Down'
+        dockerComposeFile: 'docker-compose.yml'
+        projectName: 'azure-ml-tests'
+
+# Stage 4: Cleanup
+- stage: Cleanup
+  displayName: 'Cleanup Resources'
+  dependsOn: [ContainerTests, DockerComposeTests]
+  condition: always()
+  jobs:
+  - job: CleanupJob
+    displayName: 'Cleanup Docker Resources'
+    pool:
+      vmImage: $(vmImageLinux)
+    
+    steps:
+    - script: |
+        docker system prune -af --volumes
+      displayName: 'Clean Docker System'

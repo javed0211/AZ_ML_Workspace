@@ -1,0 +1,74 @@
+# .dockerignore for Azure ML Test Automation Framework
+
+# Build outputs
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+**/test-results/
+**/playwright-report/
+**/coverage/
+
+# Node modules
+**/node_modules/
+**/package-lock.json
+**/yarn.lock
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.Python
+**/pip-log.txt
+**/pip-delete-this-directory.txt
+**/.venv/
+**/venv/
+**/ENV/
+
+# IDE and editor files
+**/.vs/
+**/.vscode/
+**/.idea/
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
+
+# Test artifacts
+**/Screenshots/
+**/Videos/
+**/Traces/
+**/logs/
+**/*.log
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.azure-pipelines/
+
+# Documentation
+**/*.md
+!README.md
+
+# Temporary files
+**/tmp/
+**/temp/
+**/.tmp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Secrets and credentials
+**/*.pfx
+**/*.key
+**/*.pem
+**/.env
+**/.env.local
+**/secrets.json
+**/appsettings.Development.json

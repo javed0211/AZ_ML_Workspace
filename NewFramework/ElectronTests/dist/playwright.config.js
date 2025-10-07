@@ -50,6 +50,6 @@ exports.default = (0, test_1.defineConfig)({
         },
     ],
     /* Global setup and teardown */
-    globalSetup: require.resolve('./utils/global-setup.ts'),
-    globalTeardown: require.resolve('./utils/global-teardown.ts'),
+    globalSetup: require.resolve('./utils/global-setup.js'),
+    globalTeardown: require.resolve('./utils/global-teardown.js'),
 });

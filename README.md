@@ -3,6 +3,14 @@
 ## 🎯 Overview
 This is a clean, professional BDD (Behavior-Driven Development) test automation framework for Azure ML testing with both C# and TypeScript implementations.
 
+## 🖥️ **Cross-Platform Support**
+✅ **Works on Windows, macOS, and Linux!**
+- **Windows 11**: Full Visual Studio 2022 support
+- **macOS**: Native development environment
+- **Linux**: Full CLI and container support
+
+**New to Windows?** See [WINDOWS-QUICK-START.md](WINDOWS-QUICK-START.md) for 5-minute setup guide!
+
 ## 🏗️ Solution Structure
 ```
 AZ_ML_Workspace/
@@ -71,6 +79,10 @@ npm run bdd
 - ✅ **Pure BDD Architecture** - No mixed test types
 - ✅ **Visual Studio Integration** - Clean solution structure
 - ✅ **Dual Technology Support** - C# and TypeScript
+- ✅ **Cross-Platform** - Windows, macOS, Linux
+- ✅ **Container Support** - Docker-based testing
+- ✅ **VS Code Desktop Testing** - Full GUI automation
+- ✅ **Jupyter Notebook Testing** - Cross-platform notebook automation
 - ✅ **Shared Resources** - Configuration and documentation
 - ✅ **Independent Development** - Each project can be developed separately
 
@@ -80,5 +92,23 @@ npm run bdd
 - **Documentation**: `NewFramework/Documentation/`
 - **Configuration**: `NewFramework/Config/`
 
+## 📚 Documentation
+
+### **Quick Start Guides**
+- [WINDOWS-QUICK-START.md](WINDOWS-QUICK-START.md) - 5-minute Windows setup
+- [QUICKSTART-Container.md](QUICKSTART-Container.md) - Container testing quick start
+
+### **Platform-Specific Guides**
+- [WINDOWS-MIGRATION-GUIDE.md](WINDOWS-MIGRATION-GUIDE.md) - Complete Windows migration guide
+- [README-Container-Testing.md](README-Container-Testing.md) - Container testing guide
+- [VSCODE-CONTAINER-TESTING.md](VSCODE-CONTAINER-TESTING.md) - VS Code container testing
+
+### **Feature Guides**
+- [NewFramework/ElectronTests/README-CrossPlatform.md](NewFramework/ElectronTests/README-CrossPlatform.md) - Cross-platform Jupyter testing
+- [NewFramework/Documentation/](NewFramework/Documentation/) - Detailed feature documentation
+
+### **Reference**
+- [CHEATSHEET-Container.md](CHEATSHEET-Container.md) - Container commands cheat sheet
+
 ---
-*This framework provides a clean, maintainable structure for BDD test automation in Visual Studio.*
+*This framework provides a clean, maintainable structure for BDD test automation across Windows, macOS, and Linux.*

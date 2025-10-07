@@ -1,0 +1,173 @@
+version: '3.8'
+
+services:
+  # Main test execution service
+  azure-ml-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: azure-ml-test-runner
+    environment:
+      # Test execution settings
+      - HEADLESS_MODE=true
+      - BROWSER_TYPE=${BROWSER_TYPE:-chromium}
+      - WORKERS=${WORKERS:-2}
+      - TIMEOUT=${TIMEOUT:-60000}
+      
+      # Azure credentials (from environment or .env file)
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      - AZURE_RESOURCE_GROUP=${AZURE_RESOURCE_GROUP}
+      - AZURE_WORKSPACE_NAME=${AZURE_WORKSPACE_NAME}
+      
+      # Azure AI Search settings
+      - AZUREAISEARCH_SERVICENAME=${AZUREAISEARCH_SERVICENAME}
+      - AZUREAISEARCH_INDEXNAME=${AZUREAISEARCH_INDEXNAME}
+      
+      # Playwright settings
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      - DISPLAY=:99
+      
+    volumes:
+      # Mount test results directory
+      - ./TestResults:/workspace/TestResults
+      
+      # Mount source code for development (optional)
+      # - ./NewFramework:/workspace/NewFramework
+      
+      # Mount SSH keys for Azure ML compute connections
+      - ~/.ssh:/root/.ssh:ro
+      
+    networks:
+      - test-network
+    
+    # Override command for specific test categories
+    command: >
+      sh -c "
+        echo 'Starting Azure ML Test Automation...' &&
+        dotnet test NewFramework/CSharpTests/PlaywrightFramework.csproj
+        --configuration Release
+        --logger trx
+        --logger 'console;verbosity=detailed'
+        --collect:'XPlat Code Coverage'
+        --filter 'Category=BDD'
+        --results-directory /workspace/TestResults/BDD
+      "
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          cpus: '2'
+          memory: 4G
+
+  # BDD Tests only
+  bdd-tests:
+    extends: azure-ml-tests
+    container_name: azure-ml-bdd-tests
+    command: >
+      sh -c "
+        dotnet test NewFramework/CSharpTests/PlaywrightFramework.csproj
+        --configuration Release
+        --logger trx
+        --filter 'Category=BDD'
+        --results-directory /workspace/TestResults/BDD
+      "
+    volumes:
+      - ./TestResults/BDD:/workspace/TestResults/BDD
+
+  # UI Tests only
+  ui-tests:
+    extends: azure-ml-tests
+    container_name: azure-ml-ui-tests
+    command: >
+      sh -c "
+        dotnet test NewFramework/CSharpTests/PlaywrightFramework.csproj
+        --configuration Release
+        --logger trx
+        --filter 'Category=UI'
+        --results-directory /workspace/TestResults/UI
+      "
+    volumes:
+      - ./TestResults/UI:/workspace/TestResults/UI
+
+  # API Tests only
+  api-tests:
+    extends: azure-ml-tests
+    container_name: azure-ml-api-tests
+    command: >
+      sh -c "
+        dotnet test NewFramework/CSharpTests/PlaywrightFramework.csproj
+        --configuration Release
+        --logger trx
+        --filter 'Category=API'
+        --results-directory /workspace/TestResults/API
+      "
+    volumes:
+      - ./TestResults/API:/workspace/TestResults/API
+
+  # Electron/VS Code Tests
+  electron-tests:
+    extends: azure-ml-tests
+    container_name: azure-ml-electron-tests
+    environment:
+      - DISPLAY=:99
+      - ELECTRON_DISABLE_SANDBOX=1
+    command: >
+      sh -c "
+        cd NewFramework/ElectronTests &&
+        npm test
+      "
+    volumes:
+      - ./TestResults/Electron:/workspace/TestResults/Electron
+
+  # VS Code Desktop Tests (with GUI support)
+  vscode-tests:
+    extends: azure-ml-tests
+    container_name: azure-ml-vscode-tests
+    environment:
+      - DISPLAY=:99
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+      - DISPLAY_DEPTH=24
+      - VSCODE_TESTING=true
+    command: >
+      sh -c "
+        /usr/local/bin/start-xvfb.sh dotnet test NewFramework/CSharpTests/PlaywrightFramework.csproj
+        --configuration Release
+        --logger trx
+        --filter 'Category=VSCode'
+        --results-directory /workspace/TestResults/VSCode
+      "
+    volumes:
+      - ./TestResults/VSCode:/workspace/TestResults/VSCode
+      - ~/.ssh:/root/.ssh:ro
+    # Enable privileged mode for GUI testing
+    privileged: true
+
+  # Python Automation Tests
+  python-automation:
+    extends: azure-ml-tests
+    container_name: azure-ml-python-automation
+    working_dir: /workspace/automation
+    command: >
+      sh -c "
+        python3 azure_ml_automation.py --validate-prerequisites &&
+        python3 azure_ml_automation.py --test-connection
+      "
+    volumes:
+      - ./TestResults/Python:/workspace/TestResults/Python
+
+networks:
+  test-network:
+    driver: bridge
+
+volumes:
+  test-results:
+    driver: local

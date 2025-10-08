@@ -1,0 +1,9 @@
+{
+  "allure": {
+    "directory": "allure-results",
+    "links": [
+      "https://github.com/your-repo/issues/{issue}",
+      "https://github.com/your-repo/issues/{tms}"
+    ]
+  }
+}

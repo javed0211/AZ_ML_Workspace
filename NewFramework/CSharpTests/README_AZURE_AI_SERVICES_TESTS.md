@@ -217,15 +217,26 @@ dotnet test --collect:"XPlat Code Coverage"
 reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"Reports/coverage" -reporttypes:Html
 ```
 
-### View Reqnroll Living Documentation
+### Generate Beautiful HTML Reports with Allure
 
 ```bash
-# Install Reqnroll Living Doc
-dotnet tool install -g Reqnroll.Tools.LivingDoc.CLI
+# Install Allure (one-time)
+brew install allure  # macOS
+# or scoop install allure  # Windows
 
-# Generate living documentation
-livingdoc test-assembly bin/Debug/net9.0/PlaywrightFramework.dll -t bin/Debug/net9.0/TestExecution.json
+# Generate and view report
+./generate-allure-report.sh  # macOS/Linux
+# or .\generate-allure-report.ps1  # Windows
 ```
+
+**Features:**
+- 📊 Interactive dashboard with charts and statistics
+- 📸 Automatic screenshot capture on failures
+- 📈 Historical trends tracking
+- 🏷️ Test categorization by features and tags
+- ⏱️ Timeline view of test execution
+
+See [ALLURE_QUICK_START.md](../../ALLURE_QUICK_START.md) for complete guide.
 
 ## 🔧 Helper Classes
 

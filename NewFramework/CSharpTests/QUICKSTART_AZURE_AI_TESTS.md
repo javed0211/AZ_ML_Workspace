@@ -300,16 +300,18 @@ dotnet build
 dotnet test --logger "console;verbosity=detailed"
 ```
 
-### HTML Report
+### Beautiful HTML Report with Allure
 ```bash
-dotnet test --logger "html;logfilename=testresults.html"
+# Install Allure (one-time)
+brew install allure  # macOS
+# or scoop install allure  # Windows
+
+# Generate and view report
+./generate-allure-report.sh  # macOS/Linux
+# or .\generate-allure-report.ps1  # Windows
 ```
 
-### Living Documentation
-```bash
-dotnet tool install -g Reqnroll.Tools.LivingDoc.CLI
-livingdoc test-assembly bin/Debug/net9.0/PlaywrightFramework.dll
-```
+See [ALLURE_QUICK_START.md](../../ALLURE_QUICK_START.md) for complete guide.
 
 ## 🎓 Next Steps
 

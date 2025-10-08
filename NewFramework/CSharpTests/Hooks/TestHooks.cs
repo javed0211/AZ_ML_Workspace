@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Reqnroll;
 using Serilog;
 using PlaywrightFramework.Utils;
+using Allure.Net.Commons;
 
 namespace PlaywrightFramework.Hooks
 {
@@ -62,6 +63,16 @@ namespace PlaywrightFramework.Hooks
 
             // Set scenario start time for performance tracking
             scenarioContext.Set(DateTime.UtcNow, "ScenarioStartTime");
+
+            // Add Allure labels and metadata
+            AllureApi.AddLabel("feature", featureContext.FeatureInfo.Title);
+            AllureApi.AddLabel("story", scenarioContext.ScenarioInfo.Title);
+            
+            // Add tags as labels
+            foreach (var tag in scenarioContext.ScenarioInfo.Tags)
+            {
+                AllureApi.AddLabel("tag", tag);
+            }
         }
 
         [AfterScenario]
@@ -113,6 +124,12 @@ namespace PlaywrightFramework.Hooks
                     });
 
                     _logger?.Information("Screenshot saved: {ScreenshotPath}", screenshotPath);
+
+                    // Attach screenshot to Allure report
+                    if (File.Exists(screenshotPath))
+                    {
+                        AllureApi.AddAttachment("Screenshot on Failure", "image/png", screenshotPath);
+                    }
 
                     // Attach screenshot to test context for reporting
                     TestContext.AddTestAttachment(screenshotPath, "Screenshot on failure");

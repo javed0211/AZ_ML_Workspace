@@ -261,10 +261,15 @@ dotnet clean && dotnet build
 dotnet test --parallel
 ```
 
-### Tip 2: Generate HTML Report
+### Tip 2: Generate Beautiful HTML Report with Allure
 ```bash
-dotnet tool install --global Reqnroll.Tools.LivingDoc.CLI
-livingdoc test-assembly bin/Debug/net9.0/PlaywrightFramework.dll
+# Install Allure (one-time)
+brew install allure  # macOS
+# or scoop install allure  # Windows
+
+# Generate and view report
+cd NewFramework/CSharpTests
+./generate-allure-report.sh
 ```
 
 ### Tip 3: Watch Mode (Auto-run on changes)

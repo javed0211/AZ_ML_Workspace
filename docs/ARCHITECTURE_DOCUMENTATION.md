@@ -79,7 +79,7 @@ The Azure ML Workspace Testing Framework follows a layered architecture pattern 
 │ Test Data            │ Bogus 35.6.1, AutoFixture 4.18.1  │
 │ HTTP Client          │ Microsoft.Extensions.Http 8.0.0    │
 │ Retry Logic          │ Polly 8.4.2                        │
-│ Reporting            │ ExtentReports 5.0.4, Allure 2.12.1│
+│ Reporting            │ Allure 2.12.1                      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -576,13 +576,12 @@ graph TD
 │  ├─ Azure Storage        │  └─ WebDriver Protocol          │
 │  ├─ Azure Key Vault      │                                 │
 │  └─ Microsoft Graph      │  Reporting Systems              │
-│                          │  ├─ ExtentReports               │
-│  CI/CD Systems           │  ├─ Allure                      │
-│  ├─ Azure DevOps         │  ├─ HTML Reports                │
-│  ├─ GitHub Actions       │  └─ JSON/XML Output             │
-│  ├─ Jenkins              │                                 │
-│  └─ TeamCity              │  Monitoring Systems             │
-│                          │  ├─ Application Insights        │
+│                          │  ├─ Allure Framework            │
+│  CI/CD Systems           │  ├─ HTML Reports                │
+│  ├─ Azure DevOps         │  └─ JSON/XML Output             │
+│  ├─ GitHub Actions       │                                 │
+│  ├─ Jenkins              │  Monitoring Systems             │
+│  └─ TeamCity              │  ├─ Application Insights        │
 │                          │  ├─ Serilog Sinks              │
 │                          │  └─ Custom Metrics              │
 └─────────────────────────────────────────────────────────────┘

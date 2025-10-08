@@ -310,15 +310,20 @@ Add to `launch.json` (if using VS Code):
 
 ### Test Reports
 
-**Generate HTML Report:**
+**Generate Beautiful HTML Report with Allure:**
 ```bash
-# Install LivingDoc tool
-dotnet tool install --global Reqnroll.Tools.LivingDoc.CLI
+# Install Allure (one-time)
+brew install allure  # macOS
 
-# Generate report
+# Generate and view report
 cd /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewFramework/CSharpTests
-livingdoc test-assembly bin/Debug/net9.0/PlaywrightFramework.dll -t bin/Debug/net9.0/TestExecution.json
+./generate-allure-report.sh
+
+# For Windows, use PowerShell:
+# .\generate-allure-report.ps1
 ```
+
+See [ALLURE_QUICK_START.md](../ALLURE_QUICK_START.md) for complete guide.
 
 **TRX Report (Visual Studio format):**
 ```bash

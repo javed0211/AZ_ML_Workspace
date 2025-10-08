@@ -1,0 +1,31 @@
+# Allure Reports
+allure-results/
+allure-report/
+
+# Test Results
+TestResults/
+TestReports/
+
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Logs
+logs/
+*.log
+
+# Screenshots
+screenshots/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

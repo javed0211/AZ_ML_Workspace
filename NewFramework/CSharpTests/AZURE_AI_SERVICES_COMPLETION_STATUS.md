@@ -276,7 +276,7 @@ StepDefinitions/ApiStepDefinitions.cs - Fixed Reqnroll namespace
 ### Optional Enhancements:
 
 1. **CI/CD Integration** - Add tests to your pipeline
-2. **Living Documentation** - Generate HTML reports with `livingdoc`
+2. **Beautiful HTML Reports** - Generate Allure reports with `./generate-allure-report.sh`
 3. **Performance Baselines** - Establish performance benchmarks
 4. **Additional Scenarios** - Extend test coverage as needed
 

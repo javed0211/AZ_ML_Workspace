@@ -214,12 +214,42 @@ dotnet test --logger "console;verbosity=detailed"
 
 ---
 
+## 📊 Beautiful HTML Reports
+
+Generate stunning Allure reports with charts, graphs, and screenshots!
+
+### Quick Start
+```bash
+# Install Allure (one-time)
+brew install allure  # macOS
+
+# Run tests and generate report
+cd NewFramework/CSharpTests
+./generate-allure-report.sh
+
+# Report opens automatically in browser! 🎉
+```
+
+### Features
+- 🎨 Modern, interactive UI with dark/light themes
+- 📊 Charts and graphs (pass rate, duration, trends)
+- 📸 Screenshots automatically attached on failures
+- 🏷️ Test categorization and filtering
+- 📈 Historical trends and statistics
+- 🔍 Detailed step-by-step execution timeline
+
+**📖 Full Guide:** See [ALLURE_QUICK_START.md](ALLURE_QUICK_START.md) and [ALLURE_REPORTS_GUIDE.md](ALLURE_REPORTS_GUIDE.md)
+
+---
+
 ## 📖 Documentation
 
 | Document | Description |
 |----------|-------------|
 | **[VISUAL_STUDIO_GUIDE.md](VISUAL_STUDIO_GUIDE.md)** | Complete Visual Studio setup and usage guide |
 | **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** | Quick command reference card |
+| **[ALLURE_QUICK_START.md](ALLURE_QUICK_START.md)** | 📊 Beautiful HTML reports - Quick start |
+| **[ALLURE_REPORTS_GUIDE.md](ALLURE_REPORTS_GUIDE.md)** | 📊 Complete Allure reporting guide |
 | **[README_AZURE_AI_SERVICES_TESTS.md](NewFramework/CSharpTests/README_AZURE_AI_SERVICES_TESTS.md)** | Azure AI Services test documentation |
 | **[QUICKSTART_AZURE_AI_TESTS.md](NewFramework/CSharpTests/QUICKSTART_AZURE_AI_TESTS.md)** | 5-minute quick start guide |
 | **[AZURE_AI_SERVICES_COMPLETION_STATUS.md](NewFramework/CSharpTests/AZURE_AI_SERVICES_COMPLETION_STATUS.md)** | Project completion status |
@@ -266,6 +296,7 @@ dotnet test --logger "console;verbosity=detailed"
 | **Azure.Search.Documents** | 11.5.1 | Azure AI Search SDK |
 | **Azure.AI.FormRecognizer** | 4.1.0 | Document Intelligence SDK |
 | **Microsoft.Playwright** | 1.40.0 | Browser automation |
+| **Allure** | 2.12.1 | Beautiful HTML test reports |
 | **Serilog** | 3.1.1 | Structured logging |
 | **FluentAssertions** | 6.12.0 | Fluent test assertions |
 

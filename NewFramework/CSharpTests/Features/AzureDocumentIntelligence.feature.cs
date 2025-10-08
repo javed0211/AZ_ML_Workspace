@@ -402,20 +402,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table12 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table27 = new global::Reqnroll.Table(new string[] {
                             "FileName",
                             "Type"});
-                table12.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "invoice-001.pdf",
                             "invoice"});
-                table12.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "invoice-002.pdf",
                             "invoice"});
-                table12.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "receipt-001.jpg",
                             "receipt"});
 #line 71
-    await testRunner.GivenAsync("I have multiple documents in folder \"test-data/batch\":", ((string)(null)), table12, "Given ");
+    await testRunner.GivenAsync("I have multiple documents in folder \"test-data/batch\":", ((string)(null)), table27, "Given ");
 #line hidden
 #line 76
     await testRunner.WhenAsync("I batch process all documents with appropriate models", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -503,17 +503,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table13 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table28 = new global::Reqnroll.Table(new string[] {
                             "ModelName",
                             "Description"});
-                table13.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "invoice-model",
                             "Invoice extraction"});
-                table13.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "receipt-model",
                             "Receipt extraction"});
 #line 92
-    await testRunner.GivenAsync("I have trained custom models:", ((string)(null)), table13, "Given ");
+    await testRunner.GivenAsync("I have trained custom models:", ((string)(null)), table28, "Given ");
 #line hidden
 #line 96
     await testRunner.WhenAsync("I compose a new model named \"financial-docs-model\" from these models", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -607,18 +607,18 @@ await this.FeatureBackgroundAsync();
 #line 113
     await testRunner.ThenAsync("the analysis should complete successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-                global::Reqnroll.Table table14 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table29 = new global::Reqnroll.Table(new string[] {
                             "FieldName"});
-                table14.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "VendorName"});
-                table14.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "InvoiceDate"});
-                table14.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "InvoiceTotal"});
-                table14.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "CustomerName"});
 #line 114
-    await testRunner.AndAsync("all required fields should be present:", ((string)(null)), table14, "And ");
+    await testRunner.AndAsync("all required fields should be present:", ((string)(null)), table29, "And ");
 #line hidden
 #line 120
     await testRunner.AndAsync("all field confidence scores should be greater than 0.6", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

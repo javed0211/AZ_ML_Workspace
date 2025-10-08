@@ -161,7 +161,7 @@ namespace PlaywrightFramework.Utils
                     }
                     else if (options.Data is byte[] byteData)
                     {
-                        requestOptions.Data = byteData;
+                        requestOptions.DataByte = byteData;
                     }
                     else
                     {
@@ -210,7 +210,7 @@ namespace PlaywrightFramework.Utils
                 var endTime = DateTime.UtcNow;
                 var responseTime = endTime - startTime;
                 
-                _logger.LogError($"API {method} Request Failed", endpoint, ex);
+                _logger.LogError($"API {method} Request Failed: {endpoint}", ex);
                 
                 return new ApiResponse<T>
                 {
@@ -383,8 +383,8 @@ namespace PlaywrightFramework.Utils
         {
             if (response.StatusCode != expectedStatusCode)
             {
-                var message = $"Expected status code {expectedStatusCode}, but got {response.StatusCode} ({response.StatusText})";
-                _logger.LogError("Status Code Assertion Failed", message);
+                var message = $"Status Code Assertion Failed: Expected status code {expectedStatusCode}, but got {response.StatusCode} ({response.StatusText})";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
             _logger.LogInfo($"✓ Status code assertion passed: {expectedStatusCode}");
@@ -397,8 +397,8 @@ namespace PlaywrightFramework.Utils
         {
             if (!response.IsSuccess)
             {
-                var message = $"Expected successful response, but got {response.StatusCode} ({response.StatusText})";
-                _logger.LogError("Success Assertion Failed", message);
+                var message = $"Success Assertion Failed: Expected successful response, but got {response.StatusCode} ({response.StatusText})";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
             _logger.LogInfo($"✓ Success assertion passed: {response.StatusCode}");
@@ -411,15 +411,15 @@ namespace PlaywrightFramework.Utils
         {
             if (!response.Headers.ContainsKey(headerName))
             {
-                var message = $"Expected header '{headerName}' not found in response";
-                _logger.LogError("Header Assertion Failed", message);
+                var message = $"Header Assertion Failed: Expected header '{headerName}' not found in response";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
 
             if (expectedValue != null && response.Headers[headerName] != expectedValue)
             {
-                var message = $"Header '{headerName}' expected value '{expectedValue}', but got '{response.Headers[headerName]}'";
-                _logger.LogError("Header Value Assertion Failed", message);
+                var message = $"Header Value Assertion Failed: Header '{headerName}' expected value '{expectedValue}', but got '{response.Headers[headerName]}'";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
 
@@ -433,8 +433,8 @@ namespace PlaywrightFramework.Utils
         {
             if (!response.RawResponse.Contains(expectedText))
             {
-                var message = $"Response body does not contain expected text: '{expectedText}'";
-                _logger.LogError("Response Content Assertion Failed", message);
+                var message = $"Response Content Assertion Failed: Response body does not contain expected text: '{expectedText}'";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
             _logger.LogInfo($"✓ Response contains assertion passed: '{expectedText}'");
@@ -447,8 +447,8 @@ namespace PlaywrightFramework.Utils
         {
             if (!Regex.IsMatch(response.RawResponse, pattern))
             {
-                var message = $"Response body does not match pattern: '{pattern}'";
-                _logger.LogError("Response Pattern Assertion Failed", message);
+                var message = $"Response Pattern Assertion Failed: Response body does not match pattern: '{pattern}'";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
             _logger.LogInfo($"✓ Response pattern assertion passed: '{pattern}'");
@@ -461,8 +461,8 @@ namespace PlaywrightFramework.Utils
         {
             if (response.ResponseTime.TotalMilliseconds > maxMilliseconds)
             {
-                var message = $"Response time {response.ResponseTime.TotalMilliseconds}ms exceeded maximum {maxMilliseconds}ms";
-                _logger.LogError("Response Time Assertion Failed", message);
+                var message = $"Response Time Assertion Failed: Response time {response.ResponseTime.TotalMilliseconds}ms exceeded maximum {maxMilliseconds}ms";
+                _logger.LogError(message);
                 throw new AssertionException(message);
             }
             _logger.LogInfo($"✓ Response time assertion passed: {response.ResponseTime.TotalMilliseconds}ms <= {maxMilliseconds}ms");

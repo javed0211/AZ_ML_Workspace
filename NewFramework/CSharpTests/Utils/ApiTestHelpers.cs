@@ -301,11 +301,11 @@ namespace PlaywrightFramework.Utils
         public bool Success { get; set; }
         public string? Error { get; set; }
         public object? CreatedId { get; set; }
-        public ApiResponse<object>? CreateResponse { get; set; }
-        public ApiResponse<object>? ReadResponse { get; set; }
-        public ApiResponse<object>? UpdateResponse { get; set; }
-        public ApiResponse<object>? DeleteResponse { get; set; }
-        public ApiResponse<object>? VerifyDeleteResponse { get; set; }
+        public object? CreateResponse { get; set; }
+        public object? ReadResponse { get; set; }
+        public object? UpdateResponse { get; set; }
+        public object? DeleteResponse { get; set; }
+        public object? VerifyDeleteResponse { get; set; }
     }
 
     public class PaginationTestResult<T>

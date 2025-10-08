@@ -124,7 +124,7 @@ namespace PlaywrightFramework.Utils
                         {
                             Name = field.Key,
                             Value = GetFieldValue(field.Value),
-                            Confidence = field.Value.Confidence,
+                            Confidence = field.Value.Confidence ?? 0f,
                             Type = field.Value.FieldType.ToString()
                         };
                     }
@@ -158,8 +158,8 @@ namespace PlaywrightFramework.Utils
                             RowIndex = cell.RowIndex,
                             ColumnIndex = cell.ColumnIndex,
                             Content = cell.Content,
-                            RowSpan = cell.RowSpan ?? 1,
-                            ColumnSpan = cell.ColumnSpan ?? 1
+                            RowSpan = cell.RowSpan > 0 ? cell.RowSpan : 1,
+                            ColumnSpan = cell.ColumnSpan > 0 ? cell.ColumnSpan : 1
                         });
                     }
 
@@ -307,15 +307,13 @@ namespace PlaywrightFramework.Utils
                 _logger.Information("Training custom model: {ModelName} with data from: {TrainingDataUrl}",
                     modelName, trainingDataUrl);
 
-                var client = GetClient();
-                var trainingClient = client.GetDocumentModelAdministrationClient();
-
+                var trainingClient = GetAdminClient();
+                
                 var trainingOperation = await trainingClient.BuildDocumentModelAsync(
                     WaitUntil.Completed,
                     new Uri(trainingDataUrl),
                     DocumentBuildMode.Template,
-                    modelId: modelName,
-                    description: description);
+                    modelName);
 
                 var model = trainingOperation.Value;
 
@@ -323,7 +321,7 @@ namespace PlaywrightFramework.Utils
                 {
                     ModelId = model.ModelId,
                     Status = "Ready",
-                    CreatedOn = model.CreatedOn,
+                    CreatedOn = model.CreatedOn.DateTime,
                     Accuracy = 0.85f // Placeholder - actual accuracy would come from training metrics
                 };
 
@@ -345,12 +343,11 @@ namespace PlaywrightFramework.Utils
                     modelIds.Count, composedModelName);
 
                 var adminClient = GetAdminClient();
-
-                var operation = await adminClient.StartComposeDocumentModelAsync(
+                
+                var operation = await adminClient.ComposeDocumentModelAsync(
                     WaitUntil.Completed,
                     modelIds,
-                    composedModelName,
-                    description);
+                    composedModelName);
 
                 var composedModel = operation.Value;
 
@@ -473,7 +470,7 @@ namespace PlaywrightFramework.Utils
                 Azure.AI.FormRecognizer.DocumentAnalysis.DocumentFieldType.Double => field.Value.AsDouble(),
                 Azure.AI.FormRecognizer.DocumentAnalysis.DocumentFieldType.Int64 => field.Value.AsInt64(),
                 Azure.AI.FormRecognizer.DocumentAnalysis.DocumentFieldType.Address => field.Value.AsAddress()?.ToString(),
-                Azure.AI.FormRecognizer.DocumentAnalysis.DocumentFieldType.Currency => field.Value.AsCurrency()?.Amount,
+                Azure.AI.FormRecognizer.DocumentAnalysis.DocumentFieldType.Currency => field.Value.AsCurrency().Amount,
                 _ => field.Content
             };
         }

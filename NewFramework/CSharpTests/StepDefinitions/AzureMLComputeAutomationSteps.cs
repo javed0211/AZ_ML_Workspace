@@ -22,10 +22,7 @@ namespace PlaywrightFramework.StepDefinitions
         {
             _scenarioContext = scenarioContext;
             
-            _logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.File("logs/azure-ml-automation-bdd.log")
-                .CreateLogger();
+            _logger = Logger.Instance;
                 
             _automationUtils = new AzureMLComputeAutomationUtils(_logger);
             _testInstanceName = $"bdd-test-{DateTime.Now:yyyyMMdd-HHmmss}";

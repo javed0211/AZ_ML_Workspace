@@ -171,17 +171,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table16 = new global::Reqnroll.Table(new string[] {
                             "Parameter",
                             "Value"});
-                table1.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "_page",
                             "1"});
-                table1.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "_limit",
                             "5"});
 #line 25
-    await testRunner.WhenAsync("I send a GET request to \"/posts\" with query parameters:", ((string)(null)), table1, "When ");
+    await testRunner.WhenAsync("I send a GET request to \"/posts\" with query parameters:", ((string)(null)), table16, "When ");
 #line hidden
 #line 29
     await testRunner.ThenAsync("the response should be successful", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

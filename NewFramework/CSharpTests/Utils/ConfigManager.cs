@@ -31,6 +31,17 @@ namespace PlaywrightFramework.Utils
         public MFAConfig? MFA { get; set; }
     }
 
+    public class SpeechServicesConfig
+    {
+        public string SubscriptionKey { get; set; } = string.Empty;
+        public string Region { get; set; } = string.Empty;
+        public string Endpoint { get; set; } = string.Empty;
+        public string DefaultLanguage { get; set; } = "en-US";
+        public string DefaultVoice { get; set; } = "en-US-JennyNeural";
+        public string[] SupportedLanguages { get; set; } = Array.Empty<string>();
+        public Dictionary<string, string>? CustomModels { get; set; }
+    }
+
     public class EnvironmentConfig
     {
         public string BaseUrl { get; set; } = string.Empty;
@@ -39,6 +50,7 @@ namespace PlaywrightFramework.Utils
         public string DatabaseConnection { get; set; } = string.Empty;
         public AzureConfig? Azure { get; set; }
         public AuthenticationConfig? Authentication { get; set; }
+        public SpeechServicesConfig? SpeechServices { get; set; }
     }
 
     public class BrowserConfig
@@ -172,6 +184,16 @@ namespace PlaywrightFramework.Utils
                 throw new Exception($"Authentication configuration not found for environment '{_config.Environment}'");
             }
             return currentEnv.Authentication;
+        }
+
+        public SpeechServicesConfig GetSpeechServicesSettings()
+        {
+            var currentEnv = GetCurrentEnvironment();
+            if (currentEnv.SpeechServices == null)
+            {
+                throw new Exception($"SpeechServices configuration not found for environment '{_config.Environment}'");
+            }
+            return currentEnv.SpeechServices;
         }
 
         public EnvironmentConfig GetEnvironmentConfig(string envName)

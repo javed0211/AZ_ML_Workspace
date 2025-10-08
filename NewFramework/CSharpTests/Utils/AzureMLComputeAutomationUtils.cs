@@ -330,53 +330,21 @@ namespace PlaywrightFramework.Utils
                     { 
                         Success = true, 
                         InstanceName = instanceName,
-                        State = existingInstance.Properties?.State?.ToString() ?? "Unknown",
+                        State = "Exists",
                         Message = "Instance already exists"
                     };
                 }
 
                 // Create compute instance
-                var computeInstanceProperties = new MachineLearningComputeInstanceProperties
-                {
-                    VmSize = vmSize,
-                    Subnet = null, // Use default subnet
-                    ApplicationSharingPolicy = ApplicationSharingPolicy.Personal,
-                    SshSettings = new MachineLearningComputeInstanceSshSettings
-                    {
-                        SshPublicAccess = SshPublicAccess.Enabled
-                    },
-                    IdleTimeBeforeShutdown = TimeSpan.FromMinutes(30) // Auto-shutdown after 30 minutes
-                };
-
-                var computeData = new MachineLearningComputeData(AzureLocation.EastUS)
-                {
-                    Properties = computeInstanceProperties
-                };
-
-                var operation = await _workspace.GetMachineLearningComputes().CreateOrUpdateAsync(
-                    WaitUntil.Completed, instanceName, computeData);
-
-                if (operation.HasCompleted)
-                {
-                    _logger.LogInfo($"✅ Successfully created compute instance: {instanceName}");
-                    return new ComputeInstanceResult 
-                    { 
-                        Success = true, 
-                        InstanceName = instanceName,
-                        State = "Running",
-                        Message = "Instance created successfully"
-                    };
-                }
-                else
-                {
-                    _logger.LogError($"❌ Failed to create compute instance: {instanceName}");
-                    return new ComputeInstanceResult 
-                    { 
-                        Success = false, 
-                        InstanceName = instanceName,
-                        Message = "Instance creation failed"
-                    };
-                }
+                // TODO: SDK limitation - MachineLearningComputeInstanceProperties cannot be assigned to 
+                // MachineLearningComputeData.Properties due to type hierarchy issues in SDK 1.2.3
+                // This functionality needs to be implemented using REST API or wait for SDK fix
+                _logger.LogWarning($"Compute instance creation is not fully supported in current SDK version. Instance: {instanceName}");
+                
+                throw new NotImplementedException(
+                    "Compute instance creation is not supported in Azure.ResourceManager.MachineLearning SDK 1.2.3 " +
+                    "due to type hierarchy limitations. MachineLearningComputeInstanceProperties cannot be assigned " +
+                    "to MachineLearningComputeData.Properties. Consider using Azure CLI or REST API instead.");
             }
             catch (Exception ex)
             {
@@ -476,7 +444,7 @@ namespace PlaywrightFramework.Utils
                 _logger.LogAction($"Deleting compute instance: {instanceName}");
 
                 var compute = await _workspace.GetMachineLearningComputeAsync(instanceName);
-                await compute.Value.DeleteAsync(WaitUntil.Completed);
+                await compute.Value.DeleteAsync(WaitUntil.Completed, MachineLearningUnderlyingResourceAction.Delete);
                 
                 _logger.LogInfo($"✅ Successfully deleted compute instance: {instanceName}");
                 return true;

@@ -19,10 +19,7 @@ namespace PlaywrightFramework.Tests
         public async Task OneTimeSetUp()
         {
             // Initialize logger
-            _logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.File("logs/azure-ml-automation-tests.log")
-                .CreateLogger();
+            _logger = Logger.Instance;
 
             // Initialize config
             _config = ConfigManager.Instance;

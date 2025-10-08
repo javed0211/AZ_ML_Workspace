@@ -110,44 +110,44 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table18 = new global::Reqnroll.Table(new string[] {
                             "FieldName",
                             "Type",
                             "Searchable",
                             "Filterable",
                             "Sortable"});
-                table3.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "id",
                             "Edm.String",
                             "false",
                             "false",
                             "false"});
-                table3.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "title",
                             "Edm.String",
                             "true",
                             "true",
                             "true"});
-                table3.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "content",
                             "Edm.String",
                             "true",
                             "false",
                             "false"});
-                table3.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "category",
                             "Edm.String",
                             "false",
                             "true",
                             "true"});
-                table3.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "createdDate",
                             "Edm.DateTimeOffset",
                             "false",
                             "true",
                             "true"});
 #line 12
-    await testRunner.WhenAsync("I create a search index named \"documents-index\" with the following fields:", ((string)(null)), table3, "When ");
+    await testRunner.WhenAsync("I create a search index named \"documents-index\" with the following fields:", ((string)(null)), table18, "When ");
 #line hidden
 #line 19
     await testRunner.ThenAsync("the search index should be created successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -186,32 +186,32 @@ await this.FeatureBackgroundAsync();
 #line 24
     await testRunner.GivenAsync("I have a search index named \"documents-index\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-                global::Reqnroll.Table table4 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table19 = new global::Reqnroll.Table(new string[] {
                             "id",
                             "title",
                             "content",
                             "category",
                             "createdDate"});
-                table4.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "1",
                             "Machine Learning Basics",
                             "Introduction to ML algorithms and concepts",
                             "ML",
                             "2024-01-15T10:00:00Z"});
-                table4.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "2",
                             "Deep Learning Guide",
                             "Neural networks and deep learning techniques",
                             "ML",
                             "2024-01-16T10:00:00Z"});
-                table4.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "3",
                             "Climate Data Analysis",
                             "Analyzing temperature and precipitation data",
                             "Climate",
                             "2024-01-17T10:00:00Z"});
 #line 25
-    await testRunner.WhenAsync("I upload the following documents to the index:", ((string)(null)), table4, "When ");
+    await testRunner.WhenAsync("I upload the following documents to the index:", ((string)(null)), table19, "When ");
 #line hidden
 #line 30
     await testRunner.ThenAsync("the documents should be indexed successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -293,16 +293,16 @@ await this.FeatureBackgroundAsync();
 #line 43
     await testRunner.GivenAsync("I have a search index named \"documents-index\" with documents", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-                global::Reqnroll.Table table5 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table20 = new global::Reqnroll.Table(new string[] {
                             "FilterField",
                             "Operator",
                             "Value"});
-                table5.AddRow(new string[] {
+                table20.AddRow(new string[] {
                             "category",
                             "eq",
                             "ML"});
 #line 44
-    await testRunner.WhenAsync("I search for \"*\" with the following filters:", ((string)(null)), table5, "When ");
+    await testRunner.WhenAsync("I search for \"*\" with the following filters:", ((string)(null)), table20, "When ");
 #line hidden
 #line 47
     await testRunner.ThenAsync("I should receive search results", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

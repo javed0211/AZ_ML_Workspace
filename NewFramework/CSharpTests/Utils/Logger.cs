@@ -123,5 +123,31 @@ namespace PlaywrightFramework.Utils
             var message = !string.IsNullOrEmpty(element) ? $"🎯 Action: {action} on {element}" : $"🎯 Action: {action}";
             Info(message);
         }
+
+        // Additional methods for compatibility
+        public void LogInfo(string message, object? data = null)
+        {
+            Info(message, data);
+        }
+
+        public void LogError(string message, Exception? exception = null, object? data = null)
+        {
+            Error(message, exception, data);
+        }
+
+        public void LogWarning(string message, object? data = null)
+        {
+            Warn(message, data);
+        }
+
+        public void Information(string message, object? data = null)
+        {
+            Info(message, data);
+        }
+
+        public void Warning(string message, object? data = null)
+        {
+            Warn(message, data);
+        }
     }
 }

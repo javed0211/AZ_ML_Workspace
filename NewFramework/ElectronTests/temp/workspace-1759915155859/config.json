@@ -1,0 +1,15 @@
+{
+  "name": "Azure ML Test Workspace",
+  "version": "1.0.0",
+  "description": "Test workspace created by automation",
+  "azure": {
+    "subscription": "test-subscription",
+    "resourceGroup": "test-rg",
+    "workspace": "test-workspace"
+  },
+  "dependencies": {
+    "azureml": "latest",
+    "pandas": "^1.5.0",
+    "numpy": "^1.24.0"
+  }
+}

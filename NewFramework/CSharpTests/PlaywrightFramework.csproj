@@ -20,13 +20,17 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15" />
     <!-- Azure ML Automation Dependencies -->
-    <PackageReference Include="Azure.Identity" Version="1.10.4" />
-    <PackageReference Include="Azure.ResourceManager" Version="1.9.0" />
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Azure.ResourceManager" Version="1.13.0" />
     <PackageReference Include="Azure.ResourceManager.MachineLearning" Version="1.2.0" />
     <PackageReference Include="SSH.NET" Version="2023.0.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <!-- Azure AI Services Dependencies -->
+    <PackageReference Include="Azure.Search.Documents" Version="11.5.1" />
+    <PackageReference Include="Azure.AI.FormRecognizer" Version="4.1.0" />
     <!-- BDD Support -->
     <PackageReference Include="Reqnroll" Version="2.0.3" />
     <PackageReference Include="Reqnroll.NUnit" Version="2.0.3" />
@@ -58,6 +62,18 @@
     <Reqnroll Include="Features/AzureMLComputeAutomation.feature">
       <Generator>ReqnrollSingleFileGenerator</Generator>
       <LastGenOutput>AzureMLComputeAutomation.feature.cs</LastGenOutput>
+    </Reqnroll>
+    <Reqnroll Include="Features/AzureAISearchIntegration.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureAISearchIntegration.feature.cs</LastGenOutput>
+    </Reqnroll>
+    <Reqnroll Include="Features/AzureDocumentIntelligence.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureDocumentIntelligence.feature.cs</LastGenOutput>
+    </Reqnroll>
+    <Reqnroll Include="Features/AzureAIServicesIntegration.feature">
+      <Generator>ReqnrollSingleFileGenerator</Generator>
+      <LastGenOutput>AzureAIServicesIntegration.feature.cs</LastGenOutput>
     </Reqnroll>
   </ItemGroup>
 

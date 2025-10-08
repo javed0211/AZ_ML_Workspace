@@ -214,14 +214,14 @@ await this.FeatureBackgroundAsync();
 #line 28
     await testRunner.GivenAsync("I have opened workspace \"ml-workspace\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table15 = new global::Reqnroll.Table(new string[] {
                             "ComputeName"});
-                table6.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "test-compute-1"});
-                table6.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "test-compute-2"});
 #line 29
-    await testRunner.WhenAsync("I start compute instances:", ((string)(null)), table6, "When ");
+    await testRunner.WhenAsync("I start compute instances:", ((string)(null)), table15, "When ");
 #line hidden
 #line 33
     await testRunner.ThenAsync("all compute instances should be running", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

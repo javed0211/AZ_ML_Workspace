@@ -1,6 +1,6 @@
 using Microsoft.Playwright;
 using PlaywrightFramework.Utils;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using NUnit.Framework;
 using Newtonsoft.Json;
 

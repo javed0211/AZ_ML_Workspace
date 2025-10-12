@@ -119,20 +119,20 @@ await this.FeatureBackgroundAsync();
 #line 14
     await testRunner.WhenAsync("I analyze the invoice using Document Intelligence", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table21 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table34 = new global::Reqnroll.Table(new string[] {
                             "FieldName"});
-                table21.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "VendorName"});
-                table21.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "InvoiceDate"});
-                table21.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "InvoiceTotal"});
-                table21.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "CustomerName"});
-                table21.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "InvoiceId"});
 #line 15
-    await testRunner.AndAsync("I extract the following fields:", ((string)(null)), table21, "And ");
+    await testRunner.AndAsync("I extract the following fields:", ((string)(null)), table34, "And ");
 #line hidden
 #line 22
     await testRunner.AndAsync("I create a search document from the extracted data", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -177,23 +177,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table22 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table35 = new global::Reqnroll.Table(new string[] {
                             "FileName",
                             "Type"});
-                table22.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "invoice-001.pdf",
                             "invoice"});
-                table22.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "invoice-002.pdf",
                             "invoice"});
-                table22.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "receipt-001.jpg",
                             "receipt"});
-                table22.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "receipt-002.jpg",
                             "receipt"});
 #line 30
-    await testRunner.GivenAsync("I have multiple documents in folder \"test-data/documents\":", ((string)(null)), table22, "Given ");
+    await testRunner.GivenAsync("I have multiple documents in folder \"test-data/documents\":", ((string)(null)), table35, "Given ");
 #line hidden
 #line 36
     await testRunner.WhenAsync("I process all documents with Document Intelligence", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -299,24 +299,24 @@ await this.FeatureBackgroundAsync();
 #line 57
     await testRunner.WhenAsync("I upload a new invoice to the input folder", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table23 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table36 = new global::Reqnroll.Table(new string[] {
                             "Step"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Detect the document type"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Analyze with appropriate model"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Extract structured data"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Validate extracted fields"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Create search document"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Index in Azure AI Search"});
-                table23.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Make document searchable"});
 #line 58
-    await testRunner.ThenAsync("the pipeline should automatically:", ((string)(null)), table23, "Then ");
+    await testRunner.ThenAsync("the pipeline should automatically:", ((string)(null)), table36, "Then ");
 #line hidden
 #line 67
     await testRunner.AndAsync("the entire pipeline should complete within 15 seconds", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -361,18 +361,18 @@ await this.FeatureBackgroundAsync();
 #line 74
     await testRunner.AndAsync("I extract entities and key information", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-                global::Reqnroll.Table table24 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table37 = new global::Reqnroll.Table(new string[] {
                             "EnrichmentType"});
-                table24.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "ExtractedEntities"});
-                table24.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "KeyPhrases"});
-                table24.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "DocumentStructure"});
-                table24.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "ConfidenceScores"});
 #line 75
-    await testRunner.AndAsync("I enrich the search index with:", ((string)(null)), table24, "And ");
+    await testRunner.AndAsync("I enrich the search index with:", ((string)(null)), table37, "And ");
 #line hidden
 #line 81
     await testRunner.ThenAsync("the search index should have enriched fields", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -460,20 +460,20 @@ await this.FeatureBackgroundAsync();
 #line 96
     await testRunner.GivenAsync("I have a document with known data at \"test-data/validated-invoice.pdf\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-                global::Reqnroll.Table table25 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table38 = new global::Reqnroll.Table(new string[] {
                             "Field",
                             "ExpectedValue"});
-                table25.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "VendorName",
                             "Contoso Corporation"});
-                table25.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "InvoiceTotal",
                             "1250.00"});
-                table25.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "InvoiceDate",
                             "2024-01-15"});
 #line 97
-    await testRunner.AndAsync("the document contains the following expected data:", ((string)(null)), table25, "And ");
+    await testRunner.AndAsync("the document contains the following expected data:", ((string)(null)), table38, "And ");
 #line hidden
 #line 102
     await testRunner.WhenAsync("I process the document through the pipeline", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -576,20 +576,20 @@ await this.FeatureBackgroundAsync();
 #line 122
     await testRunner.WhenAsync("I process 10 test documents", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table26 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table39 = new global::Reqnroll.Table(new string[] {
                             "Metric"});
-                table26.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "DocumentsProcessed"});
-                table26.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "AverageProcessingTime"});
-                table26.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "ExtractionSuccessRate"});
-                table26.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "IndexingSuccessRate"});
-                table26.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "AverageConfidenceScore"});
 #line 123
-    await testRunner.ThenAsync("I should track the following metrics:", ((string)(null)), table26, "Then ");
+    await testRunner.ThenAsync("I should track the following metrics:", ((string)(null)), table39, "Then ");
 #line hidden
 #line 130
     await testRunner.AndAsync("the extraction success rate should be greater than 95%", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

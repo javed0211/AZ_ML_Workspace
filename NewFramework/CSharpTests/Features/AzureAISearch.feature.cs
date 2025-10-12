@@ -172,20 +172,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-                global::Reqnroll.Table table17 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table30 = new global::Reqnroll.Table(new string[] {
                             "Filter",
                             "Value"});
-                table17.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Category",
                             "Climate"});
-                table17.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "DateRange",
                             "2023-2024"});
-                table17.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "DataType",
                             "Numerical"});
 #line 21
-    await testRunner.WhenAsync("I search for \"temperature data\" with filters:", ((string)(null)), table17, "When ");
+    await testRunner.WhenAsync("I search for \"temperature data\" with filters:", ((string)(null)), table30, "When ");
 #line hidden
 #line 26
     await testRunner.ThenAsync("I should see filtered results", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

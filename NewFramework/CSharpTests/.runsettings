@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  .NET Test Run Settings Configuration
+  
+  This file configures test execution behavior for the C# Playwright test framework.
+  It supports environment variable overrides for flexible test execution.
+  
+  Environment Variables:
+  - HEADLESS: true/false (default: false) - Run browsers in headless mode
+  - BROWSER: chromium/firefox/webkit/all (default: chromium) - Browser selection
+  - SLOW_MO: 0-5000 (default: 0) - Slow motion delay in milliseconds
+  - WORKERS: 1-N (default: 1 for CI, 3 for local) - Parallel test workers
+  - RETRIES: 0-N (default: 2 for CI, 0 for local) - Test retry count
+  - TIMEOUT: milliseconds (default: 30000) - Test timeout
+  - TRACE: on/off/retain-on-failure (default: retain-on-failure) - Playwright trace
+  - VIDEO: on/off/retain-on-failure (default: off) - Video recording
+  - SCREENSHOT: on/off/only-on-failure (default: only-on-failure) - Screenshots
+  - BASE_URL: URL (default: none) - Base URL for tests
+  - ALLURE_RESULTS_DIR: path (default: allure-results) - Allure results directory
+  
+  Usage:
+    dotnet test --settings .runsettings
+    dotnet test --settings .runsettings -- RunConfiguration.EnvironmentVariables.HEADLESS=true
+-->
+<RunSettings>
+  <!-- Test Run Configuration -->
+  <RunConfiguration>
+    <!-- Maximum number of test assemblies to run in parallel -->
+    <MaxCpuCount>0</MaxCpuCount>
+    
+    <!-- Results directory -->
+    <ResultsDirectory>./TestResults</ResultsDirectory>
+    
+    <!-- Target platform (x64, x86, ARM, ARM64) -->
+    <TargetPlatform>x64</TargetPlatform>
+    
+    <!-- Target framework -->
+    <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
+    
+    <!-- Test session timeout in milliseconds -->
+    <TestSessionTimeout>3600000</TestSessionTimeout>
+    
+    <!-- Treat test adapter errors as warnings -->
+    <TreatTestAdapterErrorsAsWarnings>false</TreatTestAdapterErrorsAsWarnings>
+    
+    <!-- Environment Variables (can be overridden via command line) -->
+    <EnvironmentVariables>
+      <!-- Playwright Configuration -->
+      <HEADLESS>false</HEADLESS>
+      <BROWSER>chromium</BROWSER>
+      <SLOW_MO>0</SLOW_MO>
+      <WORKERS>3</WORKERS>
+      <RETRIES>0</RETRIES>
+      <TIMEOUT>30000</TIMEOUT>
+      <TRACE>retain-on-failure</TRACE>
+      <VIDEO>off</VIDEO>
+      <SCREENSHOT>only-on-failure</SCREENSHOT>
+      
+      <!-- Allure Configuration -->
+      <ALLURE_RESULTS_DIR>allure-results</ALLURE_RESULTS_DIR>
+      
+      <!-- Test Configuration -->
+      <TEST_ENV>local</TEST_ENV>
+      <LOG_LEVEL>Information</LOG_LEVEL>
+    </EnvironmentVariables>
+  </RunConfiguration>
+
+  <!-- NUnit Configuration -->
+  <NUnit>
+    <!-- Number of worker threads for test execution -->
+    <NumberOfTestWorkers>3</NumberOfTestWorkers>
+    
+    <!-- Default timeout for tests (milliseconds) -->
+    <DefaultTimeout>30000</DefaultTimeout>
+    
+    <!-- Where to look for test assemblies -->
+    <Where></Where>
+    
+    <!-- Include categories -->
+    <Include></Include>
+    
+    <!-- Exclude categories -->
+    <Exclude></Exclude>
+    
+    <!-- Verbosity level: Quiet, Minimal, Normal, Detailed -->
+    <Verbosity>Normal</Verbosity>
+    
+    <!-- Random seed for test order randomization -->
+    <RandomSeed>0</RandomSeed>
+    
+    <!-- Stop on first error -->
+    <StopOnError>false</StopOnError>
+    
+    <!-- Work directory -->
+    <WorkDirectory>./TestResults</WorkDirectory>
+    
+    <!-- Internal trace level: Off, Error, Warning, Info, Verbose -->
+    <InternalTraceLevel>Off</InternalTraceLevel>
+    
+    <!-- Test parameters (accessible via TestContext.Parameters) -->
+    <TestParameters>
+      <Parameter name="headless" value="false" />
+      <Parameter name="browser" value="chromium" />
+      <Parameter name="slowMo" value="0" />
+      <Parameter name="timeout" value="30000" />
+    </TestParameters>
+  </NUnit>
+
+  <!-- Data Collection Configuration -->
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <!-- Code Coverage -->
+      <DataCollector friendlyName="Code Coverage" uri="datacollector://Microsoft/CodeCoverage/2.0" assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <Configuration>
+          <CodeCoverage>
+            <ModulePaths>
+              <Include>
+                <ModulePath>.*PlaywrightFramework\.dll$</ModulePath>
+              </Include>
+              <Exclude>
+                <ModulePath>.*Tests\.dll$</ModulePath>
+                <ModulePath>.*TestAdapter\.dll$</ModulePath>
+              </Exclude>
+            </ModulePaths>
+          </CodeCoverage>
+        </Configuration>
+      </DataCollector>
+      
+      <!-- Blame Data Collector (for crash diagnostics) -->
+      <DataCollector friendlyName="blame" enabled="True">
+        <Configuration>
+          <CollectDump DumpType="full" />
+          <CollectDumpOnTestSessionHang TestTimeout="60min" HangDumpType="full" />
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+
+  <!-- Logging Configuration -->
+  <LoggerRunSettings>
+    <Loggers>
+      <!-- Console Logger -->
+      <Logger friendlyName="console" enabled="True">
+        <Configuration>
+          <Verbosity>normal</Verbosity>
+        </Configuration>
+      </Logger>
+      
+      <!-- TRX Logger (Visual Studio Test Results) -->
+      <Logger friendlyName="trx" enabled="True">
+        <Configuration>
+          <LogFileName>test-results.trx</LogFileName>
+        </Configuration>
+      </Logger>
+      
+      <!-- HTML Logger -->
+      <Logger friendlyName="html" enabled="True">
+        <Configuration>
+          <LogFileName>test-results.html</LogFileName>
+        </Configuration>
+      </Logger>
+    </Loggers>
+  </LoggerRunSettings>
+
+  <!-- MSTest Configuration (if using MSTest) -->
+  <MSTest>
+    <Parallelize>
+      <Workers>3</Workers>
+      <Scope>MethodLevel</Scope>
+    </Parallelize>
+    <MapInconclusiveToFailed>false</MapInconclusiveToFailed>
+    <CaptureTraceOutput>true</CaptureTraceOutput>
+    <DeleteDeploymentDirectoryAfterTestRunIsComplete>true</DeleteDeploymentDirectoryAfterTestRunIsComplete>
+    <DeploymentEnabled>false</DeploymentEnabled>
+  </MSTest>
+
+</RunSettings>

@@ -1,2152 +1,818 @@
-<testsuites id="" name="" tests="46" failures="43" skipped="0" errors="0" time="203.409804">
-<testsuite name="azure-ai-services.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="9" failures="9" skipped="0" time="27.325" errors="0">
-<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file" classname="azure-ai-services.test.ts" time="2.865">
-<failure message="azure-ai-services.test.ts:43:9 should create Azure AI Search configuration file" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:43:9 › Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:16:56.000Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:16:58.853Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testsuites id="" name="" tests="184" failures="0" skipped="184" errors="0" time="0.03739600000000001">
+<testsuite name="azure-ai-services.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing" classname="azure-ai-services.test.ts" time="2.072">
-<failure message="azure-ai-services.test.ts:125:9 should create Python script for Azure AI Search indexing" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:125:9 › Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:10.682Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:17:12.744Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples" classname="azure-ai-services.test.ts" time="3.399">
-<failure message="azure-ai-services.test.ts:403:9 should create Azure AI Search query examples" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:403:9 › Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:50.989Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:17:54.378Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file" classname="azure-ai-services.test.ts" time="3.996">
-<failure message="azure-ai-services.test.ts:535:9 should create Document Intelligence configuration file" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:535:9 › Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:23.274Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:18:27.262Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script" classname="azure-ai-services.test.ts" time="3.673">
-<failure message="azure-ai-services.test.ts:592:9 should create Document Intelligence analysis script" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:592:9 › Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:59.355Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:03.018Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script" classname="azure-ai-services.test.ts" time="2.804">
-<failure message="azure-ai-services.test.ts:990:9 should create custom model training script" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:990:9 › Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:11.790Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:14.581Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline" classname="azure-ai-services.test.ts" time="3.913">
-<failure message="azure-ai-services.test.ts:1232:9 should create integrated document processing pipeline" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:1232:9 › Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:20.716Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:24.618Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services" classname="azure-ai-services.test.ts" time="2.347">
-<failure message="azure-ai-services.test.ts:1586:9 should create requirements file for Azure AI services" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:1586:9 › Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:31.787Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:34.123Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure AI Services Integration › should verify all Azure AI service files are created" classname="azure-ai-services.test.ts" time="2.256">
-<failure message="azure-ai-services.test.ts:1634:7 should verify all Azure AI service files are created" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ai-services.test.ts:1634:7 › Azure AI Services Integration › should verify all Azure AI service files are created 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ai-services.test.ts:32:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:38.152Z] Setting up VS Code for Azure AI Services testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:40.390Z] Cleaning up Azure AI Services test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure AI Services Integration › should verify all Azure AI service files are created" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="azure-ml-integration.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="6" failures="6" skipped="0" time="21.841" errors="0">
-<testcase name="Azure ML VS Code Integration › should open Azure ML workspace configuration" classname="azure-ml-integration.test.ts" time="3.267">
-<failure message="azure-ml-integration.test.ts:37:7 should open Azure ML workspace configuration" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:37:7 › Azure ML VS Code Integration › should open Azure ML workspace configuration 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:16:55.588Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:16:58.820Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testsuite name="azure-ml-integration.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Azure ML VS Code Integration › should open Azure ML workspace configuration" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure ML VS Code Integration › should create and edit Python ML script" classname="azure-ml-integration.test.ts" time="2.663">
-<failure message="azure-ml-integration.test.ts:90:7 should create and edit Python ML script" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:90:7 › Azure ML VS Code Integration › should create and edit Python ML script 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:10.242Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:17:12.893Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure ML VS Code Integration › should create and edit Python ML script" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure ML VS Code Integration › should work with Jupyter notebooks" classname="azure-ml-integration.test.ts" time="3.766">
-<failure message="azure-ml-integration.test.ts:159:7 should work with Jupyter notebooks" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:159:7 › Azure ML VS Code Integration › should work with Jupyter notebooks 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:44.214Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:17:47.968Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure ML VS Code Integration › should work with Jupyter notebooks" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure ML VS Code Integration › should handle Azure ML extension commands" classname="azure-ml-integration.test.ts" time="3.688">
-<failure message="azure-ml-integration.test.ts:223:7 should handle Azure ML extension commands" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:223:7 › Azure ML VS Code Integration › should handle Azure ML extension commands 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:03.543Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:18:07.218Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure ML VS Code Integration › should handle Azure ML extension commands" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure ML VS Code Integration › should open and navigate project structure" classname="azure-ml-integration.test.ts" time="4.85">
-<failure message="azure-ml-integration.test.ts:270:7 should open and navigate project structure" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:270:7 › Azure ML VS Code Integration › should open and navigate project structure 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:31.125Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:18:35.951Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure ML VS Code Integration › should open and navigate project structure" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Azure ML VS Code Integration › should handle terminal operations" classname="azure-ml-integration.test.ts" time="3.607">
-<failure message="azure-ml-integration.test.ts:305:7 should handle terminal operations" type="FAILURE">
-<![CDATA[  [electron-vscode] › azure-ml-integration.test.ts:305:7 › Azure ML VS Code Integration › should handle terminal operations 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\azure-ml-integration.test.ts:31:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:58.132Z] Setting up VS Code for Azure ML testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions c:\Users\admin-javed\source\repos
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions c:\Users\admin-javed\source\repos
-[2025-10-08T09:19:01.730Z] Cleaning up Azure ML test environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="Azure ML VS Code Integration › should handle terminal operations" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="3" failures="1" skipped="0" time="42.135" errors="0">
-<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS" classname="cross-platform-jupyter.test.ts" time="36.613">
-<failure message="cross-platform-jupyter.test.ts:77:7 should run existing Jupyter notebook from any folder on any OS" type="FAILURE">
-<![CDATA[  [electron-vscode] › cross-platform-jupyter.test.ts:77:7 › Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS 
-
-    Test timeout of 30000ms exceeded.
-]]>
-</failure>
-<system-out>
-<![CDATA[🖥️  Detected platform: win32
-🔧 VS Code command: code.cmd
-📍 VS Code executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd
-🚀 Setting up cross-platform Jupyter test environment
-📁 Created workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234
-🔍 Testing cross-platform Jupyter notebook execution
-✅ Created test notebook: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234\cross_platform_test.ipynb
-📄 Created: requirements.txt
-📄 Created: config.json
-📄 Created: data_sample.csv
-📄 Created: README.md
-✅ VS Code version: 1.104.3
-🚀 Launching VS Code with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234
-✅ VS Code launched with PID: 16576
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234
-✅ VS Code processes verified: 16 processes running
-📖 Opening notebook: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234\cross_platform_test.ipynb
-✅ Verified: cross_platform_test.ipynb (4463 bytes)
-✅ Verified: requirements.txt (60 bytes)
-✅ Verified: config.json (132 bytes)
-✅ Verified: data_sample.csv (76 bytes)
-✅ Verified: README.md (342 bytes)
-✅ Notebook structure validated: 6 cells
-📄 Opening: README.md
-📄 Opening: config.json
-📄 Opening: requirements.txt
-🔍 Final cross-platform verification...
-✅ VS Code still responsive: 1.104.3
-
-============================================================
-🎉 CROSS-PLATFORM JUPYTER TEST COMPLETED SUCCESSFULLY
-============================================================
-🖥️  Platform: win32
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915018234
-📓 Notebook: cross_platform_test.ipynb
-📄 Additional files: 4 files
-✅ Status: ALL TESTS PASSED
-============================================================
-⚠️ Process cleanup had issues (may already be closed)
-]]>
-</system-out>
+<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Cross-Platform Jupyter Notebook Runner › should handle different notebook formats and encodings" classname="cross-platform-jupyter.test.ts" time="3.338">
-<system-out>
-<![CDATA[🖥️  Detected platform: win32
-🔧 VS Code command: code.cmd
-📍 VS Code executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd
-🚀 Setting up cross-platform Jupyter test environment
-📁 Created workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915078443
-🔍 Testing different notebook formats and encodings
-✅ Created and verified: simple_notebook.ipynb
-✅ Created and verified: complex_notebook.ipynb
-✅ All notebook formats handled successfully
-]]>
-</system-out>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should handle different notebook formats and encodings" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="2.184">
-<system-out>
-<![CDATA[🚀 Setting up cross-platform Jupyter test environment
-📁 Created workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915081947
-🔍 Testing existing notebook execution from custom folder
-📁 Looking for notebooks in: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
-📓 Target notebook: azure_ml_project.ipynb
-⚠️ Notebook folder does not exist: /Users/oldguard/Documents/GitHub/AZ_ML_Workspace/NewNotebook
-Using test workspace instead...
-✅ Created fallback notebook: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1759915081947\fallback_test.ipynb
-✅ Fallback notebook opened in VS Code
-✅ Existing notebook execution test completed
-]]>
-</system-out>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="example-demo.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="1" failures="1" skipped="0" time="3.173" errors="0">
-<testcase name="VS Code Electron Framework Demo › Complete VS Code automation workflow demo" classname="example-demo.test.ts" time="3.173">
-<failure message="example-demo.test.ts:27:7 Complete VS Code automation workflow demo" type="FAILURE">
-<![CDATA[  [electron-vscode] › example-demo.test.ts:27:7 › VS Code Electron Framework Demo › Complete VS Code automation workflow demo 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\example-demo.test.ts:24:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:16:57.300Z] 🚀 Launching VS Code for demo
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:17:00.460Z] 🧹 Cleaning up demo environment
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testsuite name="example-demo.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="VS Code Electron Framework Demo › Complete VS Code automation workflow demo" classname="example-demo.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="jupyter-notebook.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="4" failures="4" skipped="0" time="0.175" errors="0">
-<testcase name="Jupyter Notebook Testing › should open and display Jupyter notebook correctly" classname="jupyter-notebook.test.ts" time="0.078">
-<failure message="jupyter-notebook.test.ts:152:7 should open and display Jupyter notebook correctly" type="FAILURE">
-<![CDATA[  [electron-vscode] › jupyter-notebook.test.ts:152:7 › Jupyter Notebook Testing › should open and display Jupyter notebook correctly 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Setting up Jupyter notebook test environment
-✅ Created test notebook at: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915016994\test_notebook.ipynb
-🚀 Launching VS Code with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915016994
-✅ VS Code launched with PID: undefined
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915016994
-]]>
-</system-out>
+<testsuite name="jupyter-notebook.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Jupyter Notebook Testing › should open and display Jupyter notebook correctly" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Jupyter Notebook Testing › should verify notebook file structure" classname="jupyter-notebook.test.ts" time="0.03">
-<failure message="jupyter-notebook.test.ts:185:7 should verify notebook file structure" type="FAILURE">
-<![CDATA[  [electron-vscode] › jupyter-notebook.test.ts:185:7 › Jupyter Notebook Testing › should verify notebook file structure 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Setting up Jupyter notebook test environment
-✅ Created test notebook at: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915029016\test_notebook.ipynb
-🚀 Launching VS Code with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915029016
-✅ VS Code launched with PID: undefined
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915029016
-]]>
-</system-out>
+<testcase name="Jupyter Notebook Testing › should verify notebook file structure" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Jupyter Notebook Testing › should handle basic VS Code file operations" classname="jupyter-notebook.test.ts" time="0.032">
-<failure message="jupyter-notebook.test.ts:222:7 should handle basic VS Code file operations" type="FAILURE">
-<![CDATA[  [electron-vscode] › jupyter-notebook.test.ts:222:7 › Jupyter Notebook Testing › should handle basic VS Code file operations 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Setting up Jupyter notebook test environment
-✅ Created test notebook at: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915049884\test_notebook.ipynb
-🚀 Launching VS Code with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915049884
-✅ VS Code launched with PID: undefined
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915049884
-]]>
-</system-out>
+<testcase name="Jupyter Notebook Testing › should handle basic VS Code file operations" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Jupyter Notebook Testing › should verify VS Code workspace integration" classname="jupyter-notebook.test.ts" time="0.035">
-<failure message="jupyter-notebook.test.ts:250:7 should verify VS Code workspace integration" type="FAILURE">
-<![CDATA[  [electron-vscode] › jupyter-notebook.test.ts:250:7 › Jupyter Notebook Testing › should verify VS Code workspace integration 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Setting up Jupyter notebook test environment
-✅ Created test notebook at: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915081392\test_notebook.ipynb
-🚀 Launching VS Code with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915081392
-✅ VS Code launched with PID: undefined
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915081392
-]]>
-</system-out>
+<testcase name="Jupyter Notebook Testing › should verify VS Code workspace integration" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="vscode-basic.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="6" failures="6" skipped="0" time="20.337" errors="0">
-<testcase name="VS Code Basic Functionality › should launch VS Code successfully" classname="vscode-basic.test.ts" time="2.61">
-<failure message="vscode-basic.test.ts:26:7 should launch VS Code successfully" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:26:7 › VS Code Basic Functionality › should launch VS Code successfully 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:11.728Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:17:14.327Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testsuite name="vscode-basic.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="VS Code Basic Functionality › should launch VS Code successfully" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Basic Functionality › should create and edit a new file" classname="vscode-basic.test.ts" time="4.179">
-<failure message="vscode-basic.test.ts:38:7 should create and edit a new file" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:38:7 › VS Code Basic Functionality › should create and edit a new file 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:17:45.500Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:17:49.666Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Basic Functionality › should create and edit a new file" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Basic Functionality › should open command palette and execute command" classname="vscode-basic.test.ts" time="4.067">
-<failure message="vscode-basic.test.ts:59:7 should open command palette and execute command" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:59:7 › VS Code Basic Functionality › should open command palette and execute command 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:07.798Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:18:11.848Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Basic Functionality › should open command palette and execute command" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Basic Functionality › should open and work with files" classname="vscode-basic.test.ts" time="2.102">
-<failure message="vscode-basic.test.ts:80:7 should open and work with files" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:80:7 › VS Code Basic Functionality › should open and work with files 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:37.309Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:18:39.396Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Basic Functionality › should open and work with files" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Basic Functionality › should handle keyboard shortcuts" classname="vscode-basic.test.ts" time="4.808">
-<failure message="vscode-basic.test.ts:116:7 should handle keyboard shortcuts" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:116:7 › VS Code Basic Functionality › should handle keyboard shortcuts 
-
-    Error: VS Code rejected arguments: bad option: --disable-extensions
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:00.434Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:04.539Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-VS Code stderr: : 
-VS Code stderr: bad option: --disable-extensions
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: bad option: --disable-extensions
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Basic Functionality › should handle keyboard shortcuts" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Basic Functionality › should handle multiple windows" classname="vscode-basic.test.ts" time="2.571">
-<failure message="vscode-basic.test.ts:150:7 should handle multiple windows" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-basic.test.ts:150:7 › VS Code Basic Functionality › should handle multiple windows 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-basic.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:13.090Z] Setting up VS Code for testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:15.651Z] Cleaning up VS Code
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Basic Functionality › should handle multiple windows" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="vscode-electron-real.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="3" failures="3" skipped="0" time="7.408" errors="0">
-<testcase name="VS Code Real Electron Connection › should launch VS Code as Electron app and connect" classname="vscode-electron-real.test.ts" time="7.338">
-<failure message="vscode-electron-real.test.ts:63:7 should launch VS Code as Electron app and connect" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-electron-real.test.ts:63:7 › VS Code Real Electron Connection › should launch VS Code as Electron app and connect 
-
-    Error: Process failed to launch!
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Launching VS Code as Electron app...
-📍 Using VS Code executable: /Users/oldguard/Downloads/Visual Studio Code.app/Contents/MacOS/Electron
-📁 Test workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915103348
-]]>
-</system-out>
+<testsuite name="vscode-electron-real.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="VS Code Real Electron Connection › should launch VS Code as Electron app and connect" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Real Electron Connection › should interact with VS Code via AppleScript" classname="vscode-electron-real.test.ts" time="0.039">
-<failure message="vscode-electron-real.test.ts:129:7 should interact with VS Code via AppleScript" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-electron-real.test.ts:129:7 › VS Code Real Electron Connection › should interact with VS Code via AppleScript 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing VS Code interaction via AppleScript...
-✅ VS Code launched with PID: undefined
-]]>
-</system-out>
+<testcase name="VS Code Real Electron Connection › should interact with VS Code via AppleScript" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Real Electron Connection › should verify VS Code file operations" classname="vscode-electron-real.test.ts" time="0.031">
-<failure message="vscode-electron-real.test.ts:176:7 should verify VS Code file operations" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-electron-real.test.ts:176:7 › VS Code Real Electron Connection › should verify VS Code file operations 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing VS Code file operations...
-✅ VS Code launched with workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915137839
-]]>
-</system-out>
+<testcase name="VS Code Real Electron Connection › should verify VS Code file operations" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="vscode-official.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="2" failures="1" skipped="0" time="3.084" errors="0">
-<testcase name="VS Code Official Framework Tests › should launch VS Code using official framework" classname="vscode-official.test.ts" time="3.067">
-<failure message="vscode-official.test.ts:13:7 should launch VS Code using official framework" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-official.test.ts:13:7 › VS Code Official Framework Tests › should launch VS Code using official framework 
-
-    Error: Test run failed with code 1
-        at ChildProcess.onProcessClosed (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\node_modules\@vscode\test-electron\out\runTest.js:110:24)
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:20.047Z] Launching VS Code with official @vscode/test-electron framework
-✅ Test extension package.json already exists
-[2025-10-08T09:18:20.104Z] Using VS Code executable: /Users/oldguard/Downloads/Visual Studio Code.app/Contents/MacOS/Electron
-[2025-10-08T09:18:20.104Z] Extension development path: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\test-extension
-[2025-10-08T09:18:20.104Z] Extension tests path: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\test-extension\out\test
-Exit code:   1
-[2025-10-08T09:18:23.106Z] ❌ Failed to launch VS Code: Error: Test run failed with code 1
-]]>
-</system-out>
-<system-err>
-<![CDATA[The system cannot find the path specified.
-]]>
-</system-err>
+<testsuite name="vscode-official.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="VS Code Official Framework Tests › should launch VS Code using official framework" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Official Framework Tests › should verify VS Code can be controlled programmatically" classname="vscode-official.test.ts" time="0.017">
-<system-out>
-<![CDATA[[2025-10-08T09:18:45.367Z] Testing programmatic VS Code control
-]]>
-</system-out>
+<testcase name="VS Code Official Framework Tests › should verify VS Code can be controlled programmatically" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="vscode-settings.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="8" failures="8" skipped="0" time="21.024" errors="0">
-<testcase name="VS Code Settings and Configuration › should open and navigate settings" classname="vscode-settings.test.ts" time="4.448">
-<failure message="vscode-settings.test.ts:26:7 should open and navigate settings" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:26:7 › VS Code Settings and Configuration › should open and navigate settings 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:18:54.766Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:18:59.167Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-[90m    at Pipe.callbackTrampoline (node:internal/async_hooks:130:17)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testsuite name="vscode-settings.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="VS Code Settings and Configuration › should open and navigate settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should modify editor settings" classname="vscode-settings.test.ts" time="2.544">
-<failure message="vscode-settings.test.ts:51:7 should modify editor settings" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:51:7 › VS Code Settings and Configuration › should modify editor settings 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:12.425Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:14.944Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should modify editor settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should configure Python interpreter" classname="vscode-settings.test.ts" time="3.165">
-<failure message="vscode-settings.test.ts:91:7 should configure Python interpreter" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:91:7 › VS Code Settings and Configuration › should configure Python interpreter 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:24.154Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:27.306Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should configure Python interpreter" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should manage extensions" classname="vscode-settings.test.ts" time="2.417">
-<failure message="vscode-settings.test.ts:116:7 should manage extensions" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:116:7 › VS Code Settings and Configuration › should manage extensions 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:32.653Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:35.060Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should manage extensions" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should configure workspace settings" classname="vscode-settings.test.ts" time="2.226">
-<failure message="vscode-settings.test.ts:141:7 should configure workspace settings" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:141:7 › VS Code Settings and Configuration › should configure workspace settings 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:38.676Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:40.886Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should configure workspace settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should configure keybindings" classname="vscode-settings.test.ts" time="1.868">
-<failure message="vscode-settings.test.ts:187:7 should configure keybindings" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:187:7 › VS Code Settings and Configuration › should configure keybindings 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:44.278Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:46.135Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should configure keybindings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should configure color theme" classname="vscode-settings.test.ts" time="1.937">
-<failure message="vscode-settings.test.ts:212:7 should configure color theme" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:212:7 › VS Code Settings and Configuration › should configure color theme 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:49.949Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:51.874Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should configure color theme" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Settings and Configuration › should handle user snippets" classname="vscode-settings.test.ts" time="2.419">
-<failure message="vscode-settings.test.ts:241:7 should handle user snippets" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-settings.test.ts:241:7 › VS Code Settings and Configuration › should handle user snippets 
-
-    Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-
-       at ..\utils\vscode-electron.ts:141
-
-      139 |           // Check for bad option errors
-      140 |           if (errorMsg.includes('bad option')) {
-    > 141 |             reject(new Error(`VS Code rejected arguments: ${errorMsg}`));
-          |                    ^
-      142 |             return;
-      143 |           }
-      144 |         });
-        at Socket.<anonymous> (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\vscode-electron.ts:141:20)
-
-    Error: EPERM: operation not permitted, unlink 'c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\cross-platform-1758915165116'
-
-       at ..\utils\test-helpers.ts:58
-
-      56 |       files.forEach(file => {
-      57 |         const filePath = path.join(tempDir, file);
-    > 58 |         fs.unlinkSync(filePath);
-         |            ^
-      59 |       });
-      60 |     }
-      61 |   }
-        at forEach (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:58:12)
-        at Function.cleanupTempFiles (c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\utils\test-helpers.ts:56:13)
-        at c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\tests\vscode-settings.test.ts:23:17
-]]>
-</failure>
-<system-out>
-<![CDATA[[2025-10-08T09:19:55.252Z] Setting up VS Code for settings testing
-✅ VS Code validation passed: VS Code found at: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-🚀 Launching VS Code with executable: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe
-📋 Launch arguments: --disable-extensions
-Launching with command: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe --disable-extensions
-[2025-10-08T09:19:57.658Z] Cleaning up VS Code settings test
-]]>
-</system-out>
-<system-err>
-<![CDATA[VS Code stderr: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-❌ Failed to launch VS Code: Error: VS Code rejected arguments: C:\Users\admin-javed\AppData\Local\Programs\Microsoft VS Code\Code.exe: bad option: --disable-extensions
-
-    at Socket.<anonymous> [90m(c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\[39mutils\vscode-electron.ts:141:20[90m)[39m
-[90m    at Socket.emit (node:events:518:28)[39m
-[90m    at addChunk (node:internal/streams/readable:561:12)[39m
-[90m    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)[39m
-[90m    at Socket.Readable.push (node:internal/streams/readable:392:5)[39m
-[90m    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
-
-🔍 VS Code Launch Arguments Issue:
-VS Code doesn't accept some Electron debugging arguments.
-This is a known issue with testing VS Code directly.
-Consider using VS Code's built-in testing capabilities instead.
-]]>
-</system-err>
+<testcase name="VS Code Settings and Configuration › should handle user snippets" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="vscode-working-final.test.ts" timestamp="2025-10-08T09:16:40.783Z" hostname="electron-vscode" tests="4" failures="4" skipped="0" time="0.169" errors="0">
-<testcase name="VS Code Working Final Tests › should launch VS Code and verify it works" classname="vscode-working-final.test.ts" time="0.053">
-<failure message="vscode-working-final.test.ts:97:7 should launch VS Code and verify it works" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-working-final.test.ts:97:7 › VS Code Working Final Tests › should launch VS Code and verify it works 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing VS Code launch and basic functionality...
-✅ VS Code launched with PID: undefined
-📁 Workspace: c:\Users\admin-javed\source\repos\AZ_ML_Workspace\NewFramework\ElectronTests\temp\workspace-1759915149674
-]]>
-</system-out>
+<testsuite name="vscode-working-final.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="electron-vscode" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="VS Code Working Final Tests › should launch VS Code and verify it works" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Working Final Tests › should open specific files in VS Code" classname="vscode-working-final.test.ts" time="0.036">
-<failure message="vscode-working-final.test.ts:136:7 should open specific files in VS Code" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-working-final.test.ts:136:7 › VS Code Working Final Tests › should open specific files in VS Code 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing file opening in VS Code...
-📄 Opening: main.py
-]]>
-</system-out>
+<testcase name="VS Code Working Final Tests › should open specific files in VS Code" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Working Final Tests › should interact with VS Code via AppleScript" classname="vscode-working-final.test.ts" time="0.037">
-<failure message="vscode-working-final.test.ts:172:7 should interact with VS Code via AppleScript" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-working-final.test.ts:172:7 › VS Code Working Final Tests › should interact with VS Code via AppleScript 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing VS Code AppleScript integration...
-✅ VS Code launched with PID: undefined
-]]>
-</system-out>
+<testcase name="VS Code Working Final Tests › should interact with VS Code via AppleScript" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="VS Code Working Final Tests › should create and manage Azure ML project structure" classname="vscode-working-final.test.ts" time="0.043">
-<failure message="vscode-working-final.test.ts:223:7 should create and manage Azure ML project structure" type="FAILURE">
-<![CDATA[  [electron-vscode] › vscode-working-final.test.ts:223:7 › VS Code Working Final Tests › should create and manage Azure ML project structure 
-
-    Error: spawn code ENOENT
-]]>
-</failure>
-<system-out>
-<![CDATA[🚀 Testing Azure ML project structure creation...
-📁 Created directory: data
-📁 Created directory: models
-📁 Created directory: notebooks
-📁 Created directory: scripts
-📁 Created directory: configs
-📄 Created file: data/sample.csv
-📄 Created file: models/model_config.yaml
-📄 Created file: notebooks/exploration.ipynb
-📄 Created file: scripts/train.py
-📄 Created file: configs/environment.yml
-✅ VS Code opened with Azure ML project structure
-]]>
-</system-out>
+<testcase name="VS Code Working Final Tests › should create and manage Azure ML project structure" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ai-services.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › should verify all Azure AI service files are created" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ml-integration.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Azure ML VS Code Integration › should open Azure ML workspace configuration" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should create and edit Python ML script" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should work with Jupyter notebooks" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle Azure ML extension commands" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should open and navigate project structure" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle terminal operations" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should handle different notebook formats and encodings" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="example-demo.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="VS Code Electron Framework Demo › Complete VS Code automation workflow demo" classname="example-demo.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="jupyter-notebook.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Jupyter Notebook Testing › should open and display Jupyter notebook correctly" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify notebook file structure" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should handle basic VS Code file operations" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify VS Code workspace integration" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-basic.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="VS Code Basic Functionality › should launch VS Code successfully" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should create and edit a new file" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open command palette and execute command" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open and work with files" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle keyboard shortcuts" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle multiple windows" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-electron-real.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="VS Code Real Electron Connection › should launch VS Code as Electron app and connect" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should interact with VS Code via AppleScript" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should verify VS Code file operations" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-official.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="VS Code Official Framework Tests › should launch VS Code using official framework" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Official Framework Tests › should verify VS Code can be controlled programmatically" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-settings.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="VS Code Settings and Configuration › should open and navigate settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should modify editor settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure Python interpreter" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should manage extensions" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure workspace settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure keybindings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure color theme" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should handle user snippets" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-working-final.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="chromium" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="VS Code Working Final Tests › should launch VS Code and verify it works" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should open specific files in VS Code" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should interact with VS Code via AppleScript" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should create and manage Azure ML project structure" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ai-services.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › should verify all Azure AI service files are created" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ml-integration.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Azure ML VS Code Integration › should open Azure ML workspace configuration" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should create and edit Python ML script" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should work with Jupyter notebooks" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle Azure ML extension commands" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should open and navigate project structure" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle terminal operations" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should handle different notebook formats and encodings" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="example-demo.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="VS Code Electron Framework Demo › Complete VS Code automation workflow demo" classname="example-demo.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="jupyter-notebook.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Jupyter Notebook Testing › should open and display Jupyter notebook correctly" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify notebook file structure" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should handle basic VS Code file operations" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify VS Code workspace integration" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-basic.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="VS Code Basic Functionality › should launch VS Code successfully" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should create and edit a new file" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open command palette and execute command" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open and work with files" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle keyboard shortcuts" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle multiple windows" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-electron-real.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="VS Code Real Electron Connection › should launch VS Code as Electron app and connect" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should interact with VS Code via AppleScript" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should verify VS Code file operations" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-official.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="VS Code Official Framework Tests › should launch VS Code using official framework" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Official Framework Tests › should verify VS Code can be controlled programmatically" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-settings.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="VS Code Settings and Configuration › should open and navigate settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should modify editor settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure Python interpreter" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should manage extensions" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure workspace settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure keybindings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure color theme" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should handle user snippets" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-working-final.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="firefox" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="VS Code Working Final Tests › should launch VS Code and verify it works" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should open specific files in VS Code" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should interact with VS Code via AppleScript" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should create and manage Azure ML project structure" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ai-services.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="9" failures="0" skipped="9" time="0" errors="0">
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Python script for Azure AI Search indexing" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Search Service › should create Azure AI Search query examples" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence configuration file" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create Document Intelligence analysis script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure Document Intelligence Service › should create custom model training script" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create integrated document processing pipeline" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › Azure AI Services Integration › should create requirements file for Azure AI services" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure AI Services Integration › should verify all Azure AI service files are created" classname="azure-ai-services.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="azure-ml-integration.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Azure ML VS Code Integration › should open Azure ML workspace configuration" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should create and edit Python ML script" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should work with Jupyter notebooks" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle Azure ML extension commands" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should open and navigate project structure" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure ML VS Code Integration › should handle terminal operations" classname="azure-ml-integration.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="cross-platform-jupyter.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing Jupyter notebook from any folder on any OS" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should handle different notebook formats and encodings" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Cross-Platform Jupyter Notebook Runner › should run existing notebook from any specified folder" classname="cross-platform-jupyter.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="example-demo.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="VS Code Electron Framework Demo › Complete VS Code automation workflow demo" classname="example-demo.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="jupyter-notebook.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Jupyter Notebook Testing › should open and display Jupyter notebook correctly" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify notebook file structure" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should handle basic VS Code file operations" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Jupyter Notebook Testing › should verify VS Code workspace integration" classname="jupyter-notebook.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-basic.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="VS Code Basic Functionality › should launch VS Code successfully" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should create and edit a new file" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open command palette and execute command" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should open and work with files" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle keyboard shortcuts" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Basic Functionality › should handle multiple windows" classname="vscode-basic.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-electron-real.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="VS Code Real Electron Connection › should launch VS Code as Electron app and connect" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should interact with VS Code via AppleScript" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Real Electron Connection › should verify VS Code file operations" classname="vscode-electron-real.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-official.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="VS Code Official Framework Tests › should launch VS Code using official framework" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Official Framework Tests › should verify VS Code can be controlled programmatically" classname="vscode-official.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-settings.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="VS Code Settings and Configuration › should open and navigate settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should modify editor settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure Python interpreter" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should manage extensions" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure workspace settings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure keybindings" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should configure color theme" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Settings and Configuration › should handle user snippets" classname="vscode-settings.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="vscode-working-final.test.ts" timestamp="2025-10-10T18:33:48.013Z" hostname="webkit" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="VS Code Working Final Tests › should launch VS Code and verify it works" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should open specific files in VS Code" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should interact with VS Code via AppleScript" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="VS Code Working Final Tests › should create and manage Azure ML project structure" classname="vscode-working-final.test.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>
